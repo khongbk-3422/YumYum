@@ -1,0 +1,85 @@
+To start laravel:
+    1. Right click "yumyum" file in htdocs -> open git bash
+    2. type "php artisan serve"
+    3. open xammpp control
+
+
+To create new blade file:
+    1. Create new file in "resources\views"
+    2. Save as [page name].blade.php
+    3. Ex: loginPage.blade.php
+
+
+To open blade file:
+1. Save file as blade.php (rmb save as (name)Page)
+2. Go to routes\web.php
+3. Add [ Route::view('[url]','[pg name]'); ]
+4. To open page, http://127.0.0.1:8000/[url]
+5. Ex:  Page name   : loginPage.blade.php
+        url         : loginPage
+        web.php     : Route::view('loginPage','loginPage');
+        chrome      : http://127.0.0.1:8000/loginPage
+
+
+To start php coding to get variable : {{}}
+    Ex: 
+        {{$user_id = "U00001"}}     -> set variable
+        {{$user_id}}                -> get/view variable
+
+        This one is what we will use in proper system:  
+            ** but u guys set variable as about first, i will change according to this after i done get data de backend function
+        {{$user['id']}}
+        {{$user['email']}}
+        {{session('cust_id')}} -> get session data
+        ***Better all write lowercase, add "_" for variable like cust_name
+
+
+include -> @include('header')
+
+
+form:
+    1. form action: write function with "/" infront -> /login | /register | /editprofile
+    2. if method POST -> remember add @csrf
+
+
+For change place by using get function:
+    <a href={{"delete/".$user['id']}}>Delete</a>
+    <a href={{"edit/".$user['id']}}>Edit</a>
+
+
+if:
+    @if
+    @elseif
+    @else
+    @endif
+    Ex: @if($name=="khong")
+            <h3>Hi {{$name}}</h3>
+        @elseif($name=="sam")
+            <h3>Hello {{$name}}</h3>
+        @else
+            <h3>Unknown Users</h3>
+        @endif
+
+
+for:
+    @for ($i = 0; $i < $count; $i++)
+    @endfor
+
+    @foreach ($collection as $item) ** use for print data in db in a table
+    @endforeach
+        Ex: @foreach ($users as $user)
+                <tr>
+                    <td>{{$user['id']}}</td>
+                    <td>{{$user['name']}}</td>
+                    <td>{{$user['email']}}</td>
+                    <td>{{$user['address']}}</td>
+                    <td>
+                        <a href={{"delete/".$user['id']}}>Delete</a>
+                        <a href={{"edit/".$user['id']}}>Edit</a>
+                    </td>
+                </tr>
+            @endforeach
+
+    @forelse ($collection as $item)
+    @empty
+    @endforelse

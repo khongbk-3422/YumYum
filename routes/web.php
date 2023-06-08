@@ -16,3 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Login
+//Route::view('loginPage','loginPage');
+Route::get('/login',function () {
+    if(session()->has('user')){
+        return redirect('cusHomePage');
+    }
+    return view('loginPage');
+});
+Route::post('login',[UserController::class,'userLogin']);
+
+//Logout
+Route::get('/logout',function () {
+    if(session()->has('user')){
+        session()->pull('user');
+    }
+    return redirect('loginPage');
+});
