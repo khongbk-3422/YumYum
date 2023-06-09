@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +19,14 @@ Route::get('/', function () {
 });
 
 //Login
-//Route::view('loginPage','loginPage');
-Route::get('/login',function () {
+Route::get('/loginPage',function () {
     if(session()->has('user')){
-        return redirect('cusHomePage');
+        return redirect('custHomePage');
     }
     return view('loginPage');
 });
 Route::post('login',[UserController::class,'userLogin']);
+Route::view('custHomePage','custHomePage');
 
 //Logout
 Route::get('/logout',function () {
