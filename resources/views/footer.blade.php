@@ -9,9 +9,6 @@
     <script src="https://kit.fontawesome.com/84db3d8316.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Hello</h1>
-    </div>
     <!-- Footer -->
     <footer
             class="text-center text-lg-start text-white"
