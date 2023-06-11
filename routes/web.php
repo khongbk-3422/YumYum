@@ -41,7 +41,7 @@ Route::get('/homePage', function () {
     return view('homePage');
 });
 
-//header
-Route::get('/header', function () {
-    return view('header');
+//restPage
+Route::get('/viewRestaurantPage', function(){
+    return view('/viewRestaurantPage');
 });

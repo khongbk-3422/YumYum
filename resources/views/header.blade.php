@@ -39,7 +39,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark p-2" id="headerNav">
+    <nav class="navbar navbar-expand-lg navbar-dark p-2 " id="headerNav">
         <div class="container-fluid">
             <a class="navbar-brand d-block d-lg-none" href="#">
                 <img src="/image/logo.png" height="40" />
@@ -55,8 +55,8 @@
                     <a class="nav-link mx-2 <?php echo $_SERVER['REQUEST_URI'] === '/homePage' ? 'active' : ''; ?>" href="/homePage">Home</a>
                 </li>
 
-                <li class="nav-item {{ Request::is('viewResraurantPage.blade') ? 'active' : '' }}">
-                    <a class="nav-link mx-2" href="/viewResraurantPage.blade">Restaurant</a>
+                <li class="nav-item">
+                    <a class="nav-link mx-2" <?php echo $_SERVER['REQUEST_URI'] === '/viewRestaurantPage' ? 'active' : ''; ?> href="/viewRestaurantPage">Restaurant</a>
                 </li>
 
                 <li class="nav-item d-none d-lg-block">
