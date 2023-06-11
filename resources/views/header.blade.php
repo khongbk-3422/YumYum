@@ -42,7 +42,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark p-2" id="headerNav">
         <div class="container-fluid">
             <a class="navbar-brand d-block d-lg-none" href="#">
-                <img src="/image/logo.png" height="80" />
+                <img src="/image/logo.png" height="40" />
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +60,7 @@
                 </li>
 
                 <li class="nav-item d-none d-lg-block">
-                    <a class="nav-link mx-2" href="#"><img src="/image/logo.png" height="80" /></a>
+                    <a class="nav-link mx-2" href="#"><img src="/image/logo.png" height="40" /></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mx-2" href="#">Spinwheel</a>
