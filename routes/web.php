@@ -35,3 +35,13 @@ Route::get('/logout',function () {
     }
     return redirect('loginPage');
 });
+
+//homePage
+Route::get('/homePage', function () {
+    return view('homePage');
+});
+
+//header
+Route::get('/header', function () {
+    return view('header');
+});
