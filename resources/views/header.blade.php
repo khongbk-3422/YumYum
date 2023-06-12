@@ -38,6 +38,7 @@
 </head>
 
 <body>
+    <!-- need add for username-->
     <nav class="navbar navbar-expand-lg navbar-dark p-2 " id="headerNav">
         <div class="container-fluid">
             <a class="navbar-brand d-block d-lg-none" href="#">
@@ -51,7 +52,7 @@
             <div class=" collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav mx-auto ">
                 <li class="nav-item">
-                    <a class="nav-link mx-2 <?php echo $_SERVER['REQUEST_URI'] === '/homePage' ? 'active' : ''; ?>" href="/homePage">Home</a>
+                    <a class="nav-link mx-2 <?php echo $_SERVER['REQUEST_URI'] === '/custHomePage' ? 'active' : ''; ?>" href="/custHomePage">Home</a>
                 </li>
 
                 <li class="nav-item">

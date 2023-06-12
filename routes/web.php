@@ -41,6 +41,7 @@ Route::get('/homePage', function () {
     return view('homePage');
 });
 
+
 //restPage
 Route::get('/viewRestaurantPage', function(){
     return view('/viewRestaurantPage');

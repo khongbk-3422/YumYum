@@ -60,7 +60,7 @@
         background-color: #DCDDD5;
         border-radius: 2px;
         font-size: 20px;
-        color: #B6BBBE;
+        color: #A08887;
         text-align: center;
         line-height: 35px;
         margin-right: 3px;
@@ -75,7 +75,7 @@
 
         .footer .footer-center i {
         background-color:#DCDDD5;
-        color: #B6BBBE;
+        color: #A08887;
         font-size: 25px;
         width: 38px;
         height: 38px;
@@ -173,7 +173,7 @@
     <div class="footer-center col-md-4 col-sm-6">
         <div>
             <i class="fa fa-map-marker"></i>
-            <p><span> Street name and number</span> Kuala Lumpur, Malaysia</p>
+            <p><span>8, Jalan Kiara, Mont Kiara</span> Kuala Lumpur, Malaysia</p>
         </div>
         <div>
             <i class="fa fa-envelope"></i>
