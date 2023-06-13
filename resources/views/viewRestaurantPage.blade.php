@@ -8,6 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Test</h1>
+    <!-- Add filter function bar?? -->
+
+    <!-- List of all rest [fetch from sql] -->
+    
 </body>
 </html>
+
+@include('newFooter')

@@ -52,7 +52,7 @@ Route::get('/viewRestaurantPage', function(){
     return view('/viewRestaurantPage');
 });
 
-//restPage
+//testCardSlider
 Route::get('/testCardSlider', function(){
     return view('/testCardSlider');
 });
