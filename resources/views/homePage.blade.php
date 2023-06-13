@@ -6,9 +6,9 @@
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<title>Home Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 	<link href="{{ asset('css/styleHome.css') }}" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
@@ -43,10 +43,10 @@
 
 	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
 
         <div class="carousel-inner">
@@ -62,7 +62,7 @@
                 <img class="d-block w-100" src="{{ asset('image/bkg2.jpg') }}" alt="Second slide">
                 <div class="carousel-caption">
                     <h5>Yum Yum</h5>
-                    <p>Finding you the best restaurant</p>
+                    <p>Discover the finest restaurants just for you</p>
                 </div>
             </div>
 
@@ -70,15 +70,15 @@
                 <img class="d-block w-100" src="{{ asset('image/bkg3.jpg') }}" alt="Third slide">
                 <div class="carousel-caption">
                     <h5>Trustworthy Dining Suggestions</h5>
-                    <p>Providing You Ranked Recommendations</p>
+                    <p>Your go-to source for reliable dining suggestions</p>
                 </div>
             </div>
 
             <div class="carousel-item">
                 <img class="d-block w-100" src="{{ asset('image/bkg4.jpg') }}" alt="Fourth slide">
 				<div class="carousel-caption">
-                    <h5>Find Your Dream Restaurant</h5>
-                    <p>Various Restaurants Offered</p>
+                    <h5>Your Perfect Dining Destination</h5>
+                    <p>Find the ideal restaurant to satisfy your appetite and culinary preferences.</p>
                 </div>
             </div>
         </div>
@@ -127,7 +127,7 @@
 			</div>
 			<div class="row">
 				<div class="col-12 col-md-12 col-lg-4">
-					<div class="card text-white text-center bg-dark pb-2">
+					<div class="card text-center">
 						<div class="card-body">
                             <i class="bi bi-patch-check"></i>
 							<h3 class="card-title">Verifed Review</h3>
@@ -136,7 +136,7 @@
 					</div>
 				</div>
 				<div class="col-12 col-md-12 col-lg-4">
-					<div class="card text-white text-center bg-dark pb-2">
+					<div class="card text-center">
 						<div class="card-body">
                             <i class="bi bi-award"></i>
 							<h3 class="card-title">Reliable</h3>
@@ -145,11 +145,11 @@
 					</div>
 				</div>
 				<div class="col-12 col-md-12 col-lg-4">
-					<div class="card text-white text-center bg-dark pb-2">
+					<div class="card text-center">
 						<div class="card-body">
                             <i class="bi bi-stars"></i>
 							<h3 class="card-title">User-Friendly</h3>
-							<p>A seamless and user-friendly features allowing you to effortlessly navigate through restaurant options, filter by preferences, and find the perfect place to dine.</p>
+							<p>A seamless and user-friendly features let you to effortlessly navigate through restaurant options, filter by preferences, and find the perfect place to dine.</p>
 						</div>
 					</div>
 				</div>
@@ -164,7 +164,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="section-header text-center pb-3">
-						<h2>Meet Our Team</h2>
+						<h2>Our Team</h2>
 						<p>Meet our dedicated team of passionate individuals who are committed to revolutionizing the way you discover and explore restaurants. <br>
 						With a shared love for food and technology, we work tirelessly to bring you the best restaurant finder experience possible.</p>
 					</div>
@@ -196,7 +196,7 @@
 						<div class="card-body">
 							<img alt="" class="img-fluid rounded-circle" src="{{ asset('image/camilia.jpg') }}">
 							<h3 class="card-title py-2">Camilia (CFO)</h3>
-							<p class="card-text">Who brings a wealth of financial expertise to the team. With a keen eye for numbers and a strategic mindset, she ensures the financial stability and growth of our restaurant finder system, enabling us to provide exceptional services to our users.</p>
+							<p class="card-text">Wealth of financial expertise bringer to the team. With a keen eye for numbers and a strategic mindset, she ensures the financial stability and growth of our restaurant finder system, enabling us to provide exceptional services to our users.</p>
 							<p class="socials"><i class="bi bi-facebook text-dark mx-1"></i> <i class="bi bi-linkedin text-dark mx-1"></i> <i class="bi bi-instagram text-dark mx-1"></i></p>
 						</div>
 					</div>

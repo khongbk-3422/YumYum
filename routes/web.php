@@ -41,8 +41,18 @@ Route::get('/homePage', function () {
     return view('homePage');
 });
 
+//custHomePage
+Route::get('/custHomePage', function () {
+    return view('custHomePage');
+});
+
 
 //restPage
 Route::get('/viewRestaurantPage', function(){
     return view('/viewRestaurantPage');
+});
+
+//restPage
+Route::get('/testCardSlider', function(){
+    return view('/testCardSlider');
 });

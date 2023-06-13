@@ -15,67 +15,66 @@
 
     <style>
         .navbar{
-            background-color:rgb(176, 172, 158);
+            background-color: #EFF0EA;
+        } 
+
+        .navbar-nav a {
+            font-size: 15px;
+            text-transform: uppercase;
+            font-weight: 500;
         }
 
-        .navbar-dark .navbar-nav .nav-link{
-            font-family: 'Raleway', sans-serif;
-            color :#3b3128;
-            font-size: 16px;
-            border-radius:5px;
+        .navbar .navbar-brand {
+            color: #000;
+            font-size: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
 
-        .navbar-dark .navbar-nav .nav-link:hover, 
-        .navbar-dark .navbar.nav .nav-link.active{
-            background-color:#cfcabc;
+        .navbar .navbar-brand:focus, .navbar .navbar-brand:hover {
+            color: #000;
         }
 
-        .navbar-dark .dropdown-menu .dropdown-item:hover{
-            background-color:#cfcabc;
+        .navbar .navbar-nav .nav-link {
+            color: #000;
+        }
+
+        .navbar .navbar-nav .nav-link:focus, .navbar .navbar-nav .nav-link:hover {
+            color: #c4b999;
+        }
+
+        .navbar .dropdown-menu .dropdown-item:hover{
+            background-color:#c4b999;
         }
 
     </style>
 </head>
 
 <body>
-    <!-- need add for username-->
-    <nav class="navbar navbar-expand-lg navbar-dark p-2 " id="headerNav">
-        <div class="container-fluid">
-            <a class="navbar-brand d-block d-lg-none" href="#">
-                <img src="/image/logo.jpg" height="30" />
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        
-            <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav mx-auto ">
-                <li class="nav-item">
-                    <a class="nav-link mx-2 <?php echo $_SERVER['REQUEST_URI'] === '/custHomePage' ? 'active' : ''; ?>" href="/custHomePage">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link mx-2" <?php echo $_SERVER['REQUEST_URI'] === '/viewRestaurantPage' ? 'active' : ''; ?> href="/viewRestaurantPage">Restaurant</a>
-                </li>
-
-                <li class="nav-item d-none d-lg-block">
-                    <a class="nav-link mx-2" href="#"><img src="/image/logo.jpg" height="30" /></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link mx-2" href="#">About Us</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link mx-2 dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Company</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">About Us</a></li>
-                        <li><a class="dropdown-item" href="#">Contact us</a></li>
-                    </ul>
-                </li>
-            </ul>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="#"><span class="text-warning">Yum</span>Yum</a> 
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/custHomePage' ? 'active' : ''; ?> " href="/custHomePage">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/viewRestaurantPage' ? 'active' : ''; ?> " href="/viewRestaurantPage">Restaurant</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#services">About Us</a>
+					</li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Username</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 </body>
 </html>
