@@ -29,7 +29,7 @@
 						<a class="nav-link" href="#team">Team</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#login">Login</a>
+						<a class="nav-link" href="/loginPage">Login</a>
 						<!-- direct to login page -->
 					</li>
 					<li class="nav-item">

@@ -52,6 +52,11 @@ Route::get('/viewRestaurantPage', function(){
     return view('/viewRestaurantPage');
 });
 
+//restDetailsPage
+Route::get('/restaurantDetailsPage', function(){
+    return view('/restaurantDetailsPage');
+});
+
 //testCardSlider
 Route::get('/testCardSlider', function(){
     return view('/testCardSlider');

@@ -44,7 +44,7 @@
             width:58%;
             height:calc(100% - 160px);
             background:transparent;
-            padding:30px;
+            padding:40px;
             color:white;
             display:flex;
             justify-content:space-between;
@@ -216,7 +216,11 @@
                 <h2>Welcome! <br> 
                 <span>To Our Website</span></h2>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. reprehenderit, necessitatibus, consequuntur molestias?</p>
+                <p>Discover the culinary delights that await you in our extensive database. <br>
+                    Let us guide you to the perfect dining experience, where exquisite <br>
+                    flavors and memorable moments come together.
+                    <br> Start your gastronomic journey now!
+                </p>
 
                 <div class="socialIcons">
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
