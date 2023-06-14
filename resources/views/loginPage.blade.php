@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/84db3d8316.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     
-    <script src="{{ asset('js/loginScript.js') }}"></script>
+    <script src="('js/script.js')"></script>
     <style>
         *{
             font-family: 'Raleway', sans-serif;
@@ -103,24 +103,24 @@
             color:white;
         }
 
-        .loginPanel .loginForm.login{
+        .loginPanel .formPanel.login{
             transform:translateX(0);
             transition: transform .6s ease;
             transition-delay: .7s;
         }
 
-        .loginPanel.active .loginForm.login{
+        .loginPanel.active .formPanel.login{
             transform:translateX(430px);
             transition-delay:0s;
         }
 
-        .loginPanel .loginForm.register{
+        .loginPanel .formPanel.register{
             transform: translateX(430px);
             transition: transform .6s ease;
             transition-delay:0s;
         }
 
-        .loginPanel.active .loginForm.register{
+        .loginPanel.active .formPanel.register{
             transform: translateX(0);
             transition-delay: .7s;
         }

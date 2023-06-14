@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     <!-- font awesome icon-->
     <script src="https://kit.fontawesome.com/84db3d8316.js" crossorigin="anonymous"></script>
     <!-- bootstrap js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <!-- google font-->
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
     <title>Document</title>
 
     <style>
@@ -64,7 +64,7 @@
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/viewRestaurantPage' ? 'active' : ''; ?> " href="/viewRestaurantPage">Restaurant</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#services">About Us</a>
+						<a class="nav-link" href="#services">History</a>
 					</li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Username</a>
