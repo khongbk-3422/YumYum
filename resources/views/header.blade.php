@@ -11,6 +11,8 @@
     <script src="https://kit.fontawesome.com/84db3d8316.js" crossorigin="anonymous"></script>
     <!-- bootstrap js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- bootstrap icon -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <title>Document</title>
 
     <style>
@@ -64,11 +66,18 @@
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/viewRestaurantPage' ? 'active' : ''; ?> " href="/viewRestaurantPage">Restaurant</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="#">Spinwheel</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="#services">History</a>
 					</li>
                     <li class="nav-item dropdown">
+                        <!-- display the cust's name-->
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Username</a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <!-- adjust the line -->
+                            <li><hr></li>
                             <li><a class="dropdown-item" href="#">Logout</a></li>
                         </ul>
                     </li>

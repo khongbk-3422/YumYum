@@ -53,11 +53,24 @@
             height: 100vh;
         }
 
+        .card-body p{
+            font-size:16px;
+        }
+
+        .services .card-body{
+            background-color:#EFF0EA;
+            color: #3B4338;
+        }
+
+        .services .card-body i {
+            font-size: 35px;
+        }
+
         .section-padding{
             padding : 30px 0;
         }
 
-        .cardContainer{
+        /* .cardContainer{
             width:100%;
             padding : 0 16px;
         }
@@ -73,7 +86,7 @@
 
         .card:hover{
             transform: scale(1.1);
-        }
+        } */
 
     </style>
     <title>Customer Home Page</title>
@@ -139,56 +152,70 @@
     </div>
     <!-- Image Slider end-->
 
-    <!-- Restaurant section starts-->
-    <section class="restaurantExample section-padding" id = "restaurantExp">
-        <div class="cardContainer">
-            <div class="title">
-                <h3>Top Recommended Restaurant <i class="fa-regular fa-thumbs-up"></i></h3>
-            </div>
+    <!-- about section starts -->
+	<section class="about section-padding" id="about">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-md-12">
+					<div class="about-img"><img alt="" class="img-fluid" src="{{('image/img1.jpg')}}"></div>
+				</div>
+				<div class="col-lg-8 col-md-12 ps-lg-5 mt-md-5">
+					<div class="about-text">
+						<h2>Discover the Perfect<br>
+						Dining Experience</h2>
+						<p>We, YumYum revolutionizes the way you explore culinary delights. 
+                            Find top-rated restaurants, personalized recommendations, exclusive deals, easy reservations, and exciting cuisine exploration, all at your fingertips. Start your gastronomic journey with us today!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <!-- about section Ends -->
 
-            <div class="row row-cols-1 row-cols-md-4 g-3">
-            <div class="col">
-                <div class="card">
-                <img src="{{ asset ('image/rest1.jpg') }}" class="card-img-top" alt="Ishin Japanese Dining">
-                <div class="card-body">
-                    <h5 class="card-title">Ishin Japanese Dining</h5>
-                    <p class="card-text">Located along the busy Old Klang Road in a building by itself, Ishin has made a name for itself for its genuine Japanese and Kaiseki-style cuisine.</p>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card">
-                <img src="{{ asset ('image/rest2.jpg') }}" class="card-img-top" alt="Positano Risto">
-                <div class="card-body">
-                    <h5 class="card-title">Positano Risto</h5>
-                    <p class="card-text">Ranked KL's Top #2 Restaurant, Positano Risto captures the essence of Italian cuisine and culture, transporting guests to the vibrant streets of Positano.</p>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card">
-                <img src="{{ asset('image/rest3.jpg') }}" class="card-img-top" alt="Beta KL">
-                <div class="card-body">
-                    <h5 class="card-title">Beta KL</h5>
-                    <p class="card-text">Located in the heart of Kuala Lumpur, Beta KL is well-known for its modern Malaysian gastronomy and highlighting seasonal and locally sourced ingredients.</p>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card">
-                <img src="{{ asset('image/rest4.jpg') }}" class="card-img-top" alt="Chambers Grill">
-                <div class="card-body">
-                    <h5 class="card-title">Chambers Grill</h5>
-                    <p class="card-text">Located in Kuala Lumpur, Chambers Grill  offers an innovative grill menu of prime aged meat cuts or fresh seafood cooked over lava stone or charcoal. </p>
-                </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Restaurant section ends -->
+	<!-- services section Starts -->
+	<section class="services section-padding" id="services">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="section-header text-center pb-3">
+						<h2>Why Choose Us?</h2>
+						<p>We provide trusted reviews, ranked recommendations, and a user-friendly interface,<br>
+						ensuring you find the best restaurants effortlessly.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-12 col-lg-4">
+					<div class="card text-center">
+						<div class="card-body">
+                            <i class="bi bi-patch-check"></i>
+							<h3 class="card-title">Verifed Review</h3>
+							<p> Our dedicated team ensures that only genuine and unbiased feedback from real diners is included, giving you confidence in the reliability of the information. </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-12 col-lg-4">
+					<div class="card text-center">
+						<div class="card-body">
+                            <i class="bi bi-award"></i>
+							<h3 class="card-title">Reliable</h3>
+							<p>Discover the best restaurants based on authentic ratings and rankings from our community, ensuring you choose from highly regarded dining establishments.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-12 col-lg-4">
+					<div class="card text-center">
+						<div class="card-body">
+                            <i class="bi bi-stars"></i>
+							<h3 class="card-title">User-Friendly</h3>
+							<p>A seamless and user-friendly features let you to effortlessly navigate through restaurant options, filter by preferences, and find the perfect place to dine.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <!-- services section Ends -->
 
     <!-- team section starts -->
 	<section class="team section-padding" id="team">

@@ -281,27 +281,18 @@
             </div>
         </div>
     </div>
-
-    <!-- 
-    <form action="login" method="POST">
-        @csrf
-        <input type="text" name="user" placeholder="email"><br><br>
-        <input type="password" name="password" placeholder="password"><br><br>
-        <button type="submit">Login</button>
-    </form>
-    -->
 </body>
 <script>
     const loginPanel = document.querySelector('.loginPanel');
-const login_link = document.querySelector('.loginLink');
-const register_link = document.querySelector('.registerLink');
+    const login_link = document.querySelector('.loginLink');
+    const register_link = document.querySelector('.registerLink');
 
-register_link.addEventListener('click', () => {
-    loginPanel.classList.add('active');
-});
+    register_link.addEventListener('click', () => {
+        loginPanel.classList.add('active');
+    });
 
-login_link.addEventListener('click', () => {
-    loginPanel.classList.remove('active');
-});
+    login_link.addEventListener('click', () => {
+        loginPanel.classList.remove('active');
+    });
 </script>
 </html>
