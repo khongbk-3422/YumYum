@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 //Login
 Route::get('/loginPage',function () {
-    if(session()->has('user')){
+    if(session()->has('user_id')){
         return redirect('custHomePage');
     }
     return view('loginPage');
@@ -30,8 +30,10 @@ Route::view('custHomePage','custHomePage');
 
 //Logout
 Route::get('/logout',function () {
-    if(session()->has('user')){
-        session()->pull('user');
+    if(session()->has('user_id')){
+        session()->pull('user_id');
+        session()->pull('user_name');
+        session()->pull('user_pic');
     }
     return redirect('loginPage');
 });

@@ -237,7 +237,7 @@
 
                     <div class="inputCol">
                         <span class="icon"><i class="fa-regular fa-envelope"></i></span>
-                        <input type="text" name="user">
+                        <input type="text" name="email">
                         <label>Email</label>
                     </div>
 

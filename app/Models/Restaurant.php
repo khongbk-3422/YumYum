@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rest_Pictures extends Model
+class Restaurant extends Model
 {
+    protected $keyType = 'string';  //set able to be varchar in primary key
     use HasFactory;
     public $timestamps=false;
-    public $table="rest_picture_t";
+    public $table="restaurant_t";
 }
