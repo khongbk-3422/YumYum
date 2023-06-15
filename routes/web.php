@@ -51,15 +51,20 @@ Route::get('/custHomePage', function () {
 
 //restPage
 Route::get('/viewRestaurantPage', function(){
-    return view('/viewRestaurantPage');
+    return view('viewRestaurantPage');
 });
 
 //restDetailsPage
 Route::get('/restaurantDetailsPage', function(){
-    return view('/restaurantDetailsPage');
+    return view('restaurantDetailsPage');
 });
 
 //testCardSlider
 Route::get('/testCardSlider', function(){
-    return view('/testCardSlider');
+    return view('testCardSlider');
+});
+
+//adminHomePage
+Route::get('/adminHomePage', function(){
+    return view(('adminHomePage'));
 });
