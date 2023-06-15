@@ -15,6 +15,7 @@
 
         .headerContainer{
             height:60px;
+            margin-bottom:18px;
         }
 
         .sectionPadding{
@@ -24,6 +25,10 @@
         .cardContainer{
             width:100%;
             padding : 0 16px;
+        }
+
+        .cardContainer:first-child .card {
+            height:450px;
         }
 
         .cardContainer .title{
@@ -41,6 +46,8 @@
 
         .sidemenu{
             background:#faf9f7;
+            margin: 20px 20px;
+            border: 1px solid grey;
         }
 
         .viewRestBtn{
@@ -80,17 +87,11 @@
                                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                     <i class="fa-solid fa-utensils"></i><span class="ms-1 d-none d-sm-inline">Category</span> </a>
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                    <li>
-                                        <div class="form-check form-check-inline">
-                                            <input type="checkbox" id="submenu1-item1" class="form-check-input submenu-checkbox">
-                                            <label for="submenu1-item1" class="form-check-label nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </label>
-                                        </div>
+                                    <li class>
+                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
                                     </li>
                                     <li>
-                                        <div class="form-check form-check-inline">
-                                            <input type="checkbox" id="submenu1-item2" class="form-check-input submenu-checkbox">
-                                            <label for="submenu1-item2" class="form-check-label nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </label>
-                                        </div>
+                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
                                     </li>
                                 </ul>
                             </li>
@@ -141,42 +142,43 @@
                             </div>
 
                             <div class="row row-cols-1 row-cols-md-4 g-3">
-                            <div class="col">
-                                <div class="card">
-                                <img src="{{ asset ('image/rest1.jpg') }}" class="card-img-top" alt="Ishin Japanese Dining">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ishin Japanese Dining</h5>
-                                    <p class="card-text">Located along the busy Old Klang Road in a building by itself, Ishin has made a name for itself for its genuine Japanese and Kaiseki-style cuisine.</p>
+                                <div class="col">
+                                    <div class="card">
+                                    <img src="{{ asset ('image/rest1.jpg') }}" class="card-img-top" alt="Ishin Japanese Dining">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ishin Japanese Dining</h5>
+                                        <p class="card-text expand-text">Located along the busy Old Klang Road in a building by itself, Ishin has made a name for itself for its genuine Japanese and Kaiseki-style cuisine.</p>
+                                    </div>
+                                    </div>
                                 </div>
-                                </div>
-                            </div>
 
-                            <div class="col">
-                                <div class="card">
-                                <img src="{{ asset ('image/rest2.jpg') }}" class="card-img-top" alt="Positano Risto">
-                                <div class="card-body">
-                                    <h5 class="card-title">Positano Risto</h5>
-                                    <p class="card-text">Ranked KL's Top #2 Restaurant, Positano Risto captures the essence of Italian cuisine and culture, transporting guests to the vibrant streets of Positano.</p>
+                                <div class="col">
+                                    <div class="card">
+                                    <img src="{{ asset ('image/rest2.jpg') }}" class="card-img-top" alt="Positano Risto">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Positano Risto</h5>
+                                        <p class="card-text">Ranked KL's Top #2 Restaurant, Positano Risto captures the essence of Italian cuisine and culture, transporting guests to the vibrant streets of Positano.</p>
+                                    </div>
+                                    </div>
                                 </div>
-                                </div>
-                            </div>
 
-                            <div class="col">
-                                <div class="card">
-                                <img src="{{ asset('image/rest3.jpg') }}" class="card-img-top" alt="Beta KL">
-                                <div class="card-body">
-                                    <h5 class="card-title">Beta KL</h5>
-                                    <p class="card-text">Located in the heart of Kuala Lumpur, Beta KL is well-known for its modern Malaysian gastronomy and highlighting seasonal and locally sourced ingredients.</p>
+                                <div class="col">
+                                    <div class="card">
+                                    <img src="{{ asset('image/rest3.jpg') }}" class="card-img-top" alt="Beta KL">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Beta KL</h5>
+                                        <p class="card-text">Located in the heart of Kuala Lumpur, Beta KL is well-known for its modern Malaysian gastronomy and highlighting seasonal and locally sourced ingredients.</p>
+                                    </div>
+                                    </div>
                                 </div>
-                                </div>
-                            </div>
 
-                            <div class="col">
-                                <div class="card">
-                                <img src="{{ asset('image/rest4.jpg') }}" class="card-img-top" alt="Chambers Grill">
-                                <div class="card-body">
-                                    <h5 class="card-title">Chambers Grill</h5>
-                                    <p class="card-text">Located in Kuala Lumpur, Chambers Grill  offers an innovative grill menu of prime aged meat cuts or fresh seafood cooked over lava stone or charcoal. </p>
+                                <div class="col">
+                                    <div class="card">
+                                    <img src="{{ asset('image/rest4.jpg') }}" class="card-img-top" alt="Chambers Grill">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Chambers Grill</h5>
+                                        <p class="card-text">Located in Kuala Lumpur, Chambers Grill  offers an innovative grill menu of prime aged meat cuts or fresh seafood cooked over lava stone or charcoal. </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -212,7 +214,7 @@
                         -->
                         <div class="cardContainer">
                             <div class="title">
-                                    <h3>Restaurants in Kuala Lumpur</h3>
+                                <h3>Restaurants in Kuala Lumpur</h3>
                             </div>
 
                             <div class="card mb-3">

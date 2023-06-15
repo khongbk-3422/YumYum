@@ -59,12 +59,15 @@ Route::get('/restaurantDetailsPage', function(){
     return view('restaurantDetailsPage');
 });
 
-//testCardSlider
-Route::get('/testCardSlider', function(){
-    return view('testCardSlider');
-});
+
 
 //adminHomePage
 Route::get('/adminHomePage', function(){
     return view(('adminHomePage'));
+});
+
+
+//testCardSlider
+Route::get('/testCardSlider', function(){
+    return view('testCardSlider');
 });
