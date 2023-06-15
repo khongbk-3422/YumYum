@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restaurants extends Model
 {
+    protected $keyType = 'string';  //set able to be varchar in primary key
     use HasFactory;
+    public $timestamps=false;
+    public $table="restaurant_t";
 }
