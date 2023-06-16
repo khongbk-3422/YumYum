@@ -12,6 +12,8 @@
     
 </style>
 <body>
+
+    $numCustomer = &user_data=Customer->count();
     <main>
 
         <div class="cards">
@@ -21,9 +23,20 @@
                     <span>Restaurants</span>
                 </div>
                 <div>
-                    <span><i class="fa-solid fa-user"></i></span>
+                    <span></span>
                 </div>
             </div>
+
+            <div class="card-single">
+                <div>
+                    <h1></h1>
+                    <span>Users</span>
+                </div>
+                <div>
+                    <span><i class="bi bi-people-fill"></i></span>
+                </div>
+            </div>
+
         </div>
 
     </main>
