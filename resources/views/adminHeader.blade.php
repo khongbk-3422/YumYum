@@ -70,7 +70,7 @@
 					</li>
                     <li class="nav-item dropdown">
                         <!-- display the cust's name-->
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Username</a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{session('admin_name')}}</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <!-- adjust the line -->
