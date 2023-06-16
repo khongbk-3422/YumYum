@@ -46,32 +46,44 @@ class UserController extends Controller
         
     }
 
-    //Register      -password, conf_password, email, name, contact
+    //Register      -password, conf_password, email, name, contact, picture
     function userRegister(Request $req) {
         $data= $req->input();
         $user=User::find($data['email']);
 
-        if ($user) {
-            $user_t= new User;
-            $user_t->user_email=$req->id;
-            $user_t->user_password=$req->password;
-            $user_t->position="1";
-            $user_t->save();
+        if ($data['password'] == $data['conf_password']){
+            if ($user) {
+                $user_t=new User;
+                $user_t->user_email=$req->id;
+                $user_t->user_password=$req->password;
+                $user_t->position="1";
+                $user_t->save();
 
 
-            $last_id = Customer::where('user_email', $data['email'])
-                     ->orderBy('customer_id', 'desc')
-                     ->first();
-                     
-            $customer_t= new Customer();
-            $user_t->user_email=$req->id;
-            $user_t->user_password=$req->password;
-            $user_t->position="1";
-            $user_t->save();
-            return redirect('add');
+                $last_id = Customer::where('user_email', $data['email'])
+                        ->orderBy('customer_id', 'desc')
+                        ->first();
+                
+                $numeric_id = (int) substr($current_id, 1);
+                $next_numeric_id = $numeric_id + 1;
+                $new_id = 'C' . str_pad($next_numeric_id, 6, '0', STR_PAD_LEFT);
+                
+
+                $customer_t=new Customer();
+                $customer_t->cust_id=$new_id;
+                $customer_t->cust_name=$req->name;
+                $customer_t->cust_contact=$req->contact;
+                $customer_t->cust_pic=$req->picture;
+                $customer_t->user_email=$req->email;
+                $customer_t->save();
+                return redirect('/loginPage');
+            } else {
+                Session::flash('email_not_found', true);
+                return redirect()->back();
+            }
         } else {
-            Session::flash('email_not_found', true);
-            return redirect()->back();
+            Session::flash('conf_pass_incorrect', true);
+                return redirect()->back();
         }
         
     }
