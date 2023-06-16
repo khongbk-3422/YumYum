@@ -35,7 +35,7 @@
             text-align:center;
             margin: 20px;
         }
-
+ 
         .card{
             transition: transform 0.2s;
         }
@@ -67,16 +67,13 @@
             height:200px;
         }
 
-        .form-check-inline .form-check-input {
-            margin-right: 8px;
-        }
-
     </style>
 </head>
 <body>
     <div class="contentContainer">
         <div class="container-fluid">
             <div class="row flex-nowrap">
+                <!-- Change new sidemenu, adjust -->
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidemenu">
                     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
                         <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none">
@@ -116,16 +113,16 @@
                                     <i class="bi bi-geo-alt"></i></i> <span class="ms-1 d-none d-sm-inline">Location</span> </a>
                                     <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                                     <li class=>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Damansara</span> 1</a>
+                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Damansara</span></a>
                                     </li>
                                     <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
+                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
                                     </li>
                                     <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
+                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
                                     </li>
                                     <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
+                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
                                     </li>
                                 </ul>
                             </li>
@@ -244,4 +241,4 @@
 </body>
 </html>
 
-@include('newFooter')
+@include('footer')
