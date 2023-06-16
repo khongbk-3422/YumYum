@@ -26,6 +26,7 @@ Route::get('/loginPage',function () {
     return view('loginPage');
 });
 Route::post('login',[UserController::class,'userLogin']);
+Route::post('register',[UserController::class,'userRegister']);
 Route::view('custHomePage','custHomePage');
 
 //Logout
