@@ -106,22 +106,26 @@
             transform:translateX(0);
             transition: transform .6s ease;
             transition-delay: .7s;
+            z-index: 1;
         }
 
         .loginPanel.active .formPanel.login{
             transform:translateX(430px);
             transition-delay:0s;
+            z-index: 0;
         }
 
         .loginPanel .formPanel.register{
             transform: translateX(430px);
             transition: transform .6s ease;
             transition-delay:0s;
+            z-index: 0;
         }
 
         .loginPanel.active .formPanel.register{
             transform: translateX(0);
             transition-delay: .7s;
+            z-index: 1;
         }
 
         .formPanel h2{
@@ -233,6 +237,7 @@
             <!-- login -->
             <div class="formPanel login">
                 <form action="login" method="POST">
+                    @csrf
                     <h2>Login</h2>
 
                     <div class="inputCol">
@@ -258,6 +263,7 @@
             <!-- register -->
             <div class="formPanel register">
                 <form action="register" method="POST">
+                    @csrf
                     <h2>Register</h2>
 
                     <div class="inputCol">
