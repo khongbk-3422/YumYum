@@ -64,7 +64,7 @@
         }
 
         .contentContainer {
-            display: flex;
+            margin-top:10px;
         }
 
         .sidemenu {
@@ -73,7 +73,6 @@
         }
 
         .content {
-            padding: 20px;
             flex: 1;
         }
     </style>

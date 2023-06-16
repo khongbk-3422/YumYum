@@ -8,23 +8,43 @@
     @include('cdn')
 
     <style>
+        .container-fluid{
+            margin-top:60px;
+            background:yellow;
+            display: flex;
+        }
 
+        .sideMenuContainer{
+            width:200px;
+            height:80vh;
+            background:red;
+            margin:20px 20px;
+        }
 
     </style>
 </head>
 <body>
-    <div class="mainContainer">
-        <!-- sidemenu start -->
-        <div class="sideMenuContainer">
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <!-- sidemenu -->
+            <div class="sideMenuContainer">
+                <div class="sideMenu">
+                    <h2>Menu</h2>
+                </div>
 
-        </div>
+                <ul class="menu1">
+                    <li></li>
+                </ul>
+            </div>
 
-        <!-- rest start -->
-        <div class="contentContainer">
+            <!-- content -->
+            <div class="contentContainer">
 
+            </div>
         </div>
     </div>
 </body>
 </html>
+
 
 @include('footer')
