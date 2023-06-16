@@ -45,4 +45,34 @@ class UserController extends Controller
         }
         
     }
+
+    //Register      -password, conf_password, email, name, contact
+    function userRegister(Request $req) {
+        $data= $req->input();
+        $user=User::find($data['email']);
+
+        if ($user) {
+            $user_t= new User;
+            $user_t->user_email=$req->id;
+            $user_t->user_password=$req->password;
+            $user_t->position="1";
+            $user_t->save();
+
+
+            $last_id = Customer::where('user_email', $data['email'])
+                     ->orderBy('customer_id', 'desc')
+                     ->first();
+                     
+            $customer_t= new Customer();
+            $user_t->user_email=$req->id;
+            $user_t->user_password=$req->password;
+            $user_t->position="1";
+            $user_t->save();
+            return redirect('add');
+        } else {
+            Session::flash('email_not_found', true);
+            return redirect()->back();
+        }
+        
+    }
 }
