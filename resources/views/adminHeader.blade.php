@@ -60,16 +60,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/custHomePage' ? 'active' : ''; ?> " href="/custHomePage">Home</a>
+						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminHomePage' ? 'active' : ''; ?> " href="/adminHomePage">Home</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/viewRestaurantPage' ? 'active' : ''; ?> " href="/viewRestaurantPage">Restaurant</a>
+						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminEditCustomer' ? 'active' : ''; ?> " href="/adminEditCustomer">Customer</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Spinwheel</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#services">History</a>
+						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminEditRestaurant' ? 'active' : ''; ?> " href="/adminEditRestaurant">Restaurant</a>
 					</li>
                     <li class="nav-item dropdown">
                         <!-- display the cust's name-->
