@@ -236,6 +236,7 @@
         <div class="loginPanel">
             <!-- login -->
             <div class="formPanel login">
+                @csrf
                 <form action="login" method="POST">
                     @csrf
                     <h2>Login</h2>
@@ -262,20 +263,39 @@
 
             <!-- register -->
             <div class="formPanel register">
+                @csrf
                 <form action="register" method="POST">
                     @csrf
                     <h2>Register</h2>
 
                     <div class="inputCol">
+                        <span class="icon"><i class="fa-regular fa-user"></i></span>
+                        <input type="text" name="name">
+                        <label>Name</label>
+                    </div>
+
+                    <div class="inputCol">
                         <span class="icon"><i class="fa-regular fa-envelope"></i></span>
-                        <input type="text" name="user">
+                        <input type="text" name="email">
                         <label>Email</label>
+                    </div>
+
+                    <div class="inputCol">
+                        <span class="icon"><i class="fa-solid fa-square-phone"></i></span>
+                        <input type="text" name="contact">
+                        <label>Contact</label>
                     </div>
 
                     <div class="inputCol">
                         <span class="icon"><i class="fa-solid fa-lock"></i></span>
                         <input type="password" name="password">
                         <label>Password</label>
+                    </div>
+
+                    <div class="inputCol">
+                        <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                        <input type="password" name="conf_password">
+                        <label>Confirm Password</label>
                     </div>
 
                     <button type="submit" class="btn">Register</button>
@@ -288,6 +308,7 @@
         </div>
     </div>
 </body>
+
 <script>
     const loginPanel = document.querySelector('.loginPanel');
     const login_link = document.querySelector('.loginLink');

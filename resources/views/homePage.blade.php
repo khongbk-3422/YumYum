@@ -212,7 +212,7 @@
 	</section>
     <!-- team ends -->
 
-	@include('newFooter')
+	@include('footer')
 
 </body>
 </html>

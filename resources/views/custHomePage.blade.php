@@ -277,5 +277,5 @@
 
 </body>
 </html>
-@include('newFooter')
+@include('footer')
 

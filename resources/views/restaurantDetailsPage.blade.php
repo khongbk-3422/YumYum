@@ -9,7 +9,9 @@
 </head>
 <body>
     <section class="restaurantDetails">
-
+        <div class="restImage">
+            
+        </div>
     </section>
 
     <section class="reviews">
@@ -22,4 +24,4 @@
 </body>
 </html>
 
-@include ('newFooter')
+@include ('footer')

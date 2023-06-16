@@ -12,6 +12,20 @@
     
 </style>
 <body>
-    
+    <main>
+
+        <div class="cards">
+            <div class="card-single">
+                <div>
+                    <h1></h1>
+                    <span>Restaurants</span>
+                </div>
+                <div>
+                    <span><i class="fa-solid fa-user"></i></span>
+                </div>
+            </div>
+        </div>
+
+    </main>
 </body>
 </html>
