@@ -7,6 +7,11 @@
     @include('cdn')
 
     <style>
+        .carousel{
+            max-width:70%;
+            margin: 0 auto;
+        }
+
         .carousel-inner{
             display:flex;
         }
@@ -23,7 +28,7 @@
 
         .card{
             margin: 0 10px;
-            height:350px;
+            height:280px;
             border-radius:5px;
             box-shadow: 2px 6px 8px 0 rgba(22,22,26, .18);
         }
@@ -47,24 +52,6 @@
             transform: translateY(-50%);
             opacity:.5;
         }
-
-        .card-text {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .collapsed {
-            -webkit-line-clamp: initial;
-        }
-
-        .readMore{
-            color:black;
-            text-decoration:none;
-            display:inline-block;
-        }
-
     </style>
 
 </head>
@@ -72,59 +59,75 @@
     <div id="carouselExampleRide" class="carousel" data-bs-ride="true">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <div class="card" style="width:15rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top" alt="...">
+                <div class="card" style="width:14rem;">
+                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="readMore">Read More</a>
+                        <h5 class="card-title">Ishin Japanese Dining</h5>
+                        <p class="card-text text-muted">Italian</p>
                     </div> 
                 </div>
             </div>
 
             <div class="carousel-item">
-                <div class="card" style="width:15rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top" alt="...">
+                <div class="card" style="width:14rem;">
+                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="readMore">Read More</a>
-                    </div>
+                        <h5 class="card-title">Ishin Japanese Dining</h5>
+                        <p class="card-text text-muted">Italian</p>
+                    </div> 
                 </div>
             </div>
 
             <div class="carousel-item">
-                <div class="card" style="width:15rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top" alt="...">
+                <div class="card" style="width:14rem;">
+                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="readMore">Read More</a>
-                    </div>
+                        <h5 class="card-title">Ishin Japanese Dining</h5>
+                        <p class="card-text text-muted">Italian</p>
+                    </div> 
                 </div>
             </div>
 
             <div class="carousel-item">
-                <div class="card" style="width:15rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top" alt="...">
+                <div class="card" style="width:14rem;">
+                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="readMore">Read More</a>
-                    </div>
+                        <h5 class="card-title">Ishin Japanese Dining</h5>
+                        <p class="card-text text-muted">Italian</p>
+                    </div> 
                 </div>
             </div>
 
             <div class="carousel-item">
-                <div class="card" style="width:15rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top" alt="...">
+                <div class="card" style="width:14rem;">
+                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="readMore">Read More</a>
-                    </div>
+                        <h5 class="card-title">Ishin Japanese Dining</h5>
+                        <p class="card-text text-muted">Italian</p>
+                    </div> 
                 </div>
             </div>
+
+            <div class="carousel-item">
+                <div class="card" style="width:14rem;">
+                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Ishin Japanese Dining</h5>
+                        <p class="card-text text-muted">Italian</p>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="card" style="width:14rem;">
+                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Ishin Japanese Dining</h5>
+                        <p class="card-text text-muted">Italian</p>
+                    </div> 
+                </div>
+            </div>
+
             
         </div>
 
@@ -163,32 +166,7 @@
                 600);
             }
         });
-
-        //show and hide word
-        var cards = document.querySelectorAll('.carousel-item .card');
-            cards.forEach(function(card) {
-                var cardText = card.querySelector('.card-text');
-                var readMoreLink = card.querySelector('.readMore');
-                var cardContent = cardText.textContent;
-                var collapsed = true;
-
-                readMoreLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    collapsed = !collapsed;
-                    cardText.classList.toggle('collapsed');
-                    readMoreLink.textContent = collapsed ? 'Read More' : 'Read Less';
-                    cardText.textContent = collapsed ? truncateText(cardContent, 100) : cardContent;
-                });
-            });
-
-            function truncateText(text, maxLength) {
-                if (text.length > maxLength) {
-                    return text.slice(0, maxLength) + '...';
-                } else {
-                    return text;
-                }
-            }
-        });
+    });
 
     </script>
 

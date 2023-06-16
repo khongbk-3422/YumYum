@@ -1,7 +1,3 @@
-<div class="headerContainer">
-@include('header')
-</div>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,9 +63,26 @@
             height:200px;
         }
 
+        .contentContainer {
+            display: flex;
+        }
+
+        .sidemenu {
+            padding: 20px;
+            flex: 0 0 250px;
+        }
+
+        .content {
+            padding: 20px;
+            flex: 1;
+        }
     </style>
 </head>
 <body>
+    <div class="headerContainer">
+        @include('header')
+    </div>
+
     <div class="contentContainer">
         <div class="container-fluid">
             <div class="row flex-nowrap">
@@ -130,7 +143,7 @@
                     </div>
                 </div>
 
-                <div class="col px-3 pt-2">
+                <div class="content">
                     <!-- Top restaurant section starts-->
                     <section class="restaurantExample section-padding" id = "restaurantExp">
                         <div class="cardContainer">
