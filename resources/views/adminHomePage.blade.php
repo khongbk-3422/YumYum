@@ -1,4 +1,4 @@
-@include('header')
+@include('adminHeader')
 
 <!DOCTYPE html>
 <html lang="en">
