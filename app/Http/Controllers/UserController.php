@@ -60,8 +60,7 @@ class UserController extends Controller
                 $user_t->save();
 
 
-                $last_id = Customer::where('user_email', $data['email'])
-                        ->orderBy('customer_id', 'desc')
+                $last_id = Customer::orderBy('customer_id', 'desc')
                         ->first();
                 
                 $numeric_id = (int) substr($current_id, 1);
