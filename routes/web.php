@@ -49,6 +49,11 @@ Route::get('/custHomePage', function () {
     return view('custHomePage');
 });
 
+//custHomePage
+Route::get('/custProfilePage', function () {
+    return view('custProfilePage');
+});
+
 
 //restPage
 Route::get('/viewRestaurantPage', function(){

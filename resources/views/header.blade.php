@@ -41,6 +41,11 @@
             background-color:#c4b999;
         }
 
+        .profilePic img{
+            width:40px;
+            height:40px;
+            border-radius:50%;
+        }
     </style>
 </head>
 
@@ -64,12 +69,17 @@
 					</li>
                     <li class="nav-item dropdown">
                         <!-- display the cust's name-->
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{session('user_name')}}</a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{session('user_name')}}
+                            <span class="profilePic"><img src="" alt=""></span>
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <!-- adjust the line -->
-                            <li><hr></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li>
+                                <a class="dropdown-item <?php echo $_SERVER['REQUEST_URI'] === '/custProfilePage' ? 'active' : ''; ?> " href="/custProfilePage">Settings</a>
+                            </li> 
+                                <div class="dropdown-divider"></div>
+                            <li>
+                                <a class="dropdown-item" href="#">Logout</a>
+                            </li>
                         </ul>
                     </li>
 				</ul>

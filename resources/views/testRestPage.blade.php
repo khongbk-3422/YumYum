@@ -106,7 +106,7 @@
             background:yellow;
         }
 
-        /* Top Rest Style */
+        /*Carousel Style */
         .carousel{
             max-width:100%;
             margin: 10px auto;
