@@ -63,6 +63,16 @@
                     <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">Ishin Japanese Dining</h5>
+                        <p class="card-text text-muted">Japanese</p>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="card" style="width:14rem;">
+                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Positano Risto</h5>
                         <p class="card-text text-muted">Italian</p>
                     </div> 
                 </div>
@@ -72,8 +82,8 @@
                 <div class="card" style="width:14rem;">
                     <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">Ishin Japanese Dining</h5>
-                        <p class="card-text text-muted">Italian</p>
+                        <h5 class="card-title">Beta KL</h5>
+                        <p class="card-text text-muted">Japanese</p>
                     </div> 
                 </div>
             </div>
@@ -82,17 +92,7 @@
                 <div class="card" style="width:14rem;">
                     <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
                     <div class="card-body">
-                        <h5 class="card-title">Ishin Japanese Dining</h5>
-                        <p class="card-text text-muted">Italian</p>
-                    </div> 
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <div class="card" style="width:14rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Ishin Japanese Dining</h5>
+                        <h5 class="card-title">Chambers Grill</h5>
                         <p class="card-text text-muted">Italian</p>
                     </div> 
                 </div>

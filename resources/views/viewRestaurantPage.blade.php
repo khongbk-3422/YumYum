@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
     <style>
         *{
             font-family: 'Raleway', sans-serif;
@@ -19,31 +20,35 @@
         }
 
         .cardContainer{
-            width:100%;
             padding : 0 16px;
-        }
-
-        .cardContainer:first-child .card {
-            height:450px;
+            background:red;
         }
 
         .cardContainer .title{
             text-align:center;
             margin: 20px;
         }
- 
+
+        /* .cardContainer:first-child .card {
+            height:450px;
+        }
+
         .card{
             transition: transform 0.2s;
         }
 
         .card:hover{
             transform: scale(1.1);
-        }
+        } */
 
         .sidemenu{
-            background:#faf9f7;
+            background:#F8F8F8;
             margin: 20px 20px;
-            border: 1px solid grey;
+            box-shadow:0 3px 6px rgba(0, 0, 0, 0.3);
+            border-radius:10px;
+            padding: 20px;
+            flex: 0 0 250px;
+            height:110vh;
         }
 
         .viewRestBtn{
@@ -67,13 +72,98 @@
             margin-top:10px;
         }
 
-        .sidemenu {
-            padding: 20px;
-            flex: 0 0 250px;
+        .searchBar{
+            height:30px;
+            display:flex;
+            cursor:pointer;
+            padding:5px 5px;
+            border-radius:30px;
+            align-items:center;
+            box-shadow:0 5px 5px rgba(0, 0, 0, 0.3);
+            margin:15px 0;
+        }
+
+        .searchBar:hover input{
+            width:140px;
+        }
+
+        .searchBar input{
+            width:0;
+            outline:none;
+            border:none;
+            font-size:15px;
+            transition:0.8s;
+            background:transparent;
+        }
+
+        .searchBar a i{
+            color:#C0B0A2;
+            font-size:18px;
+        }
+
+        .nav-link i{
+            font-size:18px;
+            color:black;
+            margin-right:10px;
+        }
+
+        .nav-link span{
+            font-size:15px;
+            color:#674D41;
+        }
+
+        .nav-link .fa-angle-down{
+            font-size:20px;
+            color:#A39087;
+            margin-left:18px;
         }
 
         .content {
             flex: 1;
+        }
+
+        /* Top Rest Style */
+        .carousel{
+            max-width:100%;
+            margin: 0 auto;
+        }
+
+        .carousel-inner{
+            display:flex;
+        }
+
+        .carousel-item{
+            display:block;
+            margin-right:0;
+            flex: 0 0 calc(100% / 4);
+            padding:10px 10px;
+        }
+        
+        .card{
+            margin: 0 10px;
+            height:280px;
+            border-radius:5px;
+            box-shadow: 2px 6px 8px 0 rgba(22,22,26, .18);
+        }
+
+        .carousel-control-prev{
+            height: 6vh;
+            width:6vh;
+            background-color: grey;
+            border-radius:50%;
+            top:50%;
+            transform: translateY(-50%);
+            opacity:.5;
+        }
+
+        .carousel-control-next{
+            height: 6vh;
+            width:6vh;
+            background-color: grey;
+            border-radius:50%;
+            top:50%;
+            transform: translateY(-50%);
+            opacity:.5;
         }
     </style>
 </head>
@@ -85,58 +175,77 @@
     <div class="contentContainer">
         <div class="container-fluid">
             <div class="row flex-nowrap">
-                <!-- Change new sidemenu, adjust -->
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidemenu">
                     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
-                        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+                        <!-- <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none">
                             <span class="fs-5 d-none d-sm-inline">Menu</span>
-                        </a>
+                        </a> -->
+
+                        <div class="searchBar">
+                            <input type="text" placeholder="Search here">
+                            <a href="">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </div>
+                        
+
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                            <li>
-                                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                    <i class="fa-solid fa-utensils"></i><span class="ms-1 d-none d-sm-inline">Category</span> </a>
+                            <li class="mb-2">
+                                <a href="#submenu1" class="nav-link px-0 align-middle">
+                                    <i class="fa-solid fa-utensils"></i>
+                                    <span class="ms-1 d-none d-sm-inline">Category</span>
+                                    <i class="fa-solid fa-angle-down"></i>
+                    
+                                </a>
+
                                 <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                                    <li class>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
+                                    <li class="mb-1">
+                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
                                     </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-                            </li>
-                            <li>
-                                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                    <i class="bi bi-currency-dollar"></i> <span class="ms-1 d-none d-sm-inline">Price</span></a>
-                                <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                    <li class>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
+                                    <li class="mb-1">
+                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
                                     </li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                    <i class="bi bi-geo-alt"></i></i> <span class="ms-1 d-none d-sm-inline">Location</span> </a>
+
+                            <li class="mb-2">
+                                <a href="#submenu2" class="nav-link px-0 align-middle ">
+                                    <i class="bi bi-currency-dollar"></i>
+                                    <span class="ms-1 d-none d-sm-inline">Price</span>
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+
+                                    <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                        <li class="mb-1">
+                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
+                                        </li>
+                                        <li class="mb-1">
+                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
+                                        </li>
+                                    </ul>
+                            </li>
+
+                            <li class="mb-2">
+                                <a href="#submenu3" class="nav-link px-0 align-middle">
+                                    <i class="bi bi-geo-alt"></i></i>
+                                    <span class="ms-1 d-none d-sm-inline">Location</span>
+                                    <i class="fa-solid fa-angle-down"></i>
+                                </a>
+                                    
                                     <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                    <li class=>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Damansara</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
-                                    </li>
-                                </ul>
+                                        <li class="mb-1">
+                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Damansara</span></a>
+                                        </li>
+                                        <li class="mb-1">
+                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
+                                        </li class="mb-1">
+                                        <li class="mb-1">
+                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
+                                        </li>
+                                        <li class="mb-1">
+                                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
+                                        </li>
+                                    </ul>
                             </li>
                         </ul>
                     </div>
@@ -149,78 +258,96 @@
                             <div class="title">
                                 <h3>Top Recommended Restaurant <i class="fa-regular fa-thumbs-up"></i></h3>
                             </div>
+                            
+                            <div id="carouselExampleRide" class="carousel" data-bs-ride="true">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="card" style="width:12rem;">
+                                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                            
+                                            <div class="card-body">
+                                                <h5 class="card-title">Ishin Japanese Dining</h5>
+                                                <p class="card-text text-muted">Japanese</p>
+                                            </div> 
+                                        </div>
+                                    </div>
 
-                            <div class="row row-cols-1 row-cols-md-4 g-3">
-                                <div class="col">
-                                    <div class="card">
-                                    <img src="{{ asset ('image/rest1.jpg') }}" class="card-img-top" alt="Ishin Japanese Dining">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ishin Japanese Dining</h5>
-                                        <p class="card-text expand-text">Located along the busy Old Klang Road in a building by itself, Ishin has made a name for itself for its genuine Japanese and Kaiseki-style cuisine.</p>
+                                    <div class="carousel-item">
+                                        <div class="card" style="width:12rem;">
+                                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Positano Risto</h5>
+                                                <p class="card-text text-muted">Italian</p>
+                                            </div> 
+                                        </div>
                                     </div>
-                                    </div>
-                                </div>
 
-                                <div class="col">
-                                    <div class="card">
-                                    <img src="{{ asset ('image/rest2.jpg') }}" class="card-img-top" alt="Positano Risto">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Positano Risto</h5>
-                                        <p class="card-text">Ranked KL's Top #2 Restaurant, Positano Risto captures the essence of Italian cuisine and culture, transporting guests to the vibrant streets of Positano.</p>
+                                    <div class="carousel-item">
+                                        <div class="card" style="width:12rem;">
+                                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Beta KL</h5>
+                                                <p class="card-text text-muted">Japanese</p>
+                                            </div> 
+                                        </div>
                                     </div>
-                                    </div>
-                                </div>
 
-                                <div class="col">
-                                    <div class="card">
-                                    <img src="{{ asset('image/rest3.jpg') }}" class="card-img-top" alt="Beta KL">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Beta KL</h5>
-                                        <p class="card-text">Located in the heart of Kuala Lumpur, Beta KL is well-known for its modern Malaysian gastronomy and highlighting seasonal and locally sourced ingredients.</p>
+                                    <div class="carousel-item">
+                                        <div class="card" style="width:12rem;">
+                                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Chambers Grill</h5>
+                                                <p class="card-text text-muted">Steakhouse</p>
+                                            </div> 
+                                        </div>
                                     </div>
-                                    </div>
-                                </div>
 
-                                <div class="col">
-                                    <div class="card">
-                                    <img src="{{ asset('image/rest4.jpg') }}" class="card-img-top" alt="Chambers Grill">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Chambers Grill</h5>
-                                        <p class="card-text">Located in Kuala Lumpur, Chambers Grill  offers an innovative grill menu of prime aged meat cuts or fresh seafood cooked over lava stone or charcoal. </p>
+                                    <div class="carousel-item">
+                                        <div class="card" style="width:12rem;">
+                                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Ishin Japanese Dining</h5>
+                                                <p class="card-text text-muted">Italian</p>
+                                            </div> 
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="carousel-item">
+                                        <div class="card" style="width:12rem;">
+                                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Ishin Japanese Dining</h5>
+                                                <p class="card-text text-muted">Italian</p>
+                                            </div> 
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item">
+                                        <div class="card" style="width:12rem;">
+                                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Ishin Japanese Dining</h5>
+                                                <p class="card-text text-muted">Italian</p>
+                                            </div> 
+                                        </div>
+                                    </div> 
                             </div>
-                        </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div> 
                     </section>
                     <!-- Top restaurant section ends -->
 
                     <!-- All restaurant section starts -->
                     <section class="restaurantList section padding" id="restaurantListExp">
-                        <!-- [fetch from SQL] USE CARD LIST
-                        $query = "SELECT * FROM restaurants";
-                        $result = mysqli_query($conn, $query);
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            $restaurantName = $row['rest_name'];
-                            $restCategory = $row['rest_category];
-                            $restAddress = $row['rest_address'];
-                            $imageURL = $row['image_url'];
-                                echo '<div class="card mb-3">
-                                            <div class="row g-0">
-                                                <div class="col-md-4">
-                                                    <img src="' . $imageURL . '" class="img-fluid rounded-start" alt="Restaurant Image">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="card-body">
-                                                        <h5 class="card-title">'. $restaurantName .'</h5>
-                                                        <p class="card-text">' . $restAddress . '</p>
-                                                        <p class="card-text"><small class="text-muted">' . $restCategory . '</small></p>
-                                                        <button>View More</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>';
-                        }
-                        -->
                         <div class="cardContainer">
                             <div class="title">
                                 <h3>Restaurants in Kuala Lumpur</h3>
@@ -250,6 +377,44 @@
         </div>
     </div>
     
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menulinks = document.querySelectorAll('#menu .nav-link');
+
+            menulinks.forEach(function(link){
+                link.addEventListener('click', function(event){
+                    const submenu = this.nextElementSibling;
+                    submenu.classList.toggle('show');
+                    event.preventDefault();
+                });
+            });
+        });
+
+        $(document).ready(function() {
+        //next card choser
+        var carouselWidth = $('.carousel-inner')[0].scrollWidth;
+        var cardWidth = $('.carousel-item').outerWidth(true);
+
+        var scrollPosition = 0;
+
+        $('.carousel-control-next').on('click', function(){
+            if(scrollPosition < (carouselWidth - (cardWidth * 5))){
+                scrollPosition = scrollPosition + cardWidth;
+                $('.carousel-inner').animate({scrollLeft: scrollPosition}, 
+                600);
+            }
+        });
+
+        $('.carousel-control-prev').on('click', function(){
+            if(scrollPosition > 0){
+                scrollPosition = scrollPosition - cardWidth;
+                $('.carousel-inner').animate({scrollLeft: scrollPosition}, 
+                600);
+            }
+        });
+    });
+    </script>
 </body>
 </html>
 
