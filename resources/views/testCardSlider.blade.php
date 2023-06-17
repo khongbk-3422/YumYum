@@ -1,15 +1,23 @@
-
-<html lang="en">
-<head>
+@include('header')
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     @include('cdn')
 
     <style>
+        .contentcontainer{
+            display:flex;
+            justify-content: space-between;
+            margin: 20px;
+            margin-top:100px;
+        }
+
         .carousel{
-            max-width:70%;
+            max-width:calc(100% - 230px);
             margin: 0 auto;
+            background:pink;
+            height:320px;
+            margin-top:10px;
         }
 
         .carousel-inner{
@@ -52,94 +60,223 @@
             transform: translateY(-50%);
             opacity:.5;
         }
+
+        .sidemenu{
+            background:#F8F8F8;
+            margin: 20px 20px;
+            box-shadow:0 3px 6px rgba(0, 0, 0, 0.3);
+            border-radius:10px;
+            padding: 20px;
+            flex: 0 0 200px;
+            height:110vh;
+        }
+
+        .searchBar{
+            height:30px;
+            display:flex;
+            cursor:pointer;
+            padding:5px 5px;
+            border-radius:30px;
+            align-items:center;
+            box-shadow:0 5px 5px rgba(0, 0, 0, 0.3);
+            margin:15px 0;
+        }
+
+        .searchBar:hover input{
+            width:140px;
+        }
+
+        .searchBar input{
+            width:0;
+            outline:none;
+            border:none;
+            font-size:15px;
+            transition:0.8s;
+            background:transparent;
+        }
+
+        .searchBar a i{
+            color:#C0B0A2;
+            font-size:18px;
+        }
+
+        .nav-link i{
+            font-size:18px;
+            color:black;
+            margin-right:10px;
+        }
+
+        .nav-link span{
+            font-size:15px;
+            color:#674D41;
+        }
+
+        .nav-link .fa-angle-down{
+            font-size:20px;
+            color:#A39087;
+            margin-left:18px;
+        }
     </style>
 
-</head>
 <body>
-    <div id="carouselExampleRide" class="carousel" data-bs-ride="true">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="card" style="width:14rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Ishin Japanese Dining</h5>
-                        <p class="card-text text-muted">Japanese</p>
-                    </div> 
-                </div>
-            </div>
+    <div class="contentcontainer">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 sidemenu">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
+                <!-- <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                </a> -->
 
-            <div class="carousel-item">
-                <div class="card" style="width:14rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Positano Risto</h5>
-                        <p class="card-text text-muted">Italian</p>
-                    </div> 
+                <div class="searchBar">
+                    <input type="text" placeholder="Search here">
+                    <a href="">
+                        <i class="fa fa-search"></i>
+                    </a>
                 </div>
-            </div>
 
-            <div class="carousel-item">
-                <div class="card" style="width:14rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Beta KL</h5>
-                        <p class="card-text text-muted">Japanese</p>
-                    </div> 
-                </div>
-            </div>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="mb-2">
+                        <a href="#submenu1" class="nav-link px-0 align-middle">
+                            <i class="fa-solid fa-utensils"></i>
+                                <span class="ms-1 d-none d-sm-inline">Category</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
 
-            <div class="carousel-item">
-                <div class="card" style="width:14rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Chambers Grill</h5>
-                        <p class="card-text text-muted">Italian</p>
-                    </div> 
-                </div>
-            </div>
+                        <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
+                            </li>
+                        </ul>
+                    </li>
 
-            <div class="carousel-item">
-                <div class="card" style="width:14rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Ishin Japanese Dining</h5>
-                        <p class="card-text text-muted">Italian</p>
-                    </div> 
-                </div>
-            </div>
+                    <li class="mb-2">
+                        <a href="#submenu2" class="nav-link px-0 align-middle ">
+                            <i class="bi bi-currency-dollar"></i>
+                            <span class="ms-1 d-none d-sm-inline">Price</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
 
-            <div class="carousel-item">
-                <div class="card" style="width:14rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Ishin Japanese Dining</h5>
-                        <p class="card-text text-muted">Italian</p>
-                    </div> 
-                </div>
-            </div>
+                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
+                            </li>
+                        </ul>
+                    </li>
 
-            <div class="carousel-item">
-                <div class="card" style="width:14rem;">
-                    <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="card-title">Ishin Japanese Dining</h5>
-                        <p class="card-text text-muted">Italian</p>
-                    </div> 
-                </div>
+                    <li class="mb-2">
+                        <a href="#submenu3" class="nav-link px-0 align-middle">
+                            <i class="bi bi-geo-alt"></i></i>
+                            <span class="ms-1 d-none d-sm-inline">Location</span>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                            
+                        <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Damansara</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-
-            
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
+        <div id="carouselExampleRide" class="carousel" data-bs-ride="true">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card" style="width:12rem;">
+                        <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Ishin Japanese Dining</h5>
+                            <p class="card-text text-muted">Japanese</p>
+                        </div> 
+                    </div>
+                </div>
 
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+                <div class="carousel-item">
+                    <div class="card" style="width:12rem;">
+                        <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Positano Risto</h5>
+                            <p class="card-text text-muted">Italian</p>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="card" style="width:12rem;">
+                        <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Beta KL</h5>
+                            <p class="card-text text-muted">Japanese</p>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="card" style="width:12rem;">
+                        <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Chambers Grill</h5>
+                            <p class="card-text text-muted">Italian</p>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="card" style="width:12rem;">
+                        <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Ishin Japanese Dining</h5>
+                            <p class="card-text text-muted">Italian</p>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="card" style="width:12rem;">
+                        <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Ishin Japanese Dining</h5>
+                            <p class="card-text text-muted">Italian</p>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="card" style="width:12rem;">
+                        <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Ishin Japanese Dining</h5>
+                            <p class="card-text text-muted">Italian</p>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
 </body>
 
@@ -169,5 +306,4 @@
     });
 
     </script>
-
 </html>
