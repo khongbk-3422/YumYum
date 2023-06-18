@@ -180,15 +180,6 @@
             opacity:.5;
         }
 
-        .restContainer .carousel-inner{
-            display:absolute;
-        }
-
-         .carousel-item{
-            display:block;
-            width:100%;
-            height:100%;
-        }
     </style>
 
 <body>
@@ -285,7 +276,7 @@
 
                         <div class="carousel-item">
                             <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <img src="{{ asset('image/rest2.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">Positano Risto</h5>
                                     <p class="card-text text-muted">Italian</p>
@@ -295,7 +286,7 @@
 
                         <div class="carousel-item">
                             <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <img src="{{ asset('image/rest3.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">Beta KL</h5>
                                     <p class="card-text text-muted">Malaysian</p>
@@ -309,6 +300,16 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Chambers Grill</h5>
                                     <p class="card-text text-muted">Steakhouse</p>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="card" style="width:12rem;">
+                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ishin Japanese Dining</h5>
+                                    <p class="card-text text-muted">Italian</p>
                                 </div> 
                             </div>
                         </div>
@@ -368,8 +369,8 @@
                         <div class="col-md-4">
                             <div id="carouselExampleFade" class="carousel slide carousel-fade">
                                 <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                    <img src="{{ asset('image/rest1.jpg')}}." class="d-block w-100" alt="...">
+                                    <div class="carousel-item">
+                                    <img src="{{ asset('image/rest1.jpg')}}" class="d-block w-100" alt="...">
                                     </div>
                                     <div class="carousel-item">
                                     <img src="{{ asset('image/rest2.jpg')}}" class="d-block w-100" alt="...">
@@ -414,7 +415,7 @@
         var scrollPosition = 0;
 
         $('.carousel-control-next').on('click', function(){
-            if(scrollPosition < (carouselWidth - (cardWidth * 5))){
+            if(scrollPosition < (carouselWidth - (cardWidth * 2.5))){
                 scrollPosition = scrollPosition + cardWidth;
                 $('.carousel-inner').animate({scrollLeft: scrollPosition}, 
                 600);
@@ -426,6 +427,24 @@
                 scrollPosition = scrollPosition - cardWidth;
                 $('.carousel-inner').animate({scrollLeft: scrollPosition}, 
                 600);
+            }
+        });
+
+        // Restaurants in Kuala Lumpur carousel
+        var carouselWidthRest = $('.restContainer .carousel-inner')[0].scrollWidth;
+        var scrollPositionRest = 0;
+
+        $('.restContainer .carousel-control-next').on('click', function(){
+            if(scrollPositionRest < (carouselWidthRest - 1)){
+                scrollPositionRest = scrollPositionRest + 1;
+                $('.restContainer .carousel-inner').animate({scrollLeft: scrollPositionRest}, 600);
+            }
+        });
+
+        $('.restContainer .carousel-control-prev').on('click', function(){
+            if(scrollPositionRest > 0){
+                scrollPositionRest = scrollPositionRest - 1;
+                $('.restContainer .carousel-inner').animate({scrollLeft: scrollPositionRest}, 600);
             }
         });
     });
