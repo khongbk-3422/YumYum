@@ -72,13 +72,3 @@ Route::get('/adminHomePage', function(){
     return view(('adminHomePage'));
 });
 
-
-//testCardSlider
-Route::get('/testCardSlider', function(){
-    return view('testCardSlider');
-});
-
-//testRestPage
-Route::get('/testRestPage', function(){
-    return view('testRestPage');
-});

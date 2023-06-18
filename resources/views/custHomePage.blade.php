@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+    @include('cdn')
     <style>
         *{
             font-family: 'Raleway', sans-serif;
@@ -36,19 +36,6 @@
             line-height: 1.9;
         }
 
-        /* darken the image
-        .carousel-inner:before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background: rgba(53, 52, 52, 0.7);
-            z-index: 1;
-        }
-        */
-
         .w-100{
             height: 100vh;
         }
@@ -69,24 +56,6 @@
         .section-padding{
             padding : 30px 0;
         }
-
-        /* .cardContainer{
-            width:100%;
-            padding : 0 16px;
-        }
-
-        .cardContainer .title{
-            text-align:center;
-            padding: 10px;
-        }
-
-        .card{
-            transition: transform 0.2s;
-        }
-
-        .card:hover{
-            transform: scale(1.1);
-        } */
 
     </style>
     <title>Customer Home Page</title>
