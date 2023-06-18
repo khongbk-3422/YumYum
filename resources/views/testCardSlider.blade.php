@@ -5,79 +5,30 @@
     @include('cdn')
 
     <style>
-        /* Carousel */
-        .carouselContainer{
-            max-width: calc(100% - 220px);
-        }
-
-        .carousel{
-            /* max-width:calc(100% - 50px); */
-            margin: 0 10px;
-            height:300px;
-            margin-top:10px;
-        }
-
-        .carousel-inner{
+        .mainContainer{
             display:flex;
-        }
-
-        .carousel-item{
-            display:block;
-            margin-right:0;
-            flex: 0 0 calc(100% / 4);
-        }
-
-        .carousel-item{
-            padding:20px 18px;
-        }
-
-        .card{
-            margin: 0 10px;
-            height:250px;
-            border-radius:5px;
-            box-shadow: 2px 6px 8px 0 rgba(22,22,26, .18);
-        }
-
-        .carousel-control-prev{
-            height: 6vh;
-            width:6vh;
-            background-color: grey;
-            border-radius:50%;
-            top:50%;
-            transform: translateY(-50%);
-            opacity:.5;
-        }
-
-        .carousel-control-next{
-            height: 6vh;
-            width:6vh;
-            background-color: grey;
-            border-radius:50%;
-            top:50%;
-            transform: translateY(-50%);
-            opacity:.5;
-        }
-
-        .title{
-            text-align:center;
-            margin:10px;
-        }
-
-        /* Sidemenu */
-        .sidemnuContainer{
-            display:flex;
+            flex-wrap:wrap;
             justify-content: space-between;
-            margin: 20px;
+            margin: 25px;
             margin-top:90px;
         }
 
+        .contentContainer {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: calc(100% - 250px);
+            align-items:center;
+        }
+
+        /* Sidemenu */
         .sidemenu{
             background:#F8F8F8;
             margin: 20px 10px;
             box-shadow:0 3px 6px rgba(0, 0, 0, 0.3);
             border-radius:10px;
             padding: 20px;
-            flex: 0 0 220px;
+            flex: 0 0 230px;
             height:110vh;
             align-items:center;
         }
@@ -127,10 +78,123 @@
             color:#A39087;
             margin-left:22px;
         }
+
+        
+        /* Carousel */
+        .carouselContainer{
+            max-width: 100%;
+            margin-bottom:10px;
+        }
+
+        .carousel{
+            margin: 0 10px;
+            height:280px;
+            margin-top:10px;
+        }
+
+        .carousel-inner{
+            display:flex;
+        }
+
+         .carousel-item{
+            display:block;
+            margin-right:-8px;
+            flex: 0 0 calc(100% / 5);
+            padding:18px 16px;
+        }
+
+        .card{
+            margin: 0 10px;
+            height:250px;
+            border-radius:5px;
+            box-shadow: 2px 6px 8px 0 rgba(22,22,26, .18);
+        }
+
+        .carousel-control-prev{
+            height: 6vh;
+            width:6vh;
+            background-color: grey;
+            border-radius:50%;
+            top:50%;
+            transform: translateY(-50%);
+            opacity:.5;
+        }
+
+        .carousel-control-next{
+            height: 6vh;
+            width:6vh;
+            background-color: grey;
+            border-radius:50%;
+            top:50%;
+            transform: translateY(-50%);
+            opacity:.5;
+        }
+
+        .title{
+            text-align:center;
+            margin:10px;
+        }
+
+        /* Restaurant cards */
+        .restContainer{
+            margin-top:10px;
+        }
+
+        .restContainer .title{
+            text-align:center;
+        }
+
+        .restContainer .card{
+            height:200px;
+        }
+
+        .viewRestBtn{
+            border:none;
+            background:grey;
+            color:black;
+            margin:15px;
+            font-size:18px;
+            font-weight:black;
+            border-radius:5px;
+            height:35px;
+            outline:none;
+        }
+
+        .prev{
+            height: 6vh;
+            width:6vh;
+            background-color: grey;
+            border-radius:50%;
+            top:50%;
+            transform: translateY(-50%);
+            opacity:.5;
+        }
+
+        .next{
+            height: 6vh;
+            width:6vh;
+            background-color: grey;
+            border-radius:50%;
+            top:50%;
+            transform: translateY(-50%);
+            opacity:.5;
+        }
+
+        .restContainer .carousel-inner{
+            display:absolute;
+        }
+
+         .carousel-item{
+            display:block;
+            width:100%;
+            height:100%;
+        }
     </style>
 
 <body>
-    <div class="sidemnuContainer">
+    
+    <div class="mainContainer">
+        <!-- Sidemenu Starts -->
         <div class="sidemenu">
             <div class="searchBar">
                 <input type="text" placeholder="Search here">
@@ -198,103 +262,152 @@
                 </li>
             </ul>
         </div>
+        <!-- Sidemenu End -->
 
-        <div class="carouselContainer">
-            <div class="title">
-                <h3>Top Recommend Restaurants</h3>
-            </div>
-
-            <div id="carouselExampleRide" class="carousel" data-bs-ride="true">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="card" style="width:12rem;">
-                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">Ishin Japanese Dining</h5>
-                                <p class="card-text text-muted">Japanese</p>
-                            </div> 
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="card" style="width:12rem;">
-                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">Positano Risto</h5>
-                                <p class="card-text text-muted">Italian</p>
-                            </div> 
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="card" style="width:12rem;">
-                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">Beta KL</h5>
-                                <p class="card-text text-muted">Malaysian</p>
-                            </div> 
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="card" style="width:12rem;">
-                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">Chambers Grill</h5>
-                                <p class="card-text text-muted">Steakhouse</p>
-                            </div> 
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="card" style="width:12rem;">
-                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">Ishin Japanese Dining</h5>
-                                <p class="card-text text-muted">Italian</p>
-                            </div> 
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="card" style="width:12rem;">
-                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">Ishin Japanese Dining</h5>
-                                <p class="card-text text-muted">Italian</p>
-                            </div> 
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="card" style="width:12rem;">
-                            <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                            <div class="card-body">
-                                <h5 class="card-title">Ishin Japanese Dining</h5>
-                                <p class="card-text text-muted">Italian</p>
-                            </div> 
-                        </div>
-                    </div>
+        <div class="contentContainer">
+            <!-- Carousel Starts -->
+            <div class="carouselContainer">
+                <div class="title">
+                    <h3>Top Recommend Restaurants</h3>
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
+                <div id="carouselExampleRide" class="carousel" data-bs-ride="true">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="card" style="width:12rem;">
+                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ishin Japanese Dining</h5>
+                                    <p class="card-text text-muted">Japanese</p>
+                                </div> 
+                            </div>
+                        </div>
 
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                        <div class="carousel-item">
+                            <div class="card" style="width:12rem;">
+                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Positano Risto</h5>
+                                    <p class="card-text text-muted">Italian</p>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="card" style="width:12rem;">
+                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Beta KL</h5>
+                                    <p class="card-text text-muted">Malaysian</p>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="card" style="width:12rem;">
+                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Chambers Grill</h5>
+                                    <p class="card-text text-muted">Steakhouse</p>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="card" style="width:12rem;">
+                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ishin Japanese Dining</h5>
+                                    <p class="card-text text-muted">Italian</p>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="card" style="width:12rem;">
+                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ishin Japanese Dining</h5>
+                                    <p class="card-text text-muted">Italian</p>
+                                </div> 
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="card" style="width:12rem;">
+                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ishin Japanese Dining</h5>
+                                    <p class="card-text text-muted">Italian</p>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
+            <!-- Carousel End -->
+
+            <!-- Restaurant Cards Start -->
+            <div class="restContainer">
+                <div class="title">
+                    <h3>Restaurants in Kuala Lumpur</h3>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                    <img src="{{ asset('image/rest1.jpg')}}." class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img src="{{ asset('image/rest2.jpg')}}" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img src="{{ asset('image/rest3.jpg')}}" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card-body">
+                                <h5 class="card-title">RestaurantName</h5>
+                                <p class="card-text">Location</p>
+                                <p class="card-text"><small class="text-muted">Italian</small></p>
+                                <a href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <!-- Restaurant Cards End -->
         </div>
-        
     </div>
 </body>
 
     <script>
     $(document).ready(function() {
-        //next card choser
+        //top restaurant card choser
         var carouselWidth = $('.carousel-inner')[0].scrollWidth;
         var cardWidth = $('.carousel-item').width();
 
@@ -319,3 +432,4 @@
 
     </script>
 </html>
+
