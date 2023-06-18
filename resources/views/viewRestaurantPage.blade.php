@@ -9,6 +9,10 @@
     @include('cdn')
 
     <style>
+         *{
+            font-family: 'Raleway', sans-serif;
+        }
+
         .mainContainer{
             display:flex;
             flex-wrap:wrap;
@@ -228,10 +232,38 @@
 
                     <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                         <li>
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="italianCheckbox">
+                                <label class="form-check-label mb-2" for="italianCheckbox">Italian</label>
+                            </div>
                         </li>
+
                         <li>
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="japaneseCheckbox">
+                                <label class="form-check-label  mb-2" for="japaneseCheckbox">Japanese</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="malaysianCheckbox">
+                                <label class="form-check-label  mb-2" for="malaysianCheckbox">Malaysian</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="steakhouseCheckbox">
+                                <label class="form-check-label  mb-2" for="steakhouseCheckbox">Steakhouse</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="thaiCheckbox">
+                                <label class="form-check-label  mb-2" for="thaiCheckbox">Thai</label>
+                            </div>
                         </li>
                     </ul>
                 </li>
@@ -245,10 +277,10 @@
 
                     <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                         <li>
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
+                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline"> RM20-RM50 </span></a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span></a>
+                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline"> </span></a>
                         </li>
                     </ul>
                 </li>
