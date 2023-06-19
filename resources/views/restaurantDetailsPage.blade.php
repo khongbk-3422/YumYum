@@ -6,21 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    @include('cdn')
+    <style>
+        .bodycontainer{
+            margin-top:65px;
+            background:pink;
+        }
+    </style>
 </head>
 <body>
-    <section class="restaurantDetails">
-        <div class="restImage">
-            
-        </div>
-    </section>
-
-    <section class="reviews">
-        <div class="title">
-            <h2>Reviews and Ratings</h2>
+    <div class="bodycontainer">
+        <div class="restDetails">
+            <div class="restName">
+                <h3>Iketeru</h3>
+            </div>
         </div>
 
-        
-    </section>
+    </div>
+    
 </body>
 </html>
 

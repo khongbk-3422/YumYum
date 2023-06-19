@@ -105,7 +105,7 @@
 
         .carouselContainer .carousel-item{
             display:block;
-            margin-right:-14px;
+            margin-right:-16px;
             flex: 0 0 calc(100% / 5);
             padding:18px 16px;
         }
@@ -115,6 +115,30 @@
             height:250px;
             border-radius:5px;
             box-shadow: 2px 6px 8px 0 rgba(22,22,26, .18);
+            transition:0.5s;
+        }
+
+        .carouselContainer .card:hover{
+            transform:scale(1.1);
+        }
+
+        .carouselContainer .card img{
+            width:100%;
+            height:150px;
+            object-fit:cover;
+        }
+
+        .carouselContainer .card-body .card-title{
+            font-size:18px;
+        }
+
+        .carouselContainer .card-body .card-text{
+            margin-bottom:3px;
+        }
+
+        .carouselContainer .card-body i{
+            font-size:12px;
+            color:#d4d0a5;
         }
 
         .carouselContainer .carousel-control-prev{
@@ -318,7 +342,7 @@
         <!-- Sidemenu End -->
 
         <div class="contentContainer">
-            <!-- Carousel Starts -->
+            <!-- Top restaurant carousel Starts -->
             <div class="carouselContainer">
                 <div class="title">
                     <h3>Top Recommend Restaurants</h3>
@@ -330,8 +354,9 @@
                             <div class="card" style="width:12rem;">
                                 <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
                                 <div class="card-body">
-                                    <h5 class="card-title">Ishin Japanese Dining</h5>
+                                    <h5 class="card-title">Iketeru Restaurant</h5>
                                     <p class="card-text text-muted">Japanese</p>
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                 </div> 
                             </div>
                         </div>
@@ -340,8 +365,9 @@
                             <div class="card" style="width:12rem;">
                                 <img src="{{ asset('image/rest2.jpg')}}" class="card-img-top">
                                 <div class="card-body">
-                                    <h5 class="card-title">Positano Risto</h5>
-                                    <p class="card-text text-muted">Italian</p>
+                                    <h5 class="card-title">Prime</h5>
+                                    <p class="card-text text-muted">Steakhouse</p>
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                 </div> 
                             </div>
                         </div>
@@ -352,56 +378,62 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Beta KL</h5>
                                     <p class="card-text text-muted">Malaysian</p>
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
                                 </div> 
                             </div>
                         </div>
 
                         <div class="carousel-item">
                             <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <img src="{{ asset('image/rest4.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">Chambers Grill</h5>
                                     <p class="card-text text-muted">Steakhouse</p>
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
                                 </div> 
                             </div>
                         </div>
 
                         <div class="carousel-item">
                             <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <img src="{{ asset('image/rest5.jpg')}}" class="card-img-top">
                                 <div class="card-body">
-                                    <h5 class="card-title">Ishin Japanese Dining</h5>
+                                    <h5 class="card-title">Positano Risto</h5>
                                     <p class="card-text text-muted">Italian</p>
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
                                 </div> 
                             </div>
                         </div>
 
                         <div class="carousel-item">
                             <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <img src="{{ asset('image/rest6.jpg')}}" class="card-img-top">
                                 <div class="card-body">
-                                    <h5 class="card-title">Ishin Japanese Dining</h5>
-                                    <p class="card-text text-muted">Italian</p>
+                                    <h5 class="card-title">JP Teres</h5>
+                                    <p class="card-text text-muted">Malaysian</p>
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
                                 </div> 
                             </div>
                         </div>
 
                         <div class="carousel-item">
                             <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <img src="{{ asset('image/rest7.jpg')}}" class="card-img-top">
                                 <div class="card-body">
-                                    <h5 class="card-title">Ishin Japanese Dining</h5>
+                                    <h5 class="card-title">Via Pre Kul</h5>
                                     <p class="card-text text-muted">Italian</p>
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                 </div> 
                             </div>
                         </div>
 
                         <div class="carousel-item">
                             <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
+                                <img src="{{ asset('image/rest8.jpg')}}" class="card-img-top">
                                 <div class="card-body">
-                                    <h5 class="card-title">Ishin Japanese Dining</h5>
-                                    <p class="card-text text-muted">Italian</p>
+                                    <h5 class="card-title">Tamarind Hill</h5>
+                                    <p class="card-text text-muted">Thai</p>
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                                 </div> 
                             </div>
                         </div>
@@ -418,7 +450,7 @@
                     </button>
                 </div>
             </div>
-            <!-- Carousel End -->
+            <!-- Top restaurant carousel End -->
 
             <!-- Restaurant Cards Start -->
             <div class="restContainer">
@@ -456,7 +488,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
                             </div>
                         </div>
                     </div>
@@ -505,7 +537,7 @@
     <script>
         //sidemnu toggle
         document.addEventListener('DOMContentLoaded', function() {
-            const menulinks = document.querySelectorAll('.sidemenu #menu .nav-link');
+            const menulinks = document.querySelectorAll('#menu .nav-link');
 
             menulinks.forEach(function(link){
                 link.addEventListener('click', function(event){
@@ -524,7 +556,7 @@
             var scrollPosition = 0;
 
             $('.carouselContainer .carousel-control-next').on('click', function(){
-                if(scrollPosition < (carouselWidth - (cardWidth * 2.5))){
+                if(scrollPosition < (carouselWidth - (cardWidth * 4))){
                     scrollPosition = scrollPosition + cardWidth;
                     $('.carouselContainer .carousel-inner').animate({scrollLeft: scrollPosition}, 
                     600);
