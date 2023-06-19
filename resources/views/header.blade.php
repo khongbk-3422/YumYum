@@ -62,7 +62,7 @@
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/viewRestaurantPage' ? 'active' : ''; ?> " href="/viewRestaurantPage">Restaurant</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Spinwheel</a>
+						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/spinwheelPage' ? 'active' : ''; ?>" href="/spinwheelPage">Spinwheel</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#services">History</a>

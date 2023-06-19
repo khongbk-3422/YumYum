@@ -49,23 +49,25 @@ Route::get('/custHomePage', function () {
     return view('custHomePage');
 });
 
-//custHomePage
+//custProfilePage
 Route::get('/custProfilePage', function () {
     return view('custProfilePage');
 });
 
-
-//restPage
+//viewRestaurantPage
 Route::get('/viewRestaurantPage', function(){
     return view('viewRestaurantPage');
 });
 
-//restDetailsPage
+//restaurantDetailsPage
 Route::get('/restaurantDetailsPage', function(){
     return view('restaurantDetailsPage');
 });
 
-
+//spinwheel
+Route::get('/spinwheelPage', function(){
+    return view('spinwheelPage');
+});
 
 //adminHomePage
 Route::get('/adminHomePage', function(){

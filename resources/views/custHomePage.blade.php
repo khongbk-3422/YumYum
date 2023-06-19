@@ -13,7 +13,7 @@
         }
 
         .carousel-item {
-            height: 95vh;
+            height: 100vh;
             min-height: 300px;
         }
 

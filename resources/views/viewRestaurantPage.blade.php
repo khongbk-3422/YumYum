@@ -25,7 +25,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            max-width: calc(100% - 250px);
+            max-width: calc(100% - 260px);
             align-items:center;
         }
 
@@ -70,18 +70,18 @@
             font-size:18px;
         }
 
-        .nav-link i{
+        .sidemenu .nav-link i{
             font-size:18px;
             color:black;
             margin-right:10px;
         }
 
-        .nav-link span{
+        .sidemenu .nav-link span{
             font-size:16px;
             color:#674D41;
         }
 
-        .nav-link .fa-angle-down{
+        .sidemenu .nav-link .fa-angle-down{
             font-size:20px;
             color:#A39087;
             margin-left:22px;
@@ -93,31 +93,31 @@
             margin-bottom:10px;
         }
 
-        .carousel{
+        .carouselContainer .carousel{
             margin: 0 10px;
             height:280px;
             margin-top:10px;
         }
 
-        .carousel-inner{
+        .carouselContainer .carousel-inner{
             display:flex;
         }
 
-         .carousel-item{
+        .carouselContainer .carousel-item{
             display:block;
             margin-right:-14px;
             flex: 0 0 calc(100% / 5);
             padding:18px 16px;
         }
 
-        .card{
+        .carouselContainer .card{
             margin: 0 10px;
             height:250px;
             border-radius:5px;
             box-shadow: 2px 6px 8px 0 rgba(22,22,26, .18);
         }
 
-        .carousel-control-prev{
+        .carouselContainer .carousel-control-prev{
             height: 6vh;
             width:6vh;
             background-color: grey;
@@ -127,7 +127,7 @@
             opacity:.5;
         }
 
-        .carousel-control-next{
+        .carouselContainer .carousel-control-next{
             height: 6vh;
             width:6vh;
             background-color: grey;
@@ -151,31 +151,33 @@
             text-align:center;
         }
 
-        .restContainer .carousel{
-            /* background:red; */
-            height:200px;
-            margin:0 0;
-            border-top-left-radius:5px;
-            border-bottom-left-radius:5px;
-        }
-        
         .restContainer .card{
             height:200px;
         }
 
-        .restContainer .carousel-item{
-            background:pink;
+        .restContainer .carousel{
+            background:red;
+            height:200px;
+            margin:0 0;
             border-top-left-radius:5px;
             border-bottom-left-radius:5px;
-            width:calc(100% / 3);
-            height:180px;
+        }
+
+        .restContainer .carousel-inner{
+            display:flex;
+        }
+
+        .restContainer .carousel-item{
+            border-top-left-radius:5px;
+            border-bottom-left-radius:5px;
+            width:100%;
+            height:200px;
             margin:0 0;
         }
 
         .restContainer .carousel-item img{
-            width:200px;
-            height:180px;
-            object-fit:cover;
+            width:100%;
+            height:100%;
         }
 
         .viewRestBtn{
@@ -427,41 +429,74 @@
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-3">
-                            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="{{ asset('image/rest1.jpg')}}" >
+                                        <img src="{{asset('image/rest1.jpg')}}">
+                                    </div>           
+                                    <div class="carousel-item">
+                                        <img src="{{asset('image/rest2.jpg')}}">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="{{ asset('image/rest1.jpg')}}" >
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="{{ asset('image/rest3.jpg')}}">
+                                        <img src="{{asset('image/rest3.jpg')}}">
                                     </div>
                                 </div>
-
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </a>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">RestaurantName</h5>
-                                <p class="card-text">Location</p>
-                                <p class="card-text"><small class="text-muted">Italian</small></p>
-                                <a href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                             </div>
                         </div>
                     </div>
-                </div> 
-            
+                </div>
+                <!-- test 2 -->
+                <!-- <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="{{asset('image/rest1.jpg')}}">
+                                    </div>           
+                                    <div class="carousel-item">
+                                        <img src="{{asset('image/rest2.jpg')}}">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="{{asset('image/rest3.jpg')}}">
+                                    </div>
+                                </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
             </div>
             <!-- Restaurant Cards End -->
         </div>
@@ -470,7 +505,7 @@
     <script>
         //sidemnu toggle
         document.addEventListener('DOMContentLoaded', function() {
-            const menulinks = document.querySelectorAll('#menu .nav-link');
+            const menulinks = document.querySelectorAll('.sidemenu #menu .nav-link');
 
             menulinks.forEach(function(link){
                 link.addEventListener('click', function(event){
