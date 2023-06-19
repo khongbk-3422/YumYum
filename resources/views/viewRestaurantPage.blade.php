@@ -164,7 +164,7 @@
         }
 
         .restContainer .carousel-item{
-            /* background:pink; */
+            background:pink;
             border-top-left-radius:5px;
             border-bottom-left-radius:5px;
             width:calc(100% / 3);
@@ -287,15 +287,19 @@
 
                 <li class="mb-2">
                     <a href="#submenu3" class="nav-link px-0 align-middle">
-                        <i class="bi bi-geo-alt"></i></i>
+                        <i class="bi bi-geo-alt"></i>
                         <span class="ms-1 d-none d-sm-inline">Location</span>
                         <i class="fa-solid fa-angle-down"></i>
                     </a>
                         
                     <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                         <li>
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Damansara</span></a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="damansaraCB">
+                                <label class="form-check-label  mb-2" for="damansaraCB">Damansara</label>
+                            </div>
                         </li>
+
                         <li>
                             <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
                         </li>
@@ -464,6 +468,7 @@
     </div>
 </body>
     <script>
+        //sidemnu toggle
         document.addEventListener('DOMContentLoaded', function() {
             const menulinks = document.querySelectorAll('#menu .nav-link');
 
