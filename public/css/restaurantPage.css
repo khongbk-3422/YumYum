@@ -1,0 +1,243 @@
+*{
+    font-family: 'Raleway', sans-serif;
+}
+
+.mainContainer{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    margin: 25px;
+    margin-top:90px;
+    background:#fcfcfa;
+}
+
+.contentContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 260px);
+    align-items:center;
+}
+
+/* Sidemenu */
+.sidemenu{
+    background:#F8F8F8;
+    margin: 20px 10px;
+    box-shadow:0 3px 6px rgba(0, 0, 0, 0.3);
+    border-radius:10px;
+    padding: 20px;
+    flex: 0 0 230px;
+    height:120vh;
+    align-items:center;
+}
+
+.searchBar{
+    height:30px;
+    display:flex;
+    cursor:pointer;
+    padding:5px 5px;
+    border-radius:30px;
+    align-items:center;
+    box-shadow:0 5px 5px rgba(0, 0, 0, 0.3);
+    margin:15px 0;
+}
+
+.searchBar:hover input{
+    width:140px;
+}
+
+.searchBar input{
+    width:0;
+    outline:none;
+    border:none;
+    font-size:15px;
+    transition:0.8s;
+    background:transparent;
+}
+
+.searchBar a i{
+    color:#C0B0A2;
+    font-size:18px;
+}
+
+.sidemenu .nav-link i{
+    font-size:18px;
+    color:black;
+    margin-right:10px;
+}
+
+.sidemenu .nav-link span{
+    font-size:16px;
+    color:#674D41;
+}
+
+.sidemenu .nav-link .fa-angle-down{
+    font-size:20px;
+    color:#A39087;
+    margin-left:22px;
+}
+
+/* Carousel */
+.carouselContainer{
+    max-width: 100%;
+    margin-bottom:10px;
+}
+
+.carouselContainer .carousel{
+    margin: 0 10px;
+    height:280px;
+    margin-top:10px;
+}
+
+.carouselContainer .carousel-inner{
+    display:flex;
+}
+
+.carouselContainer .carousel-item{
+    display:block;
+    margin-right:-16px;
+    flex: 0 0 calc(100% / 5);
+    padding:18px 16px;
+}
+
+.carouselContainer .card{
+    margin: 0 10px;
+    height:250px;
+    border-radius:5px;
+    box-shadow: 2px 6px 8px 0 rgba(22,22,26, .18);
+    transition:0.5s;
+}
+
+.carouselContainer .card:hover{
+    transform:scale(1.1);
+}
+
+.carouselContainer .card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.carouselContainer .card-body .card-title{
+    font-size:18px;
+}
+
+.carouselContainer .card-body .card-text{
+    margin-bottom:3px;
+}
+
+.carouselContainer .card-body .rating{
+    color: grey;
+    margin-right:5px;
+}
+
+.carouselContainer .card-body i{
+    font-size:12px;
+    /* color:#cfcda5; */
+    color:#d1d18a;
+}
+
+.carouselContainer .carousel-control-prev{
+    height: 6vh;
+    width:6vh;
+    background-color: rgb(100, 95, 95);
+    border-radius:50%;
+    top:50%;
+    transform: translateY(-50%);
+    opacity:.5;
+}
+
+.carouselContainer .carousel-control-next{
+    height: 6vh;
+    width:6vh;
+    background-color: rgb(100, 95, 95);
+    border-radius:50%;
+    top:50%;
+    transform: translateY(-50%);
+    opacity:.5;
+}
+
+.title{
+    text-align:center;
+    margin:10px;
+}
+
+/* Restaurant cards */
+.restContainer{
+    margin-top:10px;
+}
+
+.restContainer .title{
+    text-align:center;
+    margin:10px;
+}
+
+.restContainer .card{
+    height:180px;
+}
+
+.restContainer .card-body{
+    width:600px;
+}
+
+.restContainer .card-text i{
+    margin-right:10px;
+    font-size:15px;
+}
+
+.restContainer .carousel{
+    background:red;
+    height:180px;
+    margin:0 0;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+}
+
+.restContainer .carousel-inner{
+    display:flex;
+}
+
+.restContainer .carousel-item{
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    width:100%;
+    height:180px;
+    margin:0 0;
+}
+
+.restContainer .carousel-item img{
+    width:100%;
+    height:100%;
+}
+
+.viewRestBtn{
+    border:none;
+    background:grey;
+    color:black;
+    margin:15px;
+    font-size:18px;
+    font-weight:black;
+    border-radius:5px;
+    height:35px;
+    outline:none;
+}
+
+.restContainer .carousel-control-prev{
+    height: 6vh;
+    width:6vh;
+    background-color: grey;
+    border-radius:50%;
+    top:50%;
+    transform: translateY(-50%);
+    opacity:.5;
+}
+
+.restContainer .carousel-control-next{
+    height: 6vh;
+    width:6vh;
+    background-color: grey;
+    border-radius:50%;
+    top:50%;
+    transform: translateY(-50%);
+    opacity:.5;
+}

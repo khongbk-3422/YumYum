@@ -7,235 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     @include('cdn')
-
-    <style>
-         *{
-            font-family: 'Raleway', sans-serif;
-        }
-
-        .mainContainer{
-            display:flex;
-            flex-wrap:wrap;
-            justify-content: space-between;
-            margin: 25px;
-            margin-top:90px;
-        }
-
-        .contentContainer {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            max-width: calc(100% - 260px);
-            align-items:center;
-        }
-
-        /* Sidemenu */
-        .sidemenu{
-            background:#F8F8F8;
-            margin: 20px 10px;
-            box-shadow:0 3px 6px rgba(0, 0, 0, 0.3);
-            border-radius:10px;
-            padding: 20px;
-            flex: 0 0 230px;
-            height:110vh;
-            align-items:center;
-        }
-
-        .searchBar{
-            height:30px;
-            display:flex;
-            cursor:pointer;
-            padding:5px 5px;
-            border-radius:30px;
-            align-items:center;
-            box-shadow:0 5px 5px rgba(0, 0, 0, 0.3);
-            margin:15px 0;
-        }
-
-        .searchBar:hover input{
-            width:140px;
-        }
-
-        .searchBar input{
-            width:0;
-            outline:none;
-            border:none;
-            font-size:15px;
-            transition:0.8s;
-            background:transparent;
-        }
-
-        .searchBar a i{
-            color:#C0B0A2;
-            font-size:18px;
-        }
-
-        .sidemenu .nav-link i{
-            font-size:18px;
-            color:black;
-            margin-right:10px;
-        }
-
-        .sidemenu .nav-link span{
-            font-size:16px;
-            color:#674D41;
-        }
-
-        .sidemenu .nav-link .fa-angle-down{
-            font-size:20px;
-            color:#A39087;
-            margin-left:22px;
-        }
-        
-        /* Carousel */
-        .carouselContainer{
-            max-width: 100%;
-            margin-bottom:10px;
-        }
-
-        .carouselContainer .carousel{
-            margin: 0 10px;
-            height:280px;
-            margin-top:10px;
-        }
-
-        .carouselContainer .carousel-inner{
-            display:flex;
-        }
-
-        .carouselContainer .carousel-item{
-            display:block;
-            margin-right:-16px;
-            flex: 0 0 calc(100% / 5);
-            padding:18px 16px;
-        }
-
-        .carouselContainer .card{
-            margin: 0 10px;
-            height:250px;
-            border-radius:5px;
-            box-shadow: 2px 6px 8px 0 rgba(22,22,26, .18);
-            transition:0.5s;
-        }
-
-        .carouselContainer .card:hover{
-            transform:scale(1.1);
-        }
-
-        .carouselContainer .card img{
-            width:100%;
-            height:150px;
-            object-fit:cover;
-        }
-
-        .carouselContainer .card-body .card-title{
-            font-size:18px;
-        }
-
-        .carouselContainer .card-body .card-text{
-            margin-bottom:3px;
-        }
-
-        .carouselContainer .card-body i{
-            font-size:12px;
-            color:#d4d0a5;
-        }
-
-        .carouselContainer .carousel-control-prev{
-            height: 6vh;
-            width:6vh;
-            background-color: grey;
-            border-radius:50%;
-            top:50%;
-            transform: translateY(-50%);
-            opacity:.5;
-        }
-
-        .carouselContainer .carousel-control-next{
-            height: 6vh;
-            width:6vh;
-            background-color: grey;
-            border-radius:50%;
-            top:50%;
-            transform: translateY(-50%);
-            opacity:.5;
-        }
-
-        .title{
-            text-align:center;
-            margin:10px;
-        }
-
-        /* Restaurant cards */
-        .restContainer{
-            margin-top:10px;
-        }
-
-        .restContainer .title{
-            text-align:center;
-        }
-
-        .restContainer .card{
-            height:200px;
-        }
-
-        .restContainer .carousel{
-            background:red;
-            height:200px;
-            margin:0 0;
-            border-top-left-radius:5px;
-            border-bottom-left-radius:5px;
-        }
-
-        .restContainer .carousel-inner{
-            display:flex;
-        }
-
-        .restContainer .carousel-item{
-            border-top-left-radius:5px;
-            border-bottom-left-radius:5px;
-            width:100%;
-            height:200px;
-            margin:0 0;
-        }
-
-        .restContainer .carousel-item img{
-            width:100%;
-            height:100%;
-        }
-
-        .viewRestBtn{
-            border:none;
-            background:grey;
-            color:black;
-            margin:15px;
-            font-size:18px;
-            font-weight:black;
-            border-radius:5px;
-            height:35px;
-            outline:none;
-        }
-
-        .restContainer .carousel-control-prev{
-            height: 6vh;
-            width:6vh;
-            background-color: grey;
-            border-radius:50%;
-            top:50%;
-            transform: translateY(-50%);
-            opacity:.5;
-        }
-
-        .restContainer .carousel-control-next{
-            height: 6vh;
-            width:6vh;
-            background-color: grey;
-            border-radius:50%;
-            top:50%;
-            transform: translateY(-50%);
-            opacity:.5;
-        }
-    </style>
+    <link rel="stylesheet" href="{{asset('css/restaurantPage.css')}}">
 </head>
 <body>
     <div class="mainContainer">
@@ -259,36 +31,36 @@
                     <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="italianCheckbox">
-                                <label class="form-check-label mb-2" for="italianCheckbox">Italian</label>
+                                <input class="form-check-input" type="checkbox" value="" id="italianCB">
+                                <label class="form-check-label mb-2" for="italianCB">Italian</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="japaneseCheckbox">
-                                <label class="form-check-label  mb-2" for="japaneseCheckbox">Japanese</label>
+                                <input class="form-check-input" type="checkbox" value="" id="japaneseCB">
+                                <label class="form-check-label  mb-2" for="japaneseCB">Japanese</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="malaysianCheckbox">
-                                <label class="form-check-label  mb-2" for="malaysianCheckbox">Malaysian</label>
+                                <input class="form-check-input" type="checkbox" value="" id="malaysianCB">
+                                <label class="form-check-label  mb-2" for="malaysianCB">Malaysian</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="steakhouseCheckbox">
-                                <label class="form-check-label  mb-2" for="steakhouseCheckbox">Steakhouse</label>
+                                <input class="form-check-input" type="checkbox" value="" id="steakhouseCB">
+                                <label class="form-check-label  mb-2" for="steakhouseCB">Steakhouse</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="thaiCheckbox">
-                                <label class="form-check-label  mb-2" for="thaiCheckbox">Thai</label>
+                                <input class="form-check-input" type="checkbox" value="" id="thaiCB">
+                                <label class="form-check-label  mb-2" for="thaiCB">Thai</label>
                             </div>
                         </li>
                     </ul>
@@ -303,11 +75,26 @@
 
                     <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
                         <li>
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline"> RM20-RM50 </span></a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="price1CB">
+                                <label class="form-check-label  mb-2" for="price1CB"> < RM80</label>
+                            </div>
                         </li>
+
                         <li>
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline"> </span></a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="price1CB">
+                                <label class="form-check-label  mb-2" for="price1CB"> < RM200</label>
+                            </div>
                         </li>
+
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="price1CB">
+                                <label class="form-check-label  mb-2" for="price1CB"> > RM500</label>
+                            </div>
+                        </li>
+
                     </ul>
                 </li>
 
@@ -321,19 +108,37 @@
                     <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                         <li>
                             <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="bintangCB">
+                                <label class="form-check-label  mb-2" for="bintangCB">Bukit Bintang</label>
+                            </div>
+                        </li>
+                        
+                        <li>
+                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="damansaraCB">
                                 <label class="form-check-label  mb-2" for="damansaraCB">Damansara</label>
                             </div>
                         </li>
 
                         <li>
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="sentralCB">
+                                <label class="form-check-label  mb-2" for="sentralCB">Jalan Stesen Sentral</label>
+                            </div>
                         </li>
+                        
                         <li>
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="ismailCB">
+                                <label class="form-check-label  mb-2" for="ismailCB">Jalan Sultan Ismail</label>
+                            </div>
                         </li>
+
                         <li>
-                            <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span></a>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="razakCB">
+                                <label class="form-check-label  mb-2" for="razakCB">Jalan Tun Razak</label>
+                            </div>
                         </li>
                     </ul>
                 </li>
@@ -341,8 +146,8 @@
         </div>
         <!-- Sidemenu End -->
 
+        <!-- Top restaurant carousel Starts -->
         <div class="contentContainer">
-            <!-- Top restaurant carousel Starts -->
             <div class="carouselContainer">
                 <div class="title">
                     <h3>Top Recommend Restaurants</h3>
@@ -356,7 +161,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Iketeru Restaurant</h5>
                                     <p class="card-text text-muted">Japanese</p>
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                                 </div> 
                             </div>
                         </div>
@@ -367,7 +172,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Prime</h5>
                                     <p class="card-text text-muted">Steakhouse</p>
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                                 </div> 
                             </div>
                         </div>
@@ -378,7 +183,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Beta KL</h5>
                                     <p class="card-text text-muted">Malaysian</p>
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                                 </div> 
                             </div>
                         </div>
@@ -389,7 +194,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Chambers Grill</h5>
                                     <p class="card-text text-muted">Steakhouse</p>
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
                                 </div> 
                             </div>
                         </div>
@@ -400,7 +205,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Positano Risto</h5>
                                     <p class="card-text text-muted">Italian</p>
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
                                 </div> 
                             </div>
                         </div>
@@ -411,7 +216,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">JP Teres</h5>
                                     <p class="card-text text-muted">Malaysian</p>
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
                                 </div> 
                             </div>
                         </div>
@@ -422,7 +227,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Via Pre Kul</h5>
                                     <p class="card-text text-muted">Italian</p>
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
                                 </div> 
                             </div>
                         </div>
@@ -433,7 +238,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Tamarind Hill</h5>
                                     <p class="card-text text-muted">Thai</p>
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    <p class="rating">4.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                                 </div> 
                             </div>
                         </div>
@@ -486,8 +291,8 @@
 
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <h5 class="card-title">Restaurant Name</h5>
+                                <p class="card-text"><i class="bi bi-geo-alt"></i>Location</p>
                                 <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
                             </div>
                         </div>
@@ -574,3 +379,4 @@
     </script>
 </html>
 
+@include('footer')

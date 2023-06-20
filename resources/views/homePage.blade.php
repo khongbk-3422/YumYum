@@ -99,7 +99,9 @@
 						<h2>Discover the Perfect<br>
 						Dining Experience</h2>
 						<p>We, YumYum revolutionizes the way you explore culinary delights. 
-                            Find top-rated restaurants, personalized recommendations, exclusive deals, easy reservations, and exciting cuisine exploration, all at your fingertips. Start your gastronomic journey with us today!</p>
+                            Find top-rated restaurants, personalized recommendations, exclusive deals, easy reservations, and exciting cuisine exploration, all at your fingertips. 
+							Start your gastronomic journey with us today!
+						</p>
 					</div>
 				</div>
 			</div>

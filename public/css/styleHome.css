@@ -4,6 +4,7 @@
 	font-family: 'Raleway', sans-serif;
 }
 
+/* Homepage */
 body {
 	background: #f1fbff;
 }
@@ -88,7 +89,7 @@ body {
 }
 
 .services .card-body{
-	background-color:#EFF0EA;
+	background-color:#f7fae6;
 	color: #3B4338;
 }
 
