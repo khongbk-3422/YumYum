@@ -74,3 +74,7 @@ Route::get('/adminHomePage', function(){
     return view(('adminHomePage'));
 });
 
+//testing purpose
+Route::get('/testSwiper', function(){
+    return view(('testSwiper'));
+});

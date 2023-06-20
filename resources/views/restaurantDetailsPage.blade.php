@@ -44,6 +44,14 @@
             letter-spacing:2px;
         }
 
+        .cardcontainer .card .card-body h5{
+            font-size:17px;
+            font-weight:bold;
+            letter-spacing:2px;
+            /* text-decoration:underline #d1d0cf; */
+            margin-bottom: 10px;
+        }
+
         /* Ratings and reviews */
         .ratingcontainer{
             display:flex;
@@ -133,9 +141,8 @@
         </div>
         
 
-        <div class="menuImage">
-            <!-- image -->
-        </div>
+        <div class="menucontainer">
+
 
         <div class="cardcontainer">
             <div class="row">
@@ -215,6 +222,7 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
 
