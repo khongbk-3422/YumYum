@@ -4,7 +4,6 @@
 	font-family: 'Raleway', sans-serif;
 }
 
-/* Homepage */
 body {
 	background: #f1fbff;
 }
@@ -86,6 +85,45 @@ body {
 
 .card-body p{
 	font-size:16px;
+}
+
+.row{
+	padding:15px;
+}
+
+.row .title{
+	text-align: left;
+}
+
+.row .card-title{
+	font-size:25px;
+	margin:10px;
+}
+
+.row .title i{
+	font-size:22px;
+	margin-left:8px;
+}
+
+.row .image1{
+	float:left;
+	width:350px;
+	height:280px;
+	margin-right:20px;
+}
+
+.row .image2{
+	float:right;
+	width:350px;
+	height:280px;
+	margin-left:20px;
+}
+
+.row .image3{
+	float:left;
+	width:350px;
+	height:280px;
+	margin-right:20px;
 }
 
 .services .card-body{
