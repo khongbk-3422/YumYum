@@ -219,6 +219,58 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
                     </div>
                 </div>
+                <div class="reviewbox">
+                    <div class="box-top">
+                        <div class="profile">
+                            <div class="custpic">
+                                <img src="{{asset('image/rest1.jpg')}}" alt="">
+                            </div>
+
+                            <div class="custname">
+                                <strong>alicia</strong>
+                            </div>
+                        </div>
+
+                        <div class="rating">
+                            <!-- how to display number star based on sql -->
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="custreview">
+                        <p class="date">2023/05/12 21:45:21</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
+                    </div>
+                </div>
+                <div class="reviewbox">
+                    <div class="box-top">
+                        <div class="profile">
+                            <div class="custpic">
+                                <img src="{{asset('image/rest1.jpg')}}" alt="">
+                            </div>
+
+                            <div class="custname">
+                                <strong>alicia</strong>
+                            </div>
+                        </div>
+
+                        <div class="rating">
+                            <!-- how to display number star based on sql -->
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="custreview">
+                        <p class="date">2023/05/12 21:45:21</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
