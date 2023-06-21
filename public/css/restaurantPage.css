@@ -188,13 +188,14 @@
 .restContainer .carousel{
     background:red;
     height:180px;
+    width:90%;
     margin:0 0;
     border-top-left-radius:5px;
     border-bottom-left-radius:5px;
 }
 
 .restContainer .carousel-inner{
-    display:flex;
+    display:inline-block;
 }
 
 .restContainer .carousel-item{
