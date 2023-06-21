@@ -109,7 +109,7 @@
 	</section>
     <!-- about section Ends -->
 
-	<!-- services section Starts -->
+	<!-- choose us section Starts -->
 	<section class="services section-padding" id="services">
 		<div class="container">
 			<div class="row">
@@ -121,16 +121,23 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12 col-md-12 col-lg-4">
-					<div class="card text-center">
-						<div class="card-body">
-                            <i class="bi bi-patch-check"></i>
-							<h3 class="card-title">Verifed Review</h3>
-							<p> Our dedicated team ensures that only genuine and unbiased feedback from real diners is included, giving you confidence in the reliability of the information. </p>
-						</div>
+
+			<!-- <div class="row">
+				<div class="clearfix">
+					<img src="{{('image/img1.jpg')}}" class="col-md-6 float-md-left mb-3 ms-md-3">
+					<div class="title">
+						<h3 class="card-title">Verified Review <span><i class="bi bi-patch-check"></i></span></h3>
 					</div>
+
+					<p>
+						Our dedicated team ensures that only genuine and unbiased feedback from real diners is included, giving you confidence in the reliability of the information
+					</p>
+
+					<p>
+						As you can see the paragraphs gracefully wrap around the floated image. Now imagine how this would look with some actual content in here, rather than just this boring placeholder text that goes on and on, but actually conveys no tangible information at. It simply takes up space and should not really be read.
+					</p>
 				</div>
+
 				<div class="col-12 col-md-12 col-lg-4">
 					<div class="card text-center">
 						<div class="card-body">
@@ -140,6 +147,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="col-12 col-md-12 col-lg-4">
 					<div class="card text-center">
 						<div class="card-body">
@@ -149,10 +157,58 @@
 						</div>
 					</div>
 				</div>
+			</div> -->
+
+			<div class="row">
+				<div class="col-md-12">
+					<img src="{{('image/img2.jpg')}}" class="image1">
+						<div class="title">
+							<h3 class="card-title">Verified Review <span><i class="bi bi-patch-check"></i></span></h3>
+						</div>
+					<p>
+					Embark on a culinary journey with us, where our dedicated team goes the extra mile to curate only the most authentic and unbiased feedback from genuine diners. 
+					We understand the importance of trust when it comes to choosing the perfect dining spot, and that's why we take pride in providing you with a reliable platform. 
+					Rest assured that every review you encounter has been meticulously verified, giving you the confidence to explore new flavors and savor remarkable dining experiences. 
+					</p>
+				</div>
 			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<img src="{{('image/img3.jpg')}}" class="image2">
+						<div class="title">
+							<h3 class="card-title">Reliable <span><i class="bi bi-award"></i></span></h3>
+						</div>
+					<p>
+						Uncover a culinary wonderland where the crème de la crème of restaurants awaits. Our community-driven platform brings you the ultimate dining experience, presenting you with the 
+						best of the best based on authentic ratings and rankings. Immerse yourself in the wisdom of our discerning members, who have painstakingly shared their feedback to 
+						ensure you make choices that truly delight your taste buds. From hidden gems to renowned establishments, 
+						we curate a handpicked selection of highly regarded eateries that are guaranteed to elevate your dining adventures. 
+
+					</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<img src="{{('image/img4.jpg')}}" class="image3">
+						<div class="title">
+							<h3 class="card-title">User-Friendly <span><i class="bi bi-stars"></i></span></h3>
+						</div>
+					<p>
+					Indulge in a hassle-free dining exploration with our platform's seamless and user-friendly features. Effortlessly navigate through a plethora of restaurant options, 
+					conveniently filter them based on your preferences, and discover the perfect place to satisfy your cravings. Our intuitive interface empowers you to effortlessly embark 
+					on a culinary adventure, making the process of finding your ideal dining destination an absolute breeze. 
+					With just a few clicks, you'll unlock a world of delectable possibilities and embark on a journey filled with mouthwatering delights. 
+					</p>
+				</div>
+			</div>
+
+
+
 		</div>
 	</section>
-    <!-- services section Ends -->
+    <!-- choose us  section Ends -->
 
 	<!-- team starts -->
 	<section class="team section-padding" id="team">
