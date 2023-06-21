@@ -146,7 +146,7 @@
 
         <div class="cardcontainer">
             <div class="row">
-                <div class="col-sm-4">
+                <!-- <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
                             <h5>Price Range</h5>
@@ -156,11 +156,14 @@
                             <p>Japanese</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
+                            <h5>Rating 4.5</h5>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                             <h5>Price Range</h5>
                             <p>RM20-RM500</p>
 
@@ -170,16 +173,14 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-8">
                     <div class="card">
                         <div class="card-body">
-                            <h5>Location and Contact</h5>
+                            <h5>Location</h5>
                             <!-- Display map -->
-                            <p>map</p>
+                            <iframe width="600" height="180" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=4 off, Persiaran Klang, Batu 3 3, 202, Old Klang Rd, Taman Shanghai, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur&output=embed"></iframe>
+                            <!-- <p>map</p> -->
                             <p>Address0</p>
-
-                            <h5>Contact</h5>
-                            <p>111111111</p>
                         </div>
                     </div>
                 </div>
@@ -193,58 +194,6 @@
             </div>
             
             <div class="reviewcontainer">
-                <div class="reviewbox">
-                    <div class="box-top">
-                        <div class="profile">
-                            <div class="custpic">
-                                <img src="{{asset('image/rest1.jpg')}}" alt="">
-                            </div>
-
-                            <div class="custname">
-                                <strong>alicia</strong>
-                            </div>
-                        </div>
-
-                        <div class="rating">
-                            <!-- how to display number star based on sql -->
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-
-                    <div class="custreview">
-                        <p class="date">2023/05/12 21:45:21</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
-                    </div>
-                </div>
-                <div class="reviewbox">
-                    <div class="box-top">
-                        <div class="profile">
-                            <div class="custpic">
-                                <img src="{{asset('image/rest1.jpg')}}" alt="">
-                            </div>
-
-                            <div class="custname">
-                                <strong>alicia</strong>
-                            </div>
-                        </div>
-
-                        <div class="rating">
-                            <!-- how to display number star based on sql -->
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-
-                    <div class="custreview">
-                        <p class="date">2023/05/12 21:45:21</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
-                    </div>
-                </div>
                 <div class="reviewbox">
                     <div class="box-top">
                         <div class="profile">
