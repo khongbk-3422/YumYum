@@ -78,3 +78,7 @@ Route::get('/adminHomePage', function(){
 Route::get('/testSwiper', function(){
     return view(('testSwiper'));
 });
+
+Route::get('/spinWheel', function(){
+    return view(('spinwheelPage'));
+});

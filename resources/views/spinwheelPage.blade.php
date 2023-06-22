@@ -41,7 +41,7 @@ body {
   content: "";
   width: 32px;
   height: 32px;
-  background: url('download.png') no-repeat;
+  background: url('image/download.png') no-repeat;
   background-size: 32px;
   right: -30px;
   top: 50%;
@@ -153,9 +153,9 @@ span b {
 	<div id="mainbox" class="mainbox">
 		<div id="box" class="box">
 			<div class="box1">
-                @foreach ($restaurants as $r)
+                {{-- @foreach ($restaurants as $r)
                 <span class="span1"><b>{{$r}}</b></span>
-                @endforeach
+                @endforeach --}}
 				<span class="span1"><b>Iron Man</b></span>
 				<span class="span2"><b>7500</b></span>
 				<span class="span3"><b>Bat Man</b></span>
