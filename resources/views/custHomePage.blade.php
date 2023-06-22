@@ -40,22 +40,58 @@
             height: 100vh;
         }
 
+		/* Services */
         .card-body p{
             font-size:16px;
         }
 
-        .services .card-body{
-            background-color:#EFF0EA;
-            color: #3B4338;
-        }
+		.row{
+			padding:15px;
+		}
 
-        .services .card-body i {
-            font-size: 35px;
-        }
+		.row .title{
+			text-align: left;
+		}
+
+		.row .card-title{
+			font-size:25px;
+			margin:10px;
+		}
+
+		.row .title i{
+			font-size:25px;
+			margin-left:8px;
+			color: #706558;
+		}
+
+		.row .description{
+			font-size: 17px;
+			line-height: 1.5;
+			text-align: justify;
+		}
+
+		.row .image1, .image3{
+			float:left;
+			width:350px;
+			height:280px;
+			margin-right:20px;
+		}
+
+		.row .image2{
+			float:right;
+			width:350px;
+			height:280px;
+			margin-left:20px;
+		}
 
         .section-padding{
             padding : 30px 0;
         }
+
+		/* teams */
+		.team .card-body i {
+			font-size: 20px;
+		}
 
     </style>
     <title>Customer Home Page</title>
@@ -153,33 +189,48 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="row">
-				<div class="col-12 col-md-12 col-lg-4">
-					<div class="card text-center">
-						<div class="card-body">
-                            <i class="bi bi-patch-check"></i>
-							<h3 class="card-title">Verifed Review</h3>
-							<p> Our dedicated team ensures that only genuine and unbiased feedback from real diners is included, giving you confidence in the reliability of the information. </p>
+				<div class="col-md-12">
+					<img src="{{('image/img2.jpg')}}" class="image1">
+						<div class="title">
+							<h3 class="card-title">Verified Review <span><i class="bi bi-patch-check"></i></span></h3>
 						</div>
-					</div>
+					<p class="description">
+					Embark on a culinary journey with us, where our dedicated team goes the extra mile to curate only the most authentic and unbiased feedback from genuine diners. 
+					We understand the importance of trust when it comes to choosing the perfect dining spot, and that's why we take pride in providing you with a reliable platform. 
+					Rest assured that every review you encounter has been meticulously verified, giving you the confidence to explore new flavors and savor remarkable dining experiences. 
+					</p>
 				</div>
-				<div class="col-12 col-md-12 col-lg-4">
-					<div class="card text-center">
-						<div class="card-body">
-                            <i class="bi bi-award"></i>
-							<h3 class="card-title">Reliable</h3>
-							<p>Discover the best restaurants based on authentic ratings and rankings from our community, ensuring you choose from highly regarded dining establishments.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<img src="{{('image/img3.jpg')}}" class="image2">
+						<div class="title">
+							<h3 class="card-title">Reliable <span><i class="bi bi-award"></i></span></h3>
 						</div>
-					</div>
+					<p class="description">
+						Uncover a culinary wonderland where the crème de la crème of restaurants awaits. Our community-driven platform brings you the ultimate dining experience, presenting you with the 
+						best of the best based on authentic ratings and rankings. Immerse yourself in the wisdom of our discerning members, who have painstakingly shared their feedback to 
+						ensure you make choices that truly delight your taste buds. From hidden gems to renowned establishments, 
+						we curate a handpicked selection of highly regarded eateries that are guaranteed to elevate your dining adventures. 
+					</p>
 				</div>
-				<div class="col-12 col-md-12 col-lg-4">
-					<div class="card text-center">
-						<div class="card-body">
-                            <i class="bi bi-stars"></i>
-							<h3 class="card-title">User-Friendly</h3>
-							<p>A seamless and user-friendly features let you to effortlessly navigate through restaurant options, filter by preferences, and find the perfect place to dine.</p>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<img src="{{('image/img4.jpg')}}" class="image3">
+						<div class="title">
+							<h3 class="card-title">User-Friendly <span><i class="bi bi-stars"></i></span></h3>
 						</div>
-					</div>
+					<p class="description">
+					Indulge in a hassle-free dining exploration with our platform's seamless and user-friendly features. Effortlessly navigate through a plethora of restaurant options, 
+					conveniently filter them based on your preferences, and discover the perfect place to satisfy your cravings. Our intuitive interface empowers you to effortlessly embark 
+					on a culinary adventure, making the process of finding your ideal dining destination an absolute breeze. 
+					With just a few clicks, you'll unlock a world of delectable possibilities and embark on a journey filled with mouthwatering delights. 
+					</p>
 				</div>
 			</div>
 		</div>
@@ -214,7 +265,7 @@
 						<div class="card-body">
 							<img alt="" class="img-fluid rounded-circle" src="{{ asset('image/leon.jpg') }}">
 							<h3 class="card-title py-2">Leon (CMO)</h3>
-							<p class="card-text">A creative marketing genius who spearheads our branding and promotional efforts. With his deep understanding of consumer behavior, he effectively communicates the value of our restaurant finder system, captivating and engaging our audience.</p>
+							<p class="card-text">A creative marketing genius who spearheads our branding and promotional efforts. With his deep understanding of consumer behavior, he effectively communicates the value of our system, captivating and engaging our audience.</p>
 							<p class="socials"><i class="bi bi-facebook text-dark mx-1"></i> <i class="bi bi-linkedin text-dark mx-1"></i> <i class="bi bi-instagram text-dark mx-1"></i></p>
 						</div>
 					</div>
