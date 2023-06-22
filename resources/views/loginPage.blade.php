@@ -236,7 +236,6 @@
         <div class="loginPanel">
             <!-- login -->
             <div class="formPanel login">
-                @csrf
                 <form action="login" method="POST">
                     @csrf
                     <h2>Login</h2>
@@ -263,7 +262,6 @@
 
             <!-- register -->
             <div class="formPanel register">
-                @csrf
                 <form action="register" method="POST">
                     @csrf
                     <h2>Register</h2>
@@ -309,6 +307,16 @@
     </div>
 </body>
 
+@if(Session::has('email_not_found'))
+    <script>
+        alert('Email not found');
+    </script>
+@endif
+@if(Session::has('wrong_password'))
+    <script>
+        alert('Wrong Password');
+    </script>
+@endif
 <script>
     const loginPanel = document.querySelector('.loginPanel');
     const login_link = document.querySelector('.loginLink');
