@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use App\Models\Customer;
 use App\Models\Admin;
@@ -48,48 +49,98 @@ class UserController extends Controller
 
     //Register
     function userRegister(Request $req) {
+        $validator = Validator::make($req->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'contact' => 'required|numeric',
+            'password' => 'required|min:8|max:20',
+            'conf_password' => 'required|same:password',
+        ], [
+            'name.required' => 'The name field is required.',
+            'email.required' => 'The email field is required.',
+            'email.email' => 'The email must be a valid email address format.',
+            'contact.required' => 'The contact field is required.',
+            'contact.numeric' => 'The contact field must contain only numeric values.',
+            'password.required' => 'The password field is required.',
+            'password.min' => 'The password must be at least 8 characters.',
+            'password.max' => 'The password may not be greater than 20 characters.',
+            'conf_password.required' => 'The confirm password field is required.',
+            'conf_password.same' => 'The confirm password must match the password.',
+        ]);
+    
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+    
+            // If the name is not there
+            if ($errors->has('name')) {
+                Session::flash('name_error', $errors->first('name'));
+            }
+
+            // If the email format is wrong
+            if ($errors->has('email')) {
+                Session::flash('email_error', $errors->first('email'));
+            }
+    
+            // If the contact format is wrong
+            if ($errors->has('contact')) {
+                Session::flash('contact_error', $errors->first('contact'));
+            }
+    
+            // If the password length is less than 8 characters
+            if ($errors->has('password')) {
+                Session::flash('password_error', $errors->first('password'));
+            }
+
+            // If the password length is less than 8 characters
+            if ($errors->has('conf_password')) {
+                Session::flash('conf_password_error', $errors->first('conf_password'));
+            }
+            
+            Session::flash('register_failed', true);
+            return redirect()->back();
+        }
+    
         $data= $req->input();
         $user=User::whereRaw("BINARY user_email = ?", [$data['email']])->first();
 
-        if ($data['password'] == $data['conf_password']){
-            if ($user) {
-                Session::flash('email_used', true);
-                return redirect()->back();
+        
+        if ($user) {
+            Session::flash('email_used', true);
+            Session::flash('register_failed', true);
+            return redirect()->back();
 
-            } else {
-                $user_t=new User;
-                $user_t->user_email=$req->email;
-                $user_t->user_password=$req->password;
-                $user_t->position="1";
-                $user_t->save();
-
-                $last_id = Customer::orderBy('cust_id', 'desc')->first();
-
-                if ($last_id) {
-                    $numeric_id = (int) substr($last_id->cust_id, 1);
-                    $next_numeric_id = $numeric_id + 1;
-                    $new_id = 'C' . str_pad($next_numeric_id, 6, '0', STR_PAD_LEFT);
-                } else {
-                    $new_id = 'C000001'; // Set default if no records exist
-                }
-                
-
-                $customer_t=new Customer();
-                $customer_t->cust_id=$new_id;
-                $customer_t->cust_name=$req->name;
-                $customer_t->cust_contact=$req->contact;
-                $imagePath = 'C:\xampp\htdocs\yumyum\public\image\profile.png';
-                $imageContent = file_get_contents($imagePath);
-                $customer_t->cust_pic = $imageContent;
-                $customer_t->user_email=$req->email;
-                $customer_t->save();
-                return redirect('/loginPage');
-                
-            }
         } else {
-            Session::flash('conf_pass_incorrect', true);
-                return redirect()->back();
+            $user_t=new User;
+            $user_t->user_email=$req->email;
+            $user_t->user_password=$req->password;
+            $user_t->position="1";
+            $user_t->save();
+
+            $last_id = Customer::orderBy('cust_id', 'desc')->first();
+
+            if ($last_id) {
+                $numeric_id = (int) substr($last_id->cust_id, 1);
+                $next_numeric_id = $numeric_id + 1;
+                $new_id = 'C' . str_pad($next_numeric_id, 6, '0', STR_PAD_LEFT);
+            } else {
+                $new_id = 'C000001';
+            }
+            
+
+            $customer_t=new Customer();
+            $customer_t->cust_id=$new_id;
+            $customer_t->cust_name=$req->name;
+            $customer_t->cust_contact=$req->contact;
+            $imagePath = 'C:\xampp\htdocs\yumyum\public\image\profile.png';
+            $imageContent = file_get_contents($imagePath);
+            $customer_t->cust_pic = $imageContent;
+            $customer_t->user_email=$req->email;
+            $customer_t->save();
+            Session::flash('successful_register', true);
+            return redirect('/loginPage');
+            
         }
+        
         
     }
 }

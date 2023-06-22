@@ -322,11 +322,45 @@
         alert('Email used!');
     </script>
 @endif
-@if(Session::has('conf_pass_incorrect'))
+@if(Session::has('email_error'))
     <script>
-        alert('Password and Confirm Password is Different!');
+        alert("{{ Session::get('email_error') }}");
     </script>
 @endif
+@if(Session::has('contact_error'))
+    <script>
+        alert("{{ Session::get('contact_error') }}");
+    </script>
+@endif
+@if(Session::has('password_error'))
+    <script>
+        alert("{{ Session::get('password_error') }}");
+    </script>
+@endif
+@if(Session::has('name_error'))
+    <script>
+        alert("{{ Session::get('name_error') }}");
+    </script>
+@endif
+@if(Session::has('conf_password_error'))
+    <script>
+        alert("{{ Session::get('conf_password_error') }}");
+    </script>
+@endif
+@if(Session::has('register_failed'))
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loginPanel.classList.add('active');
+            {{ Session::forget('register_failed') }};
+        });
+    </script>
+@endif
+@if(Session::has('successful_register'))
+    <script>
+        alert('Successful Register!');
+    </script>
+@endif
+
 <script>
     const loginPanel = document.querySelector('.loginPanel');
     const login_link = document.querySelector('.loginLink');
