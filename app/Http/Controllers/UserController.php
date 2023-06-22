@@ -75,7 +75,8 @@ class UserController extends Controller
                 $customer_t->cust_id=$new_id;
                 $customer_t->cust_name=$req->name;
                 $customer_t->cust_contact=$req->contact;
-                $customer_t->cust_pic=$req->picture;
+                // $customer_t->cust_pic=addslashes(file_get_contents($_FILES[$req->picture]['tmp_name']));
+                $customer_t->cust_pic=addslashes(file_get_contents($_FILES[(URL('image/profile.jpg'))]['tmp_name']));
                 $customer_t->user_email=$req->email;
                 $customer_t->save();
                 return redirect('/loginPage');
