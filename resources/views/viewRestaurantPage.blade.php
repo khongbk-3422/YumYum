@@ -74,12 +74,36 @@
                     </a>
 
                     <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                        <li>
-                            <div class="form-check">
+                        
+                            <!-- <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="price1CB">
                                 <label class="form-check-label  mb-2" for="price1CB"> < RM80</label>
+                            </div> -->
+                        <div class="listwrapper">
+                            <div class="priceinput">
+                                <div class="field">
+                                    <span>MIN</span>
+                                    <input type="number" name="min_price" value="100">
+                                </div>
+
+                                <div class="seperator">-</div>
+
+                                <div class="field">
+                                    <span>MAX</span>
+                                    <input type="number" name="max_price" value="500">
+                                </div>
                             </div>
-                        </li>
+
+                            <div class="slider">
+                                <div class="amount"></div>
+                            </div>
+                            <div class="pricerange">
+                                <input type="range" class="minrange" min="0" max="800" value="100" name="min_price_range">
+                                <input type="range" class="maxrange" min="0" max="800" value="500" name="max_price_range">
+                            </div>
+                        </div>
+                            
+                        
 
                     </ul>
                 </li>
@@ -307,6 +331,35 @@
                     600);
                 }
             });
+    });
+
+    const priceInput = document.querySelectorAll(".priceinput input"),
+    
+    priceRange = document.querySelectorAll(".slider .amount");
+
+    let priceGap = 100;
+
+    priceInput.forEach(input =>{
+        input.addEventListener("input", e =>{
+            let minVal = parseInt(priceInput[0].val),
+                maxVal = parseInt(priceInput[1].val);
+
+            if(maxVal - minVal < priceGap){
+                if(e.target.className === "minrange"){
+                    priceInput[0].value = maxVal - priceGap;
+                }
+                else{
+                    priceInput[1].value = minVal + priceGap;
+                }
+            }
+            else{
+                priceRange.style.left = (minVal / priceInput[0].max) * 100 + "%";
+                priceRange.style.right = 100 - (maxVal / priceInput[1].max) * 100 + "%";
+            }
+
+            // let percent = (minVal / priceInput[0].max) * 100;
+            // console.log(minVal, maxVal);
+        });
     });
     </script>
 </html>
