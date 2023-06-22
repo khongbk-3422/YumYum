@@ -46,10 +46,10 @@ class UserController extends Controller
         
     }
 
-    //Register      -password, conf_password, email, name, contact, picture
+    //Register
     function userRegister(Request $req) {
         $data= $req->input();
-        $user=User::where('user_email', $data['email']);
+        $user=User::whereRaw("BINARY user_email = ?", [$data['email']])->first();
 
         if ($data['password'] == $data['conf_password']){
             if ($user) {
@@ -58,16 +58,15 @@ class UserController extends Controller
 
             } else {
                 $user_t=new User;
-                $user_t->user_email=$req->id;
+                $user_t->user_email=$req->email;
                 $user_t->user_password=$req->password;
                 $user_t->position="1";
                 $user_t->save();
 
 
-                $last_id = Customer::orderBy('customer_id', 'desc')
-                        ->first();
+                $last_id = Customer::orderBy('cust_id', 'desc')->first();
                 
-                $numeric_id = (int) substr($current_id, 1);
+                $numeric_id = (int) substr($last_id, 1);
                 $next_numeric_id = $numeric_id + 1;
                 $new_id = 'C' . str_pad($next_numeric_id, 6, '0', STR_PAD_LEFT);
                 

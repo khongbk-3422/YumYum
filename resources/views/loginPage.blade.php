@@ -309,12 +309,22 @@
 
 @if(Session::has('email_not_found'))
     <script>
-        alert('Email not found');
+        alert('Email not found!');
     </script>
 @endif
 @if(Session::has('wrong_password'))
     <script>
-        alert('Wrong Password');
+        alert('Wrong Password!');
+    </script>
+@endif
+@if(Session::has('email_used'))
+    <script>
+        alert('Email used!');
+    </script>
+@endif
+@if(Session::has('conf_pass_incorrect'))
+    <script>
+        alert('Password and Confirm Password is Different!');
     </script>
 @endif
 <script>
