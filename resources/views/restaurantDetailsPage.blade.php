@@ -49,7 +49,21 @@
             font-weight:bold;
             letter-spacing:2px;
             /* text-decoration:underline #d1d0cf; */
-            margin-bottom: 10px;
+            /* margin-bottom: 10px; */
+            margin:15px 5px;
+        }
+
+        .cardcontainer .card .card-body .restLocation{
+            font-size:17px;
+            font-weight:bold;
+            letter-spacing:2px;
+            /* margin-bottom: 10px; */
+            margin:2px 5px;
+        }
+
+        .cardcontainer .card .card-body .restAddress{
+            font-size:14px;
+            letter-spacing:2px;
         }
 
         /* Ratings and reviews */
@@ -146,24 +160,13 @@
 
         <div class="cardcontainer">
             <div class="row">
-                <!-- <div class="col-sm-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5>Price Range</h5>
-                            <p>RM20-RM500</p>
-
-                            <h5>Cuisine</h5>
-                            <p>Japanese</p>
-                        </div>
-                    </div>
-                </div> -->
-
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
                             <h5>Rating 4.5</h5>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
+
                             <h5>Price Range</h5>
                             <p>RM20-RM500</p>
 
@@ -176,11 +179,11 @@
                 <div class="col-sm-8">
                     <div class="card">
                         <div class="card-body">
-                            <h5>Location</h5>
+                            <h5 class="restLocation">Location</h5>
                             <!-- Display map -->
-                            <iframe width="600" height="180" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=4 off, Persiaran Klang, Batu 3 3, 202, Old Klang Rd, Taman Shanghai, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur&output=embed"></iframe>
+                            <iframe width="600" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=4 off, Persiaran Klang, Batu 3 3, 202, Old Klang Rd, Taman Shanghai, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur&output=embed"></iframe>
                             <!-- <p>map</p> -->
-                            <p>Address0</p>
+                            <p class="restAddress">Address0</p>
                         </div>
                     </div>
                 </div>

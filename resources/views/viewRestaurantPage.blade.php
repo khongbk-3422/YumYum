@@ -81,20 +81,6 @@
                             </div>
                         </li>
 
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="price1CB">
-                                <label class="form-check-label  mb-2" for="price1CB"> < RM200</label>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="price1CB">
-                                <label class="form-check-label  mb-2" for="price1CB"> > RM500</label>
-                            </div>
-                        </li>
-
                     </ul>
                 </li>
 
@@ -258,6 +244,7 @@
             <!-- Top restaurant carousel End -->
 
             <!-- Restaurant Cards Start -->
+            <!-- Loop from database -->
             <div class="restContainer">
                 <div class="title">
                     <h3>Restaurants in Kuala Lumpur</h3>
@@ -266,27 +253,7 @@
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-3">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="{{asset('image/rest1.jpg')}}">
-                                    </div>           
-                                    <div class="carousel-item">
-                                        <img src="{{asset('image/rest2.jpg')}}">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="{{asset('image/rest3.jpg')}}">
-                                    </div>
-                                </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </a>
-                            </div>
+                            <img src="{{asset('image/rest1.jpg')}}" alt="">
                         </div>
 
                         <div class="col-md-8">
@@ -298,42 +265,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- test 2 -->
-                <!-- <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-3">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="{{asset('image/rest1.jpg')}}">
-                                    </div>           
-                                    <div class="carousel-item">
-                                        <img src="{{asset('image/rest2.jpg')}}">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="{{asset('image/rest3.jpg')}}">
-                                    </div>
-                                </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+            
             </div>
             <!-- Restaurant Cards End -->
         </div>

@@ -176,34 +176,20 @@
     height:180px;
 }
 
+.restContainer .card .row img{
+    width:210px;
+    height:180px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
 .restContainer .card-body{
     width:600px;
+    margin:0 6px;
 }
 
 .restContainer .card-text i{
-    margin-right:10px;
-    font-size:15px;
-}
-
-.restContainer .carousel{
-    background:red;
-    height:180px;
-    width:90%;
-    margin:0 0;
-    border-top-left-radius:5px;
-    border-bottom-left-radius:5px;
-}
-
-.restContainer .carousel-inner{
-    display:inline-block;
-}
-
-.restContainer .carousel-item{
-    border-top-left-radius:5px;
-    border-bottom-left-radius:5px;
-    width:100%;
-    height:180px;
-    margin:0 0;
+    padding:0 6px;
 }
 
 .restContainer .carousel-item img{
@@ -213,7 +199,7 @@
 
 .viewRestBtn{
     border:none;
-    background:grey;
+    background:#e0dfdc;
     color:black;
     margin:15px;
     font-size:18px;
@@ -221,24 +207,4 @@
     border-radius:5px;
     height:35px;
     outline:none;
-}
-
-.restContainer .carousel-control-prev{
-    height: 6vh;
-    width:6vh;
-    background-color: grey;
-    border-radius:50%;
-    top:50%;
-    transform: translateY(-50%);
-    opacity:.5;
-}
-
-.restContainer .carousel-control-next{
-    height: 6vh;
-    width:6vh;
-    background-color: grey;
-    border-radius:50%;
-    top:50%;
-    transform: translateY(-50%);
-    opacity:.5;
 }
