@@ -250,6 +250,7 @@
             </div>
             
             <div class="reviewcontainer">
+                <!-- IF {} -->
                 <!-- Customer's own feedback will shown if gave feedback before -->
                 <div class="reviewbox">
                     <div class="box-top">
@@ -279,6 +280,7 @@
                     </div>
                 </div>
 
+                <!-- ELSE{} -->
                 <!-- Fetch from sql -->
                 <div class="reviewbox">
                     <div class="box-top">
@@ -301,6 +303,7 @@
                         </div>
                     </div>
 
+                    <!-- Change to text area bah -->
                     <div class="custreview">
                         <p class="date">2023/05/12 21:45:21</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
