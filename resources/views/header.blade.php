@@ -70,7 +70,9 @@
                     <li class="nav-item dropdown">
                         <!-- display the cust's name-->
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{session('user_name')}}
-                            <span class="profilePic"><img src="" alt=""></span>
+                            <span class="profilePic">
+                                <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}" alt="">
+                            </span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>

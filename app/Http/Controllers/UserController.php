@@ -63,20 +63,24 @@ class UserController extends Controller
                 $user_t->position="1";
                 $user_t->save();
 
-
                 $last_id = Customer::orderBy('cust_id', 'desc')->first();
-                
-                $numeric_id = (int) substr($last_id, 1);
-                $next_numeric_id = $numeric_id + 1;
-                $new_id = 'C' . str_pad($next_numeric_id, 6, '0', STR_PAD_LEFT);
+
+                if ($last_id) {
+                    $numeric_id = (int) substr($last_id->cust_id, 1);
+                    $next_numeric_id = $numeric_id + 1;
+                    $new_id = 'C' . str_pad($next_numeric_id, 6, '0', STR_PAD_LEFT);
+                } else {
+                    $new_id = 'C000001'; // Set default if no records exist
+                }
                 
 
                 $customer_t=new Customer();
                 $customer_t->cust_id=$new_id;
                 $customer_t->cust_name=$req->name;
                 $customer_t->cust_contact=$req->contact;
-                // $customer_t->cust_pic=addslashes(file_get_contents($_FILES[$req->picture]['tmp_name']));
-                $customer_t->cust_pic=addslashes(file_get_contents($_FILES[(URL('image/profile.jpg'))]['tmp_name']));
+                $imagePath = 'C:\xampp\htdocs\yumyum\public\image\profile.png';
+                $imageContent = file_get_contents($imagePath);
+                $customer_t->cust_pic = $imageContent;
                 $customer_t->user_email=$req->email;
                 $customer_t->save();
                 return redirect('/loginPage');
