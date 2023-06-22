@@ -132,6 +132,7 @@
         .rating i{
             color:yellow;
         }
+        
 
         .custreview .date{
             color:grey;
@@ -140,6 +141,30 @@
         .custreview p{
             font-size:14px;
             color:black;
+        }
+
+        /* Menu carousel */
+        .menucontainer{
+            width:calc(100% - 220px);
+        }
+        
+        .carousel{
+            width:calc(100% - 220px);
+            height:70vh;
+            padding:10px 10px;
+            justify-content:center;
+            background:pink;
+        }
+
+        .carousel-inner{
+            width:100%;
+            height:100%;
+        }
+
+        .carousel-item img{
+            width:100%;
+            height: 100%;
+            object-fit:cover;
         }
     </style>
 </head>
@@ -156,7 +181,35 @@
         
 
         <div class="menucontainer">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
 
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{asset('image/rest1.jpg')}}">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('image/rest1.jpg')}}" >
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{asset('image/rest1.jpg')}}">
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
 
         <div class="cardcontainer">
             <div class="row">
@@ -197,6 +250,36 @@
             </div>
             
             <div class="reviewcontainer">
+                <!-- Customer's own feedback will shown if gave feedback before -->
+                <div class="reviewbox">
+                    <div class="box-top">
+                        <div class="profile">
+                            <div class="custpic">
+                                <img src="{{asset('image/rest1.jpg')}}" alt="">
+                            </div>
+
+                            <div class="custname">
+                                <strong>alicia</strong>
+                            </div>
+                        </div>
+
+                        <div class="rating">
+                            <!-- how to display number of star based on sql -->
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <!-- <i class="fa-regular fa-pen-to-square"></i> -->
+                        </div>
+                    </div>
+
+                    <div class="custreview">
+                        <p class="date">2023/05/12 21:45:21</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
+                    </div>
+                </div>
+
+                <!-- Fetch from sql -->
                 <div class="reviewbox">
                     <div class="box-top">
                         <div class="profile">
