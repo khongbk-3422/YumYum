@@ -18,7 +18,8 @@ class UserController extends Controller
         $user = User::whereRaw("BINARY user_email = ?", [$data['email']])->first();
 
         if ($user) {
-            if ($user->user_password == $data['password']){
+            $pwd=md5($data['password']);
+            if ($user->user_password == $pwd){
                 Session::flash('success_login', true);
                 
                 if ($user->position == "1") {
@@ -110,9 +111,12 @@ class UserController extends Controller
             return redirect()->back();
 
         } else {
+
+            $pwd=md5($req->password);
+            
             $user_t=new User;
             $user_t->user_email=$req->email;
-            $user_t->user_password=$req->password;
+            $user_t->user_password=$pwd;
             $user_t->position="1";
             $user_t->save();
 
@@ -126,7 +130,6 @@ class UserController extends Controller
                 $new_id = 'C000001';
             }
             
-
             $customer_t=new Customer();
             $customer_t->cust_id=$new_id;
             $customer_t->cust_name=$req->name;
@@ -140,7 +143,5 @@ class UserController extends Controller
             return redirect('/loginPage');
             
         }
-        
-        
     }
 }
