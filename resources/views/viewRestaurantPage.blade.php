@@ -74,13 +74,8 @@
                     </a>
 
                     <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                        
-                            <!-- <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="price1CB">
-                                <label class="form-check-label  mb-2" for="price1CB"> < RM80</label>
-                            </div> -->
                         <div class="listwrapper">
-                            <div class="priceinput">
+                            <div class="rangeinput">
                                 <div class="field">
                                     <span>MIN</span>
                                     <input type="number" name="min_price" value="100">
@@ -97,14 +92,16 @@
                             <div class="slider">
                                 <div class="amount"></div>
                             </div>
+
                             <div class="pricerange">
-                                <input type="range" class="minrange" min="0" max="800" value="100" name="min_price_range">
-                                <input type="range" class="maxrange" min="0" max="800" value="500" name="max_price_range">
+                                <input type="range" class="minrange" min="0" max="1000" value="100" name="min_price_range" step="50">
+                                <input type="range" class="maxrange" min="0" max="1000" value="500" name="max_price_range" step="50">
+                            </div>
+
+                            <div class="confirmbutton">
+                                <button>View</button>
                             </div>
                         </div>
-                            
-                        
-
                     </ul>
                 </li>
 
@@ -332,34 +329,59 @@
             });
     });
 
-    const priceInput = document.querySelectorAll(".priceinput input"),
-    
-    priceRange = document.querySelectorAll(".slider .amount");
+    // price changes with entered price
+    const priceRange = document.querySelectorAll(".pricerange input"),
+            rangeInput = document.querySelectorAll(".rangeinput input"),
+            amount = document.querySelector(".slider .amount");
 
     let priceGap = 100;
 
-    priceInput.forEach(input =>{
+    rangeInput.forEach(input =>{
         input.addEventListener("input", e =>{
-            let minVal = parseInt(priceInput[0].val),
-                maxVal = parseInt(priceInput[1].val);
+            //get 2 inputs value
+            let minPrice = parseInt(rangeInput[0].value),
+                maxPrice = parseInt(rangeInput[1].value);
 
-            if(maxVal - minVal < priceGap){
-                if(e.target.className === "minrange"){
-                    priceInput[0].value = maxVal - priceGap;
+            if ((maxPrice - minPrice >= priceGap) && maxPrice <= 1000){
+                if(e.target.className === "min_price"){
+                    priceRange[0].value = minPrice;
+                    amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
                 }
                 else{
-                    priceInput[1].value = minVal + priceGap;
+                    priceRange[1].value = maxPrice;
+                    amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
                 }
             }
-            else{
-                priceRange.style.left = (minVal / priceInput[0].max) * 100 + "%";
-                priceRange.style.right = 100 - (maxVal / priceInput[1].max) * 100 + "%";
-            }
-
-            // let percent = (minVal / priceInput[0].max) * 100;
-            // console.log(minVal, maxVal);
         });
     });
+
+    //slider value change with slided value
+    priceRange.forEach(input =>{
+        input.addEventListener("input", e =>{
+            let minPrice = parseInt(priceRange[0].value),
+                maxPrice = parseInt(priceRange[1].value);
+
+            if (maxPrice - minPrice < priceGap){
+                if(e.target.className === "minrange"){
+                    priceRange[0].value = maxPrice - priceGap;
+                }
+                else{
+                    priceRange[1].value = minPrice + priceGap;
+                }
+                
+            }
+            else{
+                rangeInput[0].value = minPrice;
+                rangeInput[1].value = maxPrice;
+                amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
+                amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
+                // console.log(minPrice, maxPrice)
+            }
+        });
+    });
+
+
+
     </script>
 </html>
 
