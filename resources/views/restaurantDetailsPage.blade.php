@@ -143,6 +143,12 @@
             color:black;
         }
 
+        .custreview .editicon{
+            float:right;
+            font-size:18px;
+            color:black;
+        }
+
         /* Menu carousel */
         .menucontainer{
             width:calc(100% - 220px);
@@ -270,12 +276,13 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
-                            <!-- <i class="fa-regular fa-pen-to-square"></i> -->
+                            
                         </div>
                     </div>
 
                     <div class="custreview">
-                        <p class="date">2023/05/12 21:45:21</p>
+                        <!-- need add link to the icon -->
+                        <p class="date">2023/05/12 21:45:21 <span class="editicon"><i class="fa-regular fa-pen-to-square"></i></span></p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
                     </div>
                 </div>
@@ -295,7 +302,6 @@
                         </div>
 
                         <div class="rating">
-                            <!-- how to display number star based on sql -->
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -303,10 +309,13 @@
                         </div>
                     </div>
 
-                    <!-- Change to text area bah -->
+                    <!-- need to retreive the value and save into das -->
                     <div class="custreview">
-                        <p class="date">2023/05/12 21:45:21</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
+                        <p class="date">date</p>
+                        <div class="form-group">
+                            <label for="newreview">Write your review</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>

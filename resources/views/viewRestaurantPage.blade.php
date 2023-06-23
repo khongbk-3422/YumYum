@@ -289,7 +289,6 @@
                         </div>
                     </div>
                 </div>
-            
             </div>
             <!-- Restaurant Cards End -->
         </div>
