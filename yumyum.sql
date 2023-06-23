@@ -122,7 +122,7 @@ CREATE TABLE `spinwheel_t` (
 
 CREATE TABLE `user_t` (
   `user_email` varchar(255) NOT NULL,
-  `user_password` varchar(30) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
   `position` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
