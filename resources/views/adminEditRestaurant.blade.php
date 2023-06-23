@@ -20,7 +20,7 @@
     <div class="tablecontainer">
         <table class="table table-dark">
             <thead>
-              ...
+              
             </thead>
             <tbody>
               <tr class="table-active">
