@@ -87,3 +87,7 @@ Route::get('/spinWheel', function(){
 Route::get('/adminEditCustomer', function(){
     return view(('adminEditCustomer'));
 });
+
+Route::get('/adminEditRestaurant', function(){
+    return view(('adminEditRestaurant'));
+});
