@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,3 +92,6 @@ Route::get('/adminEditCustomer', function(){
 Route::get('/adminEditRestaurant', function(){
     return view(('adminEditRestaurant'));
 });
+
+Route::get('list',[RestController::class,'show']);
+Route::post('addPic',[RestController::class,'addPic']);
