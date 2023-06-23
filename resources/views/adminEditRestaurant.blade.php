@@ -49,7 +49,7 @@
                 <td>Price Min</td>
                 <td>Price Max</td>
                 <td>Restaurant Picture</td>
-                <td><i class="fa-duotone fa-message-pen"></i></td>
+                <td><i class="fa-solid fa-pen-to-square" style="color: #777f8d;"></i></td>
               </tr>
             </tbody>
           </table>
