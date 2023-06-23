@@ -82,3 +82,7 @@ Route::get('/testSwiper', function(){
 Route::get('/spinWheel', function(){
     return view(('spinwheelPage'));
 });
+
+Route::get('/adminEditRestaurant', function(){
+    return view(('adminEditRestaurant'));
+});
