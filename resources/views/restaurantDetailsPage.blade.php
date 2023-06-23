@@ -48,8 +48,6 @@
             font-size:17px;
             font-weight:bold;
             letter-spacing:2px;
-            /* text-decoration:underline #d1d0cf; */
-            /* margin-bottom: 10px; */
             margin:15px 5px;
         }
 
@@ -57,7 +55,6 @@
             font-size:17px;
             font-weight:bold;
             letter-spacing:2px;
-            /* margin-bottom: 10px; */
             margin:2px 5px;
         }
 
@@ -133,7 +130,6 @@
             color:yellow;
         }
         
-
         .custreview .date{
             color:grey;
         }
@@ -151,15 +147,15 @@
 
         /* Menu carousel */
         .menucontainer{
-            width:calc(100% - 220px);
+            width:calc(100% - 500px);
+            margin: auto;
         }
         
         .carousel{
-            width:calc(100% - 220px);
+            width:100%;
             height:70vh;
             padding:10px 10px;
             justify-content:center;
-            background:pink;
         }
 
         .carousel-inner{
@@ -172,6 +168,15 @@
             height: 100%;
             object-fit:cover;
         }
+
+        .carousel-control-prev-icon, .coursel-control-next-icon{
+            background-color:pink;
+            border-radius:50%;
+            color:black;
+            opacity:.5;
+        }
+
+
     </style>
 </head>
 <body>
@@ -184,7 +189,6 @@
                 <i class="fa-solid fa-square-phone"><span class=restinfo>01123455</span></i>
             </div>
         </div>
-        
 
         <div class="menucontainer">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
@@ -288,7 +292,7 @@
                 </div>
 
                 <!-- ELSE{} -->
-                <!-- Fetch from sql -->
+                <!-- No review before [add] -->
                 <div class="reviewbox">
                     <div class="box-top">
                         <div class="profile">
