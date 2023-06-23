@@ -1,0 +1,187 @@
+*{
+    font-family: 'Raleway', sans-serif;
+}
+
+.bodycontainer{
+    padding:10px;
+    margin-top:80px;
+}
+
+.restDetails .restName{
+    margin:10px 15px;
+    line-height:2;
+}
+
+.restDetails .restinfo{
+    margin-left:12px;
+}
+
+.restDetails i{
+    font: size 14px;
+    padding:10px;
+}
+
+/* Menu carousel */
+.menucontainer{
+    width:calc(100% - 500px);
+    margin: auto;
+}
+
+.carousel{
+    width:100%;
+    height:70vh;
+    padding:10px 10px;
+    justify-content:center;
+    /* border-radius: 10px; */
+}
+
+.carousel-inner{
+    width:100%;
+    height:100%;
+}
+
+.carousel-item img{
+    width:100%;
+    height: 100%;
+    object-fit:cover;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon{
+    background-color:#696656;
+    border-radius:50%;
+    color:black;
+    opacity:1;
+}
+
+.carousel-indicators button.active{
+    background-color:#e0dab6;
+}
+
+/* Restaurant details card */
+.cardcontainer{
+    padding:20px;
+}
+
+.cardcontainer .card{
+    height:300px;
+}
+
+.cardcontainer .card .card-body p{
+    font-size:14px;
+    letter-spacing:2px;
+}
+
+.cardcontainer .card .card-body h5{
+    font-size:17px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin:8px 5px;
+}
+
+.cardcontainer .card .card-body .restLocation{
+    font-size:17px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin:2px 5px;
+}
+
+.cardcontainer .card .card-body .restAddress{
+    font-size:14px;
+    letter-spacing:2px;
+}
+
+/* Ratings and reviews */
+.ratingcontainer{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.ratingcontainer .title{
+    font-size:30px;
+    padding:10px 10px;
+}
+
+.reviewcontainer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    width:100%;
+}
+
+.reviewbox{
+    width:500px;
+    box-shadow:0 5px 5px rgba(0, 0, 0, 0.3);
+    background-color:#f2f2f0;
+    padding:15px;
+    margin:15px;
+    border-radius:8px;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+}
+
+.profile .custpic{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    overflow:hidden;
+    margin-right:10px;
+}
+
+.profile .custpic img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+}
+
+.custname{
+    display:flex;
+    flex-direction:column;
+}
+
+.box-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.rating i{
+    color:yellow;
+}
+
+.custreview .date{
+    color:grey;
+}
+
+.custreview p{
+    font-size:14px;
+    color:black;
+}
+
+.icons{
+    float:right;
+    gap:12px;
+    font-size:20px;
+    color:#292824;
+    display:flex;
+    cursor:pointer;
+}
+
+.newrating i{
+    color:#c4c4be;
+}
+
+.newrating i:hover{
+    color:yellow;
+}
+
+.form-group .form-control{
+    font-size:14px;
+}

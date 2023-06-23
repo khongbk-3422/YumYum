@@ -7,186 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     @include('cdn')
-    <style>
-        *{
-            font-family: 'Raleway', sans-serif;
-        }
-
-        .bodycontainer{
-            padding:10px;
-            margin-top:80px;
-        }
-
-        .restDetails .restName{
-            margin:10px 15px;
-            line-height:2;
-        }
-
-        .restDetails .restinfo{
-            margin-left:12px;
-        }
-
-        .restDetails i{
-            font: size 14px;
-            padding:10px;
-        }
-
-        .cardcontainer{
-            padding:20px;
-        }
-
-        .cardcontainer .card{
-            height:300px;
-        }
-
-        .cardcontainer .card .card-body p{
-            font-size:14px;
-            letter-spacing:2px;
-        }
-
-        .cardcontainer .card .card-body h5{
-            font-size:17px;
-            font-weight:bold;
-            letter-spacing:2px;
-            margin:15px 5px;
-        }
-
-        .cardcontainer .card .card-body .restLocation{
-            font-size:17px;
-            font-weight:bold;
-            letter-spacing:2px;
-            margin:2px 5px;
-        }
-
-        .cardcontainer .card .card-body .restAddress{
-            font-size:14px;
-            letter-spacing:2px;
-        }
-
-        /* Ratings and reviews */
-        .ratingcontainer{
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-        }
-
-        .ratingcontainer .title{
-            font-size:30px;
-            padding:10px 10px;
-        }
-
-        .reviewcontainer{
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            flex-wrap:wrap;
-            width:100%;
-        }
-
-        .reviewbox{
-            width:500px;
-            box-shadow:0 5px 5px rgba(0, 0, 0, 0.3);
-            background-color:#f2f2f0;
-            padding:15px;
-            margin:15px;
-            cursor:pointer;
-            border-radius:8px;
-        }
-
-        .profile{
-            display:flex;
-            align-items:center;
-        }
-
-        .profile .custpic{
-            width:50px;
-            height:50px;
-            border-radius:50%;
-            overflow:hidden;
-            margin-right:10px;
-        }
-
-        .profile .custpic img{
-            width:100%;
-            height:100%;
-            object-fit:cover;
-            object-position:center;
-        }
-
-        .custname{
-            display:flex;
-            flex-direction:column;
-        }
-
-        .box-top{
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            margin-bottom:20px;
-        }
-
-        .rating i{
-            color:yellow;
-        }
-        
-        .custreview .date{
-            color:grey;
-        }
-
-        .custreview p{
-            font-size:14px;
-            color:black;
-        }
-
-        .icons{
-            float:right;
-            margin-left:10px;
-            font-size:18px;
-            color:black;
-        }
-
-        .newrating i{
-            color:grey;
-        }
-
-        .newrating i:hover{
-            color:pink;
-        }
-
-        /* Menu carousel */
-        .menucontainer{
-            width:calc(100% - 500px);
-            margin: auto;
-        }
-        
-        .carousel{
-            width:100%;
-            height:70vh;
-            padding:10px 10px;
-            justify-content:center;
-        }
-
-        .carousel-inner{
-            width:100%;
-            height:100%;
-        }
-
-        .carousel-item img{
-            width:100%;
-            height: 100%;
-            object-fit:cover;
-        }
-
-        .carousel-control-prev-icon, .coursel-control-next-icon{
-            background-color:pink;
-            border-radius:50%;
-            color:black;
-            opacity:.5;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="{{asset('css/restaurantDetailsPageStyle.css')}}">
 </head>
 <body>
     <div class="bodycontainer">
@@ -238,13 +59,17 @@
                             <h5>Rating 4.5</h5>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
+                        </div>
 
+                        <div class="card-body">
                             <h5>Price Range</h5>
                             <p>RM20-RM500</p>
+                        </div>
 
+                        <div class="card-body">
                             <h5>Cuisine</h5>
                             <p>Japanese</p>
-                        </div>
+                        </div> 
                     </div>
                 </div>
 
@@ -252,9 +77,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="restLocation">Location</h5>
-                            <!-- Display map -->
                             <iframe width="600" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=4 off, Persiaran Klang, Batu 3 3, 202, Old Klang Rd, Taman Shanghai, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur&output=embed"></iframe>
-                            <!-- <p>map</p> -->
                             <p class="restAddress">Address0</p>
                         </div>
                     </div>
@@ -307,7 +130,11 @@
                                 <i class="fa-solid fa-trash"></i>
                             </span>
                         </p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
+                        <div class="form-group">
+                            <label for="">Review</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur</textarea>
+                        </div>
+                        
                     </div>
                 </div>
 
@@ -347,6 +174,9 @@
         </div>
     </div>
 
+    <script>
+        
+    </script>
 </body>
 </html>
 
