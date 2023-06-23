@@ -50,6 +50,16 @@
             background-color:#c4b999;
         }
 
+        /* .nav-item{
+            margin-top: 5px;
+        } */
+
+        .profilePic img{
+            width:40px;
+            height:40px;
+            border-radius:50%;
+        }
+
     </style>
 </head>
 
@@ -70,7 +80,11 @@
 					</li>
                     <li class="nav-item dropdown">
                         <!-- display the cust's name-->
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{session('admin_name')}}</a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> HC {{session('admin_name')}}
+                            <span class="profilePic">
+                                <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}" alt="">
+                            </span>
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Settings</a></li>
                             <!-- adjust the line -->
