@@ -99,7 +99,8 @@
                             </div>
 
                             <div class="confirmbutton">
-                                <button>View</button>
+                                <!-- retrieve the price valu -->
+                                <button><a href="">View</a></button>
                             </div>
                         </div>
                     </ul>

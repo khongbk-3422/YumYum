@@ -58,7 +58,7 @@
 		<div class="container">
 			<a class="navbar-brand" href="#"><span class="text-warning">Yum</span>Yum</a>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
 					<li class="nav-item">
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/custHomePage' ? 'active' : ''; ?> " href="/custHomePage">Home</a>
 					</li>
@@ -72,9 +72,8 @@
 						<a class="nav-link" href="#services">History</a>
 					</li>
                     <li class="nav-item dropdown">
-                        <!-- display the cust's name-->
-                        <!-- <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{session('user_name')}} -->
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Jie
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                            {{session('user_name')}}
                             <span class="profilePic">
                                 <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}" alt="">
                             </span>
