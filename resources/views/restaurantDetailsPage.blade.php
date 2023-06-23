@@ -139,10 +139,19 @@
             color:black;
         }
 
-        .custreview .editicon{
+        .icons{
             float:right;
+            margin-left:10px;
             font-size:18px;
             color:black;
+        }
+
+        .newrating i{
+            color:grey;
+        }
+
+        .newrating i:hover{
+            color:pink;
         }
 
         /* Menu carousel */
@@ -261,7 +270,7 @@
             
             <div class="reviewcontainer">
                 <!-- IF {} -->
-                <!-- Customer's own feedback will shown if gave feedback before -->
+                <!-- Customer's feedback -->
                 <div class="reviewbox">
                     <div class="box-top">
                         <div class="profile">
@@ -286,7 +295,18 @@
 
                     <div class="custreview">
                         <!-- need add link to the icon -->
-                        <p class="date">2023/05/12 21:45:21 <span class="editicon"><i class="fa-regular fa-pen-to-square"></i></span></p>
+                        <p class="date">2023/05/12 21:45:21 
+                            <span class="icons">
+                                <!-- return to normal view -->
+                                <i class="fa-solid fa-xmark"></i>
+                                <!-- Trigger text area -->
+                                <i class="fa-regular fa-pen-to-square"></i>
+                                <!-- save new cmd -->
+                                <i class="fa-regular fa-floppy-disk"></i>
+                                <!-- delete -->
+                                <i class="fa-solid fa-trash"></i>
+                            </span>
+                        </p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur laudantium nam eius dolore neque esse fugiat iste debitis recusandae placeat commodi distinctio cumque!</p>
                     </div>
                 </div>
@@ -305,7 +325,8 @@
                             </div>
                         </div>
 
-                        <div class="rating">
+                        <div class="newrating">
+                            <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
