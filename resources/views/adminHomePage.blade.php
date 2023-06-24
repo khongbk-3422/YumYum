@@ -117,11 +117,6 @@
         padding: .5rem .7rem;
     }
 
-    .info{
-        display: flex;
-        align-items: center;
-    }
-
     .info img{
         border-radius: 50%;
         margin-right: 1rem;
@@ -232,48 +227,46 @@
                                     <span class="fa-solid fa-pen-to-square"></span>
                                     <span class="fa-solid fa-user-slash"></span>
                                 </div>
-                                
                             </div>
 
                             <div class="customer">
-                                <div>
+                                <div class="info">
                                     <img src="" width="40px" height="40px" alt="">
                                     <div>
                                         <h4>Ng Hooi Chi</h4>
                                     </div>
                                 </div>
-                                <div>
+                                <div class="action">
                                     <span class="fa-solid fa-pen-to-square"></span>
                                     <span class="fa-solid fa-user-slash"></span>
                                 </div>
                             </div>
 
                             <div class="customer">
-                                <div>
+                                <div class="info">
                                     <img src="" width="40px" height="40px" alt="">
                                     <div>
                                         <h4>Ng Hooi Chi</h4>
                                     </div>
                                 </div>
-                                <div>
+                                <div class="action">
                                     <span class="fa-solid fa-pen-to-square"></span>
                                     <span class="fa-solid fa-user-slash"></span>
                                 </div>
                             </div>
 
-                            <div class="customer">
-                                <div>
+                                                        <div class="customer">
+                                <div class="info">
                                     <img src="" width="40px" height="40px" alt="">
                                     <div>
                                         <h4>Ng Hooi Chi</h4>
                                     </div>
                                 </div>
-                                <div>
+                                <div class="action">
                                     <span class="fa-solid fa-pen-to-square"></span>
                                     <span class="fa-solid fa-user-slash"></span>
                                 </div>
                             </div>
-
                             
                         </div>
                 </div>
