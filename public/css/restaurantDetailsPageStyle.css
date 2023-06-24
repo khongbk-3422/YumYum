@@ -12,50 +12,94 @@
     line-height:2;
 }
 
+.restName h3{
+    font-size:35px;
+}
+
+.restDetails .restName .verification{
+    font-size:18px;
+}
+
+.restDetails .restName .verification i{
+    font-size:15px;
+    color:green;
+}
+
 .restDetails .restinfo{
     margin-left:12px;
+    font-size: 15px;
 }
 
 .restDetails i{
-    font: size 14px;
+    font-size: 14px;
     padding:10px;
 }
 
 /* Menu carousel */
 .menucontainer{
-    width:calc(100% - 500px);
+    max-width: 1300px;
     margin: auto;
+    position: relative;
+}
+
+.menucontainer i{
+    top:50%;
+    background:#8a8474;
+    color:#f0ead8;
+    width:40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    transform: translateY(-50%);
+    z-index: 2; 
+}
+
+.menucontainer i:first-child{
+    left:-25px;
+    z-index: 3;
+    display: none;
+}
+
+.menucontainer i:last-child{
+    right:-25px;
 }
 
 .carousel{
-    width:100%;
-    height:70vh;
-    padding:10px 10px;
-    justify-content:center;
+    /* display: flex; */
     /* border-radius: 10px; */
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    scroll-behavior: smooth;
 }
 
-.carousel-inner{
-    width:100%;
-    height:100%;
-}
-
-.carousel-item img{
-    width:100%;
-    height: 100%;
+.carousel img{
+    width:calc(100% / 3);
+    height: 380px;
     object-fit:cover;
+    margin-left: 10px;
 }
 
-.carousel-control-prev-icon, .carousel-control-next-icon{
-    background-color:#696656;
-    border-radius:50%;
-    color:black;
-    opacity:1;
+.carousel img:first-child{
+    margin-left: 0px;
 }
 
-.carousel-indicators button.active{
-    background-color:#e0dab6;
+@media screen and (max-width: 900px) {
+    .carousel img{
+        width: calc(100% / 2);
+    }
 }
+
+@media screen and (max-width: 550) {
+    .carousel img{
+        width: 100%;
+    }
+}
+
+
 
 /* Restaurant details card */
 .cardcontainer{
@@ -75,7 +119,11 @@
     font-size:17px;
     font-weight:bold;
     letter-spacing:2px;
-    margin:8px 5px;
+}
+
+.cardcontainer .card .card-body i{
+    font-size:17px;
+    color:yellow;
 }
 
 .cardcontainer .card .card-body .restLocation{

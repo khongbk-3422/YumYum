@@ -57,7 +57,7 @@
     text-align: center;
     margin-left: 3px;
     border-radius: 5px;
-    border: 1px solid green;
+    border: 1px solid black;
     -moz-appearance: textfield;
 }
 
@@ -84,7 +84,7 @@ input[type="number"]::-webkit-inner-spin-button{
 .slider .amount{
     height: 5px;
     left:10%;
-    right:35%;
+    right:48%;
     position: absolute;
     border-radius: 5px;
     background: #c7c3aa;
@@ -120,7 +120,7 @@ input[type="range"]::-moz-range-thumb{
     border-radius: 50%;
     pointer-events: auto;
     -moz-appearance: none;
-    background: rgb(137, 199, 149);
+    background: rgb(9, 10, 9);
 }
 
 .confirmbutton button{
@@ -136,7 +136,6 @@ input[type="range"]::-moz-range-thumb{
     color:black;
     text-decoration: none;
 }
-
 
 .searchBar{
     height:30px;
@@ -312,6 +311,6 @@ input[type="range"]::-moz-range-thumb{
     font-size:18px;
     font-weight:black;
     border-radius:5px;
-    height:35px;
+    height:40px;
     outline:none;
 }
