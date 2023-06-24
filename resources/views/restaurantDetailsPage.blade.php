@@ -14,41 +14,22 @@
         <!-- get from rest_table -->
         <div class="restDetails">
             <div class="restName">
-                <h3>Iketeru</h3>
+                <h3>Iketeru <span class="verification"><i class="bi bi-patch-check"></i>Claimed</span></h3>
                 <i class="fa-solid fa-location-dot"><span class="restinfo">addresss</span></i> |
                 <i class="fa-solid fa-square-phone"><span class=restinfo>01123455</span></i>
             </div>
         </div>
 
         <div class="menucontainer">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{asset('image/rest1.jpg')}}">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{asset('image/rest1.jpg')}}" >
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{asset('image/rest1.jpg')}}">
-                    </div>
-                </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+            <i id="left-btn" class="fa-solid fa-angle-left"></i>
+            <div class="carousel">
+                <img src="{{asset('image/restaurants/iketeru1.jpg')}}">
+                <img src="{{asset('image/restaurants/iketeru2.jpg')}}">
+                <img src="{{asset('image/restaurants/iketeru3.jpg')}}">
+                <!-- <img src="{{asset('image/restaurants/iketeru3.jpg')}}">
+                <img src="{{asset('image/restaurants/iketeru3.jpg')}}"> -->
             </div>
+            <i id="right-btn" class="fa-solid fa-angle-right"></i>
         </div>
 
         <div class="cardcontainer">
@@ -56,9 +37,15 @@
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5>Rating 4.5</h5>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                            <h5>Rating</h5>
+                            <h6>4.5
+                                <span>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </span>
+                            </h6>
                         </div>
 
                         <div class="card-body">
@@ -77,7 +64,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="restLocation">Location</h5>
-                            <iframe width="600" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=4 off, Persiaran Klang, Batu 3 3, 202, Old Klang Rd, Taman Shanghai, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur&output=embed"></iframe>
+                            <iframe width="650" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=4 off, Persiaran Klang, Batu 3 3, 202, Old Klang Rd, Taman Shanghai, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur&output=embed"></iframe>
                             <p class="restAddress">Address0</p>
                         </div>
                     </div>
@@ -175,7 +162,49 @@
     </div>
 
     <script>
-        
+        const carousel = document.querySelector(".carousel"),
+        firstpic = carousel.querySelectorAll("img")[0];
+        arrowButton = document.querySelectorAll(".menucontainer i") ;
+
+        const showHiddenIcon = () => {
+            //show and hide button based on the scroll left value
+            let scrollWidth = carousel.scrollWidth - carousel.clientWidth; //max scrollable width
+            arrowButton[0].style.display = carousel.scrollLeft == 0 ? "none" : "block";
+            arrowButton[1].style.display = carousel.scrollLeft == scrollWidth ? "none" : "block";
+        }
+
+        arrowButton.forEach(icon => {
+            icon.addEventListener("click", () =>{
+                let firstpicwidth = firstpic.clientWidth +10; //add 10 margin to 1st pic
+                carousel.scrollLeft += icon.id == "left-btn" ? -firstpicwidth : firstpicwidth;
+                setTimeout(() => {
+                    showHiddenIcon(); }, 30);
+            });
+        });
+
+        // let isDragStart = false, prevPageX, prevScrollLeft;
+
+        // const dragStart = (e) => {
+        //     isDragStart = true;
+        //     prevPageX = e.pageX;
+        //     prevScrollLeft = carousel.scrollLeft;
+        // }
+
+        // const dragging = (e) =>{
+        //     //scroll image to left based on mourse cursor
+        //     if (!isDragStart) return;
+        //     e.preventDefault();
+        //     let positionDiff = e.pageX - prevPageX;
+        //     carousel.scrollLeft = prevScrollLeft - positionDiff;
+        // }
+
+        // const dragStrop = () =>{
+        //     isDragStart = false;
+        // }
+
+        // carousel.addEventListener("mousedown", dragStart);
+        // carousel.addEventListener("mousemove", dragging);
+        // carousel.addEventListener("mousemove", dragStop);
     </script>
 </body>
 </html>
