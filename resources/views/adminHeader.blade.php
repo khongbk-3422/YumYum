@@ -71,6 +71,9 @@
 					<li class="nav-item">
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminEditRestaurant' ? 'active' : ''; ?> " href="/adminEditRestaurant">Restaurant</a>
 					</li>
+                    <li class="nav-item">
+						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminEditRating' ? 'active' : ''; ?> " href="/adminEditRating">Ratings</a>
+					</li>
                     <li class="nav-item dropdown">
                         <!-- display the cust's name-->
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> HC {{session('admin_name')}}

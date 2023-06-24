@@ -32,7 +32,7 @@
         justify-content: space-between;
         background: #EFF0EA;
         padding: 2rem;
-        border-radius: 2px;
+        border-radius: 5px;
     }
 
     .card-single div:last-child span{
@@ -53,6 +53,91 @@
     .card-single:last-child div:first-child span{
         color: blue;
     } */
+
+    .recent-grid{
+        margin-top: 3rem;
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: 70% auto;
+    }
+
+    .card{
+        background: #EFF0EA;
+        border-radius: 5px;
+    }
+
+    .card-header{
+        padding: 1rem;
+    }
+
+    .card-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .card-header button{
+        background: white;
+        border-radius: 10px;
+        color: black;
+        font-size: .8rem;
+        padding: .5rem 1rem;
+        border: 1px solid blue;
+    }
+
+    table{
+        border-collapse: collapse;
+    }
+
+    thead tr{
+        border-top: 1px solid #f0f0f0;
+        border-bottom: 2px solid #f0f0f0;
+    }
+
+    thead td{
+        font-weight: 700;
+    }
+
+    td{
+        padding: .5rem 1rem;
+        font-size: .9rem;
+        color: #222;
+    }
+
+    .table-responsive{
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .customer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: .5rem .7rem;
+    }
+
+    .info{
+        display: flex;
+        align-items: center;
+    }
+
+    .info img{
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+
+    .info h4{
+        font-size: .8rem;
+        font-weight: 700;
+        color: #222;
+    }
+
+    .action span{
+        font-size: 1.2rem;
+        display: inline-block;
+        margin-left: .5rem;
+    }
 
 </style>
 <body>
@@ -82,7 +167,118 @@
             </div>
         </div>
 
-        
+        <div class="recent-grid">
+            <div class="restaurants">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Most popular Restaurants</h2>
+
+                        <button>See all <span class="fa-solid fa-arrow-right"></span> </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <td>Restaurant Name</td>
+                                        <td>Overall Rating</td>
+                                        <td>Browse Volume</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Prime</td>
+                                        <td>5.0</td>
+                                        <td>1239</td>
+                                    </tr>
+                                    <tr>  
+                                        <td>Beta KL</td>
+                                        <td>5.0</td>
+                                        <td>1200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>JP Teres</td>
+                                        <td>4.9</td>
+                                        <td>1183</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Posinato Risto</td>
+                                        <td>4.9</td>
+                                        <td>1120</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="customers">
+                <div class="card">
+                        <div class="card-header">
+                            <h2>New Customers</h2>
+
+                            <button>See all <span class="fa-solid fa-arrow-right"></span> </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="customer">
+                                <div class="info">
+                                    <img src="" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Ng Hooi Chi</h4>
+                                    </div>
+                                </div>
+                                <div class="action">
+                                    <span class="fa-solid fa-pen-to-square"></span>
+                                    <span class="fa-solid fa-user-slash"></span>
+                                </div>
+                                
+                            </div>
+
+                            <div class="customer">
+                                <div>
+                                    <img src="" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Ng Hooi Chi</h4>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="fa-solid fa-pen-to-square"></span>
+                                    <span class="fa-solid fa-user-slash"></span>
+                                </div>
+                            </div>
+
+                            <div class="customer">
+                                <div>
+                                    <img src="" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Ng Hooi Chi</h4>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="fa-solid fa-pen-to-square"></span>
+                                    <span class="fa-solid fa-user-slash"></span>
+                                </div>
+                            </div>
+
+                            <div class="customer">
+                                <div>
+                                    <img src="" width="40px" height="40px" alt="">
+                                    <div>
+                                        <h4>Ng Hooi Chi</h4>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span class="fa-solid fa-pen-to-square"></span>
+                                    <span class="fa-solid fa-user-slash"></span>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 </body>
