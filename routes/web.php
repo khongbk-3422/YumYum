@@ -65,9 +65,14 @@ Route::get('/restaurantDetailsPage', function(){
     return view('restaurantDetailsPage');
 });
 
-//spinwheel
+//spinwheelPage
 Route::get('/spinwheelPage', function(){
     return view('spinwheelPage');
+});
+
+//custHistoryPage
+Route::get('/custHistoryPage', function(){
+    return view(('custHistoryPage'));
 });
 
 //adminHomePage
@@ -75,10 +80,6 @@ Route::get('/adminHomePage', function(){
     return view(('adminHomePage'));
 });
 
-//testing purpose
-Route::get('/testSwiper', function(){
-    return view(('testSwiper'));
-});
 
 Route::get('/spinWheel', function(){
     return view(('spinwheelPage'));

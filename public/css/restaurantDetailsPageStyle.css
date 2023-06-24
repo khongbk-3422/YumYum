@@ -161,6 +161,7 @@
 
 .reviewbox{
     width:500px;
+    height: 260px;
     box-shadow:0 5px 5px rgba(0, 0, 0, 0.3);
     background-color:#f2f2f0;
     padding:15px;
@@ -227,9 +228,23 @@
 }
 
 .newrating i:hover{
+    cursor: pointer;
+}
+
+.newrating i.selected{
     color:yellow;
 }
 
 .form-group .form-control{
     font-size:14px;
+}
+
+.submitbtn{
+    border: none;
+    float: right;
+    font-size: 16px;
+    margin-top:5px;
+}
+.submitbtn:hover{
+    color:rgb(138, 127, 114);
 }

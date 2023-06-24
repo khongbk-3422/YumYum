@@ -62,27 +62,33 @@
 					<li class="nav-item">
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/custHomePage' ? 'active' : ''; ?> " href="/custHomePage">Home</a>
 					</li>
+
 					<li class="nav-item">
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/viewRestaurantPage' ? 'active' : ''; ?> " href="/viewRestaurantPage">Restaurant</a>
 					</li>
+                    
 					<li class="nav-item">
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/spinwheelPage' ? 'active' : ''; ?>" href="/spinwheelPage">Spinwheel</a>
 					</li>
+
 					<li class="nav-item">
-						<a class="nav-link" href="#services">History</a>
+						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/custHistoryPage' ? 'active' : ''; ?>"  href="/custHistoryPage">History</a>
 					</li>
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                             {{session('user_name')}}
                             <span class="profilePic">
-                                <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}" alt="">
+                                <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}">
                             </span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item <?php echo $_SERVER['REQUEST_URI'] === '/custProfilePage' ? 'active' : ''; ?> " href="/custProfilePage">Settings</a>
                             </li> 
-                                <div class="dropdown-divider"></div>
+
+                            <div class="dropdown-divider"></div>
+
                             <li>
                                 <a class="dropdown-item" href="logout">Logout</a>
                             </li>

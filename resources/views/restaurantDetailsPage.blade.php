@@ -77,15 +77,14 @@
             <div>
                 <h5 class="title">Reviews and Ratings</h5>
             </div>
-            
+
+            <!-- Customer's feedback -->
             <div class="reviewcontainer">
-                <!-- IF {} -->
-                <!-- Customer's feedback -->
                 <div class="reviewbox">
                     <div class="box-top">
                         <div class="profile">
                             <div class="custpic">
-                                <img src="{{asset('image/rest1.jpg')}}" alt="">
+                                <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}">
                             </div>
 
                             <div class="custname">
@@ -108,7 +107,7 @@
                         <p class="date">2023/05/12 21:45:21 
                             <span class="icons">
                                 <!-- return to normal view -->
-                                <i class="fa-solid fa-xmark"></i>
+                                <i class="fa-solid fa-rotate-left"></i>
                                 <!-- Trigger text area -->
                                 <i class="fa-regular fa-pen-to-square"></i>
                                 <!-- save new cmd -->
@@ -121,42 +120,44 @@
                             <label for="">Review</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur</textarea>
                         </div>
-                        
                     </div>
                 </div>
 
-                <!-- ELSE{} -->
-                <!-- No review before [add] -->
-                <div class="reviewbox">
-                    <div class="box-top">
-                        <div class="profile">
-                            <div class="custpic">
-                                <img src="{{asset('image/rest1.jpg')}}" alt="">
+                <!-- New feedback -->
+                <form action="" method="POST">
+                    <div class="reviewbox">
+                        <div class="box-top">
+                            <div class="profile">
+                                <div class="custpic">
+                                    <img src="{{asset('image/rest1.jpg')}}">
+                                </div>
+
+                                <div class="custname">
+                                    <strong>alicia</strong>
+                                </div>
                             </div>
 
-                            <div class="custname">
-                                <strong>alicia</strong>
+                            <div class="newrating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
                             </div>
                         </div>
 
-                        <div class="newrating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                        <!-- need to retreive the value and save into das -->
+                        <div class="custreview">
+                            <p class="date">date</p>
+                            <div class="form-group">
+                                <input type="hidden" id="ratingValue" name="ratingValue">
+                                <label for="newreview">Leave your review here</label>
+                                <textarea class="form-control" id="firstreview" rows="3" name="firstreview"></textarea>
+                                <button type="submit"class="submitbtn">Send</button>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- need to retreive the value and save into das -->
-                    <div class="custreview">
-                        <p class="date">date</p>
-                        <div class="form-group">
-                            <label for="newreview">Write your review</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview"></textarea>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -205,6 +206,66 @@
         // carousel.addEventListener("mousedown", dragStart);
         // carousel.addEventListener("mousemove", dragging);
         // carousel.addEventListener("mousemove", dragStop);
+
+
+
+        // Let customer give rating
+        const ratings = document.querySelectorAll('.newrating .fa-solid.fa-star');
+
+        // Add event listener to each star icon
+        ratings.forEach((starIcon, index) => {
+            starIcon.addEventListener('click', () => {
+                // Remove selected class from all star icons
+                ratings.forEach((starIcon, i) => {
+                    starIcon.classList.remove('selected');
+                });
+
+                // Add selected class to clicked star icon and all previous star icons
+                for (let i = 0; i <= index; i++) {
+                    ratings[i].classList.add('selected');
+                }
+
+                // Store the rating value (index + 1) in a variable or submit it to the server
+                const rating = index + 1;
+                console.log('Selected rating:', rating);
+            });
+        });
+
+
+        //icons in review box
+        document.addEventListener('DOMContentLoaded', function(){
+            const reseticon = document.querySelector('.fa-solid.fa-rotate-left');
+            const editicon = document.querySelector('.fa-regular.fa-pen-to-square');
+            const saveicon = document.querySelector('.fa-regular.fa-floppy-disk');
+            const deleteicon = document.querySelector('.fa-solid.fa-trash');
+            const textarea = document.querySelector('.form-control');
+
+            textarea.disabled = true;
+            // Reset the textarea value
+            reseticon.addEventListener('click', () => {
+                textarea.value = '';
+            });
+
+            // Edit --only shown when edit icon is click
+            editicon.addEventListener('click', () => {
+                textarea.disabled = false;
+            });
+
+            // Save
+            saveicon.addEventListener('click', () => {
+                const updatedReview = textarea.value;
+
+                // need write php to save the value
+                textarea.disabled = true;
+            });
+
+            // Delete
+            deleteicon.addEventListener('click', () => {
+                // need to write code to delete from das
+                
+            });
+        });
+        
     </script>
 </body>
 </html>
