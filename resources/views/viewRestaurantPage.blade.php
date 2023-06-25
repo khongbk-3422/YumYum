@@ -284,30 +284,32 @@
 
             <!-- Restaurant Cards Start -->
             <!-- Loop from database -->
+            
             <div class="restContainer">
                 <div class="title">
                     <h3>Restaurants in Kuala Lumpur</h3>
                 </div>
+                @foreach ($datas as $data)
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-3">
+                                <img src="data:image/[image_format];base64,{{ $data->data_pic }}" alt="">
+                            </div>
 
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-3">
-                            <img src="{{asset('image/rest1.jpg')}}" alt="">
-                        </div>
-
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Restaurant Name</h5>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
-                                        <span class="custrateqty">(27)</span>
-                                    </p>
-                                <p class="card-text"><i class="bi bi-geo-alt"></i>Location</p>
-                                <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$data['rest_name']}}}</h5>
+                                        <p class="rating">{{$data['avg_rate']}} <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                            <span class="custrateqty">({{$data['count']}})</span>
+                                        </p>
+                                    <p class="card-text"><i class="bi bi-geo-alt"></i>{{$data['rest_address']}}</p>
+                                    <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                @endforeach
+            </div
             <!-- Restaurant Cards End -->
         </div>
     </div>

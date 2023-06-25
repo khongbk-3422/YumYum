@@ -17,6 +17,7 @@ class RestController extends Controller
             // Get First Pic
             $pic_data = Rest_Picture::where('rest_id',$data->rest_id)->first();
             $rest_pic = $pic_data ? base64_encode($pic_data->rest_pic) : null;
+            // $rest_pic = $pic_data->rest_pic;
             $data->data_pic = $rest_pic;
 
             //Get Rating
@@ -33,7 +34,7 @@ class RestController extends Controller
             $data->count = $count;
             $data->avg_rate = $avg_rate;
         }
-        return $datas;
+        return view('viewRestaurantPage',['datas'=>$datas]);
     }
 
     function show()

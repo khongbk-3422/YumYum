@@ -56,10 +56,10 @@ Route::get('/custProfilePage', function () {
 });
 
 //viewRestaurantPage
-Route::get('viewRestPage',[RestController::class,'getAllRest']);
-Route::get('/viewRestaurantPage', function(){
-    return view('viewRestaurantPage');
-});
+Route::get('viewRestaurantPage',[RestController::class,'getAllRest']);
+// Route::get('/viewRestaurantPage', function(){
+//     return view('viewRestaurantPage');
+// });
 
 //restaurantDetailsPage
 Route::get('/restaurantDetailsPage', function(){
