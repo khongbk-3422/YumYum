@@ -75,21 +75,23 @@ Route::get('/custHistoryPage', function(){
     return view(('custHistoryPage'));
 });
 
+//testNewRating
+Route::get('/testNewRating', function(){
+    return view(('testNewRating'));
+});
+
 //adminHomePage
 Route::get('/adminHomePage', function(){
     return view(('adminHomePage'));
 });
 
 
-Route::get('/spinWheel', function(){
-    return view(('spinwheelPage'));
-});
-
 //adminEditCustomer
 Route::get('/adminEditCustomer', function(){
     return view(('adminEditCustomer'));
 });
 
+//adminEditRestaurant
 Route::get('/adminEditRestaurant', function(){
     return view(('adminEditRestaurant'));
 });

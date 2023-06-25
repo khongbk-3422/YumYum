@@ -116,9 +116,13 @@
     height:320px;
 }
 
+.cardcontainer .card .card-body .ratingqty{
+    font-size: 14px;
+}
+
 .cardcontainer .card .card-body p{
     font-size:16px;
-    letter-spacing:2px;
+    letter-spacing:1px;
 }
 
 .cardcontainer .card .card-body h5{

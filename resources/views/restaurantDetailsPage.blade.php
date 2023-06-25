@@ -41,14 +41,9 @@
                     <div class="card">
                         <div class="card-body">
                             <h5>Rating</h5>
-                            <h6>4.5
-                                <span>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </span>
-                            </h6>
+                            <p>4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span class="ratingqty">(32)</span>
+                            </p>
                         </div>
 
                         <div class="card-body">

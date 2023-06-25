@@ -170,7 +170,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Iketeru Restaurant</h5>
                                     <p class="card-text text-muted">Japanese</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <span class="custrateqty">(43)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -181,7 +183,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Prime</h5>
                                     <p class="card-text text-muted">Steakhouse</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <span class="custrateqty">(31)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -192,7 +196,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Beta KL</h5>
                                     <p class="card-text text-muted">Malaysian</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <span class="custrateqty">(26)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -203,7 +209,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Chambers Grill</h5>
                                     <p class="card-text text-muted">Steakhouse</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                        <span class="custrateqty">(22)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -214,7 +222,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Positano Risto</h5>
                                     <p class="card-text text-muted">Italian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                        <span class="custrateqty">(31)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -225,7 +235,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">JP Teres</h5>
                                     <p class="card-text text-muted">Malaysian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                        <span class="custrateqty">(25)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -236,7 +248,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Via Pre Kul</h5>
                                     <p class="card-text text-muted">Italian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                        <span class="custrateqty">(27)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -247,7 +261,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Tamarind Hill</h5>
                                     <p class="card-text text-muted">Thai</p>
-                                    <p class="rating">4.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                                    <p class="rating">4.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <span class="custrateqty">(21)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -282,6 +298,9 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">Restaurant Name</h5>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                        <span class="custrateqty">(27)</span>
+                                    </p>
                                 <p class="card-text"><i class="bi bi-geo-alt"></i>Location</p>
                                 <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
                             </div>
