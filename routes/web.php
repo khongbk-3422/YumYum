@@ -57,14 +57,13 @@ Route::get('/custProfilePage', function () {
 
 //viewRestaurantPage
 Route::get('viewRestaurantPage',[RestController::class,'getAllRest']);
+Route::get('filter/{searchValue}',[RestController::class,'filter']);
 // Route::get('/viewRestaurantPage', function(){
 //     return view('viewRestaurantPage');
 // });
 
 //restaurantDetailsPage
-Route::get('/restaurantDetailsPage', function(){
-    return view('restaurantDetailsPage');
-});
+Route::get('restaurantDetailsPage/{rest_id}',[RestController::class,'restDetails']);
 
 //spinwheelPage
 Route::get('/spinwheelPage', function(){

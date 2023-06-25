@@ -301,7 +301,7 @@
                                             <span class="custrateqty">({{ $data['count']}})</span>
                                         </p>
                                     <p class="card-text"><i class="bi bi-geo-alt"></i>{{ $data['rest_address'] }}</p>
-                                    <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
+                                    <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href={{"restaurantDetailsPage/".$data['rest_id']}}><button class="viewRestBtn">View More</button></a>
                                     <button class="addRestBtn">Add to spin wheel</button>
                                 </div>
                             </div>
@@ -314,6 +314,25 @@
     </div>
 </body>
     <script>
+        //search function
+        var searchInput = document.getElementById('searchInput');
+        var searchButton = document.getElementById('searchButton');
+        searchButton.addEventListener('click', function() {
+            performSearch();
+        });
+
+        searchInput.addEventListener('keyup', function(event) {
+            // Check if the Enter key was pressed (key code 13)
+            if (event.keyCode === 13) {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            var searchValue = searchInput.value;
+            window.location.href = 'filter/' + encodeURIComponent(searchValue);
+        }
+
         //sidemnu toggle
         document.addEventListener('DOMContentLoaded', function() {
             const menulinks = document.querySelectorAll('#menu .nav-link');
