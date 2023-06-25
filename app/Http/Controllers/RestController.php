@@ -9,9 +9,10 @@ use App\Models\Rest_Picture;
 class RestController extends Controller
 {
     //Get All Data for Restaurant Page
-    function getRestData()
+    function getAllRest()
     {
-        // $rest = a
+        $data = Restaurant::all();
+        return $data;
     }
 
     function show()
