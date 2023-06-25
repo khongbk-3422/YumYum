@@ -5,14 +5,35 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Rest_Picture;
+use App\Models\Rate;
 
 class RestController extends Controller
 {
     //Get All Data for Restaurant Page
     function getAllRest()
     {
-        $data = Restaurant::all();
-        return $data;
+        $datas = Restaurant::all();
+        foreach ($datas as $data) {
+            // Get First Pic
+            $pic_data = Rest_Picture::where('rest_id',$data->rest_id)->first();
+            $rest_pic = $pic_data ? base64_encode($pic_data->rest_pic) : null;
+            $data->data_pic = $rest_pic;
+
+            //Get Rating
+            $rate_datas = Rate::where('rest_id',$data->rest_id)->get();
+            $total_rate = 0;
+            $count = 0;
+            foreach ($rate_datas as $rate_data) {
+                $total_rate += $rate_data->rating;
+                $count += 1;
+            }
+            
+
+            $avg_rate = $count > 0 ? $total_rate / $count : 0;
+            $data->count = $count;
+            $data->avg_rate = $avg_rate;
+        }
+        return $datas;
     }
 
     function show()

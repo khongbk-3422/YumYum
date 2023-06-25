@@ -56,7 +56,7 @@ Route::get('/custProfilePage', function () {
 });
 
 //viewRestaurantPage
-Route::post('viewRestPage',[UserController::class,'getAllRest']);
+Route::get('viewRestPage',[RestController::class,'getAllRest']);
 Route::get('/viewRestaurantPage', function(){
     return view('viewRestaurantPage');
 });
