@@ -13,6 +13,7 @@
     <div class="mainContainer">
         <!-- Sidemenu Starts -->
         <div class="sidemenu">
+            <!-- Need form mah? Cuz need to get the search value -->
             <div class="searchBar">
                 <input type="text" placeholder="Search here">
                 <a href="">
@@ -74,27 +75,35 @@
                     </a>
 
                     <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="price1CB">
-                                <label class="form-check-label  mb-2" for="price1CB"> < RM80</label>
-                            </div>
-                        </li>
+                        <div class="listwrapper">
+                            <div class="rangeinput">
+                                <div class="field">
+                                    <span>MIN</span>
+                                    <input type="number" name="min_price" value="100">
+                                </div>
 
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="price1CB">
-                                <label class="form-check-label  mb-2" for="price1CB"> < RM200</label>
-                            </div>
-                        </li>
+                                <div class="seperator">-</div>
 
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="price1CB">
-                                <label class="form-check-label  mb-2" for="price1CB"> > RM500</label>
+                                <div class="field">
+                                    <span>MAX</span>
+                                    <input type="number" name="max_price" value="500">
+                                </div>
                             </div>
-                        </li>
 
+                            <div class="slider">
+                                <div class="amount"></div>
+                            </div>
+
+                            <div class="pricerange">
+                                <input type="range" class="minrange" min="0" max="1000" value="100" name="min_price_range" step="50">
+                                <input type="range" class="maxrange" min="0" max="1000" value="500" name="max_price_range" step="50">
+                            </div>
+
+                            <div class="confirmbutton">
+                                <!-- need to retrieve the price value and find from databse-->
+                                <button><a href="">View</a></button>
+                            </div>
+                        </div>
                     </ul>
                 </li>
 
@@ -161,7 +170,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Iketeru Restaurant</h5>
                                     <p class="card-text text-muted">Japanese</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <span class="custrateqty">(43)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -172,7 +183,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Prime</h5>
                                     <p class="card-text text-muted">Steakhouse</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <span class="custrateqty">(31)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -183,7 +196,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Beta KL</h5>
                                     <p class="card-text text-muted">Malaysian</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <span class="custrateqty">(26)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -194,7 +209,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Chambers Grill</h5>
                                     <p class="card-text text-muted">Steakhouse</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                        <span class="custrateqty">(22)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -205,7 +222,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Positano Risto</h5>
                                     <p class="card-text text-muted">Italian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                        <span class="custrateqty">(31)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -216,7 +235,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">JP Teres</h5>
                                     <p class="card-text text-muted">Malaysian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                        <span class="custrateqty">(25)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -227,7 +248,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Via Pre Kul</h5>
                                     <p class="card-text text-muted">Italian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i></p>
+                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                        <span class="custrateqty">(27)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -238,7 +261,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Tamarind Hill</h5>
                                     <p class="card-text text-muted">Thai</p>
-                                    <p class="rating">4.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+                                    <p class="rating">4.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                        <span class="custrateqty">(21)</span>
+                                    </p>
                                 </div> 
                             </div>
                         </div>
@@ -258,83 +283,33 @@
             <!-- Top restaurant carousel End -->
 
             <!-- Restaurant Cards Start -->
+            <!-- Loop from database -->
+            
             <div class="restContainer">
                 <div class="title">
                     <h3>Restaurants in Kuala Lumpur</h3>
                 </div>
-
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-3">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="{{asset('image/rest1.jpg')}}">
-                                    </div>           
-                                    <div class="carousel-item">
-                                        <img src="{{asset('image/rest2.jpg')}}">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="{{asset('image/rest3.jpg')}}">
-                                    </div>
-                                </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </a>
+                @foreach ($datas as $data)
+                    <div class="card mb-3">
+                        <div class="row g-0">
+                            <div class="col-md-3">
+                                <img src="data:image/[image_format];base64,{{ $data->data_pic }}" alt="">
                             </div>
-                        </div>
 
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Restaurant Name</h5>
-                                <p class="card-text"><i class="bi bi-geo-alt"></i>Location</p>
-                                <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$data['rest_name']}}}</h5>
+                                        <p class="rating">{{$data['avg_rate']}} <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                            <span class="custrateqty">({{$data['count']}})</span>
+                                        </p>
+                                    <p class="card-text"><i class="bi bi-geo-alt"></i>{{$data['rest_address']}}</p>
+                                    <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- test 2 -->
-                <!-- <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-3">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="{{asset('image/rest1.jpg')}}">
-                                    </div>           
-                                    <div class="carousel-item">
-                                        <img src="{{asset('image/rest2.jpg')}}">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="{{asset('image/rest3.jpg')}}">
-                                    </div>
-                                </div>
-                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </a>
-                            </div>
-                        </div>
-
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+                @endforeach
+            </div
             <!-- Restaurant Cards End -->
         </div>
     </div>
@@ -376,6 +351,60 @@
                 }
             });
     });
+
+    // price changes with entered price
+    const priceRange = document.querySelectorAll(".pricerange input"),
+            rangeInput = document.querySelectorAll(".rangeinput input"),
+            amount = document.querySelector(".slider .amount");
+
+    let priceGap = 100;
+
+    rangeInput.forEach(input =>{
+        input.addEventListener("input", e =>{
+            //get 2 inputs value
+            let minPrice = parseInt(rangeInput[0].value),
+                maxPrice = parseInt(rangeInput[1].value);
+
+            if ((maxPrice - minPrice >= priceGap) && maxPrice <= 1000){
+                if(e.target.className === "min_price"){
+                    priceRange[0].value = minPrice;
+                    amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
+                }
+                else{
+                    priceRange[1].value = maxPrice;
+                    amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
+                }
+            }
+        });
+    });
+
+    //slider value change with slided value
+    priceRange.forEach(input =>{
+        input.addEventListener("input", e =>{
+            let minPrice = parseInt(priceRange[0].value),
+                maxPrice = parseInt(priceRange[1].value);
+
+            if (maxPrice - minPrice < priceGap){
+                if(e.target.className === "minrange"){
+                    priceRange[0].value = maxPrice - priceGap;
+                }
+                else{
+                    priceRange[1].value = minPrice + priceGap;
+                }
+                
+            }
+            else{
+                rangeInput[0].value = minPrice;
+                rangeInput[1].value = maxPrice;
+                amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
+                amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
+                // console.log(minPrice, maxPrice)
+            }
+        });
+    });
+
+
+
     </script>
 </html>
 
