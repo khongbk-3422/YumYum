@@ -297,7 +297,30 @@
                             <div class="col-md-9">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $data['rest_name']}}</h5>
-                                        <p class="rating">{{ $data['avg_rate']}} <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                        <p class="rating">{{ $data['avg_rate']}} 
+                                            @if ($data['avg_rate'] == 5)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-light fa-star-half"></i> 
+                                            @elseif ($data['avg_rate'] >= 4.15 && $data['avg_rate'] < 5)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> 
+                                            @elseif ($data['avg_rate'] >= 3.85 && $data['avg_rate'] < 4.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> 
+                                            @elseif ($data['avg_rate'] >= 3.15 && $data['avg_rate'] < 3.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> 
+                                            @elseif ($data['avg_rate'] >= 2.85 && $data['avg_rate'] < 3.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> 
+                                            @elseif ($data['avg_rate'] >= 2.15 && $data['avg_rate'] < 2.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> 
+                                            @elseif ($data['avg_rate'] >= 1.85 && $data['avg_rate'] < 2.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> 
+                                            @elseif ($data['avg_rate'] >= 1.15 && $data['avg_rate'] < 1.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> 
+                                            @elseif ($data['avg_rate'] >= 0.85 && $data['avg_rate'] < 1.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> 
+                                            @elseif ($data['avg_rate'] >= 1.15 && $data['avg_rate'] < 1.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> 
+                                            @else
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>  
+                                            @endif
                                             <span class="custrateqty">({{ $data['count']}})</span>
                                         </p>
                                     <p class="card-text"><i class="bi bi-geo-alt"></i>{{ $data['rest_address'] }}</p>
