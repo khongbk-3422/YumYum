@@ -15,12 +15,12 @@
         box-sizing: border-box;
         list-style-type: none;
         text-decoration: none;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Raleway', sans-serif;
     }
 
     .cards{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-gap: 2rem;
         margin-top: 80px;
         margin-left: 50px;
@@ -43,22 +43,20 @@
     .card-single div:first-child span{
         color: grey;
     }
-/* 
-    .card-single:last-child{
-        background: red;
-    } */
-
-    /* .card-single:last-child h1,
-    .card-single:last-child div:last-child span,
-    .card-single:last-child div:first-child span{
-        color: blue;
-    } */
 
     .recent-grid{
         margin-top: 3rem;
         display: grid;
         grid-gap: 2rem;
-        grid-template-columns: 70% auto;
+        grid-template-columns: 65% auto;
+    }
+
+    .restaurants{
+        margin-left: 50px;
+    }
+
+    .customers{
+        margin-right: 50px;
     }
 
     .card{
@@ -158,6 +156,16 @@
                 </div>
                 <div>
                     <span><i class="bi bi-people-fill"></i></span>
+                </div>
+            </div>
+
+            <div class="card-single">
+                <div>
+                    <h1>328</h1>
+                    <span>Ratings</span>
+                </div>
+                <div>
+                    <span><i class="fa-solid fa-comments"></i></span>
                 </div>
             </div>
         </div>
