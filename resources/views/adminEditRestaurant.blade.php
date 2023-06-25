@@ -26,6 +26,93 @@
         /* .main.sideMenuBar{
           float: left;
         } */
+        .open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  bottom: 23px;
+  right: 28px;
+  width: 100px;
+  font-size: 15px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  overflow: auto;
+  max-height: 90%;
+}
+
+.form-popup::-webkit-scrollbar {
+            display: none;
+        }
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=text] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container input[type=number], .form-container input[type=number] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container input[type=file], .form-container input[type=file] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #F3D965;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
         .sidemenu{
     background:#F8F8F8;
     margin: 20px 10px;
@@ -184,137 +271,6 @@ input[type="range"]::-moz-range-thumb{
     margin-left:22px;
 }
 
-/* Carousel */
-.carouselContainer{
-    max-width: 100%;
-    margin-bottom:10px;
-}
-
-.carouselContainer .carousel{
-    margin: 0 10px;
-    height:280px;
-    margin-top:10px;
-}
-
-.carouselContainer .carousel-inner{
-    display:flex;
-}
-
-.carouselContainer .carousel-item{
-    display:block;
-    margin-right:-5px;
-    flex: 0 0 calc(100% / 4);
-    padding:18px 16px;
-}
-
-.carouselContainer .card{
-    margin: 0 10px;
-    height:250px;
-    border-radius:5px;
-    box-shadow: 2px 6px 8px 0 rgba(22,22,26, .18);
-    transition:0.5s;
-}
-
-.carouselContainer .card:hover{
-    transform:scale(1.1);
-}
-
-.carouselContainer .card img{
-    width:100%;
-    height:150px;
-    object-fit:cover;
-}
-
-.carouselContainer .card-body .card-title{
-    font-size:18px;
-}
-
-.carouselContainer .card-body .card-text{
-    margin-bottom:3px;
-}
-
-.carouselContainer .card-body .rating{
-    color: grey;
-    margin-right:5px;
-}
-
-.carouselContainer .card-body i{
-    font-size:12px;
-    /* color:#cfcda5; */
-    color:#d1d18a;
-}
-
-.carouselContainer .carousel-control-prev{
-    height: 6vh;
-    width:6vh;
-    background-color: rgb(100, 95, 95);
-    border-radius:50%;
-    top:50%;
-    transform: translateY(-50%);
-    opacity:.5;
-}
-
-.carouselContainer .carousel-control-next{
-    height: 6vh;
-    width:6vh;
-    background-color: rgb(100, 95, 95);
-    border-radius:50%;
-    top:50%;
-    transform: translateY(-50%);
-    opacity:.5;
-}
-
-.title{
-    text-align:center;
-    margin:10px;
-}
-
-/* Restaurant cards */
-.restContainer{
-    margin-top:10px;
-}
-
-.restContainer .title{
-    text-align:center;
-    margin:10px;
-}
-
-.restContainer .card{
-    height:180px;
-}
-
-.restContainer .card .row img{
-    width:210px;
-    height:180px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-.restContainer .card-body{
-    width:600px;
-    margin:0 6px;
-}
-
-.restContainer .card-text i{
-    padding:0 6px;
-}
-
-.restContainer .carousel-item img{
-    width:100%;
-    height:100%;
-}
-
-.viewRestBtn{
-    border:none;
-    background:#e0dfdc;
-    color:black;
-    margin:15px;
-    font-size:18px;
-    font-weight:black;
-    border-radius:5px;
-    height:35px;
-    outline:none;
-}
 
         .main.restaurantCard{
           flex: 1;
@@ -494,16 +450,56 @@ input[type="range"]::-moz-range-thumb{
   </div>
     {{-- restaurantCard --}}
     <div class="restaurantCard">
-      <div class="card" style="width: 18rem;">
+      <div class="card" style="width: 30rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+            {{-- need to set restaurant name database --}}
+          <h5 class="card-title">Card title Restaurant NAME</h5> 
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <button class="open-button" onclick="openForm()">Edit</button>
       </div>
     </div>
+    <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+          <h1>Edit</h1>
+      
+          <label for="Id"><b>Id</b></label>
+          <input type="text" placeholder="Enter Id" name="id" required>
+      
+          <label for="Restaurant Name"><b>Restaurant Name</b></label>
+          <input type="text" placeholder="Enter Restaurant Name" name="restaurantName" required>
+      
+          <label for="Restaurant Contact"><b>Restaurant Contact</b></label>
+          <input type="text" placeholder="Enter Restaurant Contact" name="restaurantContact" required>
+
+          <label for="Restaurant Category"><b>Restaurant Category</b></label>
+          <input type="text" placeholder="Enter Restaurant Category" name="restaurantCategory" required>
+
+          <label for="Restaurant Address"><b>Restaurant Address</b></label>
+          <input type="text" placeholder="Enter Restaurant Address" name="restaurantAddress" required>
+
+          <label for="Minimum Price"><b>Minimum Price</b></label>
+          <input type="number" placeholder="Enter Minimum Price" name="priceMin" required>
+
+          <label for="Maximum Price"><b>Maximum Price</b></label>
+          <input type="number" placeholder="Enter Maximum Price" name="priceMax" required>
+
+          <label for="Restaurant Picture"><b>Restaurant Picture</b></label>
+          <input type='file' name='image' class='form-control' accept="image/*" />
+
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
   </div>
   <script>
+    function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
     //sidemnu toggle
     document.addEventListener('DOMContentLoaded', function() {
         const menulinks = document.querySelectorAll('#menu .nav-link');
