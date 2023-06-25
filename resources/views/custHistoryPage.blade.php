@@ -14,33 +14,42 @@
         }
 
         .maincontainer{
-            margin-top:80px;
-            /* background:pink; */
-            /* height:110vh; */
+            margin:90px auto;
+            background:#f7f7f7;
+            padding:20px 20px;
+            max-width:calc(100% - 220px);
+        }
+
+        .title{
+            text-align:center;
+            padding:10px;
+            font-size:35px;
         }
 
         .historycontainer{
-            width:calc(100% - 260px);
+            width:100% ;
             /* background:purple; */
-            margin:auto;
         }
 
-        .historycontainer .title{
-            text-align:center;
-            padding:10px;
+        .historyperday .date{
+            font-size:20px;
+            /* font-weight:bold; */
         }
 
-        .historyperday .date, .history{
-            margin:12px;
-        }
-
-        .history .data h4{
+        .history .data .time{
             font-size:16px;
             letter-spacing:3px;
+            /* color:grey; */
         }
 
-        .historyperday .data span{
+        .historyperday .data .restname{
+            font-size:18px;
             margin:20px;
+        }
+
+        .historyperday .data h4:hover{
+            color:#968e7e;
+            cursor: pointer;
         }
 
 
@@ -48,21 +57,38 @@
 </head>
 <body>
     <div class="maincontainer">
+        <div>
+            <h2 class="title">History</h2>
+        </div>
         <div class="historycontainer">
-            <div class="title">
-                <h2>History</h2>
-            </div>
 <!-- loop from database and order by date -->
             <div class="historyperday">
-                <div class="date">
-                    <h4>Date</h4>
+                <div>
+                    <h4 class="date">25 June 2023</h4>
+                    <hr>
                 </div>
 
                 <div class="history">
                     <div class="data">
-                        <h4>08:10:22 <span>Prime</span></h4>
-                        <h4>08:10:22 <span>Prime</span></h4>
-                        <h4>08:10:22 <span>Prime</span></h4>
+                        <h4 class="viewhistory"><span class="time">08:10:22</span> <span class="restname">Via Pre Kul</span></h4>
+                        <h4><span class="time">08:10:22</span> <span class="restname">Beta KL</span></h4>
+                        <h4><span class="time">08:10:22</span> <span class="restname">JP Teres</span></h4>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- Test 2 -->
+            <div class="historyperday">
+                <div>
+                    <h4 class="date">24 June 2023</h4>
+                    <hr>
+                </div>
+
+                <div class="history">
+                    <div class="data">
+                        <h4><span class="time">08:10:22</span> <span class="restname">Makan Kitchen</span></h4>
+                        <h4><span class="time">08:10:22</span> <span class="restname">Beta KL</span></h4>
+                        <h4><span class="time">08:10:22</span> <span class="restname">Prime</span></h4>
                     </div>
                 </div>
             </div>

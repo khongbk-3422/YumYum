@@ -13,6 +13,7 @@
     <div class="mainContainer">
         <!-- Sidemenu Starts -->
         <div class="sidemenu">
+            <!-- Need form mah? Cuz need to get the search value -->
             <div class="searchBar">
                 <input type="text" placeholder="Search here">
                 <a href="">
@@ -99,7 +100,7 @@
                             </div>
 
                             <div class="confirmbutton">
-                                <!-- retrieve the price valu -->
+                                <!-- need to retrieve the price value and find from databse-->
                                 <button><a href="">View</a></button>
                             </div>
                         </div>
