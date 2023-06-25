@@ -1,3 +1,4 @@
+@include('header')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +9,54 @@
     <style>
         .outercontainer{
             background:pink;
+            margin-top:80px;
+        }
+
+        .outercontainer .title{
+            text-align:center;
         }
 
         .reviewcontainer{
             background:yellow;
             margin:auto;
             width:calc(100% - 220px);
+            display:flex;
+        }
+
+        .reviewcontainer .custprofile{
+            align-items: center;
+            padding:20px;
+            background:blue;
+        }
+
+        .reviewcontainer .custprofile img{
+            width:80px;
+            height:80px;
+            border-radius:50%;
+        }
+
+        .reviewcontainer .custprofile h4{
+            font-size:20px;
+            margin:10px;
+            display:center;
+        }
+
+        .review{
+            padding:10px 10px;
+            background:purple;
         }
     </style>
 </head>
 <body>
-    <div class="outercontiner">
+    <div class="outercontainer">
+        <div class="title">
+            <h2>Ratings and Reviews</h2>
+        </div>
+
         <div class="reviewcontainer">
             <div class="custprofile">
                 <img src="{{asset('image/rest1.jpg')}}" alt="">
+                <h4>Name</h4>
             </div>
 
             <div class="review">
