@@ -13,27 +13,30 @@
     <div class="bodycontainer">
         <!-- get from rest_table -->
         <div class="restDetails">
-            <div class="restName">
-                <h3>Iketeru <span class="verification"><i class="bi bi-patch-check"></i>Claimed</span></h3>
+            <div>
+                <h3 class="restName">Iketeru <span class="verification"><i class="bi bi-patch-check"></i>Claimed</span></h3>
                 <i class="fa-solid fa-location-dot"><span class="restinfo">addresss</span></i> |
                 <i class="fa-solid fa-square-phone"><span class=restinfo>01123455</span></i>
             </div>
         </div>
 
-        <div class="menucontainer">
-            <i id="left-btn" class="fa-solid fa-angle-left"></i>
-            <div class="carousel">
-                <img src="{{asset('image/restaurants/iketeru1.jpg')}}">
-                <img src="{{asset('image/restaurants/iketeru2.jpg')}}">
-                <img src="{{asset('image/restaurants/iketeru3.jpg')}}">
-                <!-- <img src="{{asset('image/restaurants/iketeru3.jpg')}}">
-                <img src="{{asset('image/restaurants/iketeru3.jpg')}}"> -->
+        <div class="menuoutercontainer">
+            <div class="menucontainer">
+                <i id="left-btn" class="fa-solid fa-angle-left"></i>
+                <div class="carousel">
+                    <img src="{{asset('image/restaurants/iketeru1.jpg')}}">
+                    <img src="{{asset('image/restaurants/iketeru2.jpg')}}">
+                    <img src="{{asset('image/restaurants/iketeru3.jpg')}}">
+                    <img src="{{asset('image/restaurants/iketeru3.jpg')}}">
+                    <img src="{{asset('image/restaurants/iketeru3.jpg')}}">
+                </div>
+                <i id="right-btn" class="fa-solid fa-angle-right"></i>
             </div>
-            <i id="right-btn" class="fa-solid fa-angle-right"></i>
         </div>
+        
 
         <div class="cardcontainer">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
@@ -60,11 +63,11 @@
                     </div>
                 </div>
 
-                <div class="col-sm-8">
+                <div class="col-sm-6">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="restLocation">Location</h5>
-                            <iframe width="650" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=4 off, Persiaran Klang, Batu 3 3, 202, Old Klang Rd, Taman Shanghai, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur&output=embed"></iframe>
+                            <iframe width="550" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=4 off, Persiaran Klang, Batu 3 3, 202, Old Klang Rd, Taman Shanghai, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur&output=embed"></iframe>
                             <p class="restAddress">Address0</p>
                         </div>
                     </div>
@@ -124,12 +127,12 @@
                 </div>
 
                 <!-- New feedback -->
-                <form action="" method="POST">
+                <!-- <form action="" method="POST">
                     <div class="reviewbox">
                         <div class="box-top">
                             <div class="profile">
                                 <div class="custpic">
-                                    <img src="{{asset('image/rest1.jpg')}}">
+                                    <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}">
                                 </div>
 
                                 <div class="custname">
@@ -146,7 +149,7 @@
                             </div>
                         </div>
 
-                        <!-- need to retreive the value and save into das -->
+                        //need to retreive the value and save into das
                         <div class="custreview">
                             <p class="date">date</p>
                             <div class="form-group">
@@ -157,7 +160,7 @@
                             </div>
                         </div>
                     </div>
-                </form>
+                </form> -->
             </div>
         </div>
     </div>

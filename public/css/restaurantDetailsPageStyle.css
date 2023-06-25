@@ -7,35 +7,42 @@
     margin-top:80px;
 }
 
-.restDetails .restName{
-    margin:10px 15px;
+.restDetails{
+    margin:10px 25px;
     line-height:2;
 }
 
-.restName h3{
-    font-size:35px;
+.restName{
+    font-size:40px;
 }
 
 .restDetails .restName .verification{
-    font-size:18px;
+    font-size:22px;
 }
 
 .restDetails .restName .verification i{
-    font-size:15px;
+    font-size:20px;
     color:green;
 }
 
 .restDetails .restinfo{
     margin-left:12px;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .restDetails i{
-    font-size: 14px;
+    font-size: 16px;
     padding:10px;
 }
 
 /* Menu carousel */
+.menuoutercontainer{
+    /* background:#f6f4f0; */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+
 .menucontainer{
     max-width: 1300px;
     margin: auto;
@@ -99,35 +106,34 @@
     }
 }
 
-
-
 /* Restaurant details card */
 .cardcontainer{
     padding:20px;
 }
 
+
 .cardcontainer .card{
-    height:300px;
+    height:320px;
 }
 
 .cardcontainer .card .card-body p{
-    font-size:14px;
+    font-size:16px;
     letter-spacing:2px;
 }
 
 .cardcontainer .card .card-body h5{
-    font-size:17px;
+    font-size:20px;
     font-weight:bold;
     letter-spacing:2px;
 }
 
 .cardcontainer .card .card-body i{
     font-size:17px;
-    color:yellow;
+    color:#f1f190;
 }
 
 .cardcontainer .card .card-body .restLocation{
-    font-size:17px;
+    font-size:18px;
     font-weight:bold;
     letter-spacing:2px;
     margin:2px 5px;
@@ -151,7 +157,7 @@
     padding:10px 10px;
 }
 
-.reviewcontainer{
+ .reviewcontainer{
     display:flex;
     justify-content:center;
     align-items:center;
@@ -160,13 +166,12 @@
 }
 
 .reviewbox{
-    width:500px;
+    width:90%;
     height: 260px;
-    box-shadow:0 5px 5px rgba(0, 0, 0, 0.3);
-    background-color:#f2f2f0;
+    /* box-shadow:0 5px 5px rgba(0, 0, 0, 0.3); */
+    background-color:#fefef3;
     padding:15px;
     margin:15px;
-    border-radius:8px;
 }
 
 .profile{
