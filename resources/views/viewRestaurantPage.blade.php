@@ -15,10 +15,8 @@
         <div class="sidemenu">
             <!-- Need form mah? Cuz need to get the search value -->
             <div class="searchBar">
-                <input type="text" placeholder="Search here">
-                <a href="">
-                    <i class="fa fa-search"></i>
-                </a>
+                <input type="text" id="searchInput" placeholder="Search here">
+                <a href="#" id="searchButton"><i class="fa fa-search"></i></a>
             </div>
 
             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
@@ -165,7 +163,7 @@
                 <div id="carouselExampleRide" class="carousel" data-bs-ride="true">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <div class="card" style="width:12rem;">
+                            <div class="card" style="width:13rem;">
                                 <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">Iketeru Restaurant</h5>
@@ -178,7 +176,7 @@
                         </div>
 
                         <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
+                            <div class="card" style="width:13rem;">
                                 <img src="{{ asset('image/rest2.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">Prime</h5>
@@ -191,7 +189,7 @@
                         </div>
 
                         <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
+                            <div class="card" style="width:13rem;">
                                 <img src="{{ asset('image/rest3.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">Beta KL</h5>
@@ -204,7 +202,7 @@
                         </div>
 
                         <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
+                            <div class="card" style="width:13rem;">
                                 <img src="{{ asset('image/rest4.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">Chambers Grill</h5>
@@ -217,7 +215,7 @@
                         </div>
 
                         <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
+                            <div class="card" style="width:13rem;">
                                 <img src="{{ asset('image/rest5.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">Positano Risto</h5>
@@ -230,7 +228,7 @@
                         </div>
 
                         <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
+                            <div class="card" style="width:13rem;">
                                 <img src="{{ asset('image/rest6.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">JP Teres</h5>
@@ -243,7 +241,7 @@
                         </div>
 
                         <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
+                            <div class="card" style="width:13rem;">
                                 <img src="{{ asset('image/rest7.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">Via Pre Kul</h5>
@@ -256,7 +254,7 @@
                         </div>
 
                         <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
+                            <div class="card" style="width:13rem;">
                                 <img src="{{ asset('image/rest8.jpg')}}" class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title">Tamarind Hill</h5>
@@ -296,20 +294,21 @@
                                 <img src="data:image/[image_format];base64,{{ $data->data_pic }}" alt="">
                             </div>
 
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{$data['rest_name']}}}</h5>
-                                        <p class="rating">{{$data['avg_rate']}} <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
-                                            <span class="custrateqty">({{$data['count']}})</span>
+                                    <h5 class="card-title">{{ $data['rest_name']}}</h5>
+                                        <p class="rating">{{ $data['avg_rate']}} <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
+                                            <span class="custrateqty">({{ $data['count']}})</span>
                                         </p>
-                                    <p class="card-text"><i class="bi bi-geo-alt"></i>{{$data['rest_address']}}</p>
+                                    <p class="card-text"><i class="bi bi-geo-alt"></i>{{ $data['rest_address'] }}</p>
                                     <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
+                                    <button class="addRestBtn">Add to spin wheel</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
-            </div
+            </div>
             <!-- Restaurant Cards End -->
         </div>
     </div>
@@ -328,8 +327,8 @@
             });
         });
 
+        //top recommend restaurant card choser
         $(document).ready(function() {
-            //top restaurant card choser
             var carouselWidth = $('.carouselContainer .carousel-inner')[0].scrollWidth;
             var cardWidth = $('.carouselContainer .carousel-item').width();
 
@@ -350,7 +349,7 @@
                     600);
                 }
             });
-    });
+        });
 
     // price changes with entered price
     const priceRange = document.querySelectorAll(".pricerange input"),

@@ -126,7 +126,7 @@ input[type="range"]::-moz-range-thumb{
 .confirmbutton button{
     font-size: 18px;
     border-radius: 5px;
-    background: #e6e3d1;
+    background: #e0dfdc;
     border: none;
     margin-top: 10px;
     margin-left:70%;
@@ -138,6 +138,7 @@ input[type="range"]::-moz-range-thumb{
 }
 
 .searchBar{
+    position: relative;
     height:30px;
     display:flex;
     cursor:pointer;
@@ -147,24 +148,26 @@ input[type="range"]::-moz-range-thumb{
     box-shadow:0 5px 5px rgba(0, 0, 0, 0.3);
     margin:15px 0;
 }
+  
+.searchBar input {
+    width: 140px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    background: transparent;
+  }
 
-.searchBar:hover input{
-    width:140px;
-}
-
-.searchBar input{
-    width:0;
-    outline:none;
-    border:none;
-    font-size:15px;
-    transition:0.8s;
-    background:transparent;
-}
-
-.searchBar a i{
-    color:#C0B0A2;
-    font-size:18px;
-}
+  .searchBar a {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .searchBar a i {
+    color: #C0B0A2;
+    font-size: 18px;
+  }
 
 .sidemenu .nav-link i{
     font-size:18px;
@@ -185,7 +188,7 @@ input[type="range"]::-moz-range-thumb{
 
 /* Carousel */
 .carouselContainer{
-    max-width: 100%;
+    max-width: calc(100% - 200px);
     margin-bottom:10px;
 }
 
@@ -201,7 +204,7 @@ input[type="range"]::-moz-range-thumb{
 
 .carouselContainer .carousel-item{
     display:block;
-    margin-right:-5px;
+    margin-right:5px;
     flex: 0 0 calc(100% / 4);
     padding:18px 16px;
 }
@@ -282,12 +285,13 @@ input[type="range"]::-moz-range-thumb{
 }
 
 .restContainer .card{
-    height:180px;
+    height:210px;
+    width:900px;
 }
 
 .restContainer .card .row img{
-    width:210px;
-    height:180px;
+    width:230px;
+    height:210px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
@@ -315,7 +319,7 @@ input[type="range"]::-moz-range-thumb{
     height:100%;
 }
 
-.viewRestBtn{
+.viewRestBtn, .addRestBtn{
     border:none;
     background:#e0dfdc;
     color:black;
