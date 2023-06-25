@@ -66,7 +66,7 @@ class RestController extends Controller
         $rest_data = Restaurant::where('rest_id',$rest_id)->get();
         
         //Get Picture
-        $pic_data = Rest_Picture::where('rest_id',$data->rest_id)->get();
+        $pic_data = Rest_Picture::where('rest_id',$rest_id)->get();
         $rest_pic = [];
 
         foreach ($pic_data as $pic) {
@@ -76,7 +76,7 @@ class RestController extends Controller
         $rest_data->data_pic = $rest_pic;
 
         //Get Rating
-        $rate_datas = Rate::where('rest_id',$data->rest_id)->get();
+        $rate_datas = Rate::where('rest_id',$rest_id)->get();
         $total_rate = 0;
         $count = 0;
         foreach ($rate_datas as $rate_data) {
@@ -85,7 +85,7 @@ class RestController extends Controller
         }
         
         $avg_rate = $count > 0 ? $total_rate / $count : 0;
-        $data->count = $count;
+        $rest_data->count = $count;
         $rest_data->avg_rate = $avg_rate;
 
         return view('restaurantDetailsPage',['rest_data'=>$rest_data]);

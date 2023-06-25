@@ -301,7 +301,7 @@
                                             <span class="custrateqty">({{ $data['count']}})</span>
                                         </p>
                                     <p class="card-text"><i class="bi bi-geo-alt"></i>{{ $data['rest_address'] }}</p>
-                                    <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href={{"restaurantDetailsPage/".$data['rest_id']}}><button class="viewRestBtn">View More</button></a>
+                                    <a href={{"restaurantDetailsPage/".$data['rest_id']}}><button class="viewRestBtn">View More</button></a>
                                     <button class="addRestBtn">Add to spin wheel</button>
                                 </div>
                             </div>
