@@ -14,9 +14,9 @@
         <!-- get from rest_table -->
         <div class="restDetails">
             <div>
-                <h3 class="restName">Iketeru <span class="verification"><i class="bi bi-patch-check"></i>Claimed</span></h3>
-                <i class="fa-solid fa-location-dot"><span class="restinfo">addresss</span></i> |
-                <i class="fa-solid fa-square-phone"><span class=restinfo>01123455</span></i>
+                <h3 class="restName">{{$rest_data['rest_name']}}<span class="verification"><i class="bi bi-patch-check"></i>Claimed</span></h3>
+                <i class="fa-solid fa-location-dot"><span class="restinfo">{{$rest_data['rest_address']}}</span></i> |
+                <i class="fa-solid fa-square-phone"><span class=restinfo>{{$rest_data['rest_contact']}}</span></i>
             </div>
         </div>
 
@@ -24,11 +24,9 @@
             <div class="menucontainer">
                 <i id="left-btn" class="fa-solid fa-angle-left"></i>
                 <div class="carousel">
-                    <img src="{{asset('image/restaurants/iketeru1.jpg')}}">
-                    <img src="{{asset('image/restaurants/iketeru2.jpg')}}">
-                    <img src="{{asset('image/restaurants/iketeru3.jpg')}}">
-                    <img src="{{asset('image/restaurants/iketeru3.jpg')}}">
-                    <img src="{{asset('image/restaurants/iketeru3.jpg')}}">
+                    @foreach ($rest_data['data_pic'] as $pic)
+                        <img src="data:image/[image_format];base64,{{$pic}}" alt="">
+                    @endforeach
                 </div>
                 <i id="right-btn" class="fa-solid fa-angle-right"></i>
             </div>
@@ -41,19 +39,19 @@
                     <div class="card">
                         <div class="card-body">
                             <h5>Rating</h5>
-                            <p>4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                <span class="ratingqty">(32)</span>
+                            <p>{{$rest_data['avg_rate']}} <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                <span class="ratingqty">({{$rest_data['count']}})</span>
                             </p>
                         </div>
 
                         <div class="card-body">
                             <h5>Price Range</h5>
-                            <p>RM20-RM500</p>
+                            <p>{{$rest_data['price_min']}}-{{$rest_data['price_max']}}</p>
                         </div>
 
                         <div class="card-body">
                             <h5>Cuisine</h5>
-                            <p>Japanese</p>
+                            <p>{{$rest_data['rest_category']}}</p>
                         </div> 
                     </div>
                 </div>
@@ -62,8 +60,8 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="restLocation">Location</h5>
-                            <iframe width="550" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q=4 off, Persiaran Klang, Batu 3 3, 202, Old Klang Rd, Taman Shanghai, 58000 Kuala Lumpur, Federal Territory of Kuala Lumpur&output=embed"></iframe>
-                            <p class="restAddress">Address0</p>
+                            <iframe width="550" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.it/maps?q={{$rest_data['rest_address']}}&output=embed"></iframe>
+                            <p class="restAddress">{{$rest_data['rest_address']}}</p>
                         </div>
                     </div>
                 </div>
