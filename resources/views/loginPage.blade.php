@@ -13,7 +13,7 @@
         }
 
         .background{
-            background: url('image/loginBkg.jpg') no-repeat;
+            background: url('image/login1.jpg') no-repeat;
             width:100%;
             height:100vh;
             background-size:cover;
@@ -29,7 +29,7 @@
             transform: translate(-50%, -50%);
             width:75%;
             height:550px;
-            background: url('image/loginBkg.jpg') no-repeat;
+            background: url('image/login1.jpg') no-repeat;
             background-size:cover;
             background-position:center;
             border-radius:10px;
@@ -51,6 +51,7 @@
 
         .content .logo{
             font-size:30px;
+            margin-bottom:150px;
         }
 
         .text h2{

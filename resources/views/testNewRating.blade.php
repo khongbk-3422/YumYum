@@ -97,15 +97,13 @@
             color:rgb(138, 127, 114);
         }
 
-        .othercustreviewtextarea{
-            padding: 20px;
-            min-height: 100px;
-            resize: vertical;
+        textarea.form-control:focus{
+            box-shadow:0 0 8px #635e49;
         }
 
-        .form-control-no-outline {
-            outline: none;
-            box-shadow: none;
+        .form-control.form-control-no-outline {
+            border: none;
+            box-shadow: none !important;
         }
 
     </style>
@@ -172,7 +170,7 @@
                     <div class="form-group">
                         <label for="" class="reviewcmd">Leave your review below</label>
                         <textarea class="form-control" id="firstreview" rows="3" name="custfirstreview"></textarea>
-                        <button type="submit"class="submitbtn">Send</button>
+                        <button type="submit"class="submitbtn">Comment</button>
                     </div>
                 </div>
             </div>
@@ -188,7 +186,7 @@
 
             <div class="review">
                 <p class="reviewdate">04/06/2023
-                    <span class="newrating">
+                    <span class="starqty">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -199,7 +197,7 @@
 
                 <div class="form-group">
                     <label for="" class="reviewcmd">Review</label>
-                    <textarea class="form-control form-control-no-outline" id="firstreview" rows="3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, voluptatem? Accusamus officia molestias adipisci alias quisquam et architecto asperiores modi quidem consectetur ratione unde quam, at magnam earum aliquid nihil?</textarea>
+                    <textarea class="form-control form-control-no-outline" id="firstreview" rows="3" readonly>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, voluptatem? Accusamus officia molestias adipisci alias quisquam et architecto asperiores modi quidem consectetur ratione unde quam, at magnam earum aliquid nihil?</textarea>
                 </div>
             </div>
         </div>

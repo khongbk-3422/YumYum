@@ -15,8 +15,8 @@
         <div class="restDetails">
             <div>
                 <h3 class="restName">{{$rest_data['rest_name']}}<span class="verification"><i class="bi bi-patch-check"></i>Claimed</span></h3>
-                <i class="fa-solid fa-location-dot"><span class="restinfo">{{$rest_data['rest_address']}}</span></i> |
-                <i class="fa-solid fa-square-phone"><span class=restinfo>{{$rest_data['rest_contact']}}</span></i>
+                <i class="fa-solid fa-location-dot"></i><span class="restinfo">{{$rest_data['rest_address']}} </span>  
+                | <i class="fa-solid fa-square-phone"></i><span class=restinfo>{{$rest_data['rest_contact']}}</span>
             </div>
         </div>
 
@@ -30,8 +30,7 @@
                 </div>
                 <i id="right-btn" class="fa-solid fa-angle-right"></i>
             </div>
-        </div>
-        
+        </div> 
 
         <div class="cardcontainer">
             <div class="row justify-content-center">
@@ -46,7 +45,7 @@
 
                         <div class="card-body">
                             <h5>Price Range</h5>
-                            <p>{{$rest_data['price_min']}}-{{$rest_data['price_max']}}</p>
+                            <p>RM {{$rest_data['price_min']}} - RM {{$rest_data['price_max']}}</p>
                         </div>
 
                         <div class="card-body">
@@ -76,84 +75,88 @@
 
             <!-- Customer's feedback -->
             <div class="reviewcontainer">
-                <div class="reviewbox">
-                    <div class="box-top">
-                        <div class="profile">
-                            <div class="custpic">
-                                <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}">
-                            </div>
-
-                            <div class="custname">
-                                <strong>alicia</strong>
-                            </div>
-                        </div>
-
-                        <div class="rating">
-                            <!-- how to display number of star based on sql -->
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            
-                        </div>
-                    </div>
-
-                    <div class="custreview">
-                        <!-- need add link to the icon -->
-                        <p class="date">2023/05/12 21:45:21 
-                            <span class="icons">
-                                <!-- return to normal view -->
-                                <i class="fa-solid fa-rotate-left"></i>
-                                <!-- Trigger text area -->
-                                <i class="fa-regular fa-pen-to-square"></i>
-                                <!-- save new cmd -->
-                                <i class="fa-regular fa-floppy-disk"></i>
-                                <!-- delete -->
-                                <i class="fa-solid fa-trash"></i>
-                            </span>
-                        </p>
-                        <div class="form-group">
-                            <label for="">Review</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur</textarea>
-                        </div>
-                    </div>
+                <div class="custprofile">
+                    <img src="data:image/[image_format];base64,{{base64_encode(session ('user_pic'))}}">
+                    <h4 class="custname">Name</h4>
                 </div>
 
-                <!-- New feedback -->
-                <!-- <form action="" method="POST">
-                    <div class="reviewbox">
-                        <div class="box-top">
-                            <div class="profile">
-                                <div class="custpic">
-                                    <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}">
-                                </div>
+                <div class="review">
+                    <p class="reviewdate">2023/05/12 21:45:21 
+                        <span class="starqty">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                    </p>
 
-                                <div class="custname">
-                                    <strong>alicia</strong>
-                                </div>
-                            </div>
+                    <div class="actionicons">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <!-- Trigger text area -->
+                        <i class="fa-regular fa-pen-to-square"></i>
+                        <!-- save new cmd -->
+                        <i class="fa-regular fa-floppy-disk"></i>
+                        <!-- delete -->
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
 
-                            <div class="newrating">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="" class="reviewcmd">Review</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur</textarea>
+                    </div>
+                </div>
+            </div>
 
-                        //need to retreive the value and save into das
-                        <div class="custreview">
-                            <p class="date">date</p>
-                            <div class="form-group">
-                                <input type="hidden" id="ratingValue" name="ratingValue">
-                                <label for="newreview">Leave your review here</label>
-                                <textarea class="form-control" id="firstreview" rows="3" name="firstreview"></textarea>
-                                <button type="submit"class="submitbtn">Send</button>
-                            </div>
+            <!-- Customer first time give review -->
+            <form action="" method="post" class="reviewcontainer">
+                    <div class="custprofile">
+                        <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}">
+                        <h4 class="custname">Name</h4>
+                    </div>
+
+                    <div class="review">
+                        <p class="reviewdate">04/06/2023
+                            <span class="newrating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                        </p>
+
+                        <div class="form-group">
+                            <label for="" class="reviewcmd">Leave your review below</label>
+                            <textarea class="form-control" id="firstreview" rows="3" name="custfirstreview"></textarea>
+                            <button type="submit"class="submitbtn">Comment</button>
                         </div>
                     </div>
-                </form> -->
+     
+            </form>
+
+            <!-- Other customer's review -->
+            <div class="reviewcontainer">
+                <div class="custprofile">
+                    <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}">
+                    <h4 class="custname">Name</h4>
+                </div>
+
+                <div class="review">
+                    <p class="reviewdate">04/06/2023
+                        <span class="starqty">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                    </p>
+
+                    <div class="form-group">
+                        <label for="" class="reviewcmd">Review</label>
+                        <textarea class="form-control form-control-no-outline" id="firstreview" rows="3" readonly>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, voluptatem? Accusamus officia molestias adipisci alias quisquam et architecto asperiores modi quidem consectetur ratione unde quam, at magnam earum aliquid nihil?</textarea>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
