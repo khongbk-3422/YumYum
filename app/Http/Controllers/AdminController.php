@@ -51,7 +51,7 @@ class AdminController extends Controller
         $new_cust_list = Customer::orderByDesc('cust_id')->take(4)->get();
         foreach ($new_cust_list as $cust) {
             $pic = base64_encode($cust->cust_pic);
-            $new_cust_list->cust_pic = $pic;
+            $cust->cust_pic = $pic;
         }
 
         // return $new_cust_list;
