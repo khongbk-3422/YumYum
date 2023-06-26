@@ -308,28 +308,14 @@
 
                                 <tbody>
                                     @foreach ($rest_data as $rest)
-                                        
+                                    
+                                        <tr>
+                                            <td>{{$rest['rest_name']}}</td>
+                                            <td>{{$rest['avg_rating']}}</td>
+                                            <td>{{$rest['browse_count']}}</td>
+                                        </tr>
                                     @endforeach
-                                    <tr>
-                                        <td>Prime</td>
-                                        <td>5.0</td>
-                                        <td>1239</td>
-                                    </tr>
-                                    <tr>  
-                                        <td>Beta KL</td>
-                                        <td>5.0</td>
-                                        <td>1200</td>
-                                    </tr>
-                                    <tr>
-                                        <td>JP Teres</td>
-                                        <td>4.9</td>
-                                        <td>1183</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Posinato Risto</td>
-                                        <td>4.9</td>
-                                        <td>1120</td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -366,7 +352,7 @@
                                 </div>
                                 
                             @endforeach
-                                                        
+
                         </div>
                 </div>
             </div>
