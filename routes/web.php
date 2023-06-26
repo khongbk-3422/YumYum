@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RestController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\WheelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,7 @@ Route::get('filter/{searchValue}',[RestController::class,'filter']);
 // Route::get('/viewRestaurantPage', function(){
 //     return view('viewRestaurantPage');
 // });
+Route::get('addToWheel/{rest_id}',[WheelController::class,'addWheel']);
 
 //restaurantDetailsPage
 Route::get('restaurantDetailsPage/{rest_id}',[RestController::class,'restDetails']);
