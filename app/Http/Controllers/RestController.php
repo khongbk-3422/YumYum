@@ -19,7 +19,6 @@ class RestController extends Controller
             // Get First Pic
             $pic_data = Rest_Picture::where('rest_id',$data->rest_id)->first();
             $rest_pic = $pic_data ? base64_encode($pic_data->rest_pic) : null;
-            // $rest_pic = $pic_data->rest_pic;
             $data->data_pic = $rest_pic;
 
             //Get Rating
@@ -67,8 +66,6 @@ class RestController extends Controller
     function restDetails($rest_id) {
 
         //Add to History
-
-        
         $history_data = History::where('cust_id', session('user_id'))
                ->where('rest_id', $rest_id)
                ->first();
