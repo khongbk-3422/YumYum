@@ -315,7 +315,7 @@
                                     </tr>
                                     @endforeach
 
-                                    <tr>
+                                    <!-- <tr>
                                         <td>Prime</td>
                                         <td>5.0</td>
                                         <td>1239</td>
@@ -334,7 +334,7 @@
                                         <td>Posinato Risto</td>
                                         <td>4.9</td>
                                         <td>1120</td>
-                                    </tr>
+                                    </tr> -->
                                 </tbody>
                             </table>
                         </div>
