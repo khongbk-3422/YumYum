@@ -8,7 +8,6 @@
     @include('cdn')
 
     <style>
-
         .navbar{
             background-color: #EFF0EA;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
@@ -88,7 +87,7 @@
                             </li>
                             <div class="dropdown-divider"></div>
                             <li>
-                                <a class="dropdown-item" href="#">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+                                <a class="dropdown-item" href="#">Logout</a>
                             </li>
                         </ul>
                     </li>
