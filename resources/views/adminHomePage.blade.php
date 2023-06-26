@@ -201,6 +201,11 @@
             margin-left: .5rem;
         }
 
+        .action span:hover{
+            transform: scale(1.2);
+            transition: all 0.2s;
+        }
+
         @media (max-width: 1024px) {
             .cards {
                 grid-template-columns: repeat(2, 1fr);
@@ -346,8 +351,7 @@
                                         </div>
                                     </div>
                                     <div class="action">
-                                        <span class="fa-solid fa-pen-to-square"></span>
-                                        <span class="fa-solid fa-user-slash"></span>
+                                        <span class="fa-solid fa-magnifying-glass"></span>
                                     </div>
                                 </div>
                                 
