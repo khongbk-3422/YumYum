@@ -325,7 +325,7 @@
                                         </p>
                                     <p class="card-text"><i class="bi bi-geo-alt"></i>{{ $data['rest_address'] }}</p>
                                     <a href={{"restaurantDetailsPage/".$data['rest_id']}}><button class="viewRestBtn">View More</button></a>
-                                    <button class="addRestBtn">Add to spin wheel</button>
+                                    <a href={{"addToWheel/".$data['rest_id']}}><button class="addRestBtn">Add to spin wheel</button></a>
                                 </div>
                             </div>
                         </div>
@@ -336,6 +336,19 @@
         </div>
     </div>
 </body>
+
+@if(Session::has('rest_already_added'))
+    <script>
+        alert("Restaurant already added in Spin Wheel!");
+    </script>
+@endif
+
+@if(Session::has('rest_added'))
+    <script>
+        alert("Restaurant successfully added to Spin Wheel!");
+    </script>
+@endif
+
     <script>
         //search function
         var searchInput = document.getElementById('searchInput');

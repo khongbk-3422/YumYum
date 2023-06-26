@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RestController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\WheelController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,9 +54,7 @@ Route::get('/custHomePage', function () {
 });
 
 //custProfilePage
-Route::get('/custProfilePage', function () {
-    return view('custProfilePage');
-});
+Route::get('/custProfilePage',[UserController::class,'customerProfile']);
 
 //viewRestaurantPage
 Route::get('viewRestaurantPage',[RestController::class,'getAllRest']);
@@ -61,9 +62,15 @@ Route::get('filter/{searchValue}',[RestController::class,'filter']);
 // Route::get('/viewRestaurantPage', function(){
 //     return view('viewRestaurantPage');
 // });
+Route::get('addToWheel/{rest_id}',[WheelController::class,'addWheel']);
 
 //restaurantDetailsPage
 Route::get('restaurantDetailsPage/{rest_id}',[RestController::class,'restDetails']);
+
+//historyPage
+Route::get('historyPage',[HistoryController::class,'getHistory']);
+
+Route::get('filter/{searchValue}',[RestController::class,'filter']);
 
 //spinwheelPage
 Route::get('/spinwheelPage', function(){
@@ -81,10 +88,7 @@ Route::get('/testNewRating', function(){
 });
 
 //adminHomePage
-Route::get('/adminHomePage', function(){
-    return view(('adminHomePage'));
-});
-
+Route::get('/adminHomePage',[AdminController::class,'homePage']);
 
 //adminEditCustomer
 Route::get('/adminEditCustomer', function(){
@@ -100,5 +104,11 @@ Route::get('/adminEditRestaurant', function(){
 Route::get('/adminAddRestaurant', function(){
     return view(('adminAddRestaurant'));
 });
+
+//adminProfile
+Route::get('/adminProfile', function(){
+    return view(('adminProfile'));
+});
+
 // Route::get('list',[RestController::class,'show']);
 // Route::post('addPic',[RestController::class,'addPic']);

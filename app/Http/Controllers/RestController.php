@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Rest_Picture;
 use App\Models\Rate;
+use App\Models\History;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 class RestController extends Controller
 {
@@ -18,7 +20,6 @@ class RestController extends Controller
             // Get First Pic
             $pic_data = Rest_Picture::where('rest_id',$data->rest_id)->first();
             $rest_pic = $pic_data ? base64_encode($pic_data->rest_pic) : null;
-            // $rest_pic = $pic_data->rest_pic;
             $data->data_pic = $rest_pic;
 
             //Get Rating
@@ -64,6 +65,29 @@ class RestController extends Controller
     }
 
     function restDetails($rest_id) {
+
+        //Add to History
+        $history_data = History::where('cust_id', session('user_id'))
+               ->where('rest_id', $rest_id)
+               ->first();
+        if ($history_data) {
+            History::where('cust_id', session('user_id'))
+                    ->where('rest_id', $rest_id)
+                    ->delete();
+                    
+            $history_t = new History;
+            $history_t->cust_id = session('user_id');
+            $history_t->rest_id = $rest_id;
+            $history_t->datetime = Carbon::now('Asia/Kuala_Lumpur');;
+            $history_t->save();
+        } else {
+            $history_t = new History;
+            $history_t->cust_id = session('user_id');
+            $history_t->rest_id = $rest_id;
+            $history_t->datetime = Carbon::now('Asia/Kuala_Lumpur');;
+            $history_t->save();
+        }
+
         $rest_data = Restaurant::where('rest_id', $rest_id)->get();
     
         // Get Picture

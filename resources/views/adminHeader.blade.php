@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-@include('cdn')
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <title>Document</title>
+    @include('cdn')
 
     <style>
 
@@ -31,6 +32,10 @@
             color: #000;
         }
 
+        .navbar .navbar-item{
+            margin:auto;
+        }
+
         .navbar .navbar-nav .nav-link {
             color: #000;
         }
@@ -42,10 +47,6 @@
         .navbar .dropdown-menu .dropdown-item:hover{
             background-color:#c4b999;
         }
-
-        /* .nav-item{
-            margin-top: 5px;
-        } */
 
         .profilePic img{
             width:40px;
@@ -78,14 +79,17 @@
                         <!-- display the cust's name-->
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> HC {{session('admin_name')}}
                             <span class="profilePic">
-                                <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}" alt="">
+                                <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}" >
                             </span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <!-- adjust the line -->
-                            <li><hr></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li>
+                                <a class="dropdown-item <?php echo $_SERVER['REQUEST_URI'] === '/adminProfilePage' ? 'active' : ''; ?> " href="/adminProfilePage">Settings <i class="fa-regular fa-gear"></i></a>
+                            </li>
+                            <div class="dropdown-divider"></div>
+                            <li>
+                                <a class="dropdown-item" href="#">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
+                            </li>
                         </ul>
                     </li>
 				</ul>

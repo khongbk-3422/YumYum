@@ -144,4 +144,18 @@ class UserController extends Controller
             
         }
     }
+
+    function customerProfile()
+    {
+        $customer_data = Customer::where('cust_id', session('user_id'))->first();
+
+        if ($customer_data) {
+
+            $customer_pic = base64_encode($customer_data->cust_pic);
+            $customer_data->cust_pic = $customer_pic;
+
+            return view('custProfilePage', ['customer_data' => $customer_data]);
+        }
+
+    }
 }
