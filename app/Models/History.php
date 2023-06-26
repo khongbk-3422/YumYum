@@ -7,8 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class History extends Model
 {
-    protected $keyType = 'string';  //set able to be varchar in primary key
+    protected $primaryKey = null; // Remove the $primaryKey property
+
+    public $incrementing = false; // Disable auto-incrementing
+
+    protected $fillable = [
+        'cust_id',
+        'rest_id',
+        'datetime',
+    ];
+
+    protected $keyType = 'string'; // Set the primary key type
+
+    protected $table = 'history_t';
+    public $timestamps = false;
+    
     use HasFactory;
-    public $timestamps=false;
-    public $table="history_t";
+    
 }

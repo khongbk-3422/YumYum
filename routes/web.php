@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RestController;
+use App\Http\Controllers\HistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,11 @@ Route::get('filter/{searchValue}',[RestController::class,'filter']);
 
 //restaurantDetailsPage
 Route::get('restaurantDetailsPage/{rest_id}',[RestController::class,'restDetails']);
+
+//historyPage
+Route::get('historyPage',[HistoryController::class,'getHistory']);
+
+Route::get('filter/{searchValue}',[RestController::class,'filter']);
 
 //spinwheelPage
 Route::get('/spinwheelPage', function(){

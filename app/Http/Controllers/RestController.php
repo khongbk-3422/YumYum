@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Rest_Picture;
 use App\Models\Rate;
+use App\Models\History;
 use Illuminate\Support\Facades\Session;
 
 class RestController extends Controller
@@ -64,6 +65,25 @@ class RestController extends Controller
     }
 
     function restDetails($rest_id) {
+
+        //Add to History
+
+        
+        $history_data = History::where('cust_id', session('user_id'))
+               ->where('rest_id', $rest_id)
+               ->first();
+        if ($history_data) {
+            $history_data->datetime = now();
+            $history->updated_at = null; // Set updated_at to null
+            $history_data->save();
+        } else {
+            $history_t = new History;
+            $history_t->cust_id = session('user_id');
+            $history_t->rest_id = $rest_id;
+            $history_t->datetime = now();
+            $history_t->save();
+        }
+
         $rest_data = Restaurant::where('rest_id', $rest_id)->get();
     
         // Get Picture
