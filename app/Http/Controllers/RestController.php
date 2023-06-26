@@ -8,6 +8,7 @@ use App\Models\Rest_Picture;
 use App\Models\Rate;
 use App\Models\History;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class RestController extends Controller
@@ -36,6 +37,14 @@ class RestController extends Controller
             $data->count = $count;
             $data->avg_rate = $avg_rate;
         }
+
+        $rest_data = Rate::select('rest_id', DB::raw('AVG(rating) as avg_rating'))
+            ->groupBy('rest_id')
+            ->orderByDesc('avg_rating')
+            ->take(4)
+            ->get();
+        
+
         return view('viewRestaurantPage',['datas'=>$datas]);
     }
 

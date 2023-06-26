@@ -344,7 +344,7 @@
                                 
                                 <div class="customer">
                                     <div class="info">
-                                        <img src="" width="40px" height="40px" alt="">
+                                        <img src="data:image/[image_format];base64,{{ $cust_list['cust_pic'] }}" width="40px" height="40px" alt="">
                                         <div>
                                             <h4>{{$cust_list['cust_name']}}</h4>
                                             <small>{{$cust_list['user_email']}}</small>
