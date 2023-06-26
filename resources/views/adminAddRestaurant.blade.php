@@ -44,7 +44,6 @@
             display:flex;
             justify-content:space-between;
             flex-direction:column;
-            margin-top: 80px;
         }
     </style>
 </head>
