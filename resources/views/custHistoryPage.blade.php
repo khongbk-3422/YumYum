@@ -72,7 +72,7 @@
                 <div class="history">
                     <div class="data">
                         @foreach ($entries as $entry)
-                        <a href={{"restaurantDetailsPage/".$data['rest_id']}}><h4><span class="time">{{ $entry['time_value'] }}</span> <span class="restname">{{ $entry['rest_name'] }}</span></h4></a>
+                            <a href={{"restaurantDetailsPage/".$entry['rest_id']}}><h4><span class="time">{{ $entry['time_value'] }}</span> <span class="restname">{{ $entry['rest_name'] }}</span></h4></a>
                         @endforeach
                     </div>
                     <br>

@@ -59,27 +59,20 @@ Route::get('/custProfilePage',[UserController::class,'customerProfile']);
 //viewRestaurantPage
 Route::get('viewRestaurantPage',[RestController::class,'getAllRest']);
 Route::get('filter/{searchValue}',[RestController::class,'filter']);
-// Route::get('/viewRestaurantPage', function(){
-//     return view('viewRestaurantPage');
-// });
+
 Route::get('addToWheel/{rest_id}',[WheelController::class,'addWheel']);
 
 //restaurantDetailsPage
 Route::get('restaurantDetailsPage/{rest_id}',[RestController::class,'restDetails']);
 
 //historyPage
-Route::get('historyPage',[HistoryController::class,'getHistory']);
+Route::get('/custHistoryPage',[HistoryController::class,'getHistory']);
 
 Route::get('filter/{searchValue}',[RestController::class,'filter']);
 
 //spinwheelPage
 Route::get('/spinwheelPage', function(){
     return view('spinwheelPage');
-});
-
-//custHistoryPage
-Route::get('/custHistoryPage', function(){
-    return view(('custHistoryPage'));
 });
 
 //testNewRating
