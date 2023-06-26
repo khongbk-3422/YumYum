@@ -8,6 +8,7 @@ use App\Models\Rest_Picture;
 use App\Models\Rate;
 use App\Models\History;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 class RestController extends Controller
 {
@@ -70,14 +71,20 @@ class RestController extends Controller
                ->where('rest_id', $rest_id)
                ->first();
         if ($history_data) {
-            $history_data->datetime = now();
-            $history->updated_at = null; // Set updated_at to null
-            $history_data->save();
+            History::where('cust_id', session('user_id'))
+                    ->where('rest_id', $rest_id)
+                    ->delete();
+                    
+            $history_t = new History;
+            $history_t->cust_id = session('user_id');
+            $history_t->rest_id = $rest_id;
+            $history_t->datetime = Carbon::now('Asia/Kuala_Lumpur');;
+            $history_t->save();
         } else {
             $history_t = new History;
             $history_t->cust_id = session('user_id');
             $history_t->rest_id = $rest_id;
-            $history_t->datetime = now();
+            $history_t->datetime = Carbon::now('Asia/Kuala_Lumpur');;
             $history_t->save();
         }
 

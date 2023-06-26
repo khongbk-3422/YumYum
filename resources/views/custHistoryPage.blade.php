@@ -61,39 +61,25 @@
             <h2 class="title">History</h2>
         </div>
         <div class="historycontainer">
-<!-- loop from database and order by date -->
+        <!-- loop from database and order by date -->
+
+            @foreach ($groupedData as $date => $entries)
             <div class="historyperday">
                 <div>
-                    <h4 class="date">25 June 2023</h4>
+                    <h4 class="date">{{ $date }}</h4>
                     <hr>
                 </div>
-
                 <div class="history">
                     <div class="data">
-                        <h4 class="viewhistory"><span class="time">08:10:22</span> <span class="restname">Via Pre Kul</span></h4>
-                        <h4><span class="time">08:10:22</span> <span class="restname">Beta KL</span></h4>
-                        <h4><span class="time">08:10:22</span> <span class="restname">JP Teres</span></h4>
-                        <br>
+                        @foreach ($entries as $entry)
+                        <a href={{"restaurantDetailsPage/".$data['rest_id']}}><h4><span class="time">{{ $entry['time_value'] }}</span> <span class="restname">{{ $entry['rest_name'] }}</span></h4></a>
+                        @endforeach
                     </div>
+                    <br>
                 </div>
             </div>
-            <!-- Test 2 -->
-            <div class="historyperday">
-                <div>
-                    <h4 class="date">24 June 2023</h4>
-                    <hr>
-                </div>
-
-                <div class="history">
-                    <div class="data">
-                        <h4><span class="time">08:10:22</span> <span class="restname">Makan Kitchen</span></h4>
-                        <h4><span class="time">08:10:22</span> <span class="restname">Beta KL</span></h4>
-                        <h4><span class="time">08:10:22</span> <span class="restname">Prime</span></h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-            
+            @endforeach
+        </div>            
     </div>
 </body>
 </html>
