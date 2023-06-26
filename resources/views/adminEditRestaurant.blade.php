@@ -19,10 +19,10 @@
         .design{
           margin-top:80px
         } */
-        .main{
+        /* .main{
           margin-top: 80px;
           position: relative;
-        }
+        } */
         /* .main.sideMenuBar{
           float: left;
         } */
@@ -505,7 +505,7 @@ input[type="range"]::-moz-range-thumb{
           <input type="number" placeholder="Enter Maximum Price" name="priceMax" required>
 
           <label for="Restaurant Picture"><b>Restaurant Picture</b></label>
-          <input type='file' name='image' class='form-control' accept="image/*" />
+          <input type='file' name='image' class='form-control' multiple="multiple" accept="image/*" />
 
           <button type="submit" class="btn">Login</button>
           <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
