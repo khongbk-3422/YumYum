@@ -104,5 +104,10 @@ Route::get('/adminEditRestaurant', function(){
     return view(('adminEditRestaurant'));
 });
 
+//adminProfile
+Route::get('/adminProfile', function(){
+    return view(('adminProfile'));
+});
+
 // Route::get('list',[RestController::class,'show']);
 // Route::post('addPic',[RestController::class,'addPic']);
