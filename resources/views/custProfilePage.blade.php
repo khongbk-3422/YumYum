@@ -51,22 +51,22 @@
     <div class="profileContainer">
         <div class="userProfile">
             <h3>Profile</h3>
-            <img src="" alt="">
+            <img src="data:image/[image_format];base64,{{$customer_data->cust_pic}}">
         </div>
-
-        @csrf
+        <br>
         <form action="" method="post">
+            @csrf
             <div class="form-group row mb-3">
                 <label for="newName" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="name" class="form-control" id="newName" placeholder="">
+                    <input type="name" class="form-control" id="newName" value="{{ $customer_data['cust_name'] }}" placeholder="">
                 </div>
             </div>
 
             <div class="form-group row mb-3">
                 <label for="newEmail" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="newEmail" placeholder="">
+                    <input type="email" class="form-control" id="newEmail" value="{{ $customer_data['user_email'] }}" placeholder="">
                 </div>
             </div>
             
@@ -80,7 +80,7 @@
             <div class="form-group row mb-3">
                 <label for="newContact" class="col-sm-2 col-form-label">Contact</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="newContact" placeholder="">
+                    <input type="text" class="form-control" id="newContact" value="{{ $customer_data['cust_contact'] }}" placeholder="">
                 </div>
             </div>
 
