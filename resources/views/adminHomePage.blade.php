@@ -308,8 +308,13 @@
 
                                 <tbody>
                                     @foreach ($rest_data as $rest)
-                                        
+                                    <tr>
+                                        <td>{{$rest->restaurant_name}}</td>
+                                        <td>{{$rest->avg_rating}}</td>
+                                        <td>{{$data->browse}}</td>
+                                    </tr>
                                     @endforeach
+
                                     <tr>
                                         <td>Prime</td>
                                         <td>5.0</td>
