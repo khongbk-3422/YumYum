@@ -251,7 +251,7 @@
         <div class="cards">
             <div class="card-single">
                 <div>
-                    <div class="number">{{count_list['rest_count']}}</div>
+                    <div class="number">{{$count_list['rest_count']}}</div>
                     <div class="cardName">Restaurants</div>
                 </div>
 
@@ -262,7 +262,7 @@
 
             <div class="card-single">
                 <div>
-                    <div class="number">{{count_list['cust_count']}}</div>
+                    <div class="number">{{$count_list['cust_count']}}</div>
                     <div class="cardName">Users</div>
                 </div>
 
@@ -273,7 +273,7 @@
 
             <div class="card-single">
                 <div>
-                    <div class="number">{{count_list['rating_count']}}</div>
+                    <div class="number">{{$count_list['rating_count']}}</div>
                     <div class="cardName">Ratings</div>
                 </div>
 
@@ -308,28 +308,12 @@
 
                                 <tbody>
                                     @foreach ($rest_data as $rest)
-                                        
+                                        <tr>
+                                            <td>{{$rest['rest_name']}}</td>
+                                            <td>{{$rest['avg_rating']}}</td>
+                                            <td>{{$rest['browse_count']}}</td>
+                                        </tr>
                                     @endforeach
-                                    <tr>
-                                        <td>Prime</td>
-                                        <td>5.0</td>
-                                        <td>1239</td>
-                                    </tr>
-                                    <tr>  
-                                        <td>Beta KL</td>
-                                        <td>5.0</td>
-                                        <td>1200</td>
-                                    </tr>
-                                    <tr>
-                                        <td>JP Teres</td>
-                                        <td>4.9</td>
-                                        <td>1183</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Posinato Risto</td>
-                                        <td>4.9</td>
-                                        <td>1120</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -348,62 +332,25 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Ng Hooi Chi</h4>
-                                        <small>nghooichi@yahoo.com</small>
-                                    </div>
-                                </div>
-                                <div class="action">
-                                    <span class="fa-solid fa-pen-to-square"></span>
-                                    <span class="fa-solid fa-user-slash"></span>
-                                </div>
-                            </div>
 
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Ng Hooi Chi</h4>
-                                        <small>nghooichi@yahoo.com</small>
+                            @foreach ($new_cust_list as $cust_list)
+                                
+                                <div class="customer">
+                                    <div class="info">
+                                        <img src="" width="40px" height="40px" alt="">
+                                        <div>
+                                            <h4>{{$cust_list['cust_name']}}</h4>
+                                            <small>{{$cust_list['user_email']}}</small>
+                                        </div>
+                                    </div>
+                                    <div class="action">
+                                        <span class="fa-solid fa-pen-to-square"></span>
+                                        <span class="fa-solid fa-user-slash"></span>
                                     </div>
                                 </div>
-                                <div class="action">
-                                    <span class="fa-solid fa-pen-to-square"></span>
-                                    <span class="fa-solid fa-user-slash"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Ng Hooi Chi</h4>
-                                        <small>nghooichi@yahoo.com</small>
-                                    </div>
-                                </div>
-                                <div class="action">
-                                    <span class="fa-solid fa-pen-to-square"></span>
-                                    <span class="fa-solid fa-user-slash"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="" width="40px" height="40px" alt="">
-                                    <div>
-                                        <h4>Ng Hooi Chi</h4>
-                                        <small>nghooichi@yahoo.com</small>
-                                    </div>
-                                </div>
-                                <div class="action">
-                                    <span class="fa-solid fa-pen-to-square"></span>
-                                    <span class="fa-solid fa-user-slash"></span>
-                                </div>
-                            </div>
-                            
+                                
+                            @endforeach
+                                                        
                         </div>
                 </div>
             </div>
