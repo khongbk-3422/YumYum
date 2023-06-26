@@ -251,7 +251,7 @@
         <div class="cards">
             <div class="card-single">
                 <div>
-                    <div class="number">30</div>
+                    <div class="number">{{count_list['rest_count']}}</div>
                     <div class="cardName">Restaurants</div>
                 </div>
 
@@ -262,7 +262,7 @@
 
             <div class="card-single">
                 <div>
-                    <div class="number">120</div>
+                    <div class="number">{{count_list['cust_count']}}</div>
                     <div class="cardName">Users</div>
                 </div>
 
@@ -273,7 +273,7 @@
 
             <div class="card-single">
                 <div>
-                    <div class="number">328</div>
+                    <div class="number">{{count_list['rating_count']}}</div>
                     <div class="cardName">Ratings</div>
                 </div>
 
@@ -307,6 +307,9 @@
                                 </thead>
 
                                 <tbody>
+                                    @foreach ($rest_data as $rest)
+                                        
+                                    @endforeach
                                     <tr>
                                         <td>Prime</td>
                                         <td>5.0</td>

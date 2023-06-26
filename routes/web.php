@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RestController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\WheelController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,10 +88,7 @@ Route::get('/testNewRating', function(){
 });
 
 //adminHomePage
-Route::get('/adminHomePage', function(){
-    return view(('adminHomePage'));
-});
-
+Route::get('/adminHomePage',[AdminController::class,'homePage']);
 
 //adminEditCustomer
 Route::get('/adminEditCustomer', function(){
