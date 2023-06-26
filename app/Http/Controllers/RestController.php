@@ -8,6 +8,7 @@ use App\Models\Rest_Picture;
 use App\Models\Rate;
 use App\Models\History;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class RestController extends Controller
@@ -36,6 +37,27 @@ class RestController extends Controller
             $data->count = $count;
             $data->avg_rate = $avg_rate;
         }
+
+        $best_rest_data = Rate::select('rest_id', DB::raw('AVG(rating) as avg_rating'))
+            ->groupBy('rest_id')
+            ->orderByDesc('avg_rating')
+            ->take(4)
+            ->get();
+
+        $rest_ids = $rest_data->pluck('rest_id');
+        $restaurants = Restaurant::whereIn('id', $rest_ids)->get();
+        
+        $rest_data = $rest_data->map(function ($item) use ($restaurants) {
+            $restaurant = $restaurants->firstWhere('id', $item->rest_id);
+            $item->restaurant_name = $restaurant ? $restaurant->name : 'Unknown Restaurant';
+            return $item;
+        });
+
+        foreach ($rest_data as $data)  {
+            $history_count = History::where('rest_id', $data->rest_id)->count();
+            $data->browse_count = $history_count;
+        }
+
         return view('viewRestaurantPage',['datas'=>$datas]);
     }
 

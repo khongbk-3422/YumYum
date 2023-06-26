@@ -13,7 +13,7 @@ class HistoryController extends Controller
     {
         $history_datas = History::selectRaw('DATE(datetime) AS date_value, TIME(datetime) AS time_value, rest_id AS rest_id')
             ->where('cust_id', session('user_id'))
-            ->orderBy('datetime', 'asc')
+            ->orderBy('datetime', 'desc')
             ->get();
 
         foreach ($history_datas as $data) {

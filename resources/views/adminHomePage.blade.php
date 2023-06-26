@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HomePage</title>
     @include('cdn')
 
     <style>
@@ -201,6 +201,11 @@
             margin-left: .5rem;
         }
 
+        .action span:hover{
+            transform: scale(1.2);
+            transition: all 0.2s;
+        }
+
         @media (max-width: 1024px) {
             .cards {
                 grid-template-columns: repeat(2, 1fr);
@@ -329,7 +334,7 @@
                         <div class="card-header">
                             <h2>New Customers</h2>
 
-                            <a href="/adminEditRestaurant">
+                            <a href="/adminEditCustomer">
                                 <button>See all <span class="fa-solid fa-arrow-right"></span> </button>
                             </a>
                         </div>
@@ -339,15 +344,14 @@
                                 
                                 <div class="customer">
                                     <div class="info">
-                                        <img src="" width="40px" height="40px" alt="">
+                                        <img src="data:image/[image_format];base64,{{ $cust_list['cust_pic'] }}" width="40px" height="40px" alt="">
                                         <div>
                                             <h4>{{$cust_list['cust_name']}}</h4>
                                             <small>{{$cust_list['user_email']}}</small>
                                         </div>
                                     </div>
                                     <div class="action">
-                                        <span class="fa-solid fa-pen-to-square"></span>
-                                        <span class="fa-solid fa-user-slash"></span>
+                                        <span class="fa-solid fa-magnifying-glass"></span>
                                     </div>
                                 </div>
                                 
