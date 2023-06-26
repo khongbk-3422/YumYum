@@ -89,13 +89,13 @@
                 </div>
             </div>
         </div>
+        
         <!-- get from rating_table -->
         <div class="ratingcontainer">
             <div>
                 <h5 class="title">Reviews and Ratings</h5>
             </div>
 
-        @if ($rest_data['rating'])
             <!-- Customer's feedback -->
             <div class="reviewcontainer">
                 <div class="custprofile">
@@ -104,31 +104,12 @@
                 </div>
 
                 <div class="review">
-                    <p class="reviewdate">{{$rest_data['rate_date']}} 
+                    <p class="reviewdate">2023/05/12 21:45:21 
                         <span class="starqty">
-                            @if ($data['rating'] == 5)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
-                            @elseif ($data['rating'] >= 4.15 && $data['rating'] < 5)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
-                            @elseif ($data['rating'] >= 3.85 && $data['rating'] < 4.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 3.15 && $data['rating'] < 3.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 2.85 && $data['rating'] < 3.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 2.15 && $data['rating'] < 2.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 1.85 && $data['rating'] < 2.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 1.15 && $data['rating'] < 1.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 0.85 && $data['rating'] < 1.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 1.15 && $data['rating'] < 1.85)
-                                <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @else
-                                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
-                            @endif
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </span>
                     </p>
 
@@ -147,25 +128,24 @@
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur</textarea>
                     </div>
                 </div>
-            </div>    
+            </div>
 
-        @else
             <!-- Customer first time give review -->
             <form action="" method="post" class="reviewcontainer">
                 @csrf
                 <div class="custprofile">
                     <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}">
-                    <h4 class="custname">{{session('user_name')}}</h4>
+                    <h4 class="custname">Name</h4>
                 </div>
 
                 <div class="review">
-                    <p class="reviewdate">-
+                    <p class="reviewdate">04/06/2023
                         <span class="newrating">
-                            <i id="star1" class="fa-regular fa-star"></i>
-                            <i id="star2" class="fa-regular fa-star"></i>
-                            <i id="star3" class="fa-regular fa-star"></i>
-                            <i id="star4" class="fa-regular fa-star"></i>
-                            <i id="star5" class="fa-regular fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </span>
                     </p>
 
@@ -175,55 +155,32 @@
                         <button type="submit"class="submitbtn">Comment</button>
                     </div>
                 </div>
-            </form> 
+            </form>
 
-        @endif
-        
-        @foreach ($rating_datas as $rate_data)
             <!-- Other customer's review -->
             <div class="reviewcontainer">
                 <div class="custprofile">
-                    <img src="data:image/[image_format];base64,{{$rate_data['cust_pic']}}" alt="">
-                    <h4 class="custname">{{$rate_data['cust_name']}}</h4>
+                    <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}">
+                    <h4 class="custname">Name</h4>
                 </div>
 
                 <div class="review">
-                    <p class="reviewdate">{{$rate_data['date']}}
+                    <p class="reviewdate">04/06/2023
                         <span class="starqty">
-                            @if ($rate_data['rating'] == 5)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 4.15 && $rate_data['rating'] < 5)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
-                            @elseif ($rate_data['rating'] >= 3.85 && $rate_data['rating'] < 4.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 3.15 && $rate_data['rating'] < 3.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 2.85 && $rate_data['rating'] < 3.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 2.15 && $rate_data['rating'] < 2.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 1.85 && $rate_data['rating'] < 2.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 1.15 && $rate_data['rating'] < 1.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 0.85 && $rate_data['rating'] < 1.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 1.15 && $rate_data['rating'] < 1.85)
-                                <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @else
-                                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
-                            @endif
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </span>
                     </p>
 
                     <div class="form-group">
                         <label for="" class="reviewcmd">Review</label>
-                        <textarea class="form-control form-control-no-outline" id="firstreview" rows="3" readonly>{{$rate_data['review']}}</textarea>
+                        <textarea class="form-control form-control-no-outline" id="firstreview" rows="3" readonly>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae, voluptatem? Accusamus officia molestias adipisci alias quisquam et architecto asperiores modi quidem consectetur ratione unde quam, at magnam earum aliquid nihil?</textarea>
                     </div>
                 </div>
             </div>
-        @endforeach
-            
         </div>
     </div>
 
@@ -272,46 +229,29 @@
         // carousel.addEventListener("mousemove", dragging);
         // carousel.addEventListener("mousemove", dragStop);
 
-        const stars = document.querySelectorAll('.newrating i');
 
-        // Add click event listeners to each star icon
-        stars.forEach((star, index) => {
-            star.addEventListener('click', () => {
-                // Set the clicked star and all previous stars to solid
-                for (let i = 0; i <= index; i++) {
-                    stars[i].classList.remove('fa-regular');
-                    stars[i].classList.add('fa-solid');
-                }
-
-                // Set the remaining stars to regular
-                for (let i = index + 1; i < stars.length; i++) {
-                    stars[i].classList.remove('fa-solid');
-                    stars[i].classList.add('fa-regular');
-                }
-            });
-        });
 
         // Let customer give rating
-        // const ratings = document.querySelectorAll('.newrating .fa-solid.fa-star');
+        const ratings = document.querySelectorAll('.newrating .fa-solid.fa-star');
 
         // Add event listener to each star icon
-        // ratings.forEach((starIcon, index) => {
-        //     starIcon.addEventListener('click', () => {
-        //         // Remove selected class from all star icons
-        //         ratings.forEach((starIcon, i) => {
-        //             starIcon.classList.remove('selected');
-        //         });
+        ratings.forEach((starIcon, index) => {
+            starIcon.addEventListener('click', () => {
+                // Remove selected class from all star icons
+                ratings.forEach((starIcon, i) => {
+                    starIcon.classList.remove('selected');
+                });
 
-        //         // Add selected class to clicked star icon and all previous star icons
-        //         for (let i = 0; i <= index; i++) {
-        //             ratings[i].classList.add('selected');
-        //         }
+                // Add selected class to clicked star icon and all previous star icons
+                for (let i = 0; i <= index; i++) {
+                    ratings[i].classList.add('selected');
+                }
 
-        //         // Store the rating value (index + 1) in a variable or submit it to the server
-        //         const rating = index + 1;
-        //         console.log('Selected rating:', rating);
-        //     });
-        // });
+                // Store the rating value (index + 1) in a variable or submit it to the server
+                const rating = index + 1;
+                console.log('Selected rating:', rating);
+            });
+        });
 
 
         //icons in review box

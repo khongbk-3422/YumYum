@@ -234,12 +234,12 @@
 }
 
 .newrating i{
-    color:grey;
-}
-
-.newrating i.selected{
     color:yellow;
 }
+
+/* .newrating i.selected{
+    color:yellow;
+} */
 
 .submitbtn{
     border: none;

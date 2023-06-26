@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Rest_Picture;
 use App\Models\Rate;
+use Illuminate\Support\Facades\Session;
 
 class RestController extends Controller
 {
@@ -89,8 +90,25 @@ class RestController extends Controller
         $rest_data[0]->count = $count;
         $rest_data[0]->avg_rate = $avg_rate;
     
+        $rate_data = Rate::where('cust_id', session('user_id'))->where('rest_id', $rest_id)->first();
+
+        if ($rate_data) {
+            $rest_data[0]->rating = $rate_data->rating;
+            $rest_data[0]->review = $rate_data->review;
+            $rest_data[0]->rate_date = $rate_data->date;
+        }
+
+
+        // Rating according Rest
+        $rating_datas = Rate::where('rest_id', $rest_id)->where('cust_id', '!=', session('user_id'))->get();
+        foreach ($rating_datas as $data){
+            $user_data = Customer::where('cust_id',$data->cust_id)->get();
+            $data->cust_name = $user_data->cust_name;
+            $data->cust_pic = base64_encode($user_data->cust_pic);
+        }
+
         // return $rest_data[0];
-        return view('restaurantDetailsPage', ['rest_data' => $rest_data[0]]);
+        return view('restaurantDetailsPage', ['rest_data' => $rest_data[0]], ['rating_datas' => $rating_datas]);
     }
 
     function show()
