@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Admin Edit Restaurant</title>
     @include('cdn')
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style> 
@@ -26,7 +26,20 @@
         /* .main.sideMenuBar{
           float: left;
         } */
-        .open-button {
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  bottom: 23px;
+  right: 28px;
+  width: 100px;
+  font-size: 15px;
+}
+
+.delete-button {
   background-color: #555;
   color: white;
   padding: 16px 20px;
@@ -446,6 +459,12 @@ input[type="range"]::-moz-range-thumb{
                   </li>
               </ul>
           </li>
+          <li class="mb-2">
+              <a href="/adminAddRestaurant" class="nav-link px-0 align-middle">
+                  <i class="fa-solid fa-plus"></i>
+                  <span class="ms-1 d-none d-sm-inline">Add New Restaurant</span>
+              </a>
+          </li>
       </ul>
   </div>
     {{-- restaurantCard --}}
@@ -457,6 +476,7 @@ input[type="range"]::-moz-range-thumb{
           <h5 class="card-title">Card title Restaurant NAME</h5> 
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
           <button class="open-button" onclick="openForm()">Edit</button>
+          <button class="delete-button">Delete</button>
       </div>
     </div>
     <div class="form-popup" id="myForm">

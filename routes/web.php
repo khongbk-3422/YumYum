@@ -96,5 +96,9 @@ Route::get('/adminEditRestaurant', function(){
     return view(('adminEditRestaurant'));
 });
 
+//adminAddRestaurant
+Route::get('/adminAddRestaurant', function(){
+    return view(('adminAddRestaurant'));
+});
 // Route::get('list',[RestController::class,'show']);
 // Route::post('addPic',[RestController::class,'addPic']);
