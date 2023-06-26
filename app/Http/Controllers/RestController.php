@@ -43,6 +43,7 @@ class RestController extends Controller
             ->orderByDesc('avg_rating')
             ->take(4)
             ->get();
+        
 
         return view('viewRestaurantPage',['datas'=>$datas]);
     }
