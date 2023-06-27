@@ -31,6 +31,22 @@
             grid-template-columns: 65% auto;
         }
 
+        .title{
+            display: flex;
+            margin-bottom: 15px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .title input[type=text] {
+            padding: 6px;
+            border: none;
+            font-size: 17px;
+            height: 40px;
+            border-radius: 20px;
+            box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.08);
+        }
+
         .list{
             padding: 3rem;
         }
@@ -207,6 +223,46 @@
             color: black;
         }
 
+        @media (max-width: 768px) {
+            .form {
+            width: 80%;
+            max-width: 300px;
+            }
+
+            .form img {
+            width: 100px;
+            height: 100px;
+            }
+
+            .form .name,
+            .form .email,
+            .form .phone {
+            margin-bottom: 5px;
+            font-size: 12px;
+            }
+
+            .form .name h6,
+            .form .email h6,
+            .form .phone h6 {
+            font-size: 12px;
+            }
+
+            .form .name input,
+            .form .email input,
+            .form .phone input {
+            font-size: 12px;
+            }
+
+            .form .buttons {
+            margin-top: 20px;
+            }
+
+            .form button {
+            height: 25px;
+            font-size: 12px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -214,6 +270,7 @@
         <div class="list">
             <div class="title">
                 <h1>Customer Information</h1>
+                <input type="text" placeholder="Search..">
             </div>
             <div class="line">
                 <img src="" alt="">
@@ -234,27 +291,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="line">
-                <img src="" alt="">
-                <div class="name">
-                    <h6>Ng Hooi Chi</h6>
-                </div>
-                <div class="email">
-                    <p>nghooichi@yahoo.com</p>
-                </div>
-                <div class="contact">
-                    <p>+60123456789</p>
-                </div>
-                <div class="action">
-                    <div class="icon">
-                        <a href="/adminEditCustomer">
-                            <i class="fa-solid fa-user-slash"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
         </div>
 
         <div class="form">
