@@ -285,21 +285,22 @@ input[type="range"]::-moz-range-thumb{
 }
 
 
-        .main.restaurantCard{
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          max-width: calc(100% - 260px);
-          align-items:center;
-        }
-        .main{
-          display:flex;
-          flex-wrap:wrap;
-          justify-content: space-between;
-          margin: 25px;
-          margin-top:90px;
-        background:#fcfcfa;
-        }
+.main.restaurantCard{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 260px);
+    align-items:center;
+}
+
+.main{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    margin: 25px;
+    margin-top:90px;
+    background:#fcfcfa;
+}
     </style>
 </head>
 <body>
