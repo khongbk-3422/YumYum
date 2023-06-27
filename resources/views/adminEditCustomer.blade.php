@@ -223,45 +223,6 @@
             color: black;
         }
 
-        @media (max-width: 768px) {
-            .form {
-            width: 80%;
-            max-width: 300px;
-            }
-
-            .form img {
-            width: 100px;
-            height: 100px;
-            }
-
-            .form .name,
-            .form .email,
-            .form .phone {
-            margin-bottom: 5px;
-            font-size: 12px;
-            }
-
-            .form .name h6,
-            .form .email h6,
-            .form .phone h6 {
-            font-size: 12px;
-            }
-
-            .form .name input,
-            .form .email input,
-            .form .phone input {
-            font-size: 12px;
-            }
-
-            .form .buttons {
-            margin-top: 20px;
-            }
-
-            .form button {
-            height: 25px;
-            font-size: 12px;
-            }
-        }
 
     </style>
 </head>
