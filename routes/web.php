@@ -101,5 +101,10 @@ Route::get('/adminProfile', function(){
     return view(('adminProfile'));
 });
 
+//adminEditRating
+Route::get('/adminEditRating', function(){
+    return view(('adminEditRating'));
+});
+
 // Route::get('list',[RestController::class,'show']);
 // Route::post('addPic',[RestController::class,'addPic']);
