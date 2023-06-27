@@ -61,7 +61,7 @@
 		<div class="container">
 			<a class="navbar-brand" href="#"><span class="text-warning">Yum</span>Yum</a> <!-- change colour-->
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
 					<li class="nav-item">
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminHomePage' ? 'active' : ''; ?> " href="/adminHomePage">Home</a>
 					</li>
