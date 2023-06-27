@@ -229,20 +229,23 @@
 <body>
     <main>
         <div class="list">
+            @foreach ($cust_datas as cust_data)
+
             <div class="title">
                 <h1>Customer Information</h1>
                 <input type="text" placeholder="Search..">
             </div>
+
             <div class="line">
-                <img src="" alt="">
+                <img src="data:image/[image_format];base64,{{ cust_data['cust_pic'] }}">
                 <div class="name">
-                    <h6>Ng Hooi Chi</h6>
+                    <h6>{{cust_data['cust_name']}}</h6>
                 </div>
                 <div class="email">
-                    <p>nghooichi@yahoo.com</p>
+                    <p>{{cust_data['user_email']}}</p>
                 </div>
                 <div class="contact">
-                    <p>+60123456789</p>
+                    <p>{{cust_data['cust_contact']}}</p>
                 </div>
                 <div class="action">
                     <div class="icon">
@@ -252,6 +255,8 @@
                     </div>
                 </div>
             </div>
+            
+            @endforeach
         </div>
 
         <div class="form">

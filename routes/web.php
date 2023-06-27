@@ -84,9 +84,7 @@ Route::get('/testNewRating', function(){
 Route::get('/adminHomePage',[AdminController::class,'homePage']);
 
 //adminEditCustomer
-Route::get('/adminEditCustomer', function(){
-    return view(('adminEditCustomer'));
-});
+Route::get('/adminEditCustomer', [AdminController::class,'getAllCust']);
 
 //adminEditRestaurant
 Route::get('/adminEditRestaurant', function(){
