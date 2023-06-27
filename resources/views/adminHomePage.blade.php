@@ -249,10 +249,7 @@
 
 </head>
 <body>
-
-    //$numCustomer = &user_data=Customer->count();
     <main>
-
         <div class="cards">
             <div class="card-single">
                 <div>
