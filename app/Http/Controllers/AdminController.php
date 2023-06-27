@@ -57,4 +57,10 @@ class AdminController extends Controller
         // return $new_cust_list;
         return view('adminHomePage',['count_list'=>$count_list,'rest_data'=>$rest_data,'new_cust_list'=>$new_cust_list]);
     }
+
+    //Edit Customer Page
+    function getAllCust()
+    {
+        $cust_datas = Customer::all();
+    }
 }

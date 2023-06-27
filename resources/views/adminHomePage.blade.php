@@ -23,7 +23,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 100px;
-            margin-top: 80px;
+            margin-top: 100px;
             margin-left: 70px;
             margin-right: 70px;
         }
@@ -206,6 +206,10 @@
             transition: all 0.2s;
         }
 
+        a{
+            text-decoration: none;
+        }
+
         @media (max-width: 1024px) {
             .cards {
                 grid-template-columns: repeat(2, 1fr);
@@ -249,43 +253,46 @@
 
 </head>
 <body>
-
-    //$numCustomer = &user_data=Customer->count();
     <main>
-
         <div class="cards">
-            <div class="card-single">
-                <div>
-                    <div class="number">{{$count_list['rest_count']}}</div>
-                    <div class="cardName">Restaurants</div>
-                </div>
+            <a href="/adminEditRestaurant">
+                <div class="card-single">
+                    <div>
+                        <div class="number">{{$count_list['rest_count']}}</div>
+                        <div class="cardName">Restaurants</div>
+                    </div>
 
-                <div class="iconBx">
-                    <span i class="fa-solid fa-utensils"></i></span>
+                    <div class="iconBx">
+                        <span i class="fa-solid fa-utensils"></i></span>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card-single">
-                <div>
-                    <div class="number">{{$count_list['cust_count']}}</div>
-                    <div class="cardName">Users</div>
-                </div>
+            <a href="/adminEditCustomer">
+                <div class="card-single">
+                    <div>
+                        <div class="number">{{$count_list['cust_count']}}</div>
+                        <div class="cardName">Users</div>
+                    </div>
 
-                <div class="iconBx">
-                    <i class="bi bi-people-fill"></i>
+                    <div class="iconBx">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <div class="card-single">
-                <div>
-                    <div class="number">{{$count_list['rating_count']}}</div>
-                    <div class="cardName">Ratings</div>
-                </div>
+            <a href="/adminEditRating">
+                <div class="card-single">
+                    <div>
+                        <div class="number">{{$count_list['rating_count']}}</div>
+                        <div class="cardName">Ratings</div>
+                    </div>
 
-                <div class="iconBx">
-                    <i class="fa-solid fa-comments"></i>
+                    <div class="iconBx">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         <div class="recent-grid">
