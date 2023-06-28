@@ -140,7 +140,7 @@ class UserController extends Controller
             $customer_t->user_email=$req->email;
             $customer_t->save();
             Session::flash('successful_register', true);
-            return redirect('/loginPage');
+            return redirect('/restaurantDetailsPage');
             
         }
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\RestController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\WheelController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +75,9 @@ Route::get('filter/{searchValue}',[RestController::class,'filter']);
 Route::get('/spinwheelPage', function(){
     return view('spinwheelPage');
 });
+
+//newRating
+Route::post('new_rate',[RateController::class,'new_rate']);
 
 //testNewRating
 Route::get('/testNewRating', function(){
