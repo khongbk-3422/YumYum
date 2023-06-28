@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Document</title>
     @include('cdn')
     <link rel="stylesheet" href="{{asset('css/restaurantDetailsPageStyle.css')}}">
@@ -139,7 +140,7 @@
                         <!-- save new cmd -->
                         <i class="fa-regular fa-floppy-disk"></i>
                         <!-- delete -->
-                        <i class="fa-solid fa-trash"></i>
+                        <i class="fa-solid fa-trash" data-rating-id="{{$rest_data['rest_id']}}"></i>
                     </div>
 
                     <div class="form-group">
@@ -349,6 +350,33 @@
                 // Delete
                 deleteicon.addEventListener('click', () => {
                     // need to write code to delete from das
+                    const ratingId = deleteicon.getAttribute('data-rating-id');
+
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                    console.log(csrfToken);
+
+                    // Send an AJAX request to delete the rating
+                    fetch('{{ url('delete_rating') }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken, // Replace with the actual CSRF token from your backend
+                        },
+                        body: JSON.stringify({ ratingId }),
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Delete was successful, you can perform any necessary UI updates here
+                            alert("Successful Delete!");
+                        } else {
+                            // Handle the error case
+                            console.error('Failed to delete rating');
+                        }
+                    })
+                    .catch(error => {
+                        // Handle any network or other errors
+                        console.error('Error occurred while deleting rating', error);
+                    });
                     
                 });
             });

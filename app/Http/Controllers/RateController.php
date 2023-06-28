@@ -6,6 +6,8 @@ use App\Models\Restaurant;
 use App\Models\Rate;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class RateController extends Controller
 {
@@ -39,5 +41,24 @@ class RateController extends Controller
             
             return redirect('/restaurantDetailsPage/'.$req['rate_rest_id']);
         }
+    }
+
+    //Delete Rating
+    function delete_rating(Request $request)
+    {
+        $ratingId = $request->input('ratingId');
+        Log::debug('Deleting rating with ID: ' . $ratingId);
+
+        // Find the rating by ID and delete it
+        $rating = Rate::where('rest_id',$ratingId)->where('cust_id',session('user_id'))->first();
+        if ($rating) {
+            $rating->delete();
+            // Return a success response if the rating was deleted successfully
+            return response()->json(['success' => true]);
+        }
+
+        // Return an error response if the rating was not found or failed to delete
+        Log::error('Failed to delete rating with ID: ' . $ratingId);
+        return response()->json(['success' => false], 500);
     }
 }
