@@ -29,6 +29,7 @@
     background-size:cover;
     background-position:center;
     border-radius:10px;
+    margin-top: 45px;
 }
 
 .addContainer .addContent{
@@ -143,8 +144,14 @@
         <div class="addContent"></div>
         <div class="addPanel">
             <div class="addInputPanel">
-                <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
                     <label for="name" class="form__label">Name</label>
+                </div>
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="password" name="password" id='password' required />
+                    <label for="password" class="form__label">Password</label>
+                </div>
             </div>
         </div>
     </div>
