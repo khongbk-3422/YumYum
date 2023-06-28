@@ -101,7 +101,7 @@
             <div class="reviewcontainer">
                 <div class="custprofile">
                     <img src="data:image/[image_format];base64,{{base64_encode(session ('user_pic'))}}">
-                    <h4 class="custname">Name</h4>
+                    <h4 class="custname">{{session('user_name')}}</h4>
                 </div>
 
                 <div class="review">
