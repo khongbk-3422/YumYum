@@ -144,7 +144,7 @@
 
                     <div class="form-group">
                         <label for="" class="reviewcmd">Review</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed fuga praesentium repellendus, ad quas quasi consequuntur</textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">{{$rest_data['review']}}</textarea>
                     </div>
                 </div>
             </div>    
