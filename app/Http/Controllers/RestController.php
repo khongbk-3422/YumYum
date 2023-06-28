@@ -150,7 +150,6 @@ class RestController extends Controller
             $data->cust_pic = base64_encode($user_data->cust_pic);
         }
 
-        // return $rest_data[0];
         return view('restaurantDetailsPage', ['rest_data' => $rest_data[0]], ['rating_datas' => $rating_datas]);
     }
 
