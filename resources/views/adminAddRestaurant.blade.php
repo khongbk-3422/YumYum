@@ -56,12 +56,15 @@
     border-right-color: white;
 }
 .addPanel .addInputPanel{
-    position:absolute;
+    /* position:absolute; */
     display:flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    /* position: absolute; */
     justify-content: center;
     align-items:center;
-    width:90%;
-    height:50px;
+    width:100%;
+    height:100%;
     background:transparent;
     /* backdrop-filter:blur(10px); */
     /* border-right-style: solid;
@@ -87,6 +90,7 @@
 	 padding: 7px 0;
 	 background: transparent;
 	 transition: border-color 0.2s;
+     box-sizing: border-box;
 }
  .form__field::placeholder {
 	 color: transparent;
@@ -120,12 +124,16 @@
 	 color: #11998e;
 	 font-weight: 700;
 }
+.addContainer .addContent .form__group {
+    display: flex;
+    flex-direction: column;
+}
 /* reset input */
  .form__field:required, .form__field:invalid {
 	 box-shadow: none;
 }
 /* demo */
- body {
+ /* body {
 	 font-family: 'Poppins', sans-serif;
 	 display: flex;
 	 flex-direction: column;
@@ -134,19 +142,44 @@
 	 min-height: 100vh;
 	 font-size: 1.5rem;
 	 background-color: #222;
-}
+} */
  
     </style>
 </head>
 <body>
     <div class="addBackground"></div>
     <div class="addContainer">
-        <div class="addContent"></div>
+        <div class="addContent">
+        </div>
         <div class="addPanel">
             <div class="addInputPanel">
                 <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
-                    <label for="name" class="form__label">Name</label>
+                    <input type="input" class="form__field" placeholder="id" name="id" id='id' required />
+                    <label for="id" class="form__label">Restaurant ID</label>
+                </div>
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Restaurant Name" name="restaurant name" id='restaurant name' required />
+                    <label for="restaurant name" class="form__label">Restaurant Name</label>
+                </div>
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Restaurant Contact" name="restaurant contact" id='restaurant contact' required />
+                    <label for="restaurant contact" class="form__label">Restaurant Contact</label>
+                </div>
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Restaurant Category" name="restaurant category" id='restaurant category' required />
+                    <label for="restaurant category" class="form__label">Restaurant Category</label>
+                </div>
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Restaurant Address" name="restaurant address" id='restaurant address' required />
+                    <label for="restaurant address" class="form__label">Restaurant Address</label>
+                </div>
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Minimum Price" name="min" id='min' required />
+                    <label for="min" class="form__label">Minimum Price</label>
+                </div>
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Max Price" name="max" id='max' required />
+                    <label for="max" class="form__label">Maximum Price</label>
                 </div>
                 <div class="form__group field">
                     <input type="input" class="form__field" placeholder="password" name="password" id='password' required />
