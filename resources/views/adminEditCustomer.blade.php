@@ -229,27 +229,26 @@
 <body>
     <main>
         <div class="list">
-            @foreach ($cust_datas as cust_data)
-
             <div class="title">
                 <h1>Customer Information</h1>
                 <input type="text" placeholder="Search..">
             </div>
+            @foreach ($cust_datas as $cust_data)
 
-            <div class="line">
-                <img src="data:image/[image_format];base64,{{ cust_data['cust_pic'] }}">
+            <div class="line" data-customer-id="{{$cust_data['cust_id']}}">
+                <img src="data:image/[image_format];base64,{{ $cust_data['cust_pic'] }}">
                 <div class="name">
-                    <h6>{{cust_data['cust_name']}}</h6>
+                    <h6>{{$cust_data['cust_name']}}</h6>
                 </div>
                 <div class="email">
-                    <p>{{cust_data['user_email']}}</p>
+                    <p>{{$cust_data['user_email']}}</p>
                 </div>
                 <div class="contact">
-                    <p>{{cust_data['cust_contact']}}</p>
+                    <p>{{$cust_data['cust_contact']}}</p>
                 </div>
                 <div class="action">
                     <div class="icon">
-                        <a href="/adminEditCustomer">
+                        <a href="#" class="delete-icon">
                             <i class="fa-solid fa-user-slash"></i>
                         </a>
                     </div>
@@ -260,26 +259,26 @@
         </div>
 
         <div class="form">
-            <img src="" alt="">
+            <img id="customerImage" src="" alt="">
 
             <div class="pic">    
                 <label class="input-group-text" for="inputGroupFile01"> Upload </label>
-                <input type="file" class="form-control" id="inputGroupFile01">
+                <input type="file" class="form-control" id="customerImageSrc">
             </div>
 
             <div class="name">
                 <h6>Name</h6>
-                <input type="text" class="form-control" placeholder="Name" aria-label="Username">
+                <input type="text"  id="customerName" class="form-control" placeholder="Name" aria-label="Username">
             </div>
 
             <div class="email">
                 <h6>Email</h6>
-                <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+                <input type="email" id="customerEmail" class="form-control" placeholder="Email" aria-label="Email">
             </div>
 
             <div class="phone">
                 <h6>Contact</h6>
-                <input type="text" class="form-control" placeholder="Contact Number" aria-label="Contact Number">
+                <input type="text" id="customerContact" class="form-control" placeholder="Contact Number" aria-label="Contact Number">
             </div>
 
             <div class="buttons">
@@ -287,7 +286,55 @@
                 <button class="confirmbtn">CONFIRM</button>
             </div>
         </div>
-
     </main>
 </body>
+
+<script>
+    const lines = document.getElementsByClassName('line');
+
+    for (let i = 0; i < lines.length; i++){
+        lines[i].addEventListener('click', handleClick);
+    }
+
+    function handleClick(event){
+        const line = event.currentTarget;
+        const customerImageSrc = line.querySelector('img').src;
+        const customerName = line.querySelector('.name h6').textContent;
+        const customerEmail = line.querySelector('.email p').textContent;
+        const customerContact = line.querySelector('.contact p').textContent;
+
+        document.getElementById('customerImage').src = customerImageSrc;
+        document.getElementById('customerName').value = customerName;
+        document.getElementById('customerEmail').value = customerEmail;
+        document.getElementById('customerContact').value = customerContact;
+    }
+
+    const deleteIcons = document.getElementsByClassName('delete-icon');
+
+    for (let i = 0; i < deleteIcons.length; i++){
+        deleteIcons[i].addEventListener('click', handleDelete);
+    }
+
+    function handleDelete(event){
+        event.preventDefault();
+        
+        const line = event.currentTarget.closest('.line');
+        const customerId = line.dataset.customerId;
+
+        const confirmDelete = confirm("Are you sure you want to delete this customer?");
+
+        if (confirmDelete) {
+
+        }
+
+        else{
+
+        }
+    }
+
+    const confirmBtn = document.getElementsByClassName('confirmbtn');
+
+    
+</script>
+
 </html>

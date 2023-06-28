@@ -53,13 +53,38 @@
             border-radius:50%;
         }
 
+        /* @media (max-width: 768px){
+            .navbar .navbar-collapse {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar .navbar-nav {
+                margin-top: 10px;
+            }
+
+            .navbar .navbar-nav .nav-item {
+                margin-bottom: 10px;
+            }
+
+            .navbar .navbar-brand {
+                margin-bottom: 10px;
+            }
+
+            .navbar .navbar-toggler {
+            position: absolute;
+            top: 0;
+            right: 0;
+            }
+        } */
+
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#"><span class="text-warning">Yum</span>Yum</a> <!-- change colour-->
+			<a class="navbar-brand" href="#"><span class="text-warning">Yum</span>Yum</a>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
 					<li class="nav-item">
@@ -75,8 +100,7 @@
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminEditRating' ? 'active' : ''; ?> " href="/adminEditRating">Ratings</a>
 					</li>
                     <li class="nav-item dropdown">
-                        <!-- display the cust's name-->
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> HC {{session('admin_name')}}
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> {{session('admin_name')}}
                             <span class="profilePic">
                                 <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}" >
                             </span>
@@ -87,7 +111,7 @@
                             </li>
                             <div class="dropdown-divider"></div>
                             <li>
-                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" href="logout">Logout</a>
                             </li>
                         </ul>
                     </li>

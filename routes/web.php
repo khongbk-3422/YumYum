@@ -97,8 +97,8 @@ Route::get('/adminAddRestaurant', function(){
 });
 
 //adminProfile
-Route::get('/adminProfile', function(){
-    return view(('adminProfile'));
+Route::get('/adminProfilePage', function(){
+    return view(('adminProfilePage'));
 });
 
 //adminEditRating
