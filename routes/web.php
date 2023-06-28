@@ -76,8 +76,9 @@ Route::get('/spinwheelPage', function(){
     return view('spinwheelPage');
 });
 
-//newRating
+//Rating
 Route::post('new_rate',[RateController::class,'new_rate']);
+Route::post('/delete_rating', [RateController::class,'delete_rating']);
 
 //testNewRating
 Route::get('/testNewRating', function(){
