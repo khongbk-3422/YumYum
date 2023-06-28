@@ -38,25 +38,21 @@ class RestController extends Controller
             $data->avg_rate = $avg_rate;
         }
 
+        //Best Rate Restaurant
         // $best_rest_data = Rate::select('rest_id', DB::raw('AVG(rating) as avg_rating'))
         //     ->groupBy('rest_id')
         //     ->orderByDesc('avg_rating')
-        //     ->take(4)
+        //     ->take(8)
         //     ->get();
 
-        // $rest_ids = $rest_data->pluck('rest_id');
-        // $restaurants = Restaurant::whereIn('id', $rest_ids)->get();
+        // $rest_ids = $best_rest_data->pluck('rest_id');
+        // $restaurants = Restaurant::whereIn('rest_id', $rest_ids)->get();
         
-        // $rest_data = $rest_data->map(function ($item) use ($restaurants) {
-        //     $restaurant = $restaurants->firstWhere('id', $item->rest_id);
+        // $best_rest_data = $best_rest_data->map(function ($item) use ($restaurants) {
+        //     $restaurant = $restaurants->firstWhere('rest_id', $item->rest_id);
         //     $item->restaurant_name = $restaurant ? $restaurant->name : 'Unknown Restaurant';
         //     return $item;
         // });
-
-        // foreach ($rest_data as $data)  {
-        //     $history_count = History::where('rest_id', $data->rest_id)->count();
-        //     $data->browse_count = $history_count;
-        // }
 
         return view('viewRestaurantPage',['datas'=>$datas]);
     }
@@ -86,7 +82,8 @@ class RestController extends Controller
         return view('filteredRestaurants', ['filteredData' => $filteredData]);
     }
 
-    function restDetails($rest_id) {
+    function restDetails($rest_id) 
+    {
 
         //Add to History
         $history_data = History::where('cust_id', session('user_id'))

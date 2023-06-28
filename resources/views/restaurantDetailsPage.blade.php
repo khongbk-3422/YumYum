@@ -41,23 +41,23 @@
                             <p>{{$rest_data['avg_rate']}} 
                                 @if ($rest_data['avg_rate'] == 5)
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 4.15 && $data['avg_rate'] < 5)
+                                @elseif ($rest_data['avg_rate'] >= 4.15 && $rest_data['avg_rate'] < 5)
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 3.85 && $data['avg_rate'] < 4.15)
+                                @elseif ($rest_data['avg_rate'] >= 3.85 && $rest_data['avg_rate'] < 4.15)
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 3.15 && $data['avg_rate'] < 3.85)
+                                @elseif ($rest_data['avg_rate'] >= 3.15 && $rest_data['avg_rate'] < 3.85)
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 2.85 && $data['avg_rate'] < 3.15)
+                                @elseif ($rest_data['avg_rate'] >= 2.85 && $rest_data['avg_rate'] < 3.15)
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 2.15 && $data['avg_rate'] < 2.85)
+                                @elseif ($rest_data['avg_rate'] >= 2.15 && $rest_data['avg_rate'] < 2.85)
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 1.85 && $data['avg_rate'] < 2.15)
+                                @elseif ($rest_data['avg_rate'] >= 1.85 && $rest_data['avg_rate'] < 2.15)
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 1.15 && $data['avg_rate'] < 1.85)
+                                @elseif ($rest_data['avg_rate'] >= 1.15 && $rest_data['avg_rate'] < 1.85)
                                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 0.85 && $data['avg_rate'] < 1.15)
+                                @elseif ($rest_data['avg_rate'] >= 0.85 && $rest_data['avg_rate'] < 1.15)
                                     <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 1.15 && $data['avg_rate'] < 1.85)
+                                @elseif ($rest_data['avg_rate'] >= 1.15 && $rest_data['avg_rate'] < 1.85)
                                     <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
                                 @else
                                 <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
@@ -106,25 +106,25 @@
                 <div class="review">
                     <p class="reviewdate">{{$rest_data['rate_date']}} 
                         <span class="starqty">
-                            @if ($data['rating'] == 5)
+                            @if ($rest_data['rating'] == 5)
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
-                            @elseif ($data['rating'] >= 4.15 && $data['rating'] < 5)
+                            @elseif ($rest_data['rating'] >= 4.15 && $rest_data['rating'] < 5)
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
-                            @elseif ($data['rating'] >= 3.85 && $data['rating'] < 4.15)
+                            @elseif ($rest_data['rating'] >= 3.85 && $rest_data['rating'] < 4.15)
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 3.15 && $data['rating'] < 3.85)
+                            @elseif ($rest_data['rating'] >= 3.15 && $rest_data['rating'] < 3.85)
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 2.85 && $data['rating'] < 3.15)
+                            @elseif ($rest_data['rating'] >= 2.85 && $rest_data['rating'] < 3.15)
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 2.15 && $data['rating'] < 2.85)
+                            @elseif ($rest_data['rating'] >= 2.15 && $rest_data['rating'] < 2.85)
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 1.85 && $data['rating'] < 2.15)
+                            @elseif ($rest_data['rating'] >= 1.85 && $rest_data['rating'] < 2.15)
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 1.15 && $data['rating'] < 1.85)
+                            @elseif ($rest_data['rating'] >= 1.15 && $rest_data['rating'] < 1.85)
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 0.85 && $data['rating'] < 1.15)
+                            @elseif ($rest_data['rating'] >= 0.85 && $rest_data['rating'] < 1.15)
                                 <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($data['rating'] >= 1.15 && $data['rating'] < 1.85)
+                            @elseif ($rest_data['rating'] >= 1.15 && $rest_data['rating'] < 1.85)
                                 <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
                             @else
                                 <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
@@ -151,7 +151,7 @@
 
         @else
             <!-- Customer first time give review -->
-            <form action="" method="post" class="reviewcontainer">
+            <form action="{{ url('new_rate') }}" method="POST" class="reviewcontainer">
                 @csrf
                 <div class="custprofile">
                     <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}">
@@ -166,13 +166,15 @@
                             <i id="star3" class="fa-regular fa-star"></i>
                             <i id="star4" class="fa-regular fa-star"></i>
                             <i id="star5" class="fa-regular fa-star"></i>
+                            <input type="hidden" id="ratingValue" name="ratingValue" value="0">
+                            <input type="hidden" name="rate_rest_id" value="{{$rest_data['rest_id']}}">
                         </span>
                     </p>
 
                     <div class="form-group">
                         <label for="" class="reviewcmd">Leave your review below</label>
                         <textarea class="form-control" id="firstreview" rows="3" name="custfirstreview"></textarea>
-                        <button type="submit"class="submitbtn">Comment</button>
+                        <button type="submit"class="submitbtn">Rate</button>
                     </div>
                 </div>
             </form> 
@@ -273,6 +275,7 @@
         // carousel.addEventListener("mousemove", dragStop);
 
         const stars = document.querySelectorAll('.newrating i');
+        const ratingValueInput = document.getElementById('ratingValue');
 
         // Add click event listeners to each star icon
         stars.forEach((star, index) => {
@@ -288,6 +291,8 @@
                     stars[i].classList.remove('fa-solid');
                     stars[i].classList.add('fa-regular');
                 }
+
+                ratingValueInput.value = index + 1;
             });
         });
 
@@ -313,40 +318,43 @@
         //     });
         // });
 
+        @if ($rest_data['rating'])
+            //icons in review box
+            document.addEventListener('DOMContentLoaded', function(){
+                const reseticon = document.querySelector('.fa-solid.fa-rotate-left');
+                const editicon = document.querySelector('.fa-regular.fa-pen-to-square');
+                const saveicon = document.querySelector('.fa-regular.fa-floppy-disk');
+                const deleteicon = document.querySelector('.fa-solid.fa-trash');
+                const textarea = document.querySelector('.form-control');
 
-        //icons in review box
-        document.addEventListener('DOMContentLoaded', function(){
-            const reseticon = document.querySelector('.fa-solid.fa-rotate-left');
-            const editicon = document.querySelector('.fa-regular.fa-pen-to-square');
-            const saveicon = document.querySelector('.fa-regular.fa-floppy-disk');
-            const deleteicon = document.querySelector('.fa-solid.fa-trash');
-            const textarea = document.querySelector('.form-control');
-
-            textarea.disabled = true;
-            // Reset the textarea value
-            reseticon.addEventListener('click', () => {
-                textarea.value = '';
-            });
-
-            // Edit --only shown when edit icon is click
-            editicon.addEventListener('click', () => {
-                textarea.disabled = false;
-            });
-
-            // Save
-            saveicon.addEventListener('click', () => {
-                const updatedReview = textarea.value;
-
-                // need write php to save the value
                 textarea.disabled = true;
-            });
+                // Reset the textarea value
+                reseticon.addEventListener('click', () => {
+                    textarea.value = '';
+                });
 
-            // Delete
-            deleteicon.addEventListener('click', () => {
-                // need to write code to delete from das
-                
+                // Edit --only shown when edit icon is click
+                editicon.addEventListener('click', () => {
+                    textarea.disabled = false;
+                });
+
+                // Save
+                saveicon.addEventListener('click', () => {
+                    const updatedReview = textarea.value;
+
+                    // need write php to save the value
+                    textarea.disabled = true;
+                });
+
+                // Delete
+                deleteicon.addEventListener('click', () => {
+                    // need to write code to delete from das
+                    
+                });
             });
-        });
+        @else 
+            textarea.disabled = false;
+        @endif
         
     </script>
 </body>
