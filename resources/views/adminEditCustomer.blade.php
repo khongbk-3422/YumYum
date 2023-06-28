@@ -260,6 +260,9 @@
 
         <div class="form">
             <img id="customerImage" src="" alt="">
+            <div class="id">
+                <input type="hidden" id="customerId">
+            </div>
 
             <div class="pic">    
                 <label class="input-group-text" for="inputGroupFile01"> Upload </label>
@@ -298,11 +301,13 @@
 
     function handleClick(event){
         const line = event.currentTarget;
+        const customerId = line.querySelector('.id').textContent;
         const customerImageSrc = line.querySelector('img').src;
         const customerName = line.querySelector('.name h6').textContent;
         const customerEmail = line.querySelector('.email p').textContent;
         const customerContact = line.querySelector('.contact p').textContent;
 
+        document.getElementById('customerId').src = customerId;
         document.getElementById('customerImage').src = customerImageSrc;
         document.getElementById('customerName').value = customerName;
         document.getElementById('customerEmail').value = customerEmail;
@@ -332,9 +337,37 @@
         }
     }
 
-    const confirmBtn = document.getElementsByClassName('confirmbtn');
+    // const confirmBtn = document.getElementsByClassName('confirmbtn');
+    // confirmBtn.addEventListener('click', handleConfirmEdit);
 
-    
+    // function handleConfirmEdit() {
+    //     const customerIdInput = document.getElementById('customer-id');
+    //     const customerId = customerIdInput.value;
+
+    //     // Get the updated values from the edit form
+    //     const customerName = document.getElementById('customerName').value;
+    //     const customerEmail = document.getElementById('customerEmail').value;
+    //     const customerContact = document.getElementById('customerContact').value;
+
+    //     // Perform the action with the updated data (e.g., make an API call to update the customer record)
+    //     // ...
+        
+    //     // Hide the confirm edit window
+    //     const confirmEditWindow = document.getElementById('confirm-edit-window');
+    //     confirmEditWindow.style.display = 'none';
+    // }
+
+    // function openConfirmEditWindow(customerId) {
+    //     const customerIdInput = document.getElementById('customer-id');
+    //     customerIdInput.value = customerId;
+
+    //     // Add the event listener for the confirm button
+    //     const confirmBtn = document.querySelector('.confirm-btn');
+    //     confirmBtn.addEventListener('click', handleConfirmEdit);
+
+    //     // Display the confirm edit window
+    //     const confirmEditWindow = document.getElementById('confirm-edit-window');
+    //     confirmEditWindow.style.display = 'block';
+    // }
 </script>
-
 </html>
