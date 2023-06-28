@@ -24,7 +24,7 @@
         }
 
         main{
-            width: 90%;
+            width: 100%;
             margin: 0 auto;
             display: grid;
             grid-gap: 5rem;
@@ -38,13 +38,26 @@
             align-items: center;
         }
 
-        .title input[type=text] {
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .title .search-container input[type=text] {
             padding: 6px;
             border: none;
             font-size: 17px;
             height: 40px;
             border-radius: 20px;
             box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.08);
+        }
+
+        .search-container i.fa-search {
+            position: absolute;
+            right: 10px;
+            color: #999;
+            cursor: pointer;
         }
 
         .list{
@@ -123,8 +136,9 @@
             transform: translateX(-93%);
         }
 
-        .pic{
+        .input-group mb-3{
             margin-top: 20px;
+            width: 150px;
         }
 
         .form img{
@@ -180,13 +194,6 @@
             margin-left: 50px;
         }
 
-        .form .buttons{
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-            width: 300px;
-        }
-
         .form button {
             border: 1px solid #b5b3a7;
             background-color: white;
@@ -196,6 +203,7 @@
             width: 100px;
             border-radius: 5px;
             transition: all 0.3s;
+            margin-top: 20px;
         }
 
         .form button:hover {
@@ -223,76 +231,106 @@
             color: black;
         }
 
+        @media (max-width: 768px) {
+            .container{
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .list {
+                flex-grow: 1;
+            }
+
+            .form {
+                position: relative;
+                top: -100px;
+                left: 65px;
+                transform: initial;
+            }
+
+        }
 
     </style>
 </head>
 <body>
-    <main>
-        <div class="list">
-            <div class="title">
-                <h1>Customer Information</h1>
-                <input type="text" placeholder="Search..">
-            </div>
-            @foreach ($cust_datas as $cust_data)
-
-            <div class="line" data-customer-id="{{$cust_data['cust_id']}}">
-                <img src="data:image/[image_format];base64,{{ $cust_data['cust_pic'] }}">
-                <div class="name">
-                    <h6>{{$cust_data['cust_name']}}</h6>
-                </div>
-                <div class="email">
-                    <p>{{$cust_data['user_email']}}</p>
-                </div>
-                <div class="contact">
-                    <p>{{$cust_data['cust_contact']}}</p>
-                </div>
-                <div class="action">
-                    <div class="icon">
-                        <a href="#" class="delete-icon">
-                            <i class="fa-solid fa-user-slash"></i>
-                        </a>
+    <div class="container">
+        <main>
+            <div class="list">
+                <div class="title">
+                    <h1>Customer Information</h1>
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search..">
+                        <i class="fa-solid fa-search"></i>
                     </div>
                 </div>
-            </div>
-            
-            @endforeach
-        </div>
+                @foreach ($cust_datas as $cust_data)
 
-        <div class="form">
-            <img id="customerImage" src="" alt="">
-            <div class="id">
-                <input type="hidden" id="customerId">
-            </div>
-
-            <div class="pic">    
-                <label class="input-group-text" for="inputGroupFile01"> Upload </label>
-                <input type="file" class="form-control" id="customerImageSrc">
-            </div>
-
-            <div class="name">
-                <h6>Name</h6>
-                <input type="text"  id="customerName" class="form-control" placeholder="Name" aria-label="Username">
-            </div>
-
-            <div class="email">
-                <h6>Email</h6>
-                <input type="email" id="customerEmail" class="form-control" placeholder="Email" aria-label="Email">
-            </div>
-
-            <div class="phone">
-                <h6>Contact</h6>
-                <input type="text" id="customerContact" class="form-control" placeholder="Contact Number" aria-label="Contact Number">
+                <div class="line" data-customer-id="{{$cust_data['cust_id']}}">
+                    <img src="data:image/[image_format];base64,{{ $cust_data['cust_pic'] }}">
+                    <div class="name">
+                        <h6>{{$cust_data['cust_name']}}</h6>
+                    </div>
+                    <div class="email">
+                        <p>{{$cust_data['user_email']}}</p>
+                    </div>
+                    <div class="contact">
+                        <p>{{$cust_data['cust_contact']}}</p>
+                    </div>
+                    <div class="action">
+                        <div class="icon">
+                            <a href="#" class="delete-icon">
+                                <i class="fa-solid fa-user-slash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                @endforeach
             </div>
 
-            <div class="buttons">
-                <button class="cancelbtn">CANCEL</button>
-                <button class="confirmbtn">CONFIRM</button>
+            <div class="form">
+                <div class="id">
+                    <input type="hidden" id="customerId">
+                </div>
+
+                <img id="customerImage" src="" alt="">
+
+                <div class="input-group mb-3">    
+                    <label class="input-group-text" for="customerImageSrc"> Upload </label>
+                    <input type="file" class="form-control" id="customerImageSrc" >
+                </div>
+                /* I also dun know why this input doesn't display the back part */
+
+                <div class="name">
+                    <h6>Name</h6>
+                    <input type="text"  id="customerName" class="form-control" placeholder="Name" aria-label="Username">
+                </div>
+
+                <div class="email">
+                    <h6>Email</h6>
+                    <input type="email" id="customerEmail" class="form-control" placeholder="Email" aria-label="Email">
+                </div>
+
+                <div class="phone">
+                    <h6>Contact</h6>
+                    <input type="text" id="customerContact" class="form-control" placeholder="Contact Number" aria-label="Contact Number">
+                </div>
+
+                <div class="button">
+                    <button class="updatebtn">UPDATE</button>
+                </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 </body>
 
 <script>
+    // get the data into form when a line of customer's data is selected
     const lines = document.getElementsByClassName('line');
 
     for (let i = 0; i < lines.length; i++){
@@ -301,19 +339,37 @@
 
     function handleClick(event){
         const line = event.currentTarget;
-        const customerId = line.querySelector('.id').textContent;
+        const customerId = line.dataset.customerId;
         const customerImageSrc = line.querySelector('img').src;
         const customerName = line.querySelector('.name h6').textContent;
         const customerEmail = line.querySelector('.email p').textContent;
         const customerContact = line.querySelector('.contact p').textContent;
 
-        document.getElementById('customerId').src = customerId;
+        document.getElementById('customerId').value = customerId;
         document.getElementById('customerImage').src = customerImageSrc;
         document.getElementById('customerName').value = customerName;
         document.getElementById('customerEmail').value = customerEmail;
         document.getElementById('customerContact').value = customerContact;
     }
 
+    // pop out the confim window + update the modified data
+    const confirmButton = document.querySelector('.updatebtn');
+    confirmButton.addEventListener('click', handleConfirm);
+
+    function handleConfirm() {
+        const customerId = document.getElementById('customerId').value;
+        const customerName = document.getElementById('customerName').value;
+        const customerEmail = document.getElementById('customerEmail').value;
+        const customerContact = document.getElementById('customerContact').value;
+
+        const confirmMessage = `Are you sure you want to modify the data for this customer?`;
+
+        if (confirm(confirmMessage)) {
+
+        }
+    }
+
+    // delete customer's information
     const deleteIcons = document.getElementsByClassName('delete-icon');
 
     for (let i = 0; i < deleteIcons.length; i++){
@@ -334,6 +390,32 @@
 
         else{
 
+        }
+    }
+
+    // search function
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', handleSearch);
+
+    function handleSearch() {
+        const searchText = searchInput.value.toLowerCase();
+        const lines = document.getElementsByClassName('line');
+
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+            const name = line.querySelector('.name h6').textContent.toLowerCase();
+            const email = line.querySelector('.email p').textContent.toLowerCase();
+            const contact = line.querySelector('.contact p').textContent.toLowerCase();
+
+            if (
+            name.includes(searchText) ||
+            email.includes(searchText) ||
+            contact.includes(searchText)
+            ) {
+            line.style.display = 'flex';
+            } else {
+            line.style.display = 'none';
+            }
         }
     }
 
