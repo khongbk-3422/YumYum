@@ -62,5 +62,6 @@ class AdminController extends Controller
     function getAllCust()
     {
         $cust_datas = Customer::all();
+        return view('adminEditCustomer',['cust_datas'=>$cust_datas]);
     }
 }
