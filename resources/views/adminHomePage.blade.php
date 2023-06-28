@@ -241,12 +241,16 @@
                 font-size: 0.8rem;
             }
 
-            .restaurants,
-            .customers {
-                margin: 0 auto;
+            .restaurants {
                 width: 90%;
+                margin-left: 20px;
             }
 
+            .customers {
+                width: 90%;
+                margin-left: 20px;
+                margin-top: 1rem;
+            }
         }
 
     </style>
@@ -340,16 +344,16 @@
                 <div class="card">
                         <div class="card-header">
                             <h2>New Customers</h2>
-
                             <a href="/adminEditCustomer">
                                 <button>See all <span class="fa-solid fa-arrow-right"></span> </button>
                             </a>
                         </div>
+
                         <div class="card-body">
 
                             @foreach ($new_cust_list as $cust_list)
                                 
-                                <div class="customer">
+                                <div class="customer" >
                                     <div class="info">
                                         <img src="data:image/[image_format];base64,{{ $cust_list['cust_pic'] }}" width="40px" height="40px" alt="">
                                         <div>
@@ -358,7 +362,9 @@
                                         </div>
                                     </div>
                                     <div class="action">
-                                        <span class="fa-solid fa-magnifying-glass"></span>
+                                        <a href="#" onclick="editCustomer({{ $cust_list['cust_id'] }})">
+                                            <span class="fa-solid fa-magnifying-glass"></span>
+                                        </a>
                                     </div>
                                 </div>
                                 
@@ -368,10 +374,12 @@
                 </div>
             </div>
         </div>
-
     </main>
 </body>
 <script>
-
+    function editCustomer(custId) {
+        sessionStorage.setItem('customerId', custId);
+        window.location.href = '/adminEditCustomer';
+    }
 </script>
 </html>
