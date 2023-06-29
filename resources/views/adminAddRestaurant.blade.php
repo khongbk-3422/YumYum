@@ -49,7 +49,7 @@
 .addContainer .addPanel{
     position:absolute;
     top:0;
-    right:0;
+    left:0;
     width:42%;
     height:100%;
     overflow: hidden;
