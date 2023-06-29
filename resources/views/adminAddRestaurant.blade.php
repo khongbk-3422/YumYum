@@ -12,7 +12,7 @@
 .addBackground{
     background: url('image/adminAddRestaurant1.png') no-repeat;
     width:100%;
-    height:100vh;
+    height:200vh;
     background-size:cover;
     background-position:center;
     filter:blur(5px);        
@@ -24,22 +24,23 @@
     left:50%;
     transform: translate(-50%, -50%);
     width:75%;
-    height:550px;
+    /* height:550px; */
     background: url('image/adminAddRestaurant1.png') no-repeat;
     background-size:cover;
     background-position:center;
     border-radius:10px;
     margin-top: 45px;
+    padding: 40px;
 }
 
 .addContainer .addContent{
-    position:absolute;
+    /* position:absolute;
     top:0;
-    left:0;
+    left:0; */
     width:58%;
-    height:calc(100% - 160px);
+    /* height:calc(100% - 100px); */
     background:transparent;
-    padding:40px;
+    padding:0;
     color:white;
     display:flex;
     justify-content:space-between;
@@ -47,14 +48,16 @@
     z-index: 1;
 }
 .addContainer .addPanel{
-    position:absolute;
-    top:0;
-    left:0;
-    width:42%;
-    height:100%;
+    display: flex;
+    flex-grow: 1;
+    /* position:absolute;
+    top:0; */
+    /* left:0; */
+    /* width:42%;
+    height:100%; */
     overflow: hidden;
-    border-right-style: solid;
-    border-right-color: white;
+    /* border-right-style: solid;
+    border-right-color: white; */
 }
 .addPanel .addInputPanel{
     /* position:absolute; */
@@ -65,7 +68,7 @@
     justify-content: center;
     align-items:center;
     width:100%;
-    height:100%;
+    /* height:100%; */
     background:transparent;
     /* backdrop-filter:blur(10px); */
     /* border-right-style: solid;
@@ -75,7 +78,7 @@
     /* color:white; */
 }
 .addPanel .addInputPanel h2 {
-    color: #222; /* Add a color to the heading text */
+    color: white; /* Add a color to the heading text */
 }
 
 .addPanel .addInputPanel .btn {
@@ -152,6 +155,9 @@
  .form__field:required, .form__field:invalid {
 	 box-shadow: none;
 }
+.form__group select option {
+    color: black;
+}
 /* demo */
  /* body {
 	 font-family: 'Poppins', sans-serif;
@@ -163,7 +169,6 @@
 	 font-size: 1.5rem;
 	 background-color: #222;
 } */
- 
     </style>
 </head>
 <body>
@@ -187,28 +192,29 @@
                     <label for="restaurant contact" class="form__label">Restaurant Contact</label>
                 </div>
                 <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="Restaurant Category" name="restaurant category" id='restaurant category' required />
-                    <label for="restaurant category" class="form__label">Restaurant Category</label>
+                    <label for="Restaurant Category" class="form__label">Restaurant Category</label>
+                    <select name="category" id="category" class="form__field">
+                        <option value="rigatoni">Italian</option>
+                        <option value="dave">Japanese</option>
+                        <option value="pumpernickel">Malaysian</option>
+                        <option value="reeses">Steakhouse</option>
+                        <option value="reeses">Thai</option>
+                    </select>
                 </div>
                 <div class="form__group field">
                     <input type="input" class="form__field" placeholder="Restaurant Address" name="restaurant address" id='restaurant address' required />
                     <label for="restaurant address" class="form__label">Restaurant Address</label>  
                 </div>
                 <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="Minimum Price" name="min" id='min' required />
+                    <input type="number" class="form__field" placeholder="Minimum Price" name="min" id='min' required />
                     <label for="min" class="form__label">Minimum Price</label>
                 </div>
                 <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="Max Price" name="max" id='max' required />
+                    <input type="number" class="form__field" placeholder="Max Price" name="max" id='max' required />
                     <label for="max" class="form__label">Maximum Price</label>
-                </div>
-                <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="Restaurant Image" name="image" id='image' required />
-                    <label for="image" class="form__label">Restaurant Image</label>
                 </div>
                 <button type="submit" class="btn">Add</button>
             </div>
         </div>
     </div>
-</body>
 </html>
