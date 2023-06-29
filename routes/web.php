@@ -113,3 +113,8 @@ Route::get('/adminEditRating', function(){
 
 // Route::get('list',[RestController::class,'show']);
 // Route::post('addPic',[RestController::class,'addPic']);
+
+//testAddRestPage
+Route::get('/newAdminViewRest', function(){
+    return view (('newAdminViewRest'));
+});
