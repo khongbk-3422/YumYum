@@ -150,7 +150,7 @@
 
                         <div class="form-group">
                             <label for="" class="reviewcmd">Review</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview" value="value="{{$rest_data['review']}}">{{$rest_data['review']}}</textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">{{$rest_data['review']}}</textarea>
                         </div>
                     </div>
                 </form>

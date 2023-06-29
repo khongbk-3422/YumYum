@@ -50,13 +50,16 @@ class RateController extends Controller
                 // return $req;
                 $ratingId = $req->input('rate_rest_id');
 
-                $rating = Rate::where('rest_id',$ratingId)->where('cust_id',session('user_id'))->first();
+                $rating = Rate::where('rest_id',$ratingId)->where('cust_id',session('user_id'))->delete();
                 if ($rating) {
 
-                    // $record->rating = ;
-                    $rating->review = $req->input('custfirstreview');
-                    $rating->date = Carbon::now('Asia/Kuala_Lumpur');
-                    $rating->save();
+                    $rating_t = new Rate;
+                    $rating_t->cust_id = session('user_id');
+                    $rating_t->rest_id = $ratingId;
+                    $rating_t->review = $req['custfirstreview'];
+                    $rating_t->rating = 5;
+                    $rating_t->date = Carbon::now('Asia/Kuala_Lumpur');
+                    $rating_t->save();
 
                     return redirect('restaurantDetailsPage/'.$ratingId);
                 } else {
