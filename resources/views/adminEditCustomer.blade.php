@@ -295,7 +295,7 @@
 
             <div class="form">
                 <div class="id">
-                    <input type="hidden" id="customerId">
+                    <input type="hidden" id="customerId" value="{{ $_GET['customerId'] }}">
                 </div>
 
                 <img id="customerImage" src="" alt="">
@@ -422,34 +422,25 @@
         }
     }
 
-    // const customerId = sessionStorage.getItem('customerId');
-    // document.getElementById('customerId').value = customerId;
+    document.addEventListener('DOMContentLoaded', function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var customerId = document.getElementById('customerId').value;
 
-    // // Fetch customer details based on the customer ID
-    // function fetchCustomerDetails(customerId) {
-    //     // Make an AJAX request to the server endpoint that retrieves the customer details
-    //     // Replace `serverEndpoint` with the actual endpoint URL
-    //     fetch(`serverEndpoint?customerId=${customerId}`)
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             // Populate the input fields with the retrieved customer data
-    //             document.getElementById('customerName').value = data.cust_name;
-    //             document.getElementById('customerEmail').value = data.user_email;
-    //             document.getElementById('customerContact').value = data.cust_contact;
-    //         })
-    //         .catch(error => {
-    //             console.error('Error:', error);
-    //         });
-    // }
+        // Fetch customer data from the server using AJAX or fetch API
+        fetch('http://localhost:8000/adminEditCustomer?customerId=' + customerId)
+            .then(response => response.json())
+            .then(data => {
+                // Populate the input fields with the customer data
+                document.getElementById('customerName').value = data.customerName;
+                document.getElementById('customerEmail').value = data.customerEmail;
+                document.getElementById('customerContact').value = data.customerContact;
 
-    // // Call the fetchCustomerDetails function with the customer ID
-    // fetchCustomerDetails(customerId);
+                // Update the image source if available
+                document.getElementById('customerImage').src = data.customerImageSrc;
+            })
+            .catch(error => console.log(error));
+        });
 
-
-
-    // const customerName = document.getElementById('customerName').value;
-    // const customerEmail = document.getElementById('customerEmail').value;
-    // const customerContact = document.getElementById('customerContact').value;
 
 </script>
 </html>
