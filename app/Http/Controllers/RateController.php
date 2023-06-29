@@ -14,7 +14,6 @@ class RateController extends Controller
     //New Review
     function new_rate(Request $req)
     {
-        $data = $req->input();
         $old_rate = Rate::where('cust_id',session('user_id'))->where('rest_id',$req['rate_rest_id'])->first();
 
         if ($old_rate) {
@@ -44,16 +43,32 @@ class RateController extends Controller
     }
 
     //Rating Action
-    function rate_action(Request $request)
+    function rate_action(Request $req)
     {
-        switch ($request->input('action')) {
+        switch ($req->input('action')) {
             case'save':
+                // return $req;
+                $ratingId = $req->input('rate_rest_id');
 
+                $rating = Rate::where('rest_id',$ratingId)->where('cust_id',session('user_id'))->first();
+                if ($rating) {
+
+                    // $record->rating = ;
+                    $rating->review = $req->input('custfirstreview');
+                    $rating->date = Carbon::now('Asia/Kuala_Lumpur');
+                    $rating->save();
+
+                    return redirect('restaurantDetailsPage/'.$ratingId);
+                } else {
+                    Session::flash('update_failed', true);
+                    return redirect('restaurantDetailsPage/'.$ratingId);
+                }
                 break;
+
 
             case 'delete':
                 
-                $ratingId = $request->input('rate_rest_id');
+                $ratingId = $req->input('rate_rest_id');
         
                 $rating = Rate::where('rest_id',$ratingId)->where('cust_id',session('user_id'))->delete();
                 if ($rating) {

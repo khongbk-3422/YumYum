@@ -96,7 +96,7 @@
                 <h5 class="title">Reviews and Ratings</h5>
             </div>
 
-        @if ($rest_data['rating'])
+        @if ($rest_data['rating'] >=0)
             <!-- Customer's feedback -->
             <div class="reviewcontainer">
                 <div class="custprofile">
@@ -142,7 +142,7 @@
                             <!-- Trigger text area -->
                             <i class="fa-regular fa-pen-to-square"></i>
                             <!-- save new cmd -->
-                            <i class="fa-regular fa-floppy-disk"></i>
+                            <button type="submit" class= "submit-icon" name="action" value="save"><i class="fa-regular fa-floppy-disk"></i></button>
                             <!-- delete -->
                             <button type="submit" class= "submit-icon" name="action" value="delete"><i class="fa-solid fa-trash"></i></button>
                             {{-- <i class="fa-solid fa-trash" data-rating-id="{{$rest_data['rest_id']}}"></i> --}}
@@ -150,7 +150,7 @@
 
                         <div class="form-group">
                             <label for="" class="reviewcmd">Review</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">{{$rest_data['review']}}</textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview" value="value="{{$rest_data['review']}}">{{$rest_data['review']}}</textarea>
                         </div>
                     </div>
                 </form>
