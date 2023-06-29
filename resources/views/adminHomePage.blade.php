@@ -362,7 +362,7 @@
                                         </div>
                                     </div>
                                     <div class="action">
-                                        <a href="#" onclick="editCustomer({{ $cust_list['cust_id'] }})">
+                                        <a href="/adminEditCustomer?customerId={{ $cust_list['cust_id'] }} ">
                                             <span class="fa-solid fa-magnifying-glass"></span>
                                         </a>
                                     </div>
@@ -377,9 +377,6 @@
     </main>
 </body>
 <script>
-    function editCustomer(custId) {
-        sessionStorage.setItem('customerId', custId);
-        window.location.href = '/adminEditCustomer';
-    }
+
 </script>
 </html>
