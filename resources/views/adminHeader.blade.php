@@ -53,6 +53,8 @@
             border-radius:50%;
         }
 
+        
+
         /* @media (max-width: 768px){
             .navbar .navbar-collapse {
                 flex-direction: column;
@@ -99,7 +101,7 @@
                     <li class="nav-item">
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminEditRating' ? 'active' : ''; ?> " href="/adminEditRating">Ratings</a>
 					</li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> {{session('admin_name')}}
                             <span class="profilePic">
                                 <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}" >
@@ -114,10 +116,39 @@
                                 <a class="dropdown-item" href="logout">Logout</a>
                             </li>
                         </ul>
+                    </li> -->
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false" onclick="toggleDropdown()">
+                            {{session('admin_name')}}
+                            <span class="profilePic">
+                                <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}" />
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu" id="dropdownMenu">
+                            <li>
+                                <a class="dropdown-item <?php echo $_SERVER['REQUEST_URI'] === '/adminProfilePage' ? 'active' : ''; ?>" href="/adminProfilePage">
+                                    Settings <i class="fa-regular fa-gear"></i>
+                                </a>
+                            </li>
+                            <div class="dropdown-divider"></div>
+                            <li>
+                                <a class="dropdown-item" href="logout">Logout</a>
+                            </li>
+                        </ul>
                     </li>
+
 				</ul>
 			</div>
 		</div>
 	</nav>
+
+    <script>
+        function toggleDropdown() {
+            var dropdownMenu = document.getElementById("dropdownMenu");
+            dropdownMenu.classList.toggle("show");
+        }
+    </script>
 </body>
 </html>
