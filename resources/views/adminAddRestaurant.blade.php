@@ -171,7 +171,7 @@
                 </div>
                 <div class="form__group field">
                     <input type="input" class="form__field" placeholder="Restaurant Address" name="restaurant address" id='restaurant address' required />
-                    <label for="restaurant address" class="form__label">Restaurant Address</label>
+                    <label for="restaurant address" class="form__label">Restaurant Address</label>  
                 </div>
                 <div class="form__group field">
                     <input type="input" class="form__field" placeholder="Minimum Price" name="min" id='min' required />
@@ -182,8 +182,8 @@
                     <label for="max" class="form__label">Maximum Price</label>
                 </div>
                 <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="password" name="password" id='password' required />
-                    <label for="password" class="form__label">Password</label>
+                    <input type="input" class="form__field" placeholder="Restaurant Image" name="image" id='image' required />
+                    <label for="image" class="form__label">Restaurant Image</label>
                 </div>
             </div>
         </div>
