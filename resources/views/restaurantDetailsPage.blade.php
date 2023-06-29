@@ -104,50 +104,56 @@
                     <h4 class="custname">{{session('user_name')}}</h4>
                 </div>
 
-                <div class="review">
-                    <p class="reviewdate">{{$rest_data['rate_date']}} 
-                        <span class="starqty">
-                            @if ($rest_data['rating'] == 5)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
-                            @elseif ($rest_data['rating'] >= 4.15 && $rest_data['rating'] < 5)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
-                            @elseif ($rest_data['rating'] >= 3.85 && $rest_data['rating'] < 4.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rest_data['rating'] >= 3.15 && $rest_data['rating'] < 3.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rest_data['rating'] >= 2.85 && $rest_data['rating'] < 3.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rest_data['rating'] >= 2.15 && $rest_data['rating'] < 2.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rest_data['rating'] >= 1.85 && $rest_data['rating'] < 2.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rest_data['rating'] >= 1.15 && $rest_data['rating'] < 1.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rest_data['rating'] >= 0.85 && $rest_data['rating'] < 1.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rest_data['rating'] >= 1.15 && $rest_data['rating'] < 1.85)
-                                <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @else
-                                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
-                            @endif
-                        </span>
-                    </p>
+                <form action="{{ url('cust_rate_action') }}" method="POST">
+                    @csrf
+                    <div class="review">
+                        <p class="reviewdate">{{$rest_data['rate_date']}} 
+                            <span class="starqty">
+                                @if ($rest_data['rating'] == 5)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                                @elseif ($rest_data['rating'] >= 4.15 && $rest_data['rating'] < 5)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
+                                @elseif ($rest_data['rating'] >= 3.85 && $rest_data['rating'] < 4.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['rating'] >= 3.15 && $rest_data['rating'] < 3.85)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['rating'] >= 2.85 && $rest_data['rating'] < 3.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['rating'] >= 2.15 && $rest_data['rating'] < 2.85)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['rating'] >= 1.85 && $rest_data['rating'] < 2.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['rating'] >= 1.15 && $rest_data['rating'] < 1.85)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['rating'] >= 0.85 && $rest_data['rating'] < 1.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['rating'] >= 1.15 && $rest_data['rating'] < 1.85)
+                                    <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @else
+                                    <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
+                                @endif
+                            </span>
+                        </p>
 
-                    <div class="actionicons">
-                        <i class="fa-solid fa-rotate-left"></i>
-                        <!-- Trigger text area -->
-                        <i class="fa-regular fa-pen-to-square"></i>
-                        <!-- save new cmd -->
-                        <i class="fa-regular fa-floppy-disk"></i>
-                        <!-- delete -->
-                        <i class="fa-solid fa-trash" data-rating-id="{{$rest_data['rest_id']}}"></i>
-                    </div>
+                        <input type="hidden" name="rate_rest_id" value="{{$rest_data['rest_id']}}">
 
-                    <div class="form-group">
-                        <label for="" class="reviewcmd">Review</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">{{$rest_data['review']}}</textarea>
+                        <div class="actionicons">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            <!-- Trigger text area -->
+                            <i class="fa-regular fa-pen-to-square"></i>
+                            <!-- save new cmd -->
+                            <i class="fa-regular fa-floppy-disk"></i>
+                            <!-- delete -->
+                            <button type="submit" class= "submit-icon" name="action" value="delete"><i class="fa-solid fa-trash"></i></button>
+                            {{-- <i class="fa-solid fa-trash" data-rating-id="{{$rest_data['rest_id']}}"></i> --}}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="" class="reviewcmd">Review</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="custfirstreview">{{$rest_data['review']}}</textarea>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>    
 
         @else
@@ -229,6 +235,12 @@
             
         </div>
     </div>
+
+    @if(Session::has('delete_failed'))
+        <script>
+            alert('Delete Failed!');
+        </script>
+    @endif
 
     <script>
         const carousel = document.querySelector(".carousel"),
@@ -349,36 +361,9 @@
 
                 // Delete
                 deleteicon.addEventListener('click', () => {
-                    // need to write code to delete from das
-                    const ratingId = deleteicon.getAttribute('data-rating-id');
-
-                    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                    console.log(csrfToken);
-
-                    // Send an AJAX request to delete the rating
-                    fetch('{{ url('delete_rating') }}', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': csrfToken, // Replace with the actual CSRF token from your backend
-                        },
-                        body: JSON.stringify({ ratingId }),
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            // Delete was successful, you can perform any necessary UI updates here
-                            alert("Successful Delete!");
-                        } else {
-                            // Handle the error case
-                            console.error('Failed to delete rating');
-                        }
-                    })
-                    .catch(error => {
-                        // Handle any network or other errors
-                        console.error('Error occurred while deleting rating', error);
-                    });
                     
                 });
+
             });
         @else 
             textarea.disabled = false;

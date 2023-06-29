@@ -43,22 +43,27 @@ class RateController extends Controller
         }
     }
 
-    //Delete Rating
-    function delete_rating(Request $request)
+    //Rating Action
+    function rate_action(Request $request)
     {
-        $ratingId = $request->input('ratingId');
-        Log::debug('Deleting rating with ID: ' . $ratingId);
+        switch ($request->input('action')) {
+            case'save':
 
-        // Find the rating by ID and delete it
-        $rating = Rate::where('rest_id',$ratingId)->where('cust_id',session('user_id'))->first();
-        if ($rating) {
-            $rating->delete();
-            // Return a success response if the rating was deleted successfully
-            return response()->json(['success' => true]);
+                break;
+
+            case 'delete':
+                
+                $ratingId = $request->input('rate_rest_id');
+        
+                $rating = Rate::where('rest_id',$ratingId)->where('cust_id',session('user_id'))->delete();
+                if ($rating) {
+                    return redirect('restaurantDetailsPage/'.$ratingId);
+                } else {
+                    Session::flash('delete_failed', true);
+                    return redirect('restaurantDetailsPage/'.$ratingId);
+                }
+                break;
         }
 
-        // Return an error response if the rating was not found or failed to delete
-        Log::error('Failed to delete rating with ID: ' . $ratingId);
-        return response()->json(['success' => false], 500);
     }
 }
