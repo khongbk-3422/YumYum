@@ -53,13 +53,31 @@ class RateController extends Controller
                 $rating = Rate::where('rest_id',$ratingId)->where('cust_id',session('user_id'))->delete();
                 if ($rating) {
 
-                    $rating_t = new Rate;
-                    $rating_t->cust_id = session('user_id');
-                    $rating_t->rest_id = $ratingId;
-                    $rating_t->review = $req['custfirstreview'];
-                    $rating_t->rating = 5;
-                    $rating_t->date = Carbon::now('Asia/Kuala_Lumpur');
-                    $rating_t->save();
+                    if ($req['custfirstreview']) {
+                        $rating_t = new Rate;
+                        $rating_t->cust_id = session('user_id');
+                        $rating_t->rest_id = $ratingId;
+                        $rating_t->review = $req['custfirstreview'];
+                        $rating_t->rating = $req['ratingValue'];
+                        $rating_t->date = Carbon::now('Asia/Kuala_Lumpur');
+                        $rating_t->save();
+                    } elseif ($req['hidden_custfirstreview']) {
+                        $rating_t = new Rate;
+                        $rating_t->cust_id = session('user_id');
+                        $rating_t->rest_id = $ratingId;
+                        $rating_t->review = $req['hidden_custfirstreview'];
+                        $rating_t->rating = $req['ratingValue'];
+                        $rating_t->date = Carbon::now('Asia/Kuala_Lumpur');
+                        $rating_t->save();
+                    } else {
+                        $rating_t = new Rate;
+                        $rating_t->cust_id = session('user_id');
+                        $rating_t->rest_id = $ratingId;
+                        $rating_t->review = " ";
+                        $rating_t->rating = $req['ratingValue'];
+                        $rating_t->date = Carbon::now('Asia/Kuala_Lumpur');
+                        $rating_t->save();
+                    }
 
                     return redirect('restaurantDetailsPage/'.$ratingId);
                 } else {

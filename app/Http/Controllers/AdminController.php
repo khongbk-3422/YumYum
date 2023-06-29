@@ -32,15 +32,17 @@ class AdminController extends Controller
 
         // Fetch the restaurant names based on rest_id
         $rest_ids = $rest_data->pluck('rest_id');
-        $restaurants = Restaurant::whereIn('id', $rest_ids)->get();
+        $restaurants = Restaurant::whereIn('rest_id', $rest_ids)->get();
 
         // Associate the restaurant name with the corresponding rest_id in the $rest_data collection
         $rest_data = $rest_data->map(function ($item) use ($restaurants) {
-            $restaurant = $restaurants->firstWhere('id', $item->rest_id);
+            $restaurant = $restaurants->firstWhere('rest_id', $item->rest_id);
             $item->restaurant_name = $restaurant ? $restaurant->name : 'Unknown Restaurant';
             return $item;
         });
 
+        return $rest_data;
+    
         // Iterate over the highest average rating restaurants
         foreach ($rest_data as $data)  {
             $history_count = History::where('rest_id', $data->rest_id)->count();
