@@ -44,12 +44,13 @@
     display:flex;
     justify-content:space-between;
     flex-direction:column;
+    z-index: 1;
 }
 .addContainer .addPanel{
     position:absolute;
     top:0;
-    left:0;
-    width:calc(100% - 65%);
+    right:0;
+    width:42%;
     height:100%;
     overflow: hidden;
     border-right-style: solid;
@@ -73,6 +74,25 @@
     border-bottom-left-radius:10px;
     /* color:white; */
 }
+.addPanel .addInputPanel h2 {
+    color: #222; /* Add a color to the heading text */
+}
+
+.addPanel .addInputPanel .btn {
+    background-color: #11998e; /* Update the button background color */
+    color: white; /* Update the button text color */
+    padding: 10px 20px; /* Add some padding */
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-top: 20px; /* Add some margin to separate from the input fields */
+}
+
+.addPanel .addInputPanel .btn:hover {
+    background-color: #38ef7d; /* Update the button background color on hover */
+}
+
 .form__group {
 	 position: relative;
 	 padding: 15px 0 0;
@@ -153,6 +173,7 @@
         </div>
         <div class="addPanel">
             <div class="addInputPanel">
+                <h2>Add Restaurant</h2>
                 <div class="form__group field">
                     <input type="input" class="form__field" placeholder="id" name="id" id='id' required />
                     <label for="id" class="form__label">Restaurant ID</label>
@@ -185,6 +206,7 @@
                     <input type="input" class="form__field" placeholder="Restaurant Image" name="image" id='image' required />
                     <label for="image" class="form__label">Restaurant Image</label>
                 </div>
+                <button type="submit" class="btn">Add</button>
             </div>
         </div>
     </div>
