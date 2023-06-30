@@ -1,5 +1,11 @@
 @include('header')
 
+$customer_data = $customer_data::find($cust_id); // Retrieve the customer data from the database
+
+$fileName = $customer_data->cust_pic; // Retrieve the file name from the BLOB column
+return view('custProfilePage', ['fileName' => $fileName]);
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +26,7 @@
             flex-direction: column;
             align-items: center;
             border-radius:15px;
-            background:#faf9f7;
+            background-color:#faf9f7;
         }
 
         .userProfile h3{
@@ -34,15 +40,22 @@
             border-radius:50%;
         }
 
+        .resetBtn{
+            border:none;
+            height:40px;
+            background-color:#faf9f7;
+            outline:none;
+        }
+
         .profileContainer .btn-danger{
-            background-color:#B87F78;
-            border-color:#B87F78;
+            background-color:#d9725f;
+            border-color:#d9725f;
             color:black;
         }
 
         .profileContainer .btn-success{
-            background-color:#889F8B;
-            border-color:#889F8B;
+            background-color:#8cba98;
+            border-color:#8cba98;
             color:black;
         }
     </style>
@@ -51,9 +64,10 @@
     <div class="profileContainer">
         <div class="userProfile">
             <h3>Profile</h3>
-            <img src="data:image/[image_format];base64,{{$customer_data->cust_pic}}">
+            <img src="data:image/[image_format];base64,{{$customer_data->cust_pic}}" id="showImage">
         </div>
         <br>
+
         <form action="" method="post">
             @csrf
             <div class="form-group row mb-3">
@@ -85,9 +99,14 @@
             </div>
 
             <div class="form-group row mb-3">
-                <label for="formFile" class="col-sm-2 col-form-label">Profile</label>
-                <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile">
+                <label for="newprofile" class="col-sm-2 col-form-label">Profile</label>
+                <div class="col-sm-8">
+                    <!-- <input class="form-control" type="file" id="newprofile" value="{{ $fileName }}"> -->
+                    <!-- ini $fileName might need to work from controller to display the initial file name of image -->
+                    <input class="form-control" type="file" id="newprofile">
+                </div>
+                <div class="col-sm-2">
+                    <button type="button" onclick="resetImage()" class="resetBtn">Reset</button>
                 </div>
             </div>
 
@@ -98,7 +117,38 @@
         </form>
         
     </div>
-    
+    <script>
+        const newProfile = document.getElementById('newprofile');
+        const showImage = document.getElementById('showImage');
+
+        let previousImage = showImage.src; // initial profile picture
+        let previousFileName = newProfile.value;
+
+        newProfile.addEventListener('change', function() {
+            // Get the selected file
+            const file = newProfile.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function() {
+                    showImage.src = reader.result;
+                };
+                reader.readAsDataURL(file);
+                
+                // Display the file name in the input field
+                const fileName = file.name;
+                if (previousFileName !== fileName) {
+                    newProfile.value = fileName;
+                    previousFileName = fileName;    //replace the  old image with new image
+                }
+            }
+        });
+
+        function resetImage(){
+            showImage.src = previousImage; // Reset to previous profile
+            newProfile.value = previousFileName; // Reset the file input
+        }
+    </script>
 </body>
 </html>
 @include ('footer')
