@@ -90,7 +90,7 @@
                             <div class="dropdown-divider"></div>
 
                             <li>
-                                <a class="dropdown-item" href="logout">Logout</a>
+                                <a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
                             </li>
                         </ul>
                     </li>

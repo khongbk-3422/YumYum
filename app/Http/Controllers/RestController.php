@@ -39,23 +39,24 @@ class RestController extends Controller
             $data->avg_rate = $avg_rate;
         }
 
-        //Best Rate Restaurant
-        // $best_rest_data = Rate::select('rest_id', DB::raw('AVG(rating) as avg_rating'))
-        //     ->groupBy('rest_id')
-        //     ->orderByDesc('avg_rating')
-        //     ->take(8)
-        //     ->get();
-
-        // $rest_ids = $best_rest_data->pluck('rest_id');
-        // $restaurants = Restaurant::whereIn('rest_id', $rest_ids)->get();
+        $best_rest_data = Rate::select('rest_id', DB::raw('AVG(rating) as avg_rating'), DB::raw('COUNT(*) as rating_count'))
+                    ->groupBy('rest_id')
+                    ->orderByDesc('avg_rating')
+                    ->orderByDesc('rating_count')
+                    ->take(8)
+                    ->get();
         
-        // $best_rest_data = $best_rest_data->map(function ($item) use ($restaurants) {
-        //     $restaurant = $restaurants->firstWhere('rest_id', $item->rest_id);
-        //     $item->restaurant_name = $restaurant ? $restaurant->name : 'Unknown Restaurant';
-        //     return $item;
-        // });
+        foreach ($best_rest_data as $data) {
+            $rest = Restaurant::where('rest_id', $data['rest_id'])->first();
+            $data->rest_name = $rest->rest_name;
+            $data->rest_category = $rest->rest_category;
+            
+            $rest_pic_data = Rest_Picture::where('rest_id',$data->rest_id)->first();
+            $rest_pic = $rest_pic_data ? base64_encode($rest_pic_data->rest_pic) : null;
+            $data->rest_pic = $rest_pic;
+        }
 
-        return view('viewRestaurantPage',['datas'=>$datas]);
+        return view('viewRestaurantPage',['datas'=>$datas,'best_rest_data'=>$best_rest_data]);
     }
 
     public function filter(Request $request)
