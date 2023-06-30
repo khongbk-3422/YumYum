@@ -9,46 +9,107 @@
     <title>Admin Edit Restaurant</title>
     @include('cdn')
     
-    <style> 
+    <style>
+
         .bodycontainer{
             margin-top:80px;
         }
 
-        .cardcarousel{
-            white-space:nowrap;
+        .slidercontainer{
             background:pink;
-            overflow:hidden;
+            max-width:1200px;
+            width:100%;
+            padding:10px;
+            margin:auto;
         }
 
-        .cardcarousel img{
+        .cardcontainer{
+            /* margin:auto; */
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            /* gap:10px; */
+        }
+
+        .card{
+            border-radius:2px;
+            /* width: calc((100% / 3) - 10px); */
+            margin-right:20px;
+        }
+
+        .card .menubox{
+            width:100%;
             height:300px;
+        }
+
+        .card .menubox img{
+            height:100%;
             object-fit:cover;
-            width:calc(100% / 3);
         }
 
-        .cardcarousel img:first-child{
-            margin-left:0px;
+        .card .actionicons{
+            padding:8px;
+            border-radius:2px 2px 0 0;
         }
 
+        .card .actionicons i{
+            font-size:25px;
+            float:right;
+            padding-right:10px;
+            color:black;
+        }
     </style>
 </head>
 
 <body>
     <div class="bodycontainer">
-        <div class="cardcarousel">
-            <img src="{{asset('image/restaurants/beta1.jpg')}}">
-            <span><i class="fa fa-edit" aria-hidden="true"></i> <i class="fa-solid fa-trash"></i></span>
+        <div class="slidercontainer">
+            <div class="cardcontainer swiper-wrapper">
+                <div class="card swiper-slider">
+                    <div class="menubox">
+                        <img src="{{asset('image/restaurants/beta1.jpg')}}">
+                    </div>
+                    <div class="actionicons">
+                        <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+                
+                <div class="card swiper-slider">
+                    <div class="menubox">
+                        <img src="{{asset('image/restaurants/beta1.jpg')}}">
+                    </div>
+                    <div class="actionicons">
+                        <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
 
-            <img src="{{asset('image/restaurants/beta2.jpg')}}">
-            <span><i class="fa fa-edit" aria-hidden="true"></i> <i class="fa-solid fa-trash"></i></span>
-            
-            <img src="{{asset('image/restaurants/beta3.jpg')}}">
-            <img src="{{asset('image/restaurants/chambers1.jpg')}}">
-            <a href=""><img src="{{asset('image/restaurants/chambers1.jpg')}}"></a>
+                <div class="card swiper-slider">
+                    <div class="menubox">
+                        <img src="{{asset('image/restaurants/beta1.jpg')}}">
+                    </div>
+                    <div class="actionicons">
+                        <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+
+                <!-- <div class="card swiper-slider">
+                    <div class="menubox">
+                        <a href=""><img src="{{asset('image/add.png')}}"></a>
+                    </div>
+                    <div class="actionicons">
+                        <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div> -->
+            </div>
         </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
-
-
 
     <script>
     
