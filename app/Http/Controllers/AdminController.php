@@ -68,6 +68,35 @@ class AdminController extends Controller
     function getAllCust()
     {
         $cust_datas = Customer::all();
+        foreach ($cust_datas as $data) {
+            $data->cust_pic = base64_encode($data->cust_pic);
+        }
         return view('adminEditCustomer',['cust_datas'=>$cust_datas]);
     }
+
+    function getAllwithCust($customerId)
+    {
+        $cust_datas = Customer::all();
+        foreach ($cust_datas as $data) {
+            $data->cust_pic = base64_encode($data->cust_pic);
+        }
+
+        $select_cust = Customer::where('cust_id',$customerId)->first();
+        $select_cust->cust_pic = base64_encode($select_cust->cust_pic);
+        return view('adminEditCustomer',['cust_datas'=>$cust_datas,'select_cust'=>$select_cust]);
+    }
+
+    public function destroy($customerId)
+{
+    // Find the customer by ID
+    $customer = Customer::where('cust_id',$customerId)->first();
+    if ($customer) {
+        User::where('user_email',$customer->user_email)->delete();
+        Customer::where('cust_id',$customerId)->delete();
+    } else {
+        return "not find";
+    }
+
+    return response()->json(['message' => 'Customer deleted successfully']);
+}
 }
