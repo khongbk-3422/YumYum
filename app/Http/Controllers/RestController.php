@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Rest_Picture;
 use App\Models\Rate;
+use App\Models\Customer;
 use App\Models\History;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
@@ -145,7 +146,7 @@ class RestController extends Controller
         // Rating according Rest
         $rating_datas = Rate::where('rest_id', $rest_id)->where('cust_id', '!=', session('user_id'))->get();
         foreach ($rating_datas as $data){
-            $user_data = Customer::where('cust_id',$data->cust_id)->get();
+            $user_data = Customer::where('cust_id',$data->cust_id)->first();
             $data->cust_name = $user_data->cust_name;
             $data->cust_pic = base64_encode($user_data->cust_pic);
         }
