@@ -422,7 +422,17 @@
         const confirmDelete = confirm("Are you sure you want to delete this customer?");
 
         if (confirmDelete) {
-
+            axios.delete(`/customers/${customerId}`)
+            .then(response => {
+                // Handle successful deletion
+                console.log('Customer deleted successfully');
+                // Optionally, you can remove the line element from the UI
+                line.remove();
+            })
+            .catch(error => {
+                // Handle error
+                console.error('Failed to delete customer', error);
+            });
         }
 
         else{
