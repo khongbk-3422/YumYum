@@ -295,7 +295,7 @@
 
             <div class="form">
                 <div class="id">
-                    <input type="hidden" id="customerId" value="{{ $_GET['customerId'] }}">
+                    <input type="hidden" id="customerId" >
                 </div>
 
                 <img id="customerImage" src="" alt="">
@@ -422,24 +422,24 @@
         }
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var urlParams = new URLSearchParams(window.location.search);
-        var customerId = document.getElementById('customerId').value;
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     var urlParams = new URLSearchParams(window.location.search);
+    //     var customerId = document.getElementById('customerId').value;
 
-        // Fetch customer data from the server using AJAX or fetch API
-        fetch('http://localhost:8000/adminEditCustomer?customerId=' + customerId)
-            .then(response => response.json())
-            .then(data => {
-                // Populate the input fields with the customer data
-                document.getElementById('customerName').value = data.customerName;
-                document.getElementById('customerEmail').value = data.customerEmail;
-                document.getElementById('customerContact').value = data.customerContact;
+    //     // Fetch customer data from the server using AJAX or fetch API
+    //     fetch('http://localhost:8000/adminEditCustomer?customerId=' + customerId)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             // Populate the input fields with the customer data
+    //             document.getElementById('customerName').value = data.customerName;
+    //             document.getElementById('customerEmail').value = data.customerEmail;
+    //             document.getElementById('customerContact').value = data.customerContact;
 
-                // Update the image source if available
-                document.getElementById('customerImage').src = data.customerImageSrc;
-            })
-            .catch(error => console.log(error));
-        });
+    //             // Update the image source if available
+    //             document.getElementById('customerImage').src = data.customerImageSrc;
+    //         })
+    //         .catch(error => console.log(error));
+    //     });
 
 
 </script>
