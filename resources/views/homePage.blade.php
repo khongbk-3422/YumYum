@@ -27,7 +27,6 @@
 						<a class="nav-link" href="#team">Team</a>
 					</li>
 					<li class="nav-item">
-						<!-- direct to login page -->
 						<a class="nav-link" href="/loginPage">Login / SignUp</a>
 					</li>
 				</ul>
