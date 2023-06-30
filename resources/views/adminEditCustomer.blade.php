@@ -210,9 +210,9 @@
             transform: scale(1.1);
         }
 
-        input[type="file"]{
+        /* input[type="file"]{
             display: none;
-        }
+        } */
 
         label{
             box-sizing: border-box;
