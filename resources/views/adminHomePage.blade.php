@@ -362,7 +362,7 @@
                                         </div>
                                     </div>
                                     <div class="action">
-                                        <a href="/adminEditCustomer?customerId={{ $cust_list['cust_id'] }} ">
+                                        <a href="/adminEditCustomer/{{ $cust_list['cust_id'] }} ">
                                             <span class="fa-solid fa-magnifying-glass"></span>
                                         </a>
                                     </div>

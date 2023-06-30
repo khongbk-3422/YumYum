@@ -28,7 +28,6 @@
 
         .historycontainer{
             width:100% ;
-            /* background:purple; */
         }
 
         .historyperday .date{
@@ -39,7 +38,13 @@
         .history .data .time{
             font-size:16px;
             letter-spacing:3px;
-            /* color:grey; */
+            color:#3B4338;
+        }
+
+        .history .data a{
+            text-decoration:none;
+            color:black;
+            color:#3B4338;
         }
 
         .historyperday .data .restname{
@@ -48,7 +53,7 @@
         }
 
         .historyperday .data h4:hover{
-            color:#968e7e;
+            color:#7A848D;
             cursor: pointer;
         }
 

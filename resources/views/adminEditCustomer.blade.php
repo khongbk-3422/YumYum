@@ -294,36 +294,70 @@
             </div>
 
             <div class="form">
-                <div class="id">
-                    <input type="hidden" id="customerId" value="{{ $_GET['customerId'] }}">
-                </div>
+                @if ($select_cust->cust_id)
+                    <div class="id">
+                        <input type="hidden" id="customerId" value="{{ $select_cust->cust_id }}">
+                    </div>
 
-                <img id="customerImage" src="" alt="">
+                    <img id="customerImage" src="data:image/[image_format];base64,{{ $select_cust->cust_pic }}" alt="">
 
-                <div class="input-group mb-3">    
-                    <label class="input-group-text" for="customerImageSrc"> Upload </label>
-                    <input type="file" class="form-control" id="customerImageSrc" >
-                </div>
-                /* I also dun know why this input doesn't display the back part */
+                    <div class="input-group mb-3">    
+                        <label class="input-group-text" for="customerImageSrc"> Upload </label>
+                        <input type="file" class="form-control" id="customerImageSrc" >
+                    </div>
+                    /* I also dun know why this input doesn't display the back part */
 
-                <div class="name">
-                    <h6>Name</h6>
-                    <input type="text"  id="customerName" class="form-control" placeholder="Name" aria-label="Username">
-                </div>
+                    <div class="name">
+                        <h6>Name</h6>
+                        <input type="text"  id="customerName" class="form-control" placeholder="Name" aria-label="Username" value="{{ $select_cust->cust_name }}">
+                    </div>
 
-                <div class="email">
-                    <h6>Email</h6>
-                    <input type="email" id="customerEmail" class="form-control" placeholder="Email" aria-label="Email">
-                </div>
+                    <div class="email">
+                        <h6>Email</h6>
+                        <input type="email" id="customerEmail" class="form-control" placeholder="Email" aria-label="Email" value="{{ $select_cust->user_email }}">
+                    </div>
 
-                <div class="phone">
-                    <h6>Contact</h6>
-                    <input type="text" id="customerContact" class="form-control" placeholder="Contact Number" aria-label="Contact Number">
-                </div>
+                    <div class="phone">
+                        <h6>Contact</h6>
+                        <input type="text" id="customerContact" class="form-control" placeholder="Contact Number" aria-label="Contact Number" value="{{ $select_cust->cust_contact }}">
+                    </div>
 
-                <div class="button">
-                    <button class="updatebtn">UPDATE</button>
-                </div>
+                    <div class="button">
+                        <button class="updatebtn">UPDATE</button>
+                    </div>
+                @else
+                    <div class="id">
+                        <input type="hidden" id="customerId">
+                    </div>
+
+                    <img id="customerImage" src="" alt="">
+
+                    <div class="input-group mb-3">    
+                        <label class="input-group-text" for="customerImageSrc"> Upload </label>
+                        <input type="file" class="form-control" id="customerImageSrc" >
+                    </div>
+                    /* I also dun know why this input doesn't display the back part */
+
+                    <div class="name">
+                        <h6>Name</h6>
+                        <input type="text"  id="customerName" class="form-control" placeholder="Name" aria-label="Username">
+                    </div>
+
+                    <div class="email">
+                        <h6>Email</h6>
+                        <input type="email" id="customerEmail" class="form-control" placeholder="Email" aria-label="Email">
+                    </div>
+
+                    <div class="phone">
+                        <h6>Contact</h6>
+                        <input type="text" id="customerContact" class="form-control" placeholder="Contact Number" aria-label="Contact Number">
+                    </div>
+
+                    <div class="button">
+                        <button class="updatebtn">UPDATE</button>
+                    </div>
+                @endif
+                
             </div>
         </main>
     </div>
@@ -388,7 +422,17 @@
         const confirmDelete = confirm("Are you sure you want to delete this customer?");
 
         if (confirmDelete) {
-
+            axios.delete(`/customers/${customerId}`)
+            .then(response => {
+                // Handle successful deletion
+                console.log('Customer deleted successfully');
+                // Optionally, you can remove the line element from the UI
+                line.remove();
+            })
+            .catch(error => {
+                // Handle error
+                console.error('Failed to delete customer', error);
+            });
         }
 
         else{
