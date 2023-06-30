@@ -153,6 +153,7 @@ class UserController extends Controller
 
             $customer_pic = base64_encode($customer_data->cust_pic);
             $customer_data->cust_pic = $customer_pic;
+            $customer_data->filename = "";
 
             return view('custProfilePage', ['customer_data' => $customer_data]);
         }
