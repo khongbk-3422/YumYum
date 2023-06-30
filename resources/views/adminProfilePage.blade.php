@@ -9,10 +9,17 @@
     @include('cdn')
 
     <style>
-        
+        *{
+            font-family: 'Raleway', sans-serif;
+        }
+
+        body{
+            background-image: 
+        }
+
     </style>
 </head>
 <body>
-    
+        <h1>User Profile</h1>
 </body>
 </html>
