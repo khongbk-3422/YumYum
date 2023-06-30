@@ -6,35 +6,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin Edit Restaurant</title>
+    <title>Admin View Restaurant</title>
     @include('cdn')
     
     <style>
+        *{
+            font-family: 'Raleway', sans-serif;
+        }
 
         .bodycontainer{
             margin-top:80px;
         }
 
-        .slidercontainer{
-            background:pink;
-            max-width:1200px;
-            width:100%;
-            padding:10px;
-            margin:auto;
+        .title{
+            text-align:center;
+            font-size:35px;
+            padding:15px;
         }
 
-        .cardcontainer{
-            /* margin:auto; */
+        .slidercontainer{
+            max-width:1200px;
+            width:100%;
+            margin:auto;
+            overflow:hidden;
             display:flex;
             align-items:center;
             justify-content:center;
-            /* gap:10px; */
+        }
+
+        .cardcontainer{
+            margin:0 30px;
         }
 
         .card{
+            flex-shrink:0;
+            width:320px;
             border-radius:2px;
-            /* width: calc((100% / 3) - 10px); */
-            margin-right:20px;
+            position: relative;
         }
 
         .card .menubox{
@@ -44,75 +52,116 @@
 
         .card .menubox img{
             height:100%;
+            width:100%;
             object-fit:cover;
         }
 
         .card .actionicons{
-            padding:8px;
-            border-radius:2px 2px 0 0;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 8px;
+            background-color: rgba(43, 39, 35, 0.5);
         }
 
         .card .actionicons i{
             font-size:25px;
             float:right;
             padding-right:10px;
-            color:black;
+            color:#e8e2dc;
+        }
+
+        .swiper-button-next.swiper-navBtn,
+        .swiper-button-prev.swiper-navBtn{
+            color:#e0d5c5;
+            height:45px;
+            width:45px;
+            background:#544b3e;
+            border-radius:50%;
+        }
+
+        .swiper-button-next.swiper-navBtn::before,
+        .swiper-button-prev.swiper-navBtn::after{
+            font-size:20px;
+        }
+        
+        .swiper-button-next.swiper-navBtn::after {
+            font-size: 20px;
         }
     </style>
 </head>
 
 <body>
     <div class="bodycontainer">
+        <div class="title">
+            <h3>Restaurant</h3>
+        </div>
+
         <div class="slidercontainer">
             <div class="cardcontainer swiper-wrapper">
-                <div class="card swiper-slider">
+                <div class="card swiper-slide">
                     <div class="menubox">
                         <img src="{{asset('image/restaurants/beta1.jpg')}}">
                     </div>
                     <div class="actionicons">
-                        <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>
                         <a href=""><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
                 
-                <div class="card swiper-slider">
+                <div class="card swiper-slide">
                     <div class="menubox">
-                        <img src="{{asset('image/restaurants/beta1.jpg')}}">
+                        <img src="{{asset('image/restaurants/beta2.jpg')}}">
                     </div>
                     <div class="actionicons">
-                        <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>
                         <a href=""><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
 
-                <div class="card swiper-slider">
+                <div class="card swiper-slide">
                     <div class="menubox">
-                        <img src="{{asset('image/restaurants/beta1.jpg')}}">
+                        <img src="{{asset('image/restaurants/beta3.jpg')}}">
                     </div>
                     <div class="actionicons">
-                        <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>
                         <a href=""><i class="fa-solid fa-trash"></i></a>
                     </div>
                 </div>
 
-                <!-- <div class="card swiper-slider">
+                <div class="card swiper-slide">
+                    <div class="menubox">
+                        <img src="{{asset('image/restaurants/ishin1.jpg')}}">
+                    </div>
+                    <div class="actionicons">
+                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                    </div>
+                </div>
+
+                <div class="card swiper-slide">
                     <div class="menubox">
                         <a href=""><img src="{{asset('image/add.png')}}"></a>
                     </div>
-                    <div class="actionicons">
-                        <a href=""><i class="fa fa-edit" aria-hidden="true"></i></a>
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div> -->
+                </div>
             </div>
         </div>
 
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next swiper-navBtn"></div>
+        <div class="swiper-button-prev swiper-navBtn"></div>
     </div>
 
     <script>
-    
+    document.addEventListener('DOMContentLoaded', function() {
+        var swiper = new Swiper(".slidercontainer", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            slidesPerGroup: 1,
+            centerSlide:"true",
+            grabCursor:"true",
+            fade:"true",
+            navigation:{
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    });
 
     </script>
 </body>
