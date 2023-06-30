@@ -101,7 +101,7 @@ return view('custProfilePage', ['fileName' => $fileName]);
             <div class="form-group row mb-3">
                 <label for="newprofile" class="col-sm-2 col-form-label">Profile</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="file" id="newprofile" value="{{ $fileName }}">
+                    <input class="form-control" type="file" id="newprofile" value="{{ $customer_data['fileName'] }}">
                     <!-- ini $fileName might need to work from controller to display the initial file name of image -->
                     <input class="form-control" type="file" id="newprofile">
                 </div>

@@ -90,6 +90,8 @@ Route::get('/adminHomePage',[AdminController::class,'homePage']);
 
 //adminEditCustomer
 Route::get('/adminEditCustomer', [AdminController::class,'getAllCust']);
+Route::get('/adminEditCustomer/{customerId}', [AdminController::class,'getAllwithCust']);
+Route::delete('/customers/{customerId}', 'UserController@destroy');
 
 //adminEditRestaurant
 Route::get('/adminEditRestaurant', function(){
