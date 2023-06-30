@@ -24,24 +24,28 @@ class AdminController extends Controller
         ];
 
         //Most Popular Restaurant
-        $rest_data = Rate::select('rest_id', DB::raw('AVG(rating) as avg_rating'))
-            ->groupBy('rest_id')
-            ->orderByDesc('avg_rating')
-            ->take(4)
-            ->get();
+        $rest_data = Rate::select('rest_id', DB::raw('AVG(rating) as avg_rating'), DB::raw('COUNT(*) as rating_count'))
+                    ->groupBy('rest_id')
+                    ->orderByDesc('avg_rating')
+                    ->orderByDesc('rating_count')
+                    ->take(7)
+                    ->get();
 
+        
+        foreach ($rest_data as $data) {
+            $rest = Restaurant::where('rest_id', $data['rest_id'])->first();
+            $data->rest_name = $rest->rest_name;
+        }
         // Fetch the restaurant names based on rest_id
-        $rest_ids = $rest_data->pluck('rest_id');
-        $restaurants = Restaurant::whereIn('rest_id', $rest_ids)->get();
+        // $rest_ids = $rest_data->pluck('rest_id');
+        // $restaurants = Restaurant::whereIn('rest_id', $rest_ids)->get();
 
         // Associate the restaurant name with the corresponding rest_id in the $rest_data collection
-        $rest_data = $rest_data->map(function ($item) use ($restaurants) {
-            $restaurant = $restaurants->firstWhere('rest_id', $item->rest_id);
-            $item->restaurant_name = $restaurant ? $restaurant->name : 'Unknown Restaurant';
-            return $item;
-        });
-
-        return $rest_data;
+        // $rest_data = $rest_data->map(function ($item) use ($restaurants) {
+        //     $restaurant = $restaurants->firstWhere('rest_id', $item->rest_id);
+        //     $item->restaurant_name = $restaurant ? $restaurant->name : 'Unknown Restaurant';
+        //     return $item;
+        // });
     
         // Iterate over the highest average rating restaurants
         foreach ($rest_data as $data)  {

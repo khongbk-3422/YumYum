@@ -162,110 +162,46 @@
 
                 <div id="carouselExampleRide" class="carousel" data-bs-ride="true">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="card" style="width:13rem;">
-                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Iketeru Restaurant</h5>
-                                    <p class="card-text text-muted">Japanese</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                        <span class="custrateqty">(43)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
 
-                        <div class="carousel-item">
-                            <div class="card" style="width:13rem;">
-                                <img src="{{ asset('image/rest2.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Prime</h5>
-                                    <p class="card-text text-muted">Steakhouse</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                        <span class="custrateqty">(31)</span>
-                                    </p>
-                                </div> 
+                        @foreach ($best_rest_data as $best_rest)
+                            <div class="carousel-item active">
+                                <div class="card" style="width:13rem;">
+                                    <img src="data:image/[image_format];base64,{{ $best_rest->rest_pic }}" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{$best_rest['rest_name']}}</h5>
+                                        <p class="card-text text-muted">{{$best_rest['rest_category']}}</p>
+                                        <p class="rating">{{$best_rest['avg_rating']}}
+                                            @if ($best_rest['avg_rating'] == 5)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 4.15 && $best_rest['avg_rating'] < 5)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 3.85 && $best_rest['avg_rating'] < 4.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 3.15 && $best_rest['avg_rating'] < 3.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 2.85 && $best_rest['avg_rating'] < 3.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 2.15 && $best_rest['avg_rating'] < 2.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 1.85 && $best_rest['avg_rating'] < 2.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 1.15 && $best_rest['avg_rating'] < 1.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 0.85 && $best_rest['avg_rating'] < 1.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 1.15 && $best_rest['avg_rating'] < 1.85)
+                                                <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @else
+                                            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
+                                            @endif
+                                            <span class="custrateqty">({{$best_rest['rating_count']}})</span>
+                                        </p>
+                                    </div> 
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
 
-                        <div class="carousel-item">
-                            <div class="card" style="width:13rem;">
-                                <img src="{{ asset('image/rest3.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Beta KL</h5>
-                                    <p class="card-text text-muted">Malaysian</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                        <span class="custrateqty">(26)</span>
-                                    </p>
-                                </div> 
-                            </div>
                         </div>
-
-                        <div class="carousel-item">
-                            <div class="card" style="width:13rem;">
-                                <img src="{{ asset('image/rest4.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Chambers Grill</h5>
-                                    <p class="card-text text-muted">Steakhouse</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                        <span class="custrateqty">(22)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="card" style="width:13rem;">
-                                <img src="{{ asset('image/rest5.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Positano Risto</h5>
-                                    <p class="card-text text-muted">Italian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                        <span class="custrateqty">(31)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="card" style="width:13rem;">
-                                <img src="{{ asset('image/rest6.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">JP Teres</h5>
-                                    <p class="card-text text-muted">Malaysian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                        <span class="custrateqty">(25)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="card" style="width:13rem;">
-                                <img src="{{ asset('image/rest7.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Via Pre Kul</h5>
-                                    <p class="card-text text-muted">Italian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                                        <span class="custrateqty">(27)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="card" style="width:13rem;">
-                                <img src="{{ asset('image/rest8.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Tamarind Hill</h5>
-                                    <p class="card-text text-muted">Thai</p>
-                                    <p class="rating">4.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                                        <span class="custrateqty">(21)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

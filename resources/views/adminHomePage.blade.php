@@ -327,7 +327,7 @@
                                     
                                         <tr>
                                             <td>{{$rest['rest_name']}}</td>
-                                            <td>{{$rest['avg_rating']}}</td>
+                                            <td>{{$rest['avg_rating']}} ({{$rest['rating_count']}})</td>
                                             <td>{{$rest['browse_count']}}</td>
                                         </tr>
                                     @endforeach
