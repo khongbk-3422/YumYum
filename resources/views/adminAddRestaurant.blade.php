@@ -12,7 +12,7 @@
 .addBackground{
     background: url('image/adminAddRestaurant1.png') no-repeat;
     width:100%;
-    height:200vh;
+    height:100vh;
     background-size:cover;
     background-position:center;
     filter:blur(5px);        
