@@ -356,6 +356,43 @@
                     </div>
                 </form>
         </div>
+        <div class="restaurantRatingForm">
+            <div class="row justify-content-center">
+                <div class="col-sm-4">
+                    <div class="editRestaurantRatingCard">
+                        <div class="card-body">
+                            <h5>Rating</h5>
+                            <p>{{$rest_data['avg_rate']}} 
+                                @if ($rest_data['avg_rate'] == 5)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                                @elseif ($rest_data['avg_rate'] >= 4.15 && $rest_data['avg_rate'] < 5)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
+                                @elseif ($rest_data['avg_rate'] >= 3.85 && $rest_data['avg_rate'] < 4.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['avg_rate'] >= 3.15 && $rest_data['avg_rate'] < 3.85)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['avg_rate'] >= 2.85 && $rest_data['avg_rate'] < 3.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['avg_rate'] >= 2.15 && $rest_data['avg_rate'] < 2.85)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['avg_rate'] >= 1.85 && $rest_data['avg_rate'] < 2.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['avg_rate'] >= 1.15 && $rest_data['avg_rate'] < 1.85)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['avg_rate'] >= 0.85 && $rest_data['avg_rate'] < 1.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rest_data['avg_rate'] >= 1.15 && $rest_data['avg_rate'] < 1.85)
+                                    <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @else
+                                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
+                                @endif
+                                <span class="ratingqty">({{$rest_data['count']}})</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
