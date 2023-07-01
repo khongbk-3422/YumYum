@@ -181,51 +181,174 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12 col-md-6 col-lg-3">
-					<div class="card text-center">
-						<div class="card-body">
-							<img alt="" class="img-fluid rounded-circle" src="{{ asset('image/jonas.jpg') }}">
-							<h3 class="card-title py-2">Jonas (CEO)</h3>
-							<p class="card-text">The visionary leader. With extensive experience in the tech industry and a passion for culinary excellence, he guides the team towards creating an innovative platform that connects food lovers with their perfect dining experiences.</p>
-							<p class="socials"><i class="bi bi-facebook text-dark mx-1"></i> <i class="bi bi-linkedin text-dark mx-1"></i> <i class="bi bi-instagram text-dark mx-1"></i></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-6 col-lg-3">
-					<div class="card text-center">
-						<div class="card-body">
-							<img alt="" class="img-fluid rounded-circle" src="{{ asset('image/leon.jpg') }}">
-							<h3 class="card-title py-2">Leon (CMO)</h3>
-							<p class="card-text">A creative marketing genius who spearheads our branding and promotional efforts. With his deep understanding of consumer behavior, he effectively communicates the value of our system, captivating and engaging our audience.</p>
-							<p class="socials"><i class="bi bi-facebook text-dark mx-1"></i> <i class="bi bi-linkedin text-dark mx-1"></i> <i class="bi bi-instagram text-dark mx-1"></i></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-6 col-lg-3">
-					<div class="card text-center">
-						<div class="card-body">
-							<img alt="" class="img-fluid rounded-circle" src="{{ asset('image/camilia.jpg') }}">
-							<h3 class="card-title py-2">Camilia (CFO)</h3>
-							<p class="card-text">Wealth of financial expertise bringer to the team. With a keen eye for numbers and a strategic mindset, she ensures the financial stability and growth of our restaurant finder system, enabling us to provide exceptional services to our users.</p>
-							<p class="socials"><i class="bi bi-facebook text-dark mx-1"></i> <i class="bi bi-linkedin text-dark mx-1"></i> <i class="bi bi-instagram text-dark mx-1"></i></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-12 col-md-6 col-lg-3">
-					<div class="card text-center">
-						<div class="card-body">
-							<img alt="" class="img-fluid rounded-circle" src="{{ asset('image/aurora.jpg') }}">
-							<h3 class="card-title py-2">Aurora (COO)</h3>
-							<p class="card-text">The driving force behind the operational efficiency of our system. With a focus on seamless user experiences and processes, she ensures that our platform is user-friendly, reliable, and continuously improving to meet the needs of our users.</p>
-							<p class="socials"><i class="bi bi-facebook text-dark mx-1"></i> <i class="bi bi-linkedin text-dark mx-1"></i> <i class="bi bi-instagram text-dark mx-1"></i></p>
-						</div>
-					</div>
-				</div>
-			</div>
+        
+            <!-- circle design -->
+            <div class="teamcontainer">
+                <div class="icon">
+                    <div class="imagebox active" style="--i:1;" data-id="content1">
+                        <img src="{{asset('image/jonas.jpg')}}">
+                    </div>
+
+                    <div class="imagebox" style="--i:2;" data-id="content2">
+                        <img src="{{asset('image/leon.jpg')}}">
+                    </div>
+
+                    <div class="imagebox" style="--i:3;" data-id="content3">
+                        <img src="{{asset('image/camilia.jpg')}}">
+                    </div>
+
+                    <div class="imagebox" style="--i:4;" data-id="content4">
+                        <img src="{{asset('image/aurora.jpg')}}">
+                    </div>
+                </div>
+
+                <div class="teaminfo">
+                    <div class="contentbox active" id="content1">
+                        <div class="card">
+                            <div class="imagebox">
+                                <img src="{{asset('image/jonas.jpg')}}">
+                            </div>
+                            <div class="intro">
+                                <h2>Jonas<br> <span>CEO</span></h2>
+                                <ul class="socialicons">
+                                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contentbox" id="content2">
+                        <div class="card">
+                            <div class="imagebox">
+                                <img src="{{asset('image/leon.jpg')}}">
+                            </div>
+                            <div class="intro">
+                                <h2>Leon<br> <span>CMO</span></h2>
+                                <ul class="socialicons">
+                                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contentbox" id="content3">
+                        <div class="card">
+                            <div class="imagebox">
+                                <img src="{{asset('image/camilia.jpg')}}">
+                            </div>
+                            <div class="intro">
+                                <h2>Camilia<br> <span>CFO</span></h2>
+                                <ul class="socialicons">
+                                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentbox" id="content4">
+                        <div class="card">
+                            <div class="imagebox">
+                                <img src="{{asset('image/aurora.jpg')}}">
+                            </div>
+                            <div class="intro">
+                                <h2>Aurora<br> <span>COO</span></h2>
+                                <ul class="socialicons">
+                                    <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 		</div>
+
+        <!-- hover card design -->
+        <div class="teamcontainer2">
+            <div class="card">
+                <div class="lines"></div>
+                <div class="imagebox">
+                    <img src="{{asset('image/jonas.jpg')}}" alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Jonas</h2>
+                        <p>CEO: Our visionary leader ignites the path to success, orchestrating innovation and inspiring greatness that skyrocket our company.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lines"></div>
+                <div class="imagebox">
+                    <img src="{{asset('image/leon.jpg')}}" alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Leon</h2>
+                        <p>CMO: The creative genius behind our brand's allure, crafting captivating strategies that mesmerize and forge an unbreakable bond with customers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lines"></div>
+                <div class="imagebox">
+                    <img src="{{asset('image/camilia.jpg')}}" alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Camilia</h2>
+                        <p>CFO: The financial maestro who conducts the symphony of stability and growth, expertly managing our resources to ensure fiscal harmony.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="lines"></div>
+                <div class="imagebox">
+                    <img src="{{asset('image/aurora.jpg')}}" alt="">
+                </div>
+                <div class="content">
+                    <div class="details">
+                        <h2>Aurora</h2>
+                        <p>COO: The operational virtuoso who orchestrates seamless efficiency, conducting a symphony of precision to deliver exceptional results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</section>
     <!-- team ends -->
-	@include('footer')
+
+    <script>
+        let imagebox = document.querySelectorAll('.imagebox');
+        let contentbox= document.querySelectorAll('.contentbox');
+
+        for (let i = 0; i < imagebox.length; i++){
+            imagebox[i].addEventListener('mouseover', function(){
+                for (let i = 0; i < contentbox.length; i++){
+                    contentbox[i].className = 'contentbox';
+                }
+                document.getElementById(this.dataset.id).className = 'contentbox active';
+                
+                for(let i = 0; i < imagebox.length; i++){
+                    imagebox[i].className= 'imagebox';
+                }
+                this.className = 'imagebox active'
+            
+            })
+        }
+    </script>
 </body>
 </html>
+@include('footer')

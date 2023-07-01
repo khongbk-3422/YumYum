@@ -12,8 +12,12 @@ body {
 	padding: 25px 0;
 }
 
+.carousel.slide{
+	margin-top: 60px;;
+}
+
 .carousel-item {
-	height: 95vh;
+	height: 100vh;
 	min-height: 300px;
 }
 
@@ -130,28 +134,15 @@ body {
 	margin-left:20px;
 }
 
-/* team design */
-/* .team .card {
-	box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
-}
-
-.team .card-body i {
-	font-size: 20px;
-} */
-
-/* new design for team */
+/* new design for team - circle */
 .teamcontainer{
 	top: 20px;
-	background: #EBEBE9;
-	/* left:-50%; */
+	background: #F8F8F8;
 	position: relative;
 	width: 500px;
 	height:500px;
 	border:2px solid #C1B0A7;
 	border-radius: 50%;
-	/* display: flex;
-	justify-content: center;
-	align-items: center; */
 	margin: auto;
 }
 
@@ -194,7 +185,6 @@ body {
 	object-fit: cover;
 	transform: rotate(calc(-360deg / 4 * var(--i)));
 	transition: 0.5s;
-	/* filter: grayscale(0.5); */
 }
 
 .teamcontainer .teaminfo{
@@ -275,7 +265,7 @@ body {
 	align-items: center;
 	flex-direction: column;
 	gap:10px;
-	background: #EBEBE9;
+	background: #F8F8F8;
 }
 
 .teaminfo .contentbox .card .imagebox{
@@ -304,7 +294,7 @@ body {
 
 .teaminfo .contentbox .intro h2{
 	position: relative;
-	font-size: 28px;
+	font-size: 26px;
 	font-weight: bold;
 	color: #000;
 	line-height: 1;
@@ -313,8 +303,8 @@ body {
 }
 
 .teaminfo .contentbox .intro h2 span{
-	font-size: 22px;
-	color: grey;
+	font-size: 20px;
+	color: #674D41;
 	letter-spacing: 5px;
 }
 
@@ -338,12 +328,224 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: #57372B;
+	background: #664A3D;
 	color: #EFF0EA;
 	border-radius: 5px;
 	transition: 0.5s;
 }
 
+.teaminfo .contentbox .card .intro .socialicons li a i{
+	animation: storm 0.7s ease-in-out both;
+	animation-delay: 0.06s;
+}
+
 .teaminfo .contentbox .card .intro .socialicons li a:hover{
+	cursor: pointer;
+	background: #C5BDB2;
+	animation: rotate 0.7s ease-in-out both;
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg) translate3d(0, 0, 0);
+	}
+	25% {
+		transform: rotate(3deg) translate3d(0, 0, 0);
+	}
+	50% {
+		transform: rotate(-3deg) translate3d(0, 0, 0);
+	}
+	75% {
+		transform: rotate(1deg) translate3d(0, 0, 0);
+	}
+	100% {
+		transform: rotate(0deg) translate3d(0, 0, 0);
+	}
+  }
+
+@keyframes storm {
+	0% {
+		transform:translate3d(0, 0, 0) translateZ(0);
+	}
+	25% {
+		transform:translate3d(4px, 0, 0) translateZ(0);
+	}
+	50% {
+		transform:translate3d(-3px, 0, 0) translateZ(0);
+	}
+	75% {
+		transform:translate3d(2px, 0, 0) translateZ(0);
+	}
+	100% {
+		transform:translate3d(0, 0, 0) translateZ(0);
+	}
+  }
+
+/* team design 2 - card hover */
+.teamcontainer2{
+	background: #f8f9f6;
+	margin-top: 100px;
+	position: relative;
+	display: flex;
+	padding: 80px 20px;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+
+.teamcontainer2 .card{
+	position: relative;
+	width:330px;
+	height:170px;
 	background: #855b4c;
+	transition: 0.5s;
+}
+
+.teamcontainer2 .card:hover{
+	height: 450px;
+}
+
+.teamcontainer2 .card .lines{
+	position: absolute;
+	inset:0;
+	background: #D2D2D0;
+	overflow: hidden;
+}
+
+.teamcontainer2 .card .lines::before{
+	content: '';
+	position: absolute;
+	top:50%;
+	left:50%;
+	width:500px;
+	height: 120px;
+	background: linear-gradient(transparent, #674D41,  #674D41, #674D41, transparent);
+	animation: animate 4s linear infinite;
+	animation-play-state: paused;
+}
+
+.teamcontainer2 .card:hover .lines::before{
+	animation-play-state: running;
+}
+
+@keyframes animate{
+	0%{
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100%{
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+.teamcontainer2 .card .lines::after{
+	content: '';
+	position: absolute;
+	inset: 4px;
+	background: #F8F8F8;
+}
+
+.teamcontainer2 .card .imagebox{
+	top:-60px;
+	left:50%;
+	position: absolute;
+	width:150px;
+	height: 150px;
+	transform: translateX(-50%);
+	background: #7D6252;
+	transition: 0.5s;
+	z-index: 10;
+	overflow: hidden;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.teamcontainer2 .card:hover .imagebox{
+	top:25px;
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+
+}
+.teamcontainer2 .card .imagebox::before{
+	content: '';
+	position: absolute;
+	top:50%;
+	left:50%;
+	width: 500px;
+	height: 150px;
+	transform: translate(-50%, -50%);
+	background: linear-gradient(transparent, #D1D3C5,  #D1D3C5, #D1D3C5, transparent);
+	animation: animate2 6s linear infinite;
+	animation-play-state: paused;
+}
+
+.teamcontainer2 .card:hover .imagebox::before{
+	animation-play-state: running;
+}
+
+@keyframes animate2{
+	0%{
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+	100%{
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+}
+
+.teamcontainer2 .card .imagebox::after{
+	content: '';
+	position: absolute;
+	inset: 4px;
+	background: #F8F8F8;
+}
+
+.teamcontainer2 .card .imagebox img{
+	position: absolute;
+	width: 130px;
+	height: 130px;
+	z-index: 1;
+	transition: 0.5s;
+	object-fit: cover;
+}
+
+.teamcontainer2 .card .content{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	overflow: hidden;
+}
+
+.teamcontainer2 .card .content .details{
+	padding: 30px 20px;
+	text-align: center;
+	width:100%;
+	transition: 0.5s;
+	transform: translateY(130px);
+}
+
+.teamcontainer2 .card:hover .content .details{
+	transform: translateY(0px);
+}
+
+.teamcontainer2 .card .content .details h2{
+	font-size: 25px;
+	color: #281a15;
+	line-height: 2;
+	font-weight: bold;
+}
+
+.teamcontainer2 .card .content .details p{
+	color: #25211c;
+	font-weight: 580;
+	opacity: 0;
+	transition: 0.5s;
+}
+
+.teamcontainer2 .card:hover .content .details p{
+	opacity: 1;
 }
