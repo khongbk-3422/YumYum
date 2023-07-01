@@ -95,10 +95,15 @@ Route::get('/adminEditCustomer', [AdminController::class,'getAllCust']);
 Route::get('/adminEditCustomer/{customerId}', [AdminController::class,'getAllwithCust']);
 Route::delete('/customers/{customerId}', 'UserController@destroy');
 
-//adminEditRestaurant
+//adminViewRestaurant
 Route::get('/adminViewRestaurant', [AdminController::class,'getAllRest']);
 Route::get('/adminEditRestaurant/{rest_id}', [AdminController::class,'getRestDetails']);
 Route::get('/adminDeleteRestaurant/{rest_id}', [AdminController::class,'deleteRest']);
+
+//adminEditRestaurant
+Route::get('/adminEditRest', function(){
+    return view(('adminEditRest'));
+});
 
 //adminAddRestaurant
 Route::get('/adminAddRestaurant', function(){

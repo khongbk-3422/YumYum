@@ -494,7 +494,7 @@
                     <div class="card-body">
                         {{-- need to set restaurant name database --}}
                         <h5 class="card-title">{{$data['rest_name']}}</h5> 
-                        <p class="card-text">CAN YOU TELL ME WTF U WANT TO WRITE HERE BRODAH.</p>
+                        <p class="card-text">PUT RESTAURANT CATEGORY.</p>
                         <a href={{"adminEditRestaurant/".$data['rest_id']}}><button class="open-button" onclick="openForm()">Edit</button></a>
                         <a href={{"adminDeleteRestaurant/".$data['rest_id']}}><button class="delete-button">Delete</button></a>
                     </div>

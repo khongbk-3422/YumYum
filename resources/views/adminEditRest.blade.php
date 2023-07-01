@@ -263,6 +263,116 @@
         .row:after {
         clear: both;
         }
+        .restaurantRatingForm{
+        padding:20px;
+        }
+        .restaurantRatingForm .editRestaurantRatingCard{
+        height:330px;
+        }
+        .restaurantRatingForm .editRestaurantRatingCard .card-body .ratingqty{
+        font-size: 14px;
+        }
+        .restaurantRatingForm .editRestaurantRatingCard .card-body p{
+        font-size:18px;
+        letter-spacing:1px;
+        }
+        .restaurantRatingForm .editRestaurantRatingCard .card-body h5{
+        font-size:20px;
+        font-weight:bold;
+        letter-spacing:2px;
+        }
+        .restaurantRatingForm .editRestaurantRatingCard .card-body i{
+        font-size:17px;
+        color:#f1f190;
+        }
+        .ratingcontainer{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        }
+        .ratingcontainer .title{
+        font-size:30px;
+        padding:10px 10px;
+        }
+        .reviewcontainer{
+        margin:auto;
+        width:80%;
+        display:flex;
+        border:1px solid #d4d1cd;
+        border-radius:5px;
+        height:220px;
+        margin-bottom:10px;
+        /* background: #f5f4f2; */
+        }
+        .reviewcontainer .custprofile{
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        width:180px;
+        flex-direction: column;
+        }
+        .reviewcontainer .custprofile img{
+        width:80px;
+        height:80px;
+        border-radius:50%;
+        line-height:1px;
+        }
+        .reviewcontainer .custprofile .custname{
+        font-size:16px;
+        margin:10px;
+        }
+        .review{
+        flex-grow: 1;
+        padding:20px;
+        }
+        .review .reviewdate{
+        font-size:14px;
+        letter-spacing:1px;
+        color:grey;
+        }
+        .starqty{
+        float:right;
+        }
+        .starqty i{
+        color:yellow;
+        }
+        .actionicons{
+        float:right;
+        }
+        .actionicons i{
+        font-size:18px;
+        margin-right:8px;
+        cursor: pointer;
+        }
+        .reviewcmd{
+        margin-bottom:8px;
+        }
+        .form-group .form-control{
+        font-size: 15px;
+        background-color: #F8F8F8;
+        }
+        textarea.form-control:focus{
+        box-shadow:0 0 8px #635e49;
+        }
+        .form-control.form-control-no-outline {
+        border: none;
+        box-shadow: none !important;
+        }
+        .submit-icon {
+        padding:0;
+        background: none;
+        border:none;
+        }
+        .submitbtn{
+        border: none;
+        float: right;
+        font-size: 18px;
+        margin-top:6px;
+        }
+        .submitbtn:hover{
+        color:rgb(138, 127, 114);
+        }
     </style>
 </head>
 
@@ -393,7 +503,51 @@
                 </div>
             </div>
         </div>
-    </div>
+        <div class="ratingcontainer">
+            <div>
+                <h5 class="title">Reviews and Ratings</h5>
+            </div>
+            <div class="reviewcontainer">
+                <div class="custprofile">
+                    <img src="data:image/[image_format];base64,{{$rate_data['cust_pic']}}" alt="">
+                    <h4 class="custname">{{$rate_data['cust_name']}}</h4>
+                </div>
+                <div class="review">
+                    <p class="reviewdate">{{$rate_data['date']}}
+                        <span class="starqty">
+                            @if ($rate_data['rating'] == 5)
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                            @elseif ($rate_data['rating'] >= 4.15 && $rate_data['rating'] < 5)
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
+                            @elseif ($rate_data['rating'] >= 3.85 && $rate_data['rating'] < 4.15)
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
+                            @elseif ($rate_data['rating'] >= 3.15 && $rate_data['rating'] < 3.85)
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
+                            @elseif ($rate_data['rating'] >= 2.85 && $rate_data['rating'] < 3.15)
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                            @elseif ($rate_data['rating'] >= 2.15 && $rate_data['rating'] < 2.85)
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                            @elseif ($rate_data['rating'] >= 1.85 && $rate_data['rating'] < 2.15)
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                            @elseif ($rate_data['rating'] >= 1.15 && $rate_data['rating'] < 1.85)
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                            @elseif ($rate_data['rating'] >= 0.85 && $rate_data['rating'] < 1.15)
+                                <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                            @elseif ($rate_data['rating'] >= 1.15 && $rate_data['rating'] < 1.85)
+                                <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                            @else
+                                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
+                            @endif
+                        </span>
+                    </p>
+                    <div class="form-group">
+                        <label for="" class="reviewcmd">Review</label>
+                        <textarea class="form-control form-control-no-outline" id="firstreview" rows="3" readonly>{{$rate_data['review']}}</textarea>
+                        <button type="submit" class="submitbtn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
