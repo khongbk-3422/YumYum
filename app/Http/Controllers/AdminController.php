@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Models\Restaurant;
 use App\Models\Rate;
 use App\Models\History;
+use App\Models\Rest_Picture;
 
 use Illuminate\Http\Request;
 
@@ -87,16 +88,39 @@ class AdminController extends Controller
     }
 
     public function destroy($customerId)
-{
-    // Find the customer by ID
-    $customer = Customer::where('cust_id',$customerId)->first();
-    if ($customer) {
-        User::where('user_email',$customer->user_email)->delete();
-        Customer::where('cust_id',$customerId)->delete();
-    } else {
-        return "not find";
+    {
+        // Find the customer by ID
+        $customer = Customer::where('cust_id',$customerId)->first();
+        if ($customer) {
+            User::where('user_email',$customer->user_email)->delete();
+            Customer::where('cust_id',$customerId)->delete();
+        } else {
+            return "not find";
+        }
+
+        return response()->json(['message' => 'Customer deleted successfully']);
     }
 
-    return response()->json(['message' => 'Customer deleted successfully']);
-}
+    function getAllRest()
+    {
+        $rest_datas = Restaurant::all();
+        foreach ($rest_datas as $data) {
+            $pic_data = Rest_Picture::where('rest_id',$data->rest_id)->first();
+            $rest_pic = $pic_data ? base64_encode($pic_data->rest_pic) : null;
+            $data->rest_pic = $rest_pic;
+        }
+        return view('adminEditRestaurant',['rest_datas'=>$rest_datas]);
+    }
+
+    function getAllwithRest($customerId)
+    {
+        $rest_datas = Restaurant::all();
+        foreach ($rest_datas as $data) {
+            $data->rest_pic = base64_encode($data->rest_pic);
+        }
+
+        $select_rest = Customer::where('cust_id',$customerId)->first();
+        $select_rest->cust_pic = base64_encode($select_cust->cust_pic);
+        return view('adminEditCustomer',['cust_datas'=>$cust_datas,'select_cust'=>$select_cust]);
+    }
 }
