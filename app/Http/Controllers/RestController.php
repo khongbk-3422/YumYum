@@ -118,7 +118,7 @@ class RestController extends Controller
         foreach ($pic_data as $pic) {
             $rest_pics[] = base64_encode($pic->rest_pic);
         }
-    
+        
         $rest_data[0]->data_pic = $rest_pics;
     
         // Get Rating

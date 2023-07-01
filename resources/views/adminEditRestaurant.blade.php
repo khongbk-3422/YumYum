@@ -384,41 +384,18 @@
 
         <div class="slidercontainer">
             <div class="cardcontainer swiper-wrapper">
-                <div class="card swiper-slide">
-                    <div class="menubox">
-                        <img src="{{asset('image/restaurants/beta1.jpg')}}">
+                @foreach ($rest_data->data_pic as $pic)
+                    
+                    <div class="card swiper-slide">
+                        <div class="menubox">
+                            <img src="data:image/[image_format];base64,{{ $pic }}">
+                        </div>
+                        <div class="actionicons">
+                            <a href=""><i class="fa-solid fa-trash"></i></a>
+                        </div>
                     </div>
-                    <div class="actionicons">
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-                
-                <div class="card swiper-slide">
-                    <div class="menubox">
-                        <img src="{{asset('image/restaurants/beta2.jpg')}}">
-                    </div>
-                    <div class="actionicons">
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="menubox">
-                        <img src="{{asset('image/restaurants/beta3.jpg')}}">
-                    </div>
-                    <div class="actionicons">
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="menubox">
-                        <img src="{{asset('image/restaurants/ishin1.jpg')}}">
-                    </div>
-                    <div class="actionicons">
-                        <a href=""><i class="fa-solid fa-trash"></i></a>
-                    </div>
-                </div>
+                    
+                @endforeach
 
                 <div class="card swiper-slide">
                     <div class="menubox">
@@ -434,119 +411,93 @@
                 <form>
                     <div class="row">
                         <h4>Edit Form</h4>
-                        <div class="input-group input-group-icon"><input type="text" placeholder="Restaurant ID" />
+                        <div class="input-group input-group-icon"><input type="text" placeholder="Restaurant ID" value="{{$rest_data['rest_id']}}" name="new_rest_id"/>
                             <div class="input-icon"><i class="fa-solid fa-key" style="color: #6f7680;"></i></div>
                         </div>
-                        <div class="input-group input-group-icon"><input type="text" placeholder="Restaurant Name" />
+                        <div class="input-group input-group-icon"><input type="text" placeholder="Restaurant Name" value="{{$rest_data['rest_name']}}" name="new_rest_name"/>
                             <div class="input-icon"><i class="fa-solid fa-user" style="color: #6f7680;"></i></div>
                         </div>
-                        <div class="input-group input-group-icon"><input type="text" placeholder="Restaurant Contact" />
+                        <div class="input-group input-group-icon"><input type="text" placeholder="Restaurant Contact" value="{{$rest_data['rest_contact']}}" name="new_rest_contact"/>
                             <div class="input-icon"><i class="fa-solid fa-phone" style="color: #6f7680;"></i></div>
                         </div>
                         <h2>Restaurant Category</h2><br>
                         <div class="input-group input-group-icon">
                             <select name="category" id="category" class="form__field">
-                                <option value="rigatoni">Italian</option>
-                                <option value="dave">Japanese</option>
-                                <option value="pumpernickel">Malaysian</option>
-                                <option value="reeses">Steakhouse</option>
-                                <option value="reeses">Thai</option>
+                                <option value="Italian" @if($rest_data['rest_category'] === 'Italian') selected @endif>Italian</option>
+                                <option value="Japanese" @if($rest_data['rest_category'] === 'Japanese') selected @endif>Japanese</option>
+                                <option value="Malaysian" @if($rest_data['rest_category'] === 'Malaysian') selected @endif>Malaysian</option>
+                                <option value="Steakhouse" @if($rest_data['rest_category'] === 'Steakhouse') selected @endif>Steakhouse</option>
+                                <option value="Thai" @if($rest_data['rest_category'] === 'Thai') selected @endif>Thai</option>
                             </select>
                             <div class="input-icon"><i class="fa-solid fa-list" style="color: #6f7680;"></i></div>
                         </div>
-                        <div class="input-group input-group-icon"><input type="text" placeholder="Restaurant Address" />
+                        <div class="input-group input-group-icon">
+                            <input type="text" placeholder="Restaurant Address" value="{{$rest_data['rest_address']}}" name="new_rest_address"/>
                             <div class="input-icon"><i class="fa-solid fa-house" style="color: #6f7680;"></i></div>
                         </div>
-                        <div class="input-group input-group-icon"><input type="number" placeholder="Minimum Price" />
+                        <div class="input-group input-group-icon">
+                            <input type="number" placeholder="Minimum Price" value="{{$rest_data['price_min']}}" name="new_price_min"/>
                             <div class="input-icon"><i class="fa-solid fa-dollar-sign" style="color: #6f7680;"></i></div>
                         </div>
-                        <div class="input-group input-group-icon"><input type="number" placeholder="Maximum Price" />
+                        <div class="input-group input-group-icon">
+                            <input type="number" placeholder="Maximum Price" value="{{$rest_data['price_max']}}" name="new_price_max"/>
                             <div class="input-icon"><i class="fa-solid fa-dollar-sign" style="color: #6f7680;"></i></div>
                         </div>
                     </div>
                 </form>
         </div>
-        <div class="restaurantRatingForm">
-            <div class="row justify-content-center">
-                <div class="col-sm-4">
-                    <div class="editRestaurantRatingCard">
-                        <div class="card-body">
-                            <h5>Rating</h5>
-                            <p>{{$rest_data['avg_rate']}} 
-                                @if ($rest_data['avg_rate'] == 5)
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 4.15 && $rest_data['avg_rate'] < 5)
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 3.85 && $rest_data['avg_rate'] < 4.15)
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 3.15 && $rest_data['avg_rate'] < 3.85)
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 2.85 && $rest_data['avg_rate'] < 3.15)
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 2.15 && $rest_data['avg_rate'] < 2.85)
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 1.85 && $rest_data['avg_rate'] < 2.15)
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 1.15 && $rest_data['avg_rate'] < 1.85)
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 0.85 && $rest_data['avg_rate'] < 1.15)
-                                    <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @elseif ($rest_data['avg_rate'] >= 1.15 && $rest_data['avg_rate'] < 1.85)
-                                    <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                @else
-                                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
-                                @endif
-                                <span class="ratingqty">({{$rest_data['count']}})</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <br>
+        <br>
+        
         <div class="ratingcontainer">
             <div>
                 <h5 class="title">Reviews and Ratings</h5>
             </div>
-            <div class="reviewcontainer">
-                <div class="custprofile">
-                    <img src="data:image/[image_format];base64,{{$rate_data['cust_pic']}}" alt="">
-                    <h4 class="custname">{{$rate_data['cust_name']}}</h4>
-                </div>
-                <div class="review">
-                    <p class="reviewdate">{{$rate_data['date']}}
-                        <span class="starqty">
-                            @if ($rate_data['rating'] == 5)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 4.15 && $rate_data['rating'] < 5)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
-                            @elseif ($rate_data['rating'] >= 3.85 && $rate_data['rating'] < 4.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 3.15 && $rate_data['rating'] < 3.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 2.85 && $rate_data['rating'] < 3.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 2.15 && $rate_data['rating'] < 2.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 1.85 && $rate_data['rating'] < 2.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 1.15 && $rate_data['rating'] < 1.85)
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 0.85 && $rate_data['rating'] < 1.15)
-                                <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @elseif ($rate_data['rating'] >= 1.15 && $rate_data['rating'] < 1.85)
-                                <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                            @else
-                                <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
-                            @endif
-                        </span>
-                    </p>
-                    <div class="form-group">
-                        <label for="" class="reviewcmd">Review</label>
-                        <textarea class="form-control form-control-no-outline" id="firstreview" rows="3" readonly>{{$rate_data['review']}}</textarea>
-                        <button type="submit" class="submitbtn">Delete</button>
+            @foreach ($rating_datas as $rate_data)
+            
+                <div class="reviewcontainer">
+                    <div class="custprofile">
+                        <img src="data:image/[image_format];base64,{{$rate_data['cust_pic']}}" alt="">
+                        <h4 class="custname">{{$rate_data['cust_name']}}</h4>
                     </div>
-                </div>
-            </div>
+                    <div class="review">
+                        <p class="reviewdate">{{$rate_data['date']}}
+                            <span class="starqty">
+                                @if ($rate_data['rating'] == 5)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                                @elseif ($rate_data['rating'] >= 4.15 && $rate_data['rating'] < 5)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
+                                @elseif ($rate_data['rating'] >= 3.85 && $rate_data['rating'] < 4.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rate_data['rating'] >= 3.15 && $rate_data['rating'] < 3.85)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rate_data['rating'] >= 2.85 && $rate_data['rating'] < 3.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rate_data['rating'] >= 2.15 && $rate_data['rating'] < 2.85)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rate_data['rating'] >= 1.85 && $rate_data['rating'] < 2.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rate_data['rating'] >= 1.15 && $rate_data['rating'] < 1.85)
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rate_data['rating'] >= 0.85 && $rate_data['rating'] < 1.15)
+                                    <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @elseif ($rate_data['rating'] >= 1.15 && $rate_data['rating'] < 1.85)
+                                    <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                @else
+                                    <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
+                                @endif
+                            </span>
+                        </p>
+                        <div class="form-group">
+                            <label for="" class="reviewcmd">Review</label>
+                            <textarea class="form-control form-control-no-outline" id="firstreview" rows="3" readonly>{{$rate_data['review']}}</textarea>
+                            <button type="submit" class="submitbtn">Delete</button>
+                        </div>
+                    </div>
+                </div>  
+
+            @endforeach
         </div>
         <button type="submit" class="submitbtn" >Edit</button>
 
