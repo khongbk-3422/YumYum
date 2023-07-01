@@ -38,11 +38,7 @@ class AdminController extends Controller
             $rest = Restaurant::where('rest_id', $data['rest_id'])->first();
             $data->rest_name = $rest->rest_name;
         }
-<<<<<<< Updated upstream
 
-=======
-    
->>>>>>> Stashed changes
         // Iterate over the highest average rating restaurants
         foreach ($rest_data as $data)  {
             $history_count = History::where('rest_id', $data->rest_id)->count();
@@ -124,14 +120,27 @@ class AdminController extends Controller
 
     function getRestDetails($rest_id)
     {
-        $rest_datas = Restaurant::all();
-        foreach ($rest_datas as $data) {
-            $data->rest_pic = base64_encode($data->rest_pic);
+        //Get Restaurant
+        $rest_datas = Restaurant::where('rest_id',$rest_id)->get();
+
+        $pic_data = Rest_Picture::where('rest_id', $rest_id)->get();
+        $rest_pics = [];
+    
+        foreach ($pic_data as $pic) {
+            $rest_pics[] = base64_encode($pic->rest_pic);
+        }
+    
+        $rest_datas[0]->data_pic = $rest_pics;
+
+        //Get All Rating Datas
+        $rating_datas = Rate::where('rest_id', $rest_id)->get();
+        foreach ($rating_datas as $data){
+            $user_data = Customer::where('cust_id',$data->cust_id)->first();
+            $data->cust_name = $user_data->cust_name;
+            $data->cust_pic = base64_encode($user_data->cust_pic);
         }
 
-        $select_rest = Customer::where('cust_id',$customerId)->first();
-        $select_rest->cust_pic = base64_encode($select_cust->cust_pic);
-        return view('adminEditCustomer',['cust_datas'=>$cust_datas,'select_cust'=>$select_cust]);
+        return view('adminEditRestaurant',['rest_data' => $rest_datas[0]], ['rating_datas' => $rating_datas]);
     }
 
     function deleteRest($rest_id)
