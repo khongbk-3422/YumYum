@@ -496,7 +496,7 @@
                         <h5 class="card-title">{{$data['rest_name']}}</h5> 
                         <p class="card-text">CAN YOU TELL ME WTF U WANT TO WRITE HERE BRODAH.</p>
                         <a href={{"adminEditRestaurant/".$data['rest_id']}}><button class="open-button" onclick="openForm()">Edit</button></a>
-                        <a href={{"admin_delete_rest/".$data['rest_id']}}><button class="delete-button">Delete</button></a>
+                        <a href={{"adminDeleteRestaurant/".$data['rest_id']}}><button class="delete-button">Delete</button></a>
                     </div>
                 </div>
                 <div class="form-popup" id="myForm">
