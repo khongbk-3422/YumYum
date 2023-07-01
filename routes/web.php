@@ -49,6 +49,11 @@ Route::get('/homePage', function () {
     return view('homePage');
 });
 
+//testnewhomePage-team design
+Route::get('/testNewHome', function () {
+    return view('testNewHome');
+});
+
 //custHomePage
 Route::get('/custHomePage', function () {
     return view('custHomePage');
