@@ -316,7 +316,7 @@
             </div>
 
             <div class="form">
-                @if ($select_cust->cust_id)
+                @if (isset($select_cust))
                     <div class="id">
                         <input type="hidden" id="customerId" value="{{ $select_cust->cust_id }}">
                     </div>
@@ -442,21 +442,20 @@
         const confirmDelete = confirm("Are you sure you want to delete this customer?");
 
         if (confirmDelete) {
-            axios.delete(`/customers/${customerId}`)
+            fetch('/adminDeleteCustomer/${customerId}', {
+            method: 'GET',
+            })
             .then(response => {
-                // Handle successful deletion
-                console.log('Customer deleted successfully');
-                // Optionally, you can remove the line element from the UI
-                line.remove();
+            if (response.ok) {
+                console.log('Customer deleted');
+                location.reload();
+            } else {
+                console.error('Failed to delete customer');
+            }
             })
             .catch(error => {
-                // Handle error
-                console.error('Failed to delete customer', error);
+            console.error('Network error:', error);
             });
-        }
-
-        else{
-
         }
     }
 

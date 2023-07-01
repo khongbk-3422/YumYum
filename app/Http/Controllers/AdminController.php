@@ -38,7 +38,11 @@ class AdminController extends Controller
             $rest = Restaurant::where('rest_id', $data['rest_id'])->first();
             $data->rest_name = $rest->rest_name;
         }
+<<<<<<< Updated upstream
 
+=======
+    
+>>>>>>> Stashed changes
         // Iterate over the highest average rating restaurants
         foreach ($rest_data as $data)  {
             $history_count = History::where('rest_id', $data->rest_id)->count();
@@ -76,6 +80,21 @@ class AdminController extends Controller
         $select_cust = Customer::where('cust_id',$customerId)->first();
         $select_cust->cust_pic = base64_encode($select_cust->cust_pic);
         return view('adminEditCustomer',['cust_datas'=>$cust_datas,'select_cust'=>$select_cust]);
+    }
+
+    function deleteCust($customerId)
+    {
+        $customer_data = Customer::where('rest_id',$rest_id)->first();
+        $email = $customer_data->user_email;
+
+        Rate::where('cust_id',$customerId)->delete();
+        History::where('cust_id',$customerId)->delete();
+        Spinwheel::where('cust_id',$customerId)->delete();
+        
+        Customer::where('cust_id',$customerId)->delete();
+        User::where('user_email',$email)->delete();
+
+        return redirect('adminEditCustomer');
     }
 
     public function destroy($customerId)
