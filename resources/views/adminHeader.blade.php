@@ -97,7 +97,7 @@
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminEditCustomer' ? 'active' : ''; ?> " href="/adminEditCustomer">Customer</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminEditRestaurant' ? 'active' : ''; ?> " href="/adminEditRestaurant">Restaurant</a>
+						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminViewRestaurant' ? 'active' : ''; ?> " href="/adminViewRestaurant">Restaurant</a>
 					</li>
                     <li class="nav-item">
 						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/adminEditRating' ? 'active' : ''; ?> " href="/adminEditRating">Ratings</a>

@@ -109,7 +109,7 @@ class AdminController extends Controller
             $rest_pic = $pic_data ? base64_encode($pic_data->rest_pic) : null;
             $data->rest_pic = $rest_pic;
         }
-        return view('adminEditRestaurant',['rest_datas'=>$rest_datas]);
+        return view('adminViewRestaurant',['rest_datas'=>$rest_datas]);
     }
 
     function getAllwithRest($customerId)

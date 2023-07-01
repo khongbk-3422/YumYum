@@ -96,8 +96,8 @@ Route::get('/adminEditCustomer/{customerId}', [AdminController::class,'getAllwit
 Route::delete('/customers/{customerId}', 'UserController@destroy');
 
 //adminEditRestaurant
-Route::get('/adminEditRestaurant', [AdminController::class,'getAllRest']);
-Route::get('/adminEditRestaurant/{customerId}', [AdminController::class,'getAllwithRest']);
+Route::get('/adminViewRestaurant', [AdminController::class,'getAllRest']);
+Route::get('/adminViewRestaurant/{customerId}', [AdminController::class,'getAllwithRest']);
 
 //adminAddRestaurant
 Route::get('/adminAddRestaurant', function(){
