@@ -32,15 +32,16 @@
 
         .footer .about {
             line-height: 20px;
-            color: #A1706B;
+            color: #664A3D;
             font-size: 13px;
             font-weight: normal;
             margin: 0;
+            text-align:justify;
         }
 
         .footer .about span {
             display: block;
-            color:#A39183;
+            color:#3B4338;
             font-size: 25px;
             font-weight: bold;
             margin-bottom: 20px;
@@ -58,7 +59,7 @@
             background-color: #DCDDD5;
             border-radius: 2px;
             font-size: 20px;
-            color: #A08887;
+            color: #664A3D;
             text-align: center;
             line-height: 35px;
             margin-right: 3px;
@@ -73,7 +74,7 @@
 
         .footer .footer-center i {
         background-color:#DCDDD5;
-        color: #A08887;
+        color: #664A3D;
         font-size: 25px;
         width: 38px;
         height: 38px;
@@ -91,7 +92,7 @@
 
         .footer .footer-center p {
         display: inline-block;
-        color: #C1B0A7;
+        color: #664A3D;
         vertical-align: middle;
         margin: 0;
         }
@@ -104,7 +105,7 @@
         }
 
         .footer .footer-center p a {
-        color: #A39183;
+        color: #664A3D;
         text-decoration: none;
         }
 
@@ -118,7 +119,7 @@
         }
 
         .footer .menu {
-            color: #A1706B;
+            color: #664A3D;
             margin: 20px 0 12px;
             padding: 0;
         }
@@ -135,8 +136,8 @@
         }
 
         .footer .name {
-            color: #A39183;
-            font-size: 14px;
+            color: black;
+            font-size: 15px;
             font-weight: normal;
             margin: 0;
         }
@@ -155,7 +156,7 @@
     <footer class="footer">
     <div class="footer-left col-md-4 col-sm-6">
         <p class="about">
-            <span>Yum Yum</span>
+            <span>YUM YUM</span>
             Established with the vision of connecting food enthusiasts with their perfect dining destinations, YumYum has continually evolved
             to provide an immersive and personalized dining experience. Our team of passionate food connoisseurs scours the culinary landscape 
             to curate a diverse collection of restaurants, ensuring that each recommendation reflects the highest quality and authenticity.
@@ -186,7 +187,7 @@
             <a href="#"> Portfolio</a> |
             <a href="#"> Contact</a>
         </p>
-        <p class="name"> YumYum &copy; 2023</p>
+        <p class="name"> YUMYUM &copy; 2023</p>
     </div>
     </footer>
 </body>

@@ -49,6 +49,7 @@ Route::get('/homePage', function () {
     return view('homePage');
 });
 
+
 //custHomePage
 Route::get('/custHomePage', function () {
     return view('custHomePage');
@@ -56,6 +57,7 @@ Route::get('/custHomePage', function () {
 
 //custProfilePage
 Route::get('/custProfilePage',[UserController::class,'customerProfile']);
+Route::post('/editProfile',[UserController::class,'editProfile']);
 
 //viewRestaurantPage
 Route::get('viewRestaurantPage',[RestController::class,'getAllRest']);
