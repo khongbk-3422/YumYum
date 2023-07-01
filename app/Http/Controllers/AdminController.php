@@ -38,17 +38,7 @@ class AdminController extends Controller
             $rest = Restaurant::where('rest_id', $data['rest_id'])->first();
             $data->rest_name = $rest->rest_name;
         }
-        // Fetch the restaurant names based on rest_id
-        // $rest_ids = $rest_data->pluck('rest_id');
-        // $restaurants = Restaurant::whereIn('rest_id', $rest_ids)->get();
 
-        // Associate the restaurant name with the corresponding rest_id in the $rest_data collection
-        // $rest_data = $rest_data->map(function ($item) use ($restaurants) {
-        //     $restaurant = $restaurants->firstWhere('rest_id', $item->rest_id);
-        //     $item->restaurant_name = $restaurant ? $restaurant->name : 'Unknown Restaurant';
-        //     return $item;
-        // });
-    
         // Iterate over the highest average rating restaurants
         foreach ($rest_data as $data)  {
             $history_count = History::where('rest_id', $data->rest_id)->count();
@@ -56,7 +46,7 @@ class AdminController extends Controller
         }
 
         //New Customer
-        $new_cust_list = Customer::orderByDesc('cust_id')->take(4)->get();
+        $new_cust_list = Customer::orderByDesc('cust_id')->take(5)->get();
         foreach ($new_cust_list as $cust) {
             $pic = base64_encode($cust->cust_pic);
             $cust->cust_pic = $pic;
