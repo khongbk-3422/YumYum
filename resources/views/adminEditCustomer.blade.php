@@ -74,8 +74,18 @@
             transition: all 0.3s;
             background: #f2e9bb;
             border-radius: 10px;
-            box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);display: grid;
+            grid-template-columns: 0.5fr 1fr 1fr 1fr 0.5fr; /* Adjust the number of columns as needed */
+            align-items: center;
+            text-align: center;
         }
+
+        .line .name,
+        .line .email,
+        .line .contact,
+        .line .action {
+        justify-self: center; /* Centers the text horizontally within the column */
+    }
 
         .line:hover{
             transform: translateY(-2px);
@@ -85,6 +95,7 @@
             font-size: 0.8rem;
             color: rgba(162,162,162);
             margin-bottom: 0.2rem;
+            justify-self: center;
         }
 
         .line img{
@@ -105,7 +116,11 @@
         }
 
         .line .icon{
-            display: flex;
+            transition: 0.2s;
+        }
+
+        .line .icon:hover{
+            transform: scale(1.1);
         }
 
         .icon span{
@@ -124,7 +139,7 @@
             border: 2px solid #b5b3a7;
             box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
-            background-color: #ebdd83;
+            background-color: #f0edd8;
             margin-top: 50px;
             display: flex;
             flex-direction: column;
@@ -150,6 +165,11 @@
             border: 5px solid #b5b3a7;
             padding: 3px;
             background-color: white;
+            transition: 0.3s;
+        }
+
+        .form img:hover{
+            transform: scale(1.1);
         }
 
         .form .name,
@@ -210,9 +230,11 @@
             transform: scale(1.1);
         }
 
-        /* input[type="file"]{
-            display: none;
-        } */
+        input[type="file"]{
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
 
         label{
             box-sizing: border-box;
@@ -301,11 +323,9 @@
 
                     <img id="customerImage" src="data:image/[image_format];base64,{{ $select_cust->cust_pic }}" alt="">
 
-                    <div class="input-group mb-3">    
-                        <label class="input-group-text" for="customerImageSrc"> Upload </label>
+                    <div class="input-group mb-3">
                         <input type="file" class="form-control" id="customerImageSrc" >
                     </div>
-                    /* I also dun know why this input doesn't display the back part */
 
                     <div class="name">
                         <h6>Name</h6>

@@ -78,6 +78,7 @@
             display: grid;
             grid-gap: 2rem;
             grid-template-columns: 65% auto;
+            margin-bottom: 50px;
         }
 
         .restaurants{
@@ -103,12 +104,12 @@
         }
 
         .recent-grid .card .card-header button{
-            background: #ebdd83;
+            background: #f0edd8;
             border-radius: 10px;
             color: black;
             font-size: .8rem;
             padding: .5rem 1rem;
-            border: 1px solid black;
+            border: 1px solid #bab9af;
             transition: all 0.4s;
         }
 
@@ -133,12 +134,17 @@
 
         .recent-grid .card table thead td{
             font-weight: 700;
+            text-align: center;
         }
 
         .recent-grid .card table tbody tr:hover td{
             background: #ebdd83;
             color: white;
             cursor: pointer;
+        }
+
+        .recent-grid .card table tbody td {
+            text-align: center;
         }
 
         .recent-grid .card table tr td{
