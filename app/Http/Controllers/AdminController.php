@@ -7,6 +7,7 @@ use App\Models\Restaurant;
 use App\Models\Rate;
 use App\Models\History;
 use App\Models\Rest_Picture;
+use App\Models\Spinwheel;
 
 use Illuminate\Http\Request;
 
@@ -112,7 +113,7 @@ class AdminController extends Controller
         return view('adminViewRestaurant',['rest_datas'=>$rest_datas]);
     }
 
-    function getAllwithRest($customerId)
+    function getRestDetails($rest_id)
     {
         $rest_datas = Restaurant::all();
         foreach ($rest_datas as $data) {
@@ -122,5 +123,18 @@ class AdminController extends Controller
         $select_rest = Customer::where('cust_id',$customerId)->first();
         $select_rest->cust_pic = base64_encode($select_cust->cust_pic);
         return view('adminEditCustomer',['cust_datas'=>$cust_datas,'select_cust'=>$select_cust]);
+    }
+
+    function deleteRest($rest_id)
+    {
+        Rest_Picture::where('rest_id',$rest_id)->delete();
+        Rate::where('rest_id',$rest_id)->delete();
+        History::where('rest_id',$rest_id)->delete();
+        Spinwheel::where('rest_id',$rest_id)->delete();
+
+        $rest_data=Restaurant::find($rest_id);
+        $rest_data->delete();
+
+        return redirect('adminViewRestaurant');
     }
 }
