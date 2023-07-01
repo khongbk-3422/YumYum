@@ -288,15 +288,19 @@
             flex: 1;
             margin: 14px 0;
           }
-          
-          
+
+          .restaurantCardContainer .card-img-top {
+            height: 200px; 
+            object-fit: cover; 
+          }
+
           .main.restaurantCard{
               flex: 1;
               display: flex;
               flex-direction: column;
               max-width: calc(100% - 260px);
               position: relative;
-          
+              margin-bottom: 20px;
               align-items:center;
           }
           
@@ -316,7 +320,7 @@
               margin-bottom: 20px;
               max-width: calc(100% - 260px);
               align-items:top;
-              background: #000000;
+              background: #f1f1f1;
           }
     </style>
 </head>
@@ -494,135 +498,14 @@
                     <div class="card-body">
                         {{-- need to set restaurant name database --}}
                         <h5 class="card-title">{{$data['rest_name']}}</h5> 
+                        {{-- Put Restaurant Category --}}
                         <p class="card-text">PUT RESTAURANT CATEGORY.</p>
                         <a href={{"adminEditRestaurant/".$data['rest_id']}}><button class="open-button" onclick="openForm()">Edit</button></a>
                         <a href={{"adminDeleteRestaurant/".$data['rest_id']}}><button class="delete-button">Delete</button></a>
                     </div>
                 </div>
-                <div class="form-popup" id="myForm">
-                    <form action="/action_page.php" class="form-container">
-                        <h1>Edit</h1>
-                    
-                        <label for="Id"><b>Id</b></label>
-                        <input type="text" placeholder="Enter Id" name="id" required>
-                    
-                        <label for="Restaurant Name"><b>Restaurant Name</b></label>
-                        <input type="text" placeholder="Enter Restaurant Name" name="restaurantName" required>
-                    
-                        <label for="Restaurant Contact"><b>Restaurant Contact</b></label>
-                        <input type="text" placeholder="Enter Restaurant Contact" name="restaurantContact" required>
-
-                        <label for="Restaurant Category"><b>Restaurant Category</b></label>
-                        <input type="text" placeholder="Enter Restaurant Category" name="restaurantCategory" required>
-
-                        <label for="Restaurant Address"><b>Restaurant Address</b></label>
-                        <input type="text" placeholder="Enter Restaurant Address" name="restaurantAddress" required>
-
-                        <label for="Minimum Price"><b>Minimum Price</b></label>
-                        <input type="number" placeholder="Enter Minimum Price" name="priceMin" required>
-
-                        <label for="Maximum Price"><b>Maximum Price</b></label>
-                        <input type="number" placeholder="Enter Maximum Price" name="priceMax" required>
-
-                        <label for="Restaurant Picture"><b>Restaurant Picture</b></label>
-                        <input type='file' name='image' class='form-control' multiple="multiple" accept="image/*" />
-
-                        <button type="submit" class="btn">Login</button>
-                        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                    </form>
-                </div>
             </div>
         @endforeach
-
-
-        <div class="restaurantCard">
-            <div class="card" style="width: 30rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    {{-- need to set restaurant name database --}}
-                <h5 class="card-title">Card title Restaurant NAME</h5> 
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <button class="open-button" onclick="openForm()">Edit</button>
-                <button class="delete-button">Delete</button>
-            </div>
-        </div>
-        <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
-                <h1>Edit</h1>
-            
-                <label for="Id"><b>Id</b></label>
-                <input type="text" placeholder="Enter Id" name="id" required>
-            
-                <label for="Restaurant Name"><b>Restaurant Name</b></label>
-                <input type="text" placeholder="Enter Restaurant Name" name="restaurantName" required>
-            
-                <label for="Restaurant Contact"><b>Restaurant Contact</b></label>
-                <input type="text" placeholder="Enter Restaurant Contact" name="restaurantContact" required>
-
-                <label for="Restaurant Category"><b>Restaurant Category</b></label>
-                <input type="text" placeholder="Enter Restaurant Category" name="restaurantCategory" required>
-
-                <label for="Restaurant Address"><b>Restaurant Address</b></label>
-                <input type="text" placeholder="Enter Restaurant Address" name="restaurantAddress" required>
-
-                <label for="Minimum Price"><b>Minimum Price</b></label>
-                <input type="number" placeholder="Enter Minimum Price" name="priceMin" required>
-
-                <label for="Maximum Price"><b>Maximum Price</b></label>
-                <input type="number" placeholder="Enter Maximum Price" name="priceMax" required>
-
-                <label for="Restaurant Picture"><b>Restaurant Picture</b></label>
-                <input type='file' name='image' class='form-control' multiple="multiple" accept="image/*" />
-
-                <button type="submit" class="btn">Login</button>
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
-        </div>
-        </div>
-        <div class="restaurantCard">
-            <div class="card" style="width: 30rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    {{-- need to set restaurant name database --}}
-                <h5 class="card-title">Card title Restaurant NAME</h5> 
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <button class="open-button" onclick="openForm()">Edit</button>
-                <button class="delete-button">Delete</button>
-            </div>
-        </div>
-        <div class="form-popup" id="myForm">
-            <form action="/action_page.php" class="form-container">
-            <h1>Edit</h1>
-        
-            <label for="Id"><b>Id</b></label>
-            <input type="text" placeholder="Enter Id" name="id" required>
-        
-            <label for="Restaurant Name"><b>Restaurant Name</b></label>
-            <input type="text" placeholder="Enter Restaurant Name" name="restaurantName" required>
-        
-            <label for="Restaurant Contact"><b>Restaurant Contact</b></label>
-            <input type="text" placeholder="Enter Restaurant Contact" name="restaurantContact" required>
-
-            <label for="Restaurant Category"><b>Restaurant Category</b></label>
-            <input type="text" placeholder="Enter Restaurant Category" name="restaurantCategory" required>
-
-            <label for="Restaurant Address"><b>Restaurant Address</b></label>
-            <input type="text" placeholder="Enter Restaurant Address" name="restaurantAddress" required>
-
-            <label for="Minimum Price"><b>Minimum Price</b></label>
-            <input type="number" placeholder="Enter Minimum Price" name="priceMin" required>
-
-            <label for="Maximum Price"><b>Maximum Price</b></label>
-            <input type="number" placeholder="Enter Maximum Price" name="priceMax" required>
-
-            <label for="Restaurant Picture"><b>Restaurant Picture</b></label>
-            <input type='file' name='image' class='form-control' multiple="multiple" accept="image/*" />
-
-            <button type="submit" class="btn">Login</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </form>
-        </div>
-        </div>
     </div>
   <script>
     function openForm() {
