@@ -64,46 +64,45 @@ return view('custProfilePage', ['fileName' => $fileName]);
     <div class="profileContainer">
         <div class="userProfile">
             <h3>Profile</h3>
-            <img src="data:image/[image_format];base64,{{$customer_data->cust_pic}}" id="showImage">
+            <img src="{{ asset($customer_data->cust_pic) }}" id="showImage">
+            {{-- <img src="data:image/[image_format];base64,{{$customer_data->cust_pic}}" id="showImage"> --}}
         </div>
         <br>
 
-        <form action="" method="post">
+        <form action="editProfile" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group row mb-3">
                 <label for="newName" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="name" class="form-control" id="newName" value="{{ $customer_data['cust_name'] }}" placeholder="">
+                    <input type="name" class="form-control" id="newName" value="{{ $customer_data['cust_name'] }}" name="new_name" placeholder="">
                 </div>
             </div>
 
             <div class="form-group row mb-3">
                 <label for="newEmail" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="newEmail" value="{{ $customer_data['user_email'] }}" placeholder="">
+                    <input type="email" class="form-control" id="newEmail" value="{{ $customer_data['user_email'] }}" name="new_email" placeholder="">
                 </div>
             </div>
             
             <div class="form-group row mb-3">
                 <label for="newPassword" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="newPassword" placeholder="">
+                    <input type="password" class="form-control" id="newPassword"  name="new_password" placeholder="">
                 </div>
             </div>
 
             <div class="form-group row mb-3">
                 <label for="newContact" class="col-sm-2 col-form-label">Contact</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="newContact" value="{{ $customer_data['cust_contact'] }}" placeholder="">
+                    <input type="text" class="form-control" id="newContact" value="{{ $customer_data['cust_contact'] }}" name="new_contact" placeholder="">
                 </div>
             </div>
 
             <div class="form-group row mb-3">
                 <label for="newprofile" class="col-sm-2 col-form-label">Profile</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="file" id="newprofile" value="{{ $customer_data['fileName'] }}">
-                    <!-- ini $fileName might need to work from controller to display the initial file name of image -->
-                    <input class="form-control" type="file" id="newprofile">
+                    <input class="form-control" type="file" id="newprofile" name="new_pic">
                 </div>
                 <div class="col-sm-2">
                     <button type="button" onclick="resetImage()" class="resetBtn">Reset</button>

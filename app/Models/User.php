@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     protected $keyType = 'string';  //set able to be varchar in primary key
+    protected $primaryKey = 'user_email';
     use HasFactory;
     public $timestamps=false;
     public $table="user_t";

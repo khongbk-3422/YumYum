@@ -61,6 +61,7 @@ Route::get('/custHomePage', function () {
 
 //custProfilePage
 Route::get('/custProfilePage',[UserController::class,'customerProfile']);
+Route::post('/editProfile',[UserController::class,'editProfile']);
 
 //viewRestaurantPage
 Route::get('viewRestaurantPage',[RestController::class,'getAllRest']);
