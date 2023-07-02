@@ -213,8 +213,9 @@
                         </td>
                         <td>
                             <button type="button" class="deleteBtn">Delete</button>
+                            <!-- can yan jiu this -->
+                            <!-- <a href="adminDeleteProduct.php?id=<?=$row['productID'];?>" class="dltbtn"><img src="delete.png" width="20px" height ="20px"></a>  -->
                         </td>
-                        <!-- <td><button class="deleteBtn" type="button">Delete</button></td> -->
                     </tr>
                 </tbody>
             </div>
