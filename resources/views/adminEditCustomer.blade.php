@@ -306,6 +306,7 @@
                     <div class="action">
                         <div class="icon">
                             <a href={{"adminDeleteCust/".$cust_data['cust_id']}} class="delete-icon">
+                            {{-- <a href="#" onclick="confirmDelete({{$cust_data['cust_id']}})" class="dltbtn"> --}}
                                 <i class="fa-solid fa-user-slash"></i>
                             </a>
                         </div>
@@ -316,6 +317,7 @@
             </div>
 
             <form class="form">
+                @csrf
                 @if (isset($select_cust))
                     <div class="id">
                         <input type="hidden" id="customerId" value="{{ $select_cust->cust_id }}">
@@ -432,6 +434,33 @@
     for (let i = 0; i < deleteIcons.length; i++){
         deleteIcons[i].addEventListener('click', handleDelete);
     }
+    
+    // function confirmDelete(cust_id) {
+    //     const swalWithBootstrapButtons = Swal.mixin({
+    //         customClass: {
+    //             confirmButton: 'btn btn-success',
+    //             cancelButton: 'btn btn-danger'
+    //         },
+    //         buttonsStyling: false
+    //     });
+
+    //     swalWithBootstrapButtons.fire({
+    //         title: 'Are you sure?',
+    //         text: 'This action cannot be undone.',
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonText: 'Yes, delete it!',
+    //         cancelButtonText: 'No, cancel!',
+    //         reverseButtons: true
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             // Redirect to the delete URL with the product ID
+    //             window.location.href = 'adminDeleteCustomer/' + cust_id;
+    //         } else if (result.dismiss === Swal.DismissReason.cancel) {
+    //             // Canceled, do nothing
+    //         }
+    //     });
+    // }
 
     function handleDelete(event){
         event.preventDefault();

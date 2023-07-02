@@ -13,7 +13,7 @@
 </head>
 <body>
   <button onclick="showAlert()">Show Alert</button>
-  <a href="#" onclick="confirmDelete(<?=$row['productID'];?>)" class="dltbtn"><img src="delete.png" width="20px" height="20px"></a>
+  <a href="" onclick="confirmDelete()" class="dltbtn"><img src="delete.png" width="20px" height="20px"></a>
   
   <script>
     function showAlert() {
