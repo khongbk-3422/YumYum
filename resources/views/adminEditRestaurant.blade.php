@@ -462,7 +462,7 @@
             <div>
                 <h5 class="title">Reviews and Ratings</h5>
             </div>
-            @if (isset($rating_datas))
+            @if (isset($rating_datas) && count($rating_datas) > 0)
             
             @foreach ($rating_datas as $rate_data)
             
@@ -535,5 +535,10 @@
 
     </script>
 </body>
+@if(Session::has('successful_add'))
+    <script>
+        alert('Restaurant Successfully Added!');
+    </script>
+@endif
 </html>
 @include('footer')

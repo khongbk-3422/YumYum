@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 use App\Models\Customer;
 use App\Models\Restaurant;
@@ -138,6 +140,86 @@ class AdminController extends Controller
         $rest_datas->save();
 
         return redirect('adminEditRestaurant/'.$req->rest_id);
+    }
+
+    function addRest(Request $req)
+    {
+        $validator = Validator::make($req->all(), [
+            'rest_name' => 'required',
+            'rest_contact' => 'required|numeric',
+            'rest_category' => 'required',
+            'rest_address' => 'required',
+            'price_min' => 'required|numeric',
+            'price_max' => 'required|numeric',
+        ], [
+            'rest_name.required' => 'The name field is required.',
+            'rest_contact.required' => 'The contact field is required.',
+            'rest_contact.numeric' => 'The contact field must contain only numeric values.',
+            'rest_category.required' => 'The category field is required.',
+            'rest_address.required' => 'The address field is required.',
+            'price_min.required' => 'The minimum price field is required.',
+            'price_min.numeric' => 'The minimum price field must contain only numeric values.',
+            'price_max.required' => 'The maximum price field is required.',
+            'price_max.numeric' => 'The maximum price field must contain only numeric values.',
+        ]);
+    
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+    
+            // If the name is not there
+            if ($errors->has('rest_name')) {
+                Session::flash('rest_name_error', $errors->first('rest_name'));
+            }
+    
+            // If the contact format is wrong
+            if ($errors->has('rest_contact')) {
+                Session::flash('rest_contact_error', $errors->first('rest_contact'));
+            }
+    
+            if ($errors->has('rest_category')) {
+                Session::flash('rest_category_error', $errors->first('rest_category'));
+            }
+
+            if ($errors->has('rest_address')) {
+                Session::flash('rest_address_error', $errors->first('rest_address'));
+            }
+
+            if ($errors->has('price_min')) {
+                Session::flash('price_min_error', $errors->first('price_min'));
+            }
+
+            if ($errors->has('price_max')) {
+                Session::flash('price_max_error', $errors->first('price_max'));
+            }
+            
+            return redirect()->back();
+        }
+    
+        $data= $req->input();
+        
+        $last_id = Restaurant::orderBy('rest_id', 'desc')->first();
+
+        if ($last_id) {
+            $numeric_id = (int) substr($last_id->rest_id, 1);
+            $next_numeric_id = $numeric_id + 1;
+            $new_id = 'R' . str_pad($next_numeric_id, 3, '0', STR_PAD_LEFT);
+        } else {
+            $new_id = 'R001';
+        }
+        
+        $restaurant_t=new Restaurant;
+        $restaurant_t->rest_id = $new_id;
+        $restaurant_t->rest_name = $req->rest_name;
+        $restaurant_t->rest_contact = $req->rest_contact;
+        $restaurant_t->rest_category = $req->rest_category;
+        $restaurant_t->rest_address = $req->rest_address;
+        $restaurant_t->price_min = $req->price_min;
+        $restaurant_t->price_max = $req->price_max;
+        $restaurant_t->save();
+
+        Session::flash('successful_add', true);
+        return redirect('adminEditRestaurant/'.$new_id);
+            
     }
 
     function deleteRest($rest_id)

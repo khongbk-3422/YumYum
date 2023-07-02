@@ -177,44 +177,73 @@
         <div class="addContent">
         </div>
         <div class="addPanel">
-            <div class="addInputPanel">
+            <form action="{{ url('admin_add_rest') }}" method="POST" class="addInputPanel">
+                @csrf
                 <h2>Add Restaurant</h2>
                 <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="id" name="id" id='id' required />
-                    <label for="id" class="form__label">Restaurant ID</label>
-                </div>
-                <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="Restaurant Name" name="restaurant name" id='restaurant name' required />
+                    <input type="input" class="form__field" placeholder="Restaurant Name" name="rest_name" id='restaurant name' required />
                     <label for="restaurant name" class="form__label">Restaurant Name</label>
                 </div>
                 <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="Restaurant Contact" name="restaurant contact" id='restaurant contact' required />
+                    <input type="input" class="form__field" placeholder="Restaurant Contact" name="rest_contact" id='restaurant contact' required />
                     <label for="restaurant contact" class="form__label">Restaurant Contact</label>
                 </div>
                 <div class="form__group field">
                     <label for="Restaurant Category" class="form__label">Restaurant Category</label>
-                    <select name="category" id="category" class="form__field">
-                        <option value="rigatoni">Italian</option>
-                        <option value="dave">Japanese</option>
-                        <option value="pumpernickel">Malaysian</option>
-                        <option value="reeses">Steakhouse</option>
-                        <option value="reeses">Thai</option>
+                    <select name="rest_category" id="category" class="form__field">
+                        <option value="">Select Category</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Malaysian">Malaysian</option>
+                        <option value="Steakhouse">Steakhouse</option>
+                        <option value="Thai">Thai</option>
                     </select>
                 </div>
                 <div class="form__group field">
-                    <input type="input" class="form__field" placeholder="Restaurant Address" name="restaurant address" id='restaurant address' required />
+                    <input type="input" class="form__field" placeholder="Restaurant Address" name="rest_address" id='restaurant address' required />
                     <label for="restaurant address" class="form__label">Restaurant Address</label>  
                 </div>
                 <div class="form__group field">
-                    <input type="number" class="form__field" placeholder="Minimum Price" name="min" id='min' required />
+                    <input type="number" class="form__field" placeholder="Minimum Price" name="price_min" id='min' required />
                     <label for="min" class="form__label">Minimum Price</label>
                 </div>
                 <div class="form__group field">
-                    <input type="number" class="form__field" placeholder="Max Price" name="max" id='max' required />
+                    <input type="number" class="form__field" placeholder="Max Price" name="price_max" id='max' required />
                     <label for="max" class="form__label">Maximum Price</label>
                 </div>
                 <button type="submit" class="btn">Add</button>
-            </div>
+            </form>
         </div>
     </div>
+</body>
+@if(Session::has('rest_name_error'))
+    <script>
+        alert("{{ Session::get('rest_name_error') }}");
+    </script>
+@endif
+@if(Session::has('rest_contact_error'))
+    <script>
+        alert("{{ Session::get('rest_contact_error') }}");
+    </script>
+@endif
+@if(Session::has('rest_category_error'))
+    <script>
+        alert("{{ Session::get('rest_category_error') }}");
+    </script>
+@endif
+@if(Session::has('rest_address_error'))
+    <script>
+        alert("{{ Session::get('rest_address_error') }}");
+    </script>
+@endif
+@if(Session::has('price_min_error'))
+    <script>
+        alert("{{ Session::get('price_min_error') }}");
+    </script>
+@endif
+@if(Session::has('price_max_error'))
+    <script>
+        alert("{{ Session::get('price_max_error') }}");
+    </script>
+@endif
 </html>
