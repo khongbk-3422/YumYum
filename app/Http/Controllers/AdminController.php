@@ -81,6 +81,20 @@ class AdminController extends Controller
         return view('adminEditCustomer',['cust_datas'=>$cust_datas,'select_cust'=>$select_cust]);
     }
 
+    public function filterCustomers(Request $request)
+    {
+        $searchTerm = $request->input('searchTerm');
+        $customers = Customer::where('cust_name', 'like', '%' . $searchTerm . '%')
+            ->orWhere('user_email', 'like', '%' . $searchTerm . '%')
+            ->orWhere('cust_id', 'like', '%' . $searchTerm . '%')
+            ->get();
+        foreach ($customers as $customer) {
+            $customer->cust_pic = base64_encode($customer->cust_pic);
+        }
+
+        return response()->json(['customers' => $customers]);
+    }
+
     function deleteCust($customerId)
     {
         $customer_data = Customer::where('rest_id',$rest_id)->first();

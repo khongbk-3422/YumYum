@@ -95,6 +95,7 @@ Route::get('/adminEditCustomer', [AdminController::class,'getAllCust']);
 Route::get('/adminEditCustomer/{customerId}', [AdminController::class,'getAllwithCust']);
 Route::get('/adminDeleteCustomer/{customerId}', [AdminController::class,'deleteCust']);
 Route::post('/admin_edit_cust', [AdminController::class,'editCust']);
+Route::get('/customers/filter', [AdminController::class, 'filterCustomers']);
 
 //adminViewRestaurant
 Route::get('/adminViewRestaurant', [AdminController::class,'getAllRest']);

@@ -290,6 +290,7 @@
                         <i class="fa-solid fa-search"></i>
                     </div>
                 </div>
+                <div id="customerList">
                 @foreach ($cust_datas as $cust_data)
 
                 <div class="line" data-customer-id="{{$cust_data['cust_id']}}">
@@ -314,6 +315,7 @@
                 </div>
                 
                 @endforeach
+                </div>
             </div>
 
             <form action=" {{url('admin_edit_cust')}}" method="POST" class="form">
@@ -539,6 +541,39 @@
             .catch(error => console.log(error));
         });
 
+    // Get the search input element
+    const searchInput = document.getElementById('searchInput');
 
+    // Get the search icon element
+    const searchIcon = document.querySelector('.fa-search');
+
+    // Add an event listener to the search input for keyup event
+    searchInput.addEventListener('keyup', function(event) {
+        // Check if the Enter key is pressed
+        if (event.keyCode === 13) {
+            performSearch();
+        }
+    });
+
+    // Add an event listener to the search icon for click event
+    searchIcon.addEventListener('click', function() {
+        performSearch();
+    });
+
+    // Function to perform the search
+    function performSearch() {
+        // Get the search term
+        const searchTerm = searchInput.value;
+
+        // Make an AJAX request to the filter route
+        axios.get('/customers/filter', { params: { searchTerm: searchTerm } })
+            .then(function(response) {
+                // Rest of your code to update the customer list
+                // ...
+            })
+            .catch(function(error) {
+                console.error(error);
+            });
+    }
 </script>
 </html>
