@@ -384,14 +384,16 @@
 
         <div class="slidercontainer">
             <div class="cardcontainer swiper-wrapper">
-                @foreach ($rest_data->data_pic as $pic)
+                @foreach ($pic_datas as $pic)
                     
                     <div class="card swiper-slide">
                         <div class="menubox">
-                            <img src="data:image/[image_format];base64,{{ $pic }}">
+                            <img src="data:image/[image_format];base64,{{ $pic['rest_pic'] }}">
                         </div>
                         <div class="actionicons">
-                            <a href=""><i class="fa-solid fa-trash"></i></a>
+                            <a href="{{ url('/adminDeleteRestPic/' . $pic['pic_id'] . '/' . $rest_data['rest_id']) }}">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>    
                         </div>
                     </div>
                     
@@ -408,43 +410,49 @@
         <div class="swiper-button-next swiper-navBtn"></div>
         <div class="swiper-button-prev swiper-navBtn"></div>
         <div class="editFormContainer">
-                <form>
-                    <div class="row">
-                        <h4>Edit Form</h4>
-                        <div class="input-group input-group-icon"><input type="text" placeholder="Restaurant ID" value="{{$rest_data['rest_id']}}" name="new_rest_id"/>
-                            <div class="input-icon"><i class="fa-solid fa-key" style="color: #6f7680;"></i></div>
-                        </div>
-                        <div class="input-group input-group-icon"><input type="text" placeholder="Restaurant Name" value="{{$rest_data['rest_name']}}" name="new_rest_name"/>
-                            <div class="input-icon"><i class="fa-solid fa-user" style="color: #6f7680;"></i></div>
-                        </div>
-                        <div class="input-group input-group-icon"><input type="text" placeholder="Restaurant Contact" value="{{$rest_data['rest_contact']}}" name="new_rest_contact"/>
-                            <div class="input-icon"><i class="fa-solid fa-phone" style="color: #6f7680;"></i></div>
-                        </div>
-                        <h2>Restaurant Category</h2><br>
-                        <div class="input-group input-group-icon">
-                            <select name="category" id="category" class="form__field">
-                                <option value="Italian" @if($rest_data['rest_category'] === 'Italian') selected @endif>Italian</option>
-                                <option value="Japanese" @if($rest_data['rest_category'] === 'Japanese') selected @endif>Japanese</option>
-                                <option value="Malaysian" @if($rest_data['rest_category'] === 'Malaysian') selected @endif>Malaysian</option>
-                                <option value="Steakhouse" @if($rest_data['rest_category'] === 'Steakhouse') selected @endif>Steakhouse</option>
-                                <option value="Thai" @if($rest_data['rest_category'] === 'Thai') selected @endif>Thai</option>
-                            </select>
-                            <div class="input-icon"><i class="fa-solid fa-list" style="color: #6f7680;"></i></div>
-                        </div>
-                        <div class="input-group input-group-icon">
-                            <input type="text" placeholder="Restaurant Address" value="{{$rest_data['rest_address']}}" name="new_rest_address"/>
-                            <div class="input-icon"><i class="fa-solid fa-house" style="color: #6f7680;"></i></div>
-                        </div>
-                        <div class="input-group input-group-icon">
-                            <input type="number" placeholder="Minimum Price" value="{{$rest_data['price_min']}}" name="new_price_min"/>
-                            <div class="input-icon"><i class="fa-solid fa-dollar-sign" style="color: #6f7680;"></i></div>
-                        </div>
-                        <div class="input-group input-group-icon">
-                            <input type="number" placeholder="Maximum Price" value="{{$rest_data['price_max']}}" name="new_price_max"/>
-                            <div class="input-icon"><i class="fa-solid fa-dollar-sign" style="color: #6f7680;"></i></div>
-                        </div>
+            <form action="{{ url('admin_edit_rest') }}" method="POST">
+                @csrf
+                <div class="row">
+                    <h4>Edit Form</h4>
+                    <input type="hidden" value="{{$rest_data['rest_id']}}" name="rest_id"/>
+                    {{-- <div class="input-group input-group-icon">
+                        <input type="hidden" placeholder="Restaurant ID" value="{{$rest_data['rest_id']}}" name="rest_id"/>
+                        <div class="input-icon"><i class="fa-solid fa-key" style="color: #6f7680;"></i></div>
+                    </div> --}}
+                    <div class="input-group input-group-icon">
+                        <input type="text" placeholder="Restaurant Name" value="{{$rest_data['rest_name']}}" name="new_rest_name"/>
+                        <div class="input-icon"><i class="fa-solid fa-user" style="color: #6f7680;"></i></div>
                     </div>
-                </form>
+                    <div class="input-group input-group-icon">
+                        <input type="text" placeholder="Restaurant Contact" value="{{$rest_data['rest_contact']}}" name="new_rest_contact"/>
+                        <div class="input-icon"><i class="fa-solid fa-phone" style="color: #6f7680;"></i></div>
+                    </div>
+                    <h5>Restaurant Category :</h5><br>
+                    <div class="input-group input-group-icon">
+                        <select name="new_rest_category" id="category" class="form__field">
+                            <option value="Italian" @if($rest_data['rest_category'] === 'Italian') selected @endif>Italian</option>
+                            <option value="Japanese" @if($rest_data['rest_category'] === 'Japanese') selected @endif>Japanese</option>
+                            <option value="Malaysian" @if($rest_data['rest_category'] === 'Malaysian') selected @endif>Malaysian</option>
+                            <option value="Steakhouse" @if($rest_data['rest_category'] === 'Steakhouse') selected @endif>Steakhouse</option>
+                            <option value="Thai" @if($rest_data['rest_category'] === 'Thai') selected @endif>Thai</option>
+                        </select>
+                        <div class="input-icon"><i class="fa-solid fa-list" style="color: #6f7680;"></i></div>
+                    </div>
+                    <div class="input-group input-group-icon">
+                        <input type="text" placeholder="Restaurant Address" value="{{$rest_data['rest_address']}}" name="new_rest_address"/>
+                        <div class="input-icon"><i class="fa-solid fa-house" style="color: #6f7680;"></i></div>
+                    </div>
+                    <div class="input-group input-group-icon">
+                        <input type="number" placeholder="Minimum Price" value="{{$rest_data['price_min']}}" name="new_price_min"/>
+                        <div class="input-icon"><i class="fa-solid fa-dollar-sign" style="color: #6f7680;"></i></div>
+                    </div>
+                    <div class="input-group input-group-icon">
+                        <input type="number" placeholder="Maximum Price" value="{{$rest_data['price_max']}}" name="new_price_max"/>
+                        <div class="input-icon"><i class="fa-solid fa-dollar-sign" style="color: #6f7680;"></i></div>
+                    </div>
+                    <button class="btn btn-success" type="submit">Edit</button>
+                </div>
+            </form>
         </div>
 
         <br>
@@ -454,6 +462,8 @@
             <div>
                 <h5 class="title">Reviews and Ratings</h5>
             </div>
+            @if (isset($rating_datas))
+            
             @foreach ($rating_datas as $rate_data)
             
                 <div class="reviewcontainer">
@@ -492,12 +502,20 @@
                         <div class="form-group">
                             <label for="" class="reviewcmd">Review</label>
                             <textarea class="form-control form-control-no-outline" id="firstreview" rows="3" readonly>{{$rate_data['review']}}</textarea>
-                            <button type="submit" class="submitbtn">Delete</button>
+                            <a href="{{ url('/adminDeleteRate/' . $rate_data['cust_id'] . '/' . $rest_data['rest_id']) }}">
+                                <button type="submit" class="submitbtn">Delete</button>
+                            </a>
                         </div>
                     </div>
                 </div>  
 
             @endforeach
+            @else
+            <br>
+                <div>
+                    <h4>No Ratings or Review</h4>
+                </div>
+            @endif
         </div>
         <button type="submit" class="submitbtn" >Edit</button>
 

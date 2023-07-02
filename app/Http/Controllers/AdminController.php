@@ -93,20 +93,6 @@ class AdminController extends Controller
         return redirect('adminEditCustomer');
     }
 
-    public function destroy($customerId)
-    {
-        // Find the customer by ID
-        $customer = Customer::where('cust_id',$customerId)->first();
-        if ($customer) {
-            User::where('user_email',$customer->user_email)->delete();
-            Customer::where('cust_id',$customerId)->delete();
-        } else {
-            return "not find";
-        }
-
-        return response()->json(['message' => 'Customer deleted successfully']);
-    }
-
     function getAllRest()
     {
         $rest_datas = Restaurant::all();
@@ -121,16 +107,13 @@ class AdminController extends Controller
     function getRestDetails($rest_id)
     {
         //Get Restaurant
-        $rest_datas = Restaurant::where('rest_id',$rest_id)->get();
+        $rest_datas = Restaurant::where('rest_id',$rest_id)->first();
 
-        $pic_data = Rest_Picture::where('rest_id', $rest_id)->get();
-        $rest_pics = [];
+        $pic_datas = Rest_Picture::where('rest_id', $rest_id)->get();
     
-        foreach ($pic_data as $pic) {
-            $rest_pics[] = base64_encode($pic->rest_pic);
+        foreach ($pic_datas as $pic) {
+            $pic->rest_pic = base64_encode($pic->rest_pic);
         }
-    
-        $rest_datas[0]->data_pic = $rest_pics;
 
         //Get All Rating Datas
         $rating_datas = Rate::where('rest_id', $rest_id)->get();
@@ -140,7 +123,21 @@ class AdminController extends Controller
             $data->cust_pic = base64_encode($user_data->cust_pic);
         }
 
-        return view('adminEditRestaurant',['rest_data' => $rest_datas[0]], ['rating_datas' => $rating_datas]);
+        return view('adminEditRestaurant',['rest_data' => $rest_datas,'pic_datas' => $pic_datas,'rating_datas' => $rating_datas]);
+    }
+
+    function editRestDetails(Request $req)
+    {
+        $rest_datas = Restaurant::find($req->rest_id);
+        $rest_datas->rest_name = $req->new_rest_name;
+        $rest_datas->rest_contact = $req->new_rest_contact;
+        $rest_datas->rest_category = $req->new_rest_category;
+        $rest_datas->rest_address = $req->new_rest_address;
+        $rest_datas->price_min = $req->new_price_min;
+        $rest_datas->price_max = $req->new_price_max;
+        $rest_datas->save();
+
+        return redirect('adminEditRestaurant/'.$req->rest_id);
     }
 
     function deleteRest($rest_id)
@@ -154,5 +151,19 @@ class AdminController extends Controller
         $rest_data->delete();
 
         return redirect('adminViewRestaurant');
+    }
+
+    function deleteRestPic($pic_id, $rest_id)
+    {
+        Rest_Picture::where('pic_id', $pic_id)->delete();
+        
+        return redirect('adminEditRestaurant/'.$rest_id);
+    }
+
+    function deleteRate($cust_id, $rest_id)
+    {
+        Rate::where('cust_id', $cust_id)->where('rest_id',$rest_id)->delete();
+        
+        return redirect('adminEditRestaurant/'.$rest_id);
     }
 }

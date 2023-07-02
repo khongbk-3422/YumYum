@@ -94,12 +94,14 @@ Route::get('/adminHomePage',[AdminController::class,'homePage']);
 Route::get('/adminEditCustomer', [AdminController::class,'getAllCust']);
 Route::get('/adminEditCustomer/{customerId}', [AdminController::class,'getAllwithCust']);
 Route::get('/adminDeleteCustomer/{customerId}', [AdminController::class,'deleteCust']);
-Route::delete('/customers/{customerId}', 'UserController@destroy');
 
 //adminViewRestaurant
 Route::get('/adminViewRestaurant', [AdminController::class,'getAllRest']);
 Route::get('/adminEditRestaurant/{rest_id}', [AdminController::class,'getRestDetails']);
 Route::get('/adminDeleteRestaurant/{rest_id}', [AdminController::class,'deleteRest']);
+Route::get('/adminDeleteRestPic/{pic_id}/{rest_id}', [AdminController::class,'deleteRestPic']);
+Route::post('/admin_edit_rest', [AdminController::class,'editRestDetails']);
+Route::get('/adminDeleteRate/{cust_id}/{rest_id}', [AdminController::class,'deleteRate']);
 
 //adminEditRestaurant
 Route::get('/adminEditRest', function(){
