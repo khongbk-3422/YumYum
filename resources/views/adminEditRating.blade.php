@@ -9,20 +9,26 @@
     @include('cdn')
 
     <style>
+        *{
+            font-family: 'Raleway', sans-serif;
+        }
+
         .main{
               display:flex;
               flex-wrap:wrap;
               justify-content: space-between;
               margin-top: 20px;
-              background:pink;
+              background:#F2EEED;
         }
+
         h1{
             font-size: 30px;
-            color: #fff;
+            color: black;
             text-transform: uppercase;
-            font-weight: 300;
+            font-weight: 350;
             text-align: center;
             margin-bottom: 15px;
+            padding:10px;
         }
 
         table{
@@ -31,32 +37,37 @@
         }
 
         .tbl-header{
-            background-color: rgba(255,255,255,0.3);
+            /* background-color: rgba(255,255,255,0.3); */
+            background-color:#CCC5BC;
         }
+
         .tbl-content{
             height:300px;
             overflow-x:auto;
             margin-top: 0px;
             border: 1px solid rgba(255,255,255,0.3);
         }
+
         th{
             padding: 20px 15px;
-            text-align: left;
-            font-weight: 500;
-            font-size: 12px;
-            color: #fff;
+            /* text-align: left; */
+            text-align:center;
+            font-weight: 550;
+            font-size: 15px;
+            color: black;
             text-transform: uppercase;
         }
+
         td{
             padding: 15px;
-            text-align: left;
+            text-align: center;
             vertical-align:middle;
-            font-weight: 300;
-            font-size: 12px;
-            color: #fff;
-            border-bottom: solid 1px rgba(255,255,255,0.1);
+            font-weight: 350;
+            font-size: 13px;
+            color: black;
+            /* border-bottom: solid 1px rgba(255,255,255,0.1); */
+            border-bottom: solid 1px #CCC5BC;
         }
-        @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
     
         section{
             margin: 50px;
@@ -68,7 +79,6 @@
 	        --color-dark: #2f2f2f;
 	        --color-light: #fff;
 	        --color-brand: #57bd84;
-	        --font-fam: 'Lato', sans-serif;
 	        --height: 5rem;
 	        --btn-width: 6rem;
 	        --bez: cubic-bezier(0, 0, 0.43, 1.49);
@@ -82,7 +92,7 @@
             display: flex;
 	        align-items: center;
 	        justify-content: center;
-            background: black;
+            background: #EBEBE9;
             width: 100%;
             padding: 10px;
         }
@@ -90,7 +100,8 @@
         form {
 	        position: relative;
 	        width: 80%;
-	        background: var(--color-brand);
+	        /* background: var(--color-brand); */
+            background:#D2CABF;
 	        border-radius: var(--rad);
         }
 /*         
@@ -109,6 +120,7 @@
             color: var(--color-dark);
             font-size: 1.8rem;
         }
+
         input[type="search"] {
             outline: 0;
             width: 100%;
@@ -162,16 +174,36 @@
             color:yellow;
         }
 
+        .searchBtn{
+            background:#D2CABF;
+            color:black;
+            font-size:20px;
+            width:100%;
+            border-radius: 5px ;
+            outline:none;
+            border:none;
+        }
+
+        .searchBtn:hover{
+            background:#D1D3C5;
+        }
+
         .deleteBtn{
-            background-color: blue;
+            /* background-color: blue; */
+            background:none;
             border: none;
             cursor: pointer;
             outline: none;
             width: fit-content;
-            color:white;
-            height:32px;
-            font-size:20px;
-            border-radius:8px;
+            color:black;
+        }
+
+        .deleteBtn:hover{
+            color:grey;
+        }
+
+        .ratingTable .tbl-content tr:hover{
+            background:#E6DEDC;
         }
     </style>
 </head>
@@ -180,7 +212,7 @@
         <form onsubmit="event.preventDefault();" role="search">
             <label for="search">Search for stuff</label>
             <input id="search" type="search" placeholder="Search..." autofocus required />
-            <button type="submit">Go</button>    
+            <button type="submit" class="searchBtn">Go</button>    
         </form>
     </div>
     <div class="main">
@@ -194,7 +226,7 @@
                     <th>Customer Name</th>
                     <th>Review</th>
                     <th>Rating</th>
-                    <th>Delete</th>
+                    <th>Action</th>
                     </tr>
                 </thead>
                 </table>
@@ -211,42 +243,13 @@
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
                             </div>
                         </td>
-                        <td>
-                            <button type="button" class="deleteBtn">Delete</button>
-                        </td>
-                        <!-- <td><button class="deleteBtn" type="button">Delete</button></td> -->
+                        <td><button type="button" class="deleteBtn">Delete</button></td>
                     </tr>
                 </tbody>
             </div>
     </div>
 <script>
-   $('.deletBtn').click(function(e){
-            e.preventDefault(); //to prevent the deleteProuct.php from running directly when the icon is being clicked
-            const href = $(this).attr('href');
 
-            Swal.fire({
-                title: 'Are you sure to delete?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.value) {
-                        location.href = href;
-                    }
-                })
-        });
-
-        const flashdata = $('.flash-data').data('flashdata')
-        if(flashdata){
-            swal.fire({
-                type : 'success',
-                title : 'Record Deleted',
-                text : 'Record has been deleted'
-            })
-        };
 </script>
 </body>
 </html>
