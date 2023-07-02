@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Swal Example</title>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"> -->
   @include('cdn')
   <style>
     
@@ -14,7 +12,8 @@
 <body>
   <button onclick="showAlert()">Show Alert</button>
   <a href="adminDeleteProduct.php?id=<?=$row['productID'];?>" class="dltbtn"><img src="delete.png" width="20px" height ="20px"></a> 
-  
+  <a href="{{ route('adminEditRestaurant', ['id' => $cust_data['cust_id']]) }}" class="dltbtn"><img src="delete.png" width="20px" height ="20px"></a>
+
   <script>
     // function showAlert() {
     //   const swalWithBootstrapButtons = Swal.mixin({
@@ -51,15 +50,11 @@
     // }
     </script>
 
-2nd swal
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        $('.sideBar-btn').click(function(){
-            $(this).toggleClass("click");
-            $('.wrapper').toggleClass("collapse");
-        }); 
-
+//2nd swal
         // sweet alert function to show record has been updated
         const newdata = $('.new-data').data('newdata')
         if(newdata){
@@ -98,6 +93,7 @@
                 text : 'Record has been deleted'
             })
         };
+  </script>
 
 </body>
 </html>
