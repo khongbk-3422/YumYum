@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 use App\Models\Customer;
 use App\Models\Restaurant;
 use App\Models\Rate;
@@ -97,16 +98,46 @@ class AdminController extends Controller
 
     function editCust(Request $req)
     {
-        $rest_datas = Restaurant::find($req->rest_id);
-        $rest_datas->rest_name = $req->new_rest_name;
-        $rest_datas->rest_contact = $req->new_rest_contact;
-        $rest_datas->rest_category = $req->new_rest_category;
-        $rest_datas->rest_address = $req->new_rest_address;
-        $rest_datas->price_min = $req->new_price_min;
-        $rest_datas->price_max = $req->new_price_max;
-        $rest_datas->save();
+        $customer_data = Customer::find($req->cust_id);
+        $user_data = User::where('user_email',$customer_data->user_email)->first();
 
-        return redirect('adminEditRestaurant/'.$req->rest_id);
+        if($req->new_user_email != $customer_data->user_email) {
+
+            $customer_datas = Customer::all();
+            foreach ($customer_datas as $data) {
+                if ($req->new_user_email == $data->user_email) {
+                    Session::flash('email_used', true);
+                    return redirect()->back();
+                }
+            }
+            $user_t=new User;
+            $user_t->user_email=$req->new_user_email;
+            $user_t->user_password=$user_data->user_password;
+            $user_t->position="1";
+            $user_t->save();
+        }
+
+        $old_email = $customer_data->user_email;
+        
+        $customer_data->cust_contact=$req->new_cust_contact;
+        $customer_data->cust_name=$req->new_cust_name;
+        $customer_data->user_email = $req->new_user_email;
+        
+        if ($req->hasFile('new_cust_pic')) {
+            $file = $req->file('new_cust_pic');
+            $destinationPath = public_path('image/customer');
+            $filename = $file->getClientOriginalName();
+            $file->move($destinationPath, $filename);
+            $customer_data->cust_pic = 'image/customer/' . $filename; // Save the file path
+        }
+        
+        $customer_data->save();
+
+        if($req->new_user_email != $old_email) {
+            User::where('user_email',$old_email)->delete();
+        }
+
+        return redirect('adminEditCustomer/'.$req->cust_id);
     }
 
     function getAllRest()

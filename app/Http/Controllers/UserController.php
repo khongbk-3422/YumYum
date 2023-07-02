@@ -170,6 +170,14 @@ class UserController extends Controller
             if ($req->new_password) {
 
                 if($req->new_email != $customer_data->user_email) {
+                    $customer_datas = Customer::all();
+                    foreach ($customer_datas as $data) {
+                        if ($req->new_user_email == $data->user_email) {
+                            Session::flash('email_used', true);
+                            return redirect()->back();
+                        }
+                    }
+                    
                     $user_t=new User;
                     $user_t->user_email=$req->new_email;
                     $user_t->user_password=md5($req->new_password);
@@ -204,7 +212,15 @@ class UserController extends Controller
 
                 $user_data = User::where('user_email',$customer_data->user_email)->first();
 
-                if($req->new_email != $customer_data->user_email) {
+                if($req->new_email != $old__email) {
+
+                    $customer_datas = Customer::all();
+                    foreach ($customer_datas as $data) {
+                        if ($req->new_user_email == $data->user_email) {
+                            Session::flash('email_used', true);
+                            return redirect()->back();
+                        }
+                    }
                     $user_t=new User;
                     $user_t->user_email=$req->new_email;
                     $user_t->user_password=$user_data->user_password;

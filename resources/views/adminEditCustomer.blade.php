@@ -316,7 +316,7 @@
                 @endforeach
             </div>
 
-            <form action="admin_edit_cust" method="POST" class="form">
+            <form action=" {{url('admin_edit_cust')}}" method="POST" class="form">
                 @csrf
                 @if (isset($select_cust))
                     <div class="id">
@@ -387,6 +387,12 @@
 
     </script>
 </body>
+
+@if(Session::has('email_used'))
+    <script>
+        alert('Email used!');
+    </script>
+@endif
 
 <script>
     // get the data into form when a line of customer's data is selected
