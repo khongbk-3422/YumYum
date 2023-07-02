@@ -80,185 +80,185 @@
             text-align: center;
         }
 
-        .line .name,
-        .line .email,
-        .line .contact,
-        .line .action {
-        justify-self: center; /* Centers the text horizontally within the column */
-    }
-
-        .line:hover{
-            transform: translateY(-2px);
+            .line .name,
+            .line .email,
+            .line .contact,
+            .line .action {
+            justify-self: center; /* Centers the text horizontally within the column */
         }
 
-        .line p{
-            font-size: 0.8rem;
-            color: rgba(162,162,162);
-            margin-bottom: 0.2rem;
-            justify-self: center;
-        }
+            .line:hover{
+                transform: translateY(-2px);
+            }
 
-        .line img{
-            width: 3.5rem;
-            height: 3.5rem;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+            .line p{
+                font-size: 0.8rem;
+                color: rgba(162,162,162);
+                margin-bottom: 0.2rem;
+                justify-self: center;
+            }
 
-        .line .details{
-            margin-left: 1.5rem;
-        }
+            .line img{
+                width: 3.5rem;
+                height: 3.5rem;
+                border-radius: 50%;
+                object-fit: cover;
+            }
 
-        .line h6{
-            font-size: 1rem;
-            color: #111;
-            margin-bottom: 0.5rem;
-        }
+            .line .details{
+                margin-left: 1.5rem;
+            }
 
-        .line .icon{
-            transition: 0.2s;
-        }
+            .line h6{
+                font-size: 1rem;
+                color: #111;
+                margin-bottom: 0.5rem;
+            }
 
-        .line .icon:hover{
-            transform: scale(1.1);
-        }
+            .line .icon{
+                transition: 0.2s;
+            }
 
-        .icon span{
-            display: block;
-            width: 0.35rem;
-            height: 0.35rem;
-            border-radius: 50%;
-            background-color: rgba(14,131,214);
-            margin: 0.2rem 0;
-        }     
+            .line .icon:hover{
+                transform: scale(1.1);
+            }
 
-        .form{
-            box-sizing: border-box;
-            width: 400px;
-            height: 500px;
-            border: 2px solid #b5b3a7;
-            box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            background-color: #f0edd8;
-            margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-            justify-content: flex-start;
-            position: fixed;
-            top: 80px;
-            left: 93%;
-            transform: translateX(-93%);
-        }
+            .icon span{
+                display: block;
+                width: 0.35rem;
+                height: 0.35rem;
+                border-radius: 50%;
+                background-color: rgba(14,131,214);
+                margin: 0.2rem 0;
+            }     
 
-        .input-group mb-3{
-            margin-top: 20px;
-            width: 150px;
-        }
-
-        .form img{
-            box-sizing: border-box;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-top: 20px;
-            border: 5px solid #b5b3a7;
-            padding: 3px;
-            background-color: white;
-            transition: 0.3s;
-        }
-
-        .form img:hover{
-            transform: scale(1.1);
-        }
-
-        .form .name,
-        .form .email,
-        .form .phone {
-            display: flex;
-            align-items: center;
-            box-sizing: border-box;
-            background: none;
-            color: black;
-            margin-bottom: 10px;
-            padding: 4px;
-            width: 350px;
-            height: 32px;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 400;
-            font-size: 15px;
-            margin-top: 10px;
-            margin-left: -20px;
-        }
-        
-        .form .name h6,
-        .form .email h6,
-        .form .phone h6 {
-            margin: 0;
-            margin-right: 10px;
-        }
-
-        .form .name input,
-        .form .email input,
-        .form .phone input {
-            margin-top: 0; 
-            width: 300px;
-        }
-
-        .form .name{
-            margin-top: 20px;
-        }
-
-        input[type="text"],
-        input[type="email"]{
-            margin-left: 50px;
-        }
-
-        .form button {
-            border: 1px solid #b5b3a7;
-            background-color: white;
-            color: black;
-            padding: 2px 5px;
-            height: 30px;
-            width: 100px;
-            border-radius: 5px;
-            transition: all 0.3s;
-            margin-top: 20px;
-        }
-
-        .form button:hover {
-            transform: scale(1.1);
-        }
-
-        input[type="file"]{
-            margin-left: 10px;
-            margin-right: 10px;
-            margin-top: 10px;
-        }
-
-        label{
-            box-sizing: border-box;
-            font-size: 20px;
-            background-color: black;
-            color: white;
-            border: 1px solid #3498db;
-            padding: 2px 15px;
-            border-radius: 5px;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        label:hover {
-            background-color: #3498db;
-            color: black;
-        }
-
-        @media (max-width: 768px) {
-            .container{
+            .form{
+                box-sizing: border-box;
+                width: 400px;
+                height: 500px;
+                border: 2px solid #b5b3a7;
+                box-shadow: 5px 10px 5px 0px rgba(0, 0, 0, 0.1);
+                border-radius: 20px;
+                background-color: #f0edd8;
+                margin-top: 50px;
                 display: flex;
                 flex-direction: column;
-                align-items: stretch;
+                align-items: center; 
+                justify-content: flex-start;
+                position: fixed;
+                top: 80px;
+                left: 93%;
+                transform: translateX(-93%);
             }
+
+            .input-group mb-3{
+                margin-top: 20px;
+                width: 150px;
+            }
+
+            .form img{
+                box-sizing: border-box;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                margin-top: 20px;
+                border: 5px solid #b5b3a7;
+                padding: 3px;
+                background-color: white;
+                transition: 0.3s;
+            }
+
+            .form img:hover{
+                transform: scale(1.1);
+            }
+
+            .form .name,
+            .form .email,
+            .form .phone {
+                display: flex;
+                align-items: center;
+                box-sizing: border-box;
+                background: none;
+                color: black;
+                margin-bottom: 10px;
+                padding: 4px;
+                width: 350px;
+                height: 32px;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 400;
+                font-size: 15px;
+                margin-top: 10px;
+                margin-left: -20px;
+            }
+            
+            .form .name h6,
+            .form .email h6,
+            .form .phone h6 {
+                margin: 0;
+                margin-right: 10px;
+            }
+
+            .form .name input,
+            .form .email input,
+            .form .phone input {
+                margin-top: 0; 
+                width: 300px;
+            }
+
+            .form .name{
+                margin-top: 20px;
+            }
+
+            input[type="text"],
+            input[type="email"]{
+                margin-left: 50px;
+            }
+
+            .form button {
+                border: 1px solid #b5b3a7;
+                background-color: white;
+                color: black;
+                padding: 2px 5px;
+                height: 30px;
+                width: 100px;
+                border-radius: 5px;
+                transition: all 0.3s;
+                margin-top: 20px;
+            }
+
+            .form button:hover {
+                transform: scale(1.1);
+            }
+
+            input[type="file"]{
+                margin-left: 10px;
+                margin-right: 10px;
+                margin-top: 10px;
+            }
+
+            label{
+                box-sizing: border-box;
+                font-size: 20px;
+                background-color: black;
+                color: white;
+                border: 1px solid #3498db;
+                padding: 2px 15px;
+                border-radius: 5px;
+                transition: all 0.3s;
+                cursor: pointer;
+            }
+
+            label:hover {
+                background-color: #3498db;
+                color: black;
+            }
+
+            @media (max-width: 768px) {
+                .container{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: stretch;
+                }
 
             main {
                 grid-template-columns: 1fr;
@@ -305,7 +305,7 @@
                     </div>
                     <div class="action">
                         <div class="icon">
-                            <a href="#" class="delete-icon">
+                            <a href={{"adminDeleteCust/".$cust_data['cust_id']}} class="delete-icon">
                                 <i class="fa-solid fa-user-slash"></i>
                             </a>
                         </div>
@@ -315,7 +315,7 @@
                 @endforeach
             </div>
 
-            <div class="form">
+            <form class="form">
                 @if (isset($select_cust))
                     <div class="id">
                         <input type="hidden" id="customerId" value="{{ $select_cust->cust_id }}">
@@ -378,7 +378,7 @@
                     </div>
                 @endif
                 
-            </div>
+            </form>
         </main>
     </div>
     <script>
