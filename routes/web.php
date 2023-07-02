@@ -128,3 +128,8 @@ Route::get('/adminEditRating', function(){
 Route::get('/newAdminViewRest', function(){
     return view (('newAdminViewRest'));
 });
+
+//testswal
+Route::get('/swal', function(){
+    return view (('swal'));
+});
