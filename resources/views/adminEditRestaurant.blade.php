@@ -517,8 +517,6 @@
                 </div>
             @endif
         </div>
-        <button type="submit" class="submitbtn" >Edit</button>
-
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         var swiper = new Swiper(".slidercontainer", {
