@@ -95,6 +95,20 @@ class AdminController extends Controller
         return redirect('adminEditCustomer');
     }
 
+    function editCust(Request $req)
+    {
+        $rest_datas = Restaurant::find($req->rest_id);
+        $rest_datas->rest_name = $req->new_rest_name;
+        $rest_datas->rest_contact = $req->new_rest_contact;
+        $rest_datas->rest_category = $req->new_rest_category;
+        $rest_datas->rest_address = $req->new_rest_address;
+        $rest_datas->price_min = $req->new_price_min;
+        $rest_datas->price_max = $req->new_price_max;
+        $rest_datas->save();
+
+        return redirect('adminEditRestaurant/'.$req->rest_id);
+    }
+
     function getAllRest()
     {
         $rest_datas = Restaurant::all();

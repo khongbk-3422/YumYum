@@ -316,67 +316,67 @@
                 @endforeach
             </div>
 
-            <form class="form">
+            <form action="admin_edit_cust" method="POST" class="form">
                 @csrf
                 @if (isset($select_cust))
                     <div class="id">
-                        <input type="hidden" id="customerId" value="{{ $select_cust->cust_id }}">
+                        <input type="hidden" id="customerId" value="{{ $select_cust->cust_id }}" name="cust_id">
                     </div>
 
                     <img id="customerImage" src="data:image/[image_format];base64,{{ $select_cust->cust_pic }}" alt="">
 
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="customerImageSrc" >
+                        <input type="file" class="form-control" id="customerImageSrc" name="new_cust_pic">
                     </div>
 
                     <div class="name">
                         <h6>Name</h6>
-                        <input type="text"  id="customerName" class="form-control" placeholder="Name" aria-label="Username" value="{{ $select_cust->cust_name }}">
+                        <input type="text"  id="customerName" class="form-control" placeholder="Name" aria-label="Username" value="{{ $select_cust->cust_name }}" name="new_cust_name">
                     </div>
 
                     <div class="email">
                         <h6>Email</h6>
-                        <input type="email" id="customerEmail" class="form-control" placeholder="Email" aria-label="Email" value="{{ $select_cust->user_email }}">
+                        <input type="email" id="customerEmail" class="form-control" placeholder="Email" aria-label="Email" value="{{ $select_cust->user_email }}" name="new_user_email">
                     </div>
 
                     <div class="phone">
                         <h6>Contact</h6>
-                        <input type="text" id="customerContact" class="form-control" placeholder="Contact Number" aria-label="Contact Number" value="{{ $select_cust->cust_contact }}">
+                        <input type="text" id="customerContact" class="form-control" placeholder="Contact Number" aria-label="Contact Number" value="{{ $select_cust->cust_contact }}" name="new_cust_contact">
                     </div>
 
                     <div class="button">
-                        <button class="updatebtn">UPDATE</button>
+                        <button class="updatebtn" type="submit">UPDATE</button>
                     </div>
                 @else
                     <div class="id">
-                        <input type="hidden" id="customerId">
+                        <input type="hidden" id="customerId" name="cust_id">
                     </div>
 
                     <img id="customerImage" src="" alt="">
 
                     <div class="input-group mb-3">    
                         <label class="input-group-text" for="customerImageSrc"> Upload </label>
-                        <input type="file" class="form-control" id="customerImageSrc" >
+                        <input type="file" class="form-control" id="customerImageSrc" name="new_cust_pic">
                     </div>
                     /* I also dun know why this input doesn't display the back part */
 
                     <div class="name">
                         <h6>Name</h6>
-                        <input type="text"  id="customerName" class="form-control" placeholder="Name" aria-label="Username">
+                        <input type="text"  id="customerName" class="form-control" placeholder="Name" aria-label="Username" name="new_cust_name">
                     </div>
 
                     <div class="email">
                         <h6>Email</h6>
-                        <input type="email" id="customerEmail" class="form-control" placeholder="Email" aria-label="Email">
+                        <input type="email" id="customerEmail" class="form-control" placeholder="Email" aria-label="Email" name="new_user_email">
                     </div>
 
                     <div class="phone">
                         <h6>Contact</h6>
-                        <input type="text" id="customerContact" class="form-control" placeholder="Contact Number" aria-label="Contact Number">
+                        <input type="text" id="customerContact" class="form-control" placeholder="Contact Number" aria-label="Contact Number" name="new_cust_contact">
                     </div>
 
                     <div class="button">
-                        <button class="updatebtn">UPDATE</button>
+                        <button class="updatebtn" type="submit">UPDATE</button>
                     </div>
                 @endif
                 
