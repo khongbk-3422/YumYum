@@ -327,4 +327,23 @@ class AdminController extends Controller
         
         return redirect('adminEditRestaurant/'.$rest_id);
     }
+
+    function getAllRate()
+    {
+        $rate_datas = Rate::orderByDesc('date')->get();
+        foreach ($rate_datas as $data) {
+            $cust_data = Customer::where('cust_id',$data->cust_id)->first();
+            $rest_data = Restaurant::where('rest_id',$data->rest_id)->first();
+            $data->cust_name = $cust_data->cust_name;
+            $data->rest_name = $rest_data->rest_name;
+        }
+        return view('adminEditRating',['rate_datas'=>$rate_datas]);
+    }
+
+    function deleteRating($cust_id, $rest_id)
+    {
+        Rate::where('cust_id', $cust_id)->where('rest_id',$rest_id)->delete();
+        
+        return redirect('adminEditRating');
+    }
 }

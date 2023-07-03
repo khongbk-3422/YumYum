@@ -123,9 +123,8 @@ Route::get('/adminProfilePage',[UserController::class,'adminProfile']);
 
 
 //adminEditRating
-Route::get('/adminEditRating', function(){
-    return view(('adminEditRating'));
-});
+Route::get('/adminEditRating', [AdminController::class,'getAllRate']);
+Route::get('/adminDeleteRating/{cust_id}/{rest_id}', [AdminController::class,'deleteRating']);
 
 // Route::get('list',[RestController::class,'show']);
 // Route::post('addPic',[RestController::class,'addPic']);

@@ -104,7 +104,7 @@
             background:#D2CABF;
 	        border-radius: var(--rad);
         }
-/*         
+        /*         
         input, button {
             height: var(--height);
             font-family: var(--font-fam);
@@ -211,20 +211,22 @@
     <div class="searchBar">
         <form onsubmit="event.preventDefault();" role="search">
             <label for="search">Search for stuff</label>
-            <input id="search" type="search" placeholder="Search..." autofocus required />
+            <input type="search" id="searchInput" placeholder="Search..." autofocus required />
             <button type="submit" class="searchBtn">Go</button>    
         </form>
     </div>
     <div class="main">
         <div class="ratingTable">
-            <h1>Restaurant Name Here</h1>
+            <h1>Rating</h1>
             <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0">
                 <thead>
                     <tr>
                     <th>Customer Id</th>
                     <th>Customer Name</th>
+                    <th>Restaurant Name</th>
                     <th>Review</th>
+                    <th>Date</th>
                     <th>Rating</th>
                     <th>Action</th>
                     </tr>
@@ -233,23 +235,83 @@
             </div>
             <div class="tbl-content">
                 <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td>content for custoemr id</td>
-                        <td>content for custoemr name</td>
-                        <td>content for review</td>
-                        <td>
-                            <div class="retaurantRating">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
-                            </div>
-                        </td>
-                        <td><button type="button" class="deleteBtn">Delete</button></td>
-                    </tr>
-                </tbody>
+                    <tbody>
+                        <div class="lines">
+                            @foreach ($rate_datas as $rate_data)
+                            <tr> 
+                                <td class="cust_id">{{$rate_data['cust_id']}}</td>
+                                <td class="cust_name">{{$rate_data['cust_name']}}</td>
+                                <td class="rest_id">{{$rate_data['rest_name']}}</td>
+                                <td class="review">{{$rate_data['review']}}</td>
+                                <td class="date">{{$rate_data['date']}}</td>
+                                <td>
+                                    <div class="retaurantRating">
+                                        @if ($rate_data['rate'] == 5)
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                                        @elseif ($rate_data['rate'] >= 4.15 && $rate_data['rate'] < 5)
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
+                                        @elseif ($rate_data['rate'] >= 3.85 && $rate_data['rate'] < 4.15)
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
+                                        @elseif ($rate_data['rate'] >= 3.15 && $rate_data['rate'] < 3.85)
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
+                                        @elseif ($rate_data['rate'] >= 2.85 && $rate_data['rate'] < 3.15)
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                        @elseif ($rate_data['rate'] >= 2.15 && $rate_data['rate'] < 2.85)
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                        @elseif ($rate_data['rate'] >= 1.85 && $rate_data['rate'] < 2.15)
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                        @elseif ($rate_data['rate'] >= 1.15 && $rate_data['rate'] < 1.85)
+                                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                        @elseif ($rate_data['rate'] >= 0.85 && $$rate_data['rate'] < 1.15)
+                                            <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                        @elseif ($rate_data['rate'] >= 1.15 && $rate_data['rate'] < 1.85)
+                                            <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                        @else
+                                        <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
+                                        @endif
+                                    </div>
+                                </td>
+                                <td><a href="{{ url('/adminDeleteRating/' . $rate_data['cust_id'] . '/' . $rate_data['rest_id']) }}"><button type="button" class="deleteBtn">Delete</button></a></td>
+                            </tr>
+                            @endforeach
+                        </div>
+                    </tbody>
+                </table>
             </div>
+        </div>
     </div>
-<script>
-
-</script>
+    <script>
+        // search function
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', handleSearch);
+    
+            function handleSearch() {
+                const searchText = searchInput.value.toLowerCase();
+                const rows = document.querySelectorAll('.ratingTable table tbody tr');
+    
+                for (let i = 0; i < rows.length; i++) {
+                    const row = rows[i];
+                    const cust_id = row.querySelector('.cust_id').textContent.toLowerCase();
+                    const cust_name = row.querySelector('.cust_name').textContent.toLowerCase();
+                    const rest_id = row.querySelector('.rest_id').textContent.toLowerCase();
+                    const review = row.querySelector('.review').textContent.toLowerCase();
+                    const date = row.querySelector('.date').textContent.toLowerCase();
+    
+                    if (
+                        cust_id.includes(searchText) ||
+                        cust_name.includes(searchText) ||
+                        rest_id.includes(searchText) ||
+                        review.includes(searchText) ||
+                        date.includes(searchText)
+                    ) {
+                        row.style.display = 'table-row';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
