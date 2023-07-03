@@ -311,7 +311,7 @@
           .main{
               display:flex;
               flex-wrap:wrap;
-              justify-content: space-between;
+              justify-content: flex-start;
               margin: 25px;
               margin-top:90px;
               background:#f1f1f1;
@@ -320,7 +320,7 @@
           .restaurantCardContainer{
               display: flex;
               flex-wrap: wrap;
-              justify-content: space-between;
+              justify-content: flex-start;
               margin-bottom: 20px;
               max-width: calc(100% - 260px);
               align-items:top;
