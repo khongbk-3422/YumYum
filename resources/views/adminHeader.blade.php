@@ -108,7 +108,7 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" aria-expanded="false" onclick="toggleDropdown()">
                             {{session('admin_name')}}
                             <span class="profilePic">
-                                <img src="data:image/[image_format];base64,{{base64_encode(session('user_pic'))}}" />
+                                <img src="data:image/jpg;base64,{{base64_encode(session('user_pic'))}}" >
                             </span>
                         </a>
 

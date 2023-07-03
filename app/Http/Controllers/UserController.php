@@ -211,7 +211,8 @@ class UserController extends Controller
                 
                 if ($req->hasFile('new_pic')) {
                     $file = $req->file('new_pic');
-                    $cust_data->cust_pic = file_get_contents($file->getPathname());
+                    $customer_data->cust_pic = file_get_contents($file->getPathname());
+                    session()->put('user_pic', $customer_data->cust_pic);
                 }
                 
                 $customer_data->save();
@@ -250,12 +251,13 @@ class UserController extends Controller
                 
                 if ($req->hasFile('new_pic')) {
                     $file = $req->file('new_pic');
-                    $cust_data->cust_pic = file_get_contents($file->getPathname());
+                    $customer_data->cust_pic = file_get_contents($file->getPathname());
+                    session()->put('user_pic', $customer_data->cust_pic);
                 }
                 
                 $customer_data->save();
 
-                if($req->new_email != $old__email) {
+                if($req->new_email != $old_email) {
                     User::where('user_email',$old_email)->delete();
                 }
                 
@@ -295,6 +297,7 @@ class UserController extends Controller
                 if ($req->hasFile('new_pic')) {
                     $file = $req->file('new_pic');
                     $admin_data->admin_pic = file_get_contents($file->getPathname());
+                    session()->put('user_pic', $admin_data->admin_pic);
                 }
                 
                 $admin_data->save();
@@ -334,8 +337,7 @@ class UserController extends Controller
                 if ($req->hasFile('new_pic')) {
                     $file = $req->file('new_pic');
                     $admin_data->admin_pic = file_get_contents($file->getPathname());
-                } else {
-                    return "nofile";
+                    session()->put('user_pic', $admin_data->admin_pic);
                 }
                 
                 $admin_data->save();

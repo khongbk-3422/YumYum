@@ -64,8 +64,7 @@ return view('custProfilePage', ['fileName' => $fileName]);
     <div class="profileContainer">
         <div class="userProfile">
             <h3>Profile</h3>
-            <img src="{{ asset($customer_data->cust_pic) }}" id="showImage">
-            {{-- <img src="data:image/[image_format];base64,{{$customer_data->cust_pic}}" id="showImage"> --}}
+            <img src="data:image/jpg;base64,{{ $customer_data['cust_pic'] }}" id="showImage">
         </div>
         <br>
 
@@ -102,7 +101,7 @@ return view('custProfilePage', ['fileName' => $fileName]);
             <div class="form-group row mb-3">
                 <label for="newprofile" class="col-sm-2 col-form-label">Profile</label>
                 <div class="col-sm-8">
-                    <input class="form-control" type="file" id="newprofile" name="new_pic">
+                    <input type="file" class="form-control" id="newPicture" accept="image/*" name="new_pic">
                 </div>
                 <div class="col-sm-2">
                     <button type="button" onclick="resetImage()" class="resetBtn">Reset</button>
