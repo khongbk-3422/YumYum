@@ -14,7 +14,7 @@
         }
 
         .maincontainer{
-            margin:90px auto;
+            margin:110px auto;
             background:#f7f7f7;
             padding:20px 20px;
             max-width:calc(100% - 220px);

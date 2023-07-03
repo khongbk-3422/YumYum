@@ -286,20 +286,20 @@ input[type="range"]::-moz-range-thumb{
 }
 
 .restContainer .card{
-    height:210px;
+    height:250px;
     width:900px;
 }
 
 .restContainer .card .row img{
-    width:230px;
-    height:210px;
+    width:265px;
+    height:250px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
 .restContainer .card-body{
     width:600px;
-    margin:0 6px;
+    margin:0 40px;
 }
 
 .restContainer .card-body .rating{
@@ -330,4 +330,10 @@ input[type="range"]::-moz-range-thumb{
     border-radius:5px;
     height:40px;
     outline:none;
+}
+
+.viewRestBtn:hover, .addRestBtn:hover{
+    cursor: pointer;
+    background-color: #c6b6af;
+    color: white;
 }

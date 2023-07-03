@@ -147,7 +147,7 @@ class UserController extends Controller
 
     function customerProfile()
     {
-        $customer_data = Customer::where('admin_id', session('user_id'))->first();
+        $customer_data = Customer::where('cust_id', session('user_id'))->first();
 
         if ($customer_data) {
 
