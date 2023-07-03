@@ -291,8 +291,8 @@ input[type="range"]::-moz-range-thumb{
 }
 
 .restContainer .card .row img{
-    width:230px;
-    height:210px;
+    width:265px;
+    height:250px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
 }
