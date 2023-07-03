@@ -95,19 +95,26 @@ class AdminController extends Controller
         return response()->json(['customers' => $customers]);
     }
 
-    function deleteCust($customerId)
+    function deleteCust($cust_id)
     {
-        $customer_data = Customer::where('rest_id',$rest_id)->first();
+        $customer_data = Customer::find($cust_id);
         $email = $customer_data->user_email;
 
-        Rate::where('cust_id',$customerId)->delete();
-        History::where('cust_id',$customerId)->delete();
-        Spinwheel::where('cust_id',$customerId)->delete();
-        
-        Customer::where('cust_id',$customerId)->delete();
-        User::where('user_email',$email)->delete();
+        if($customer_data){
+            Rate::where('cust_id',$cust_id)->delete();
+            History::where('cust_id',$cust_id)->delete();
+            Spinwheel::where('cust_id',$cust_id)->delete();
+            
+            $customer_data->delete();
+            User::where('user_email',$email)->delete();
 
-        return redirect('adminEditCustomer');
+            // return redirect('adminEditCustomer')->with('success', 'Customer deleted successfully');
+            return response()->json(['success' => true]);
+        }
+        else {
+            // return redirect('adminEditCustomer')->with('error', 'Customer not found');
+            return response()->json(['success' => false, 'message' => 'Customer not found']);
+        }
     }
 
     function editCust(Request $req)

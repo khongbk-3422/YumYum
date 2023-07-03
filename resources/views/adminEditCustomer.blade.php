@@ -44,7 +44,7 @@
             align-items: center;
         }
 
-        .title .search-container input[type=text] {
+        .search-container input[type=text] {
             padding: 6px;
             border: none;
             font-size: 17px;
@@ -236,6 +236,22 @@
                 margin-top: 10px;
             }
 
+            .input-group .custom-file-upload {
+                display: inline-block;
+                padding: 6px 12px;
+                cursor: pointer;
+                background-color: #f1f1f1;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                color: #333;
+                font-weight: bold;
+                height: 32px;
+            }
+
+            .input-group .custom-file-upload:hover {
+                background-color: #e1e1e1;
+            }
+
             label{
                 box-sizing: border-box;
                 font-size: 20px;
@@ -309,7 +325,7 @@
                     <div class="action">
                         <div class="icon">
                             <a href={{"adminDeleteCust/".$cust_data['cust_id']}} class="delete-icon">
-                            {{-- <a href="#" onclick="confirmDelete({{$cust_data['cust_id']}})" class="dltbtn"> --}}
+                            {{-- <a href="#" onclick="handleDelete(event)" data-customer-id="{{$cust_data['cust_id']}}" class="delete-icon"> --}}
                                 <i class="fa-solid fa-user-slash"></i>
                             </a>
                         </div>
@@ -330,6 +346,7 @@
                     <img id="customerImage" src="data:image/[image_format];base64,{{ $select_cust->cust_pic }}" alt="">
 
                     <div class="input-group mb-3">
+                        <label for="customerImageSrc" class="custom-file-upload">Choose File</label>
                         <input type="file" class="form-control" id="customerImageSrc" name="new_cust_pic">
                     </div>
 
@@ -362,7 +379,6 @@
                         <label class="input-group-text" for="customerImageSrc"> Upload </label>
                         <input type="file" class="form-control" id="customerImageSrc" name="new_cust_pic">
                     </div>
-                    /* I also dun know why this input doesn't display the back part */
 
                     <div class="name">
                         <h6>Name</h6>
@@ -444,33 +460,6 @@
     for (let i = 0; i < deleteIcons.length; i++){
         deleteIcons[i].addEventListener('click', handleDelete);
     }
-    
-    // function confirmDelete(cust_id) {
-    //     const swalWithBootstrapButtons = Swal.mixin({
-    //         customClass: {
-    //             confirmButton: 'btn btn-success',
-    //             cancelButton: 'btn btn-danger'
-    //         },
-    //         buttonsStyling: false
-    //     });
-
-    //     swalWithBootstrapButtons.fire({
-    //         title: 'Are you sure?',
-    //         text: 'This action cannot be undone.',
-    //         icon: 'warning',
-    //         showCancelButton: true,
-    //         confirmButtonText: 'Yes, delete it!',
-    //         cancelButtonText: 'No, cancel!',
-    //         reverseButtons: true
-    //     }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             // Redirect to the delete URL with the product ID
-    //             window.location.href = 'adminDeleteCustomer/' + cust_id;
-    //         } else if (result.dismiss === Swal.DismissReason.cancel) {
-    //             // Canceled, do nothing
-    //         }
-    //     });
-    // }
 
     function handleDelete(event){
         event.preventDefault();
@@ -481,22 +470,31 @@
         const confirmDelete = confirm("Are you sure you want to delete this customer?");
 
         if (confirmDelete) {
-            fetch('/adminDeleteCustomer/${customerId}', {
-            method: 'GET',
+            fetch(`/adminDeleteCustomer/${customerId}`, {
+                method: 'GET',
             })
             .then(response => {
-            if (response.ok) {
-                console.log('Customer deleted');
-                location.reload();
-            } else {
-                console.error('Failed to delete customer');
-            }
+                if (response.ok) {
+                    console.log('Customer deleted');
+                    location.reload();
+                } else {
+                    console.error('Failed to delete customer');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Customer deleted successfully');
+                } else {
+                    alert('Failed to delete customer');
+                }
             })
             .catch(error => {
             console.error('Network error:', error);
             });
         }
     }
+
 
     // search function
     const searchInput = document.getElementById('searchInput');
