@@ -346,4 +346,15 @@ class AdminController extends Controller
         
         return redirect('adminEditRating');
     }
+
+    function addRestImage(Request $req)
+    {
+        $rest_picture_t = new Rest_Picture;
+        $rest_picture_t->rest_id = $req->rest_id;
+        $file = $req->file('new_rest_pic');
+        $rest_picture_t->rest_pic = file_get_contents($file->getPathname());
+        $rest_picture_t->save();
+        
+        return redirect('adminEditRestaurant/'.$req->rest_id);
+    }
 }

@@ -105,6 +105,7 @@ Route::get('/adminEditRestaurant/{rest_id}', [AdminController::class,'getRestDet
 Route::get('/adminDeleteRestaurant/{rest_id}', [AdminController::class,'deleteRest']);
 Route::get('/adminDeleteRestPic/{pic_id}/{rest_id}', [AdminController::class,'deleteRestPic']);
 Route::post('/admin_edit_rest', [AdminController::class,'editRestDetails']);
+Route::post('/add_rest_image', [AdminController::class,'addRestImage']);
 Route::get('/adminDeleteRate/{cust_id}/{rest_id}', [AdminController::class,'deleteRate']);
 
 //adminEditRestaurant

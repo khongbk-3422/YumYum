@@ -401,9 +401,17 @@
 
                 <div class="card swiper-slide">
                     <div class="menubox">
-                        <a href="#"><img src="{{asset('image/add.png')}}"></a>
+                        <a href="#" id="uploadImageLink">
+                            <img src="{{ asset('image/add.png') }}">
+                        </a>
                     </div>
                 </div>
+                
+                <form id="uploadForm" action="{{ url('add_rest_image') }}" method="POST" enctype="multipart/form-data" style="display: none;">
+                    @csrf
+                    <input type="hidden" name="rest_id" value="{{$rest_data['rest_id']}}" />
+                    <input type="file" id="uploadInput" name="new_rest_pic">
+                </form>
             </div>
         </div>
 
@@ -530,6 +538,21 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var uploadImageLink = document.getElementById('uploadImageLink');
+        var uploadInput = document.getElementById('uploadInput');
+
+        uploadImageLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            uploadInput.click();
+        });
+
+        uploadInput.addEventListener('change', function() {
+            // Handle the file upload logic here
+            document.getElementById('uploadForm').submit();
         });
     });
 
