@@ -44,7 +44,7 @@
             align-items: center;
         }
 
-        .search-container input[type=text] {
+        .search-container input[type=search] {
             padding: 6px;
             border: none;
             font-size: 17px;
@@ -305,7 +305,7 @@
                         {{-- <button type="button" class="search-button"> --}}
                             <i class="fa-solid fa-search"></i>
                         {{-- </button> --}}
-                        </div>
+                    </div>
                 </div>
                 <div id="customerList">
                 @foreach ($cust_datas as $cust_data)
