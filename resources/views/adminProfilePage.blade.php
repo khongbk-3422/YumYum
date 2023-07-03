@@ -166,13 +166,13 @@
                 <div class="arrow"></div>
                 <div class="text">Hover me :P</div>
             <div class="adminProfile">
+                <form action="editProfile" method="POST" enctype="multipart/form-data">
+                    @csrf
                 <div class="picture">
-                    <img src="data:image/[image_format];base64,{{ $admin_data['admin_pic'] }}" >    
+                    <img src="data:image/jpg;base64,{{ $admin_data['admin_pic'] }}" >    
                     <input type="file" class="form-control" id="profilePicture" accept="image/*" name="new_pic">
                 </div>
 
-                <form action="editProfile" method="POST" enctype="multipart/form-data">
-                    @csrf
                     <div class="form-group">
                         <label for="newName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">

@@ -211,7 +211,7 @@ class UserController extends Controller
                 
                 if ($req->hasFile('new_pic')) {
                     $file = $req->file('new_pic');
-                    $customer_data->cust_pic = file_get_contents($file);
+                    $cust_data->cust_pic = file_get_contents($file->getPathname());
                 }
                 
                 $customer_data->save();
@@ -250,10 +250,7 @@ class UserController extends Controller
                 
                 if ($req->hasFile('new_pic')) {
                     $file = $req->file('new_pic');
-                    $destinationPath = public_path('image/customer');
-                    $filename = $file->getClientOriginalName();
-                    $file->move($destinationPath, $filename);
-                    $customer_data->cust_pic = 'image/customer/' . $filename; // Save the file path
+                    $cust_data->cust_pic = file_get_contents($file->getPathname());
                 }
                 
                 $customer_data->save();
@@ -297,7 +294,7 @@ class UserController extends Controller
                 
                 if ($req->hasFile('new_pic')) {
                     $file = $req->file('new_pic');
-                    $admin_data->cust_pic = file_get_contents($file);
+                    $admin_data->admin_pic = file_get_contents($file->getPathname());
                 }
                 
                 $admin_data->save();
@@ -336,7 +333,9 @@ class UserController extends Controller
                 
                 if ($req->hasFile('new_pic')) {
                     $file = $req->file('new_pic');
-                    $admin_data->cust_pic = file_get_contents($file);
+                    $admin_data->admin_pic = file_get_contents($file->getPathname());
+                } else {
+                    return "nofile";
                 }
                 
                 $admin_data->save();

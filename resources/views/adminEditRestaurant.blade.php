@@ -401,7 +401,7 @@
 
                 <div class="card swiper-slide">
                     <div class="menubox">
-                        <a href=""><img src="{{asset('image/add.png')}}"></a>
+                        <a href="#"><img src="{{asset('image/add.png')}}"></a>
                     </div>
                 </div>
             </div>
