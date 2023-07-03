@@ -15,10 +15,8 @@
         <div class="sidemenu">
             <!-- Need form mah? Cuz need to get the search value -->
             <div class="searchBar">
-                <input type="text" placeholder="Search here">
-                <a href="">
-                    <i class="fa fa-search"></i>
-                </a>
+                <input type="text" id="searchInput" placeholder="Search here">
+                <a href="#" id="searchButton"><i class="fa fa-search"></i></a>
             </div>
 
             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
@@ -32,35 +30,35 @@
                     <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="italianCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="" id="italianCB">
                                 <label class="form-check-label mb-2" for="italianCB">Italian</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="japaneseCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="" id="japaneseCB">
                                 <label class="form-check-label  mb-2" for="japaneseCB">Japanese</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="malaysianCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="" id="malaysianCB">
                                 <label class="form-check-label  mb-2" for="malaysianCB">Malaysian</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="steakhouseCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="" id="steakhouseCB">
                                 <label class="form-check-label  mb-2" for="steakhouseCB">Steakhouse</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="thaiCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="" id="thaiCB">
                                 <label class="form-check-label  mb-2" for="thaiCB">Thai</label>
                             </div>
                         </li>
@@ -164,110 +162,46 @@
 
                 <div id="carouselExampleRide" class="carousel" data-bs-ride="true">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest1.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Iketeru Restaurant</h5>
-                                    <p class="card-text text-muted">Japanese</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                        <span class="custrateqty">(43)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
 
-                        <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest2.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Prime</h5>
-                                    <p class="card-text text-muted">Steakhouse</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                        <span class="custrateqty">(31)</span>
-                                    </p>
-                                </div> 
+                        @foreach ($best_rest_data as $best_rest)
+                            <div class="carousel-item active">
+                                <div class="card" style="width:13rem;">
+                                    <img src="data:image/[image_format];base64,{{ $best_rest->rest_pic }}" alt="">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{$best_rest['rest_name']}}</h5>
+                                        <p class="card-text text-muted">{{$best_rest['rest_category']}}</p>
+                                        <p class="rating">{{$best_rest['avg_rating']}}
+                                            @if ($best_rest['avg_rating'] == 5)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 4.15 && $best_rest['avg_rating'] < 5)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 3.85 && $best_rest['avg_rating'] < 4.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 3.15 && $best_rest['avg_rating'] < 3.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 2.85 && $best_rest['avg_rating'] < 3.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 2.15 && $best_rest['avg_rating'] < 2.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 1.85 && $best_rest['avg_rating'] < 2.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 1.15 && $best_rest['avg_rating'] < 1.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 0.85 && $best_rest['avg_rating'] < 1.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($best_rest['avg_rating'] >= 1.15 && $best_rest['avg_rating'] < 1.85)
+                                                <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @else
+                                            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
+                                            @endif
+                                            <span class="custrateqty">({{$best_rest['rating_count']}})</span>
+                                        </p>
+                                    </div> 
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
 
-                        <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest3.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Beta KL</h5>
-                                    <p class="card-text text-muted">Malaysian</p>
-                                    <p class="rating">5.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                        <span class="custrateqty">(26)</span>
-                                    </p>
-                                </div> 
-                            </div>
                         </div>
-
-                        <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest4.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Chambers Grill</h5>
-                                    <p class="card-text text-muted">Steakhouse</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
-                                        <span class="custrateqty">(22)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest5.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Positano Risto</h5>
-                                    <p class="card-text text-muted">Italian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
-                                        <span class="custrateqty">(31)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest6.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">JP Teres</h5>
-                                    <p class="card-text text-muted">Malaysian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
-                                        <span class="custrateqty">(25)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest7.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Via Pre Kul</h5>
-                                    <p class="card-text text-muted">Italian</p>
-                                    <p class="rating">4.5 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
-                                        <span class="custrateqty">(27)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="card" style="width:12rem;">
-                                <img src="{{ asset('image/rest8.jpg')}}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Tamarind Hill</h5>
-                                    <p class="card-text text-muted">Thai</p>
-                                    <p class="rating">4.0 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                        <span class="custrateqty">(21)</span>
-                                    </p>
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
 
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -283,44 +217,147 @@
             <!-- Top restaurant carousel End -->
 
             <!-- Restaurant Cards Start -->
-            <!-- Loop from database -->
-            
             <div class="restContainer">
                 <div class="title">
                     <h3>Restaurants in Kuala Lumpur</h3>
                 </div>
                 @foreach ($datas as $data)
-                    <div class="card mb-3">
+                    <div class="restContain card mb-3" data-cuisine="{{ $data['rest_category'] }}">
                         <div class="row g-0">
                             <div class="col-md-3">
                                 <img src="data:image/[image_format];base64,{{ $data->data_pic }}" alt="">
                             </div>
 
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{$data['rest_name']}}}</h5>
-                                        <p class="rating">{{$data['avg_rate']}} <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i>
-                                            <span class="custrateqty">({{$data['count']}})</span>
+                                    <h5 class="card-title">{{ $data['rest_name']}}</h5>
+                                    
+                                    <p class="card-text text-muted">{{$data['rest_category']}}</p>
+                                        <p class="rating">{{ $data['avg_rate']}} 
+                                            @if ($data['avg_rate'] == 5)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
+                                            @elseif ($data['avg_rate'] >= 4.15 && $data['avg_rate'] < 5)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
+                                            @elseif ($data['avg_rate'] >= 3.85 && $data['avg_rate'] < 4.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($data['avg_rate'] >= 3.15 && $data['avg_rate'] < 3.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($data['avg_rate'] >= 2.85 && $data['avg_rate'] < 3.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($data['avg_rate'] >= 2.15 && $data['avg_rate'] < 2.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($data['avg_rate'] >= 1.85 && $data['avg_rate'] < 2.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($data['avg_rate'] >= 1.15 && $data['avg_rate'] < 1.85)
+                                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($data['avg_rate'] >= 0.85 && $data['avg_rate'] < 1.15)
+                                                <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @elseif ($data['avg_rate'] >= 1.15 && $data['avg_rate'] < 1.85)
+                                                <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
+                                            @else
+                                            <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
+                                            @endif
+                                            <span class="custrateqty">({{ $data['count']}})</span>
                                         </p>
-                                    <p class="card-text"><i class="bi bi-geo-alt"></i>{{$data['rest_address']}}</p>
-                                    <a <?php echo $_SERVER['REQUEST_URI'] === '/restaurantDetailsPage' ? 'active' : '' ?> href="/restaurantDetailsPage"><button class="viewRestBtn">View More</button></a>
+                                    <p class="card-text"><i class="bi bi-geo-alt"></i>{{ $data['rest_address'] }}</p>
+                                    <a href={{"restaurantDetailsPage/".$data['rest_id']}}><button class="viewRestBtn">View More</button></a>
+                                    <a href={{"addToWheel/".$data['rest_id']}}><button class="addRestBtn">Add to spin wheel</button></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
-            </div
+            </div>
             <!-- Restaurant Cards End -->
         </div>
     </div>
 </body>
+
+@if(Session::has('rest_already_added'))
     <script>
+        alert("Restaurant already added in Spin Wheel!");
+    </script>
+@endif
+
+@if(Session::has('rest_added'))
+    <script>
+        alert("Restaurant successfully added to Spin Wheel!");
+    </script>
+@endif
+
+    <script>
+        
+        const checkboxes = document.querySelectorAll('.category-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', handleFilter);
+        });
+
+        // search function
+        function handleSearch() {
+            const searchText = searchInput.value.toLowerCase();
+            const cards = document.getElementsByClassName('restContain card');
+
+            const selectedCuisines = [];
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(checkbox => {
+                selectedCuisines.push(checkbox.id);
+            });
+
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const address = card.querySelector('.card-text').textContent.toLowerCase();
+                const cuisine = card.dataset.cuisine.toLowerCase();
+
+                const titleMatch = title.includes(searchText);
+                const addressMatch = address.includes(searchText);
+                const cuisineMatch = selectedCuisines.length === 0 || selectedCuisines.includes(cuisine);
+
+                if (titleMatch || addressMatch) {
+                    if (cuisineMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                } else {
+                    card.style.display = 'none';
+                }
+            }
+        }
+
+        // Get the checkbox inputs and add an event listener to each
+        // const checkboxes = document.querySelectorAll('.category-checkbox');
+        // checkboxes.forEach(checkbox => {
+        //     checkbox.addEventListener('change', handleFilter);
+        // });
+
+        // Function to handle the filtering based on the checkboxes
+        function handleFilter() {
+            const selectedCategorys = [];
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    selectedCategorys.push(checkbox.id);
+                }
+            });
+
+            const cards = document.querySelectorAll('.restContain.card');
+            cards.forEach(card => {
+                const category = card.dataset.category;
+
+                if (selectedCategorys.length === 0 || selectedCategory.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
         //sidemnu toggle
         document.addEventListener('DOMContentLoaded', function() {
             const menulinks = document.querySelectorAll('#menu .nav-link');
 
-            menulinks.forEach(function(link){
-                link.addEventListener('click', function(event){
+            menulinks.forEach(function(link) {
+                link.addEventListener('click', function(event) {
                     const submenu = this.nextElementSibling;
                     submenu.classList.toggle('show');
                     event.preventDefault();
@@ -328,8 +365,16 @@
             });
         });
 
+        // Stop event propagation on checkbox clicks
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        });
+
+        //top recommend restaurant card choser
         $(document).ready(function() {
-            //top restaurant card choser
             var carouselWidth = $('.carouselContainer .carousel-inner')[0].scrollWidth;
             var cardWidth = $('.carouselContainer .carousel-item').width();
 
@@ -350,7 +395,7 @@
                     600);
                 }
             });
-    });
+        });
 
     // price changes with entered price
     const priceRange = document.querySelectorAll(".pricerange input"),

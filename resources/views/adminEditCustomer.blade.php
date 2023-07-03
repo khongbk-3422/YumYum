@@ -433,6 +433,7 @@
     confirmButton.addEventListener('click', handleConfirm);
 
     function handleConfirm() {
+        event.preventDefault(); // Prevents the default form submission
         const customerId = document.getElementById('customerId').value;
         const customerName = document.getElementById('customerName').value;
         const customerEmail = document.getElementById('customerEmail').value;
@@ -441,7 +442,7 @@
         const confirmMessage = `Are you sure you want to modify the data for this customer?`;
 
         if (confirm(confirmMessage)) {
-
+            document.querySelector('.form').submit();
         }
     }
 

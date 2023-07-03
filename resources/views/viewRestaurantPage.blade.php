@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     @include('cdn')
-    <link rel="stylesheet" href="{{asset('css/restaurantPage.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/restaurantPage.css') }}">
 </head>
 <body>
     <div class="mainContainer">
@@ -23,42 +23,42 @@
                 <li class="mb-2">
                     <a href="#submenu1" class="nav-link px-0 align-middle">
                         <i class="fa-solid fa-utensils"></i>
-                            <span class="ms-1 d-none d-sm-inline">Category</span>
+                        <span class="ms-1 d-none d-sm-inline">Category</span>
                         <i class="fa-solid fa-angle-down"></i>
                     </a>
 
                     <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="italianCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="" id="italianCB">
                                 <label class="form-check-label mb-2" for="italianCB">Italian</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="japaneseCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="" id="japaneseCB">
                                 <label class="form-check-label  mb-2" for="japaneseCB">Japanese</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="malaysianCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="" id="malaysianCB">
                                 <label class="form-check-label  mb-2" for="malaysianCB">Malaysian</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="steakhouseCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="" id="steakhouseCB">
                                 <label class="form-check-label  mb-2" for="steakhouseCB">Steakhouse</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="thaiCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="" id="thaiCB">
                                 <label class="form-check-label  mb-2" for="thaiCB">Thai</label>
                             </div>
                         </li>
@@ -73,85 +73,76 @@
                     </a>
 
                     <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                        <div class="listwrapper">
-                            <div class="rangeinput">
-                                <div class="field">
-                                    <span>MIN</span>
-                                    <input type="number" name="min_price" value="100">
-                                </div>
-
-                                <div class="seperator">-</div>
-
-                                <div class="field">
-                                    <span>MAX</span>
-                                    <input type="number" name="max_price" value="500">
-                                </div>
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input price-checkbox" type="checkbox" value="" id="price1CB">
+                                <label class="form-check-label mb-2" for="price1CB">Price 1</label>
                             </div>
+                        </li>
 
-                            <div class="slider">
-                                <div class="amount"></div>
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input price-checkbox" type="checkbox" value="" id="price2CB">
+                                <label class="form-check-label  mb-2" for="price2CB">Price 2</label>
                             </div>
+                        </li>
 
-                            <div class="pricerange">
-                                <input type="range" class="minrange" min="0" max="1000" value="100" name="min_price_range" step="50">
-                                <input type="range" class="maxrange" min="0" max="1000" value="500" name="max_price_range" step="50">
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input price-checkbox" type="checkbox" value="" id="price3CB">
+                                <label class="form-check-label  mb-2" for="price3CB">Price 3</label>
                             </div>
+                        </li>
 
-                            <div class="confirmbutton">
-                                <!-- need to retrieve the price value and find from databse-->
-                                <button><a href="">View</a></button>
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input price-checkbox" type="checkbox" value="" id="price4CB">
+                                <label class="form-check-label  mb-2" for="price4CB">Price 4</label>
                             </div>
-                        </div>
+                        </li>
                     </ul>
                 </li>
 
-                <li class="mb-2">
+                <li>
                     <a href="#submenu3" class="nav-link px-0 align-middle">
-                        <i class="bi bi-geo-alt"></i>
-                        <span class="ms-1 d-none d-sm-inline">Location</span>
+                        <i class="bi bi-star"></i>
+                        <span class="ms-1 d-none d-sm-inline">Rating</span>
                         <i class="fa-solid fa-angle-down"></i>
                     </a>
-                        
+
                     <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="bintangCB">
-                                <label class="form-check-label  mb-2" for="bintangCB">Bukit Bintang</label>
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="damansaraCB">
-                                <label class="form-check-label  mb-2" for="damansaraCB">Damansara</label>
+                                <input class="form-check-input rating-checkbox" type="checkbox" value="" id="rating1CB">
+                                <label class="form-check-label mb-2" for="rating1CB">Rating 1</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="sentralCB">
-                                <label class="form-check-label  mb-2" for="sentralCB">Jalan Stesen Sentral</label>
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="ismailCB">
-                                <label class="form-check-label  mb-2" for="ismailCB">Jalan Sultan Ismail</label>
+                                <input class="form-check-input rating-checkbox" type="checkbox" value="" id="rating2CB">
+                                <label class="form-check-label  mb-2" for="rating2CB">Rating 2</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="razakCB">
-                                <label class="form-check-label  mb-2" for="razakCB">Jalan Tun Razak</label>
+                                <input class="form-check-input rating-checkbox" type="checkbox" value="" id="rating3CB">
+                                <label class="form-check-label  mb-2" for="rating3CB">Rating 3</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input rating-checkbox" type="checkbox" value="" id="rating4CB">
+                                <label class="form-check-label  mb-2" for="rating4CB">Rating 4</label>
                             </div>
                         </li>
                     </ul>
                 </li>
             </ul>
         </div>
-        <!-- Sidemenu End -->
+        <!-- Sidemenu Ends -->
 
         <!-- Top restaurant carousel Starts -->
         <div class="contentContainer">
@@ -217,14 +208,12 @@
             <!-- Top restaurant carousel End -->
 
             <!-- Restaurant Cards Start -->
-            <!-- Loop from database -->
-            
             <div class="restContainer">
                 <div class="title">
                     <h3>Restaurants in Kuala Lumpur</h3>
                 </div>
                 @foreach ($datas as $data)
-                    <div class="card mb-3">
+                    <div class="restContain card mb-3" data-cuisine="{{ $data['rest_category'] }}">
                         <div class="row g-0">
                             <div class="col-md-3">
                                 <img src="data:image/[image_format];base64,{{ $data->data_pic }}" alt="">
@@ -233,6 +222,8 @@
                             <div class="col-md-9">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $data['rest_name']}}</h5>
+                                    
+                                    <p class="card-text text-muted">{{$data['rest_category']}}</p>
                                         <p class="rating">{{ $data['avg_rate']}} 
                                             @if ($data['avg_rate'] == 5)
                                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
@@ -269,133 +260,68 @@
                 @endforeach
             </div>
             <!-- Restaurant Cards End -->
-        </div>
     </div>
+</div>
+
+<script>
+// Wait for the DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+  // Get the checkboxes for price and rating
+  var priceCheckboxes = document.querySelectorAll(".price-checkbox");
+  var ratingCheckboxes = document.querySelectorAll(".rating-checkbox");
+
+  // Add event listeners to the checkboxes
+  priceCheckboxes.forEach(function(checkbox) {
+    checkbox.addEventListener("change", filterRestaurants);
+  });
+
+  ratingCheckboxes.forEach(function(checkbox) {
+    checkbox.addEventListener("change", filterRestaurants);
+  });
+
+  // Function to filter restaurants based on selected checkboxes
+  function filterRestaurants() {
+    var selectedPrices = getSelectedValues(priceCheckboxes);
+    var selectedRatings = getSelectedValues(ratingCheckboxes);
+
+    // Get all restaurant elements
+    var restaurants = document.querySelectorAll(".restaurant");
+
+    // Loop through each restaurant
+    restaurants.forEach(function(restaurant) {
+      var price = restaurant.getAttribute("data-price");
+      var rating = restaurant.getAttribute("data-rating");
+
+      // Check if the restaurant's price and rating match the selected checkboxes
+      if (
+        (selectedPrices.length === 0 || selectedPrices.includes(price)) &&
+        (selectedRatings.length === 0 || selectedRatings.includes(rating))
+      ) {
+        // Show the restaurant if it matches the selected checkboxes
+        restaurant.style.display = "block";
+      } else {
+        // Hide the restaurant if it doesn't match the selected checkboxes
+        restaurant.style.display = "none";
+      }
+    });
+  }
+
+  // Function to get the selected values from a group of checkboxes
+  function getSelectedValues(checkboxes) {
+    var selectedValues = [];
+
+    checkboxes.forEach(function(checkbox) {
+      if (checkbox.checked) {
+        selectedValues.push(checkbox.value);
+      }
+    });
+
+    return selectedValues;
+  }
+});
+
+</script>
+
 </body>
-
-@if(Session::has('rest_already_added'))
-    <script>
-        alert("Restaurant already added in Spin Wheel!");
-    </script>
-@endif
-
-@if(Session::has('rest_added'))
-    <script>
-        alert("Restaurant successfully added to Spin Wheel!");
-    </script>
-@endif
-
-    <script>
-        //search function
-        var searchInput = document.getElementById('searchInput');
-        var searchButton = document.getElementById('searchButton');
-        searchButton.addEventListener('click', function() {
-            performSearch();
-        });
-
-        searchInput.addEventListener('keyup', function(event) {
-            // Check if the Enter key was pressed (key code 13)
-            if (event.keyCode === 13) {
-                performSearch();
-            }
-        });
-
-        function performSearch() {
-            var searchValue = searchInput.value;
-            window.location.href = 'filter/' + encodeURIComponent(searchValue);
-        }
-
-        //sidemnu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menulinks = document.querySelectorAll('#menu .nav-link');
-
-            menulinks.forEach(function(link){
-                link.addEventListener('click', function(event){
-                    const submenu = this.nextElementSibling;
-                    submenu.classList.toggle('show');
-                    event.preventDefault();
-                });
-            });
-        });
-
-        //top recommend restaurant card choser
-        $(document).ready(function() {
-            var carouselWidth = $('.carouselContainer .carousel-inner')[0].scrollWidth;
-            var cardWidth = $('.carouselContainer .carousel-item').width();
-
-            var scrollPosition = 0;
-
-            $('.carouselContainer .carousel-control-next').on('click', function(){
-                if(scrollPosition < (carouselWidth - (cardWidth * 4))){
-                    scrollPosition = scrollPosition + cardWidth;
-                    $('.carouselContainer .carousel-inner').animate({scrollLeft: scrollPosition}, 
-                    600);
-                }
-            });
-
-            $('.carouselContainer .carousel-control-prev').on('click', function(){
-                if(scrollPosition > 0){
-                    scrollPosition = scrollPosition - cardWidth;
-                    $('.carouselContainer .carousel-inner').animate({scrollLeft: scrollPosition}, 
-                    600);
-                }
-            });
-        });
-
-    // price changes with entered price
-    const priceRange = document.querySelectorAll(".pricerange input"),
-            rangeInput = document.querySelectorAll(".rangeinput input"),
-            amount = document.querySelector(".slider .amount");
-
-    let priceGap = 100;
-
-    rangeInput.forEach(input =>{
-        input.addEventListener("input", e =>{
-            //get 2 inputs value
-            let minPrice = parseInt(rangeInput[0].value),
-                maxPrice = parseInt(rangeInput[1].value);
-
-            if ((maxPrice - minPrice >= priceGap) && maxPrice <= 1000){
-                if(e.target.className === "min_price"){
-                    priceRange[0].value = minPrice;
-                    amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
-                }
-                else{
-                    priceRange[1].value = maxPrice;
-                    amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
-                }
-            }
-        });
-    });
-
-    //slider value change with slided value
-    priceRange.forEach(input =>{
-        input.addEventListener("input", e =>{
-            let minPrice = parseInt(priceRange[0].value),
-                maxPrice = parseInt(priceRange[1].value);
-
-            if (maxPrice - minPrice < priceGap){
-                if(e.target.className === "minrange"){
-                    priceRange[0].value = maxPrice - priceGap;
-                }
-                else{
-                    priceRange[1].value = minPrice + priceGap;
-                }
-                
-            }
-            else{
-                rangeInput[0].value = minPrice;
-                rangeInput[1].value = maxPrice;
-                amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
-                amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
-                // console.log(minPrice, maxPrice)
-            }
-        });
-    });
-
-
-
-    </script>
 </html>
 
-@include('footer')
