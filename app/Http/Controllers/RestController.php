@@ -33,13 +33,14 @@ class RestController extends Controller
                 $count += 1;
             }
             
-
             $avg_rate = $count > 0 ? $total_rate / $count : 0;
+            $avg_rate_formatted = number_format($avg_rate, 1); // Format avg_rate to 1 decimal place
+            
             $data->count = $count;
-            $data->avg_rate = $avg_rate;
+            $data->avg_rate = $avg_rate_formatted;
         }
 
-        $best_rest_data = Rate::select('rest_id', DB::raw('AVG(rating) as avg_rating'), DB::raw('COUNT(*) as rating_count'))
+        $best_rest_data = Rate::select('rest_id', DB::raw('ROUND(AVG(rating), 1) as avg_rating'), DB::raw('COUNT(*) as rating_count'))
                     ->groupBy('rest_id')
                     ->orderByDesc('avg_rating')
                     ->orderByDesc('rating_count')
@@ -59,29 +60,52 @@ class RestController extends Controller
         return view('viewRestaurantPage',['datas'=>$datas,'best_rest_data'=>$best_rest_data]);
     }
 
-    public function filter(Request $request)
+    public function price_filter(Request $req)
     {
-        $search = $request->input('search');
-        $locations = $request->input('location', []);
+        $datas = Restaurant::where('price_min', '>=', $req->min_price)
+                ->where('price_max', '<=', $req->max_price)
+                ->get();
+        foreach ($datas as $data) {
+            // Get First Pic
+            $pic_data = Rest_Picture::where('rest_id',$data->rest_id)->first();
+            $rest_pic = $pic_data ? base64_encode($pic_data->rest_pic) : null;
+            $data->data_pic = $rest_pic;
 
-        // Query for filtering restaurants
-        $query = Restaurant::query();
+            //Get Rating
+            $rate_datas = Rate::where('rest_id',$data->rest_id)->get();
+            $total_rate = 0;
+            $count = 0;
+            foreach ($rate_datas as $rate_data) {
+                $total_rate += $rate_data->rating;
+                $count += 1;
+            }
+            
 
-        // Apply search filter
-        if (!empty($search)) {
-            $query->where('name', 'like', '%' . $search . '%');
+            $avg_rate = $count > 0 ? $total_rate / $count : 0;
+            $avg_rate_formatted = number_format($avg_rate, 1); // Format avg_rate to 1 decimal place
+
+            $data->count = $count;
+            $data->avg_rate = $avg_rate_formatted;
         }
 
-        // Apply location filter
-        if (!empty($locations)) {
-            $query->whereIn('location', $locations);
+        $best_rest_data = Rate::select('rest_id', DB::raw('ROUND(AVG(rating), 1) as avg_rating'), DB::raw('COUNT(*) as rating_count'))
+                    ->groupBy('rest_id')
+                    ->orderByDesc('avg_rating')
+                    ->orderByDesc('rating_count')
+                    ->take(8)
+                    ->get();
+        
+        foreach ($best_rest_data as $data) {
+            $rest = Restaurant::where('rest_id', $data['rest_id'])->first();
+            $data->rest_name = $rest->rest_name;
+            $data->rest_category = $rest->rest_category;
+            
+            $rest_pic_data = Rest_Picture::where('rest_id',$data->rest_id)->first();
+            $rest_pic = $rest_pic_data ? base64_encode($rest_pic_data->rest_pic) : null;
+            $data->rest_pic = $rest_pic;
         }
 
-        // Retrieve the filtered data
-        $filteredData = $query->get();
-
-        // Return the filtered data to the view
-        return view('filteredRestaurants', ['filteredData' => $filteredData]);
+        return view('viewRestaurantPage',['datas'=>$datas,'best_rest_data'=>$best_rest_data]);
     }
 
     function restDetails($rest_id) 

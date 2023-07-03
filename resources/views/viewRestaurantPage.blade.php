@@ -13,7 +13,6 @@
     <div class="mainContainer">
         <!-- Sidemenu Starts -->
         <div class="sidemenu">
-            <!-- Need form mah? Cuz need to get the search value -->
             <div class="searchBar">
                 <input type="text" id="searchInput" placeholder="Search here">
                 <a href="#" id="searchButton"><i class="fa fa-search"></i></a>
@@ -65,7 +64,7 @@
                     </ul>
                 </li>
 
-                {{-- <li class="mb-2">
+                <li class="mb-2">
                     <a href="#submenu2" class="nav-link px-0 align-middle ">
                         <i class="bi bi-currency-dollar"></i>
                         <span class="ms-1 d-none d-sm-inline">Price</span>
@@ -73,11 +72,12 @@
                     </a>
 
                     <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                        <div class="listwrapper">
+                        <form action="{{url('viewRestaurantPage_f')}}" method="POST" class="listwrapper">
+                            @csrf
                             <div class="rangeinput">
                                 <div class="field">
                                     <span>MIN</span>
-                                    <input type="number" name="min_price" value="100">
+                                    <input type="number" name="min_price" value="50">
                                 </div>
 
                                 <div class="seperator">-</div>
@@ -93,17 +93,16 @@
                             </div>
 
                             <div class="pricerange">
-                                <input type="range" class="minrange" min="0" max="1000" value="100" name="min_price_range" step="50">
+                                <input type="range" class="minrange" min="0" max="1000" value="50" name="min_price_range" step="50">
                                 <input type="range" class="maxrange" min="0" max="1000" value="500" name="max_price_range" step="50">
                             </div>
 
                             <div class="confirmbutton">
-                                <!-- need to retrieve the price value and find from databse-->
-                                <button><a href="">View</a></button>
+                                <button type="submit" class="viewBtn">View</button>
                             </div>
-                        </div>
+                        </form>
                     </ul>
-                </li> --}}
+                </li>
 
                 <li class="mb-2">
                     <a href="#submenu3" class="nav-link px-0 align-middle">
@@ -136,7 +135,7 @@
                         
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input location-checkbox" type="checkbox" value="" id="ismailCB">
+                                <input class="form-check-input location-checkbox" type="checkbox" value="Jln Sultan Ismail" id="ismailCB">
                                 <label class="form-check-label  mb-2" for="ismailCB">Jalan Sultan Ismail</label>
                             </div>
                         </li>
@@ -232,6 +231,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $data['rest_name']}}</h5>
                                     <p class="card-category text-muted">{{$data['rest_category']}}</p>
+            
                                         <p class="rating">{{ $data['avg_rate']}} 
                                             @if ($data['avg_rate'] == 5)
                                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
@@ -285,21 +285,21 @@
 @endif
 
     <script>
-        
+        //search function
         const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', filterResult);
+        searchInput.addEventListener('input', filterResult);
 
-            const categoryCheckboxes = document.querySelectorAll('input.form-check-input.category-checkbox');
-            categoryCheckboxes.forEach(checkbox => {
+        const categoryCheckboxes = document.querySelectorAll('input.form-check-input.category-checkbox');
+        categoryCheckboxes.forEach(checkbox => {
             checkbox.addEventListener('change', filterResult);
-            });
-
-            const locationCheckboxes = document.querySelectorAll('input.form-check-input.location-checkbox');
-            locationCheckboxes.forEach(checkbox => {
+        });
+        
+        const locationCheckboxes = document.querySelectorAll('input.form-check-input.location-checkbox');
+        locationCheckboxes.forEach(checkbox => {
             checkbox.addEventListener('change', filterResult);
-            });
-
-            function filterResult() {
+        });
+        
+        function filterResult() {
             const searchText = searchInput.value.toLowerCase();
             const categoryFilter = Array.from(categoryCheckboxes)
                 .filter(checkbox => checkbox.checked)
@@ -308,7 +308,7 @@
             const locationFilter = Array.from(locationCheckboxes)
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value);
-
+            
             const cards = document.getElementsByClassName('restContain card');
 
             for (let i = 0; i < cards.length; i++) {
@@ -319,7 +319,7 @@
                 const cardLocation = card.querySelector('.card-address').textContent;
 
                 const categoryMatch = categoryFilter.length === 0 || categoryFilter.includes(category);
-                const locationMatch = locationFilter.length === 0 || locationFilter.includes(cardLocation);
+                const locationMatch = locationFilter.length === 0 || locationFilter.some(filter => cardLocation.includes(filter));
                 const searchMatch = title.includes(searchText) || address.includes(searchText);
 
                 if (categoryMatch && locationMatch && searchMatch) {
@@ -330,9 +330,7 @@
             }
         }
 
-
-
-
+        
 
         function getSelectedValues(elementId) {
             const selectElement = document.getElementById(elementId);
@@ -355,6 +353,9 @@
         //sidemnu toggle
         document.addEventListener('DOMContentLoaded', function() {
             const menulinks = document.querySelectorAll('#menu .nav-link');
+
+            const viewBtn = document.querySelector('.viewBtn');
+            viewBtn.addEventListener('click', filterResult);
 
             menulinks.forEach(function(link){
                 link.addEventListener('click', function(event){
@@ -389,56 +390,56 @@
             });
         });
 
-    // price changes with entered price
-    const priceRange = document.querySelectorAll(".pricerange input"),
-            rangeInput = document.querySelectorAll(".rangeinput input"),
-            amount = document.querySelector(".slider .amount");
+        // price changes with entered price
+        const priceRange = document.querySelectorAll(".pricerange input"),
+                rangeInput = document.querySelectorAll(".rangeinput input"),
+                amount = document.querySelector(".slider .amount");
 
-    let priceGap = 100;
+        let priceGap = 100;
 
-    rangeInput.forEach(input =>{
-        input.addEventListener("input", e =>{
-            //get 2 inputs value
-            let minPrice = parseInt(rangeInput[0].value),
-                maxPrice = parseInt(rangeInput[1].value);
+        rangeInput.forEach(input =>{
+            input.addEventListener("input", e =>{
+                //get 2 inputs value
+                let minPrice = parseInt(rangeInput[0].value),
+                    maxPrice = parseInt(rangeInput[1].value);
 
-            if ((maxPrice - minPrice >= priceGap) && maxPrice <= 1000){
-                if(e.target.className === "min_price"){
-                    priceRange[0].value = minPrice;
+                if ((maxPrice - minPrice >= priceGap) && maxPrice <= 1000){
+                    if(e.target.className === "min_price"){
+                        priceRange[0].value = minPrice;
+                        amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
+                    }
+                    else{
+                        priceRange[1].value = maxPrice;
+                        amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
+                    }
+                }
+            });
+        });
+
+        //slider value change with slided value
+        priceRange.forEach(input =>{
+            input.addEventListener("input", e =>{
+                let minPrice = parseInt(priceRange[0].value),
+                    maxPrice = parseInt(priceRange[1].value);
+
+                if (maxPrice - minPrice < priceGap){
+                    if(e.target.className === "minrange"){
+                        priceRange[0].value = maxPrice - priceGap;
+                    }
+                    else{
+                        priceRange[1].value = minPrice + priceGap;
+                    }
+                    
+                }
+                else{
+                    rangeInput[0].value = minPrice;
+                    rangeInput[1].value = maxPrice;
                     amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
-                }
-                else{
-                    priceRange[1].value = maxPrice;
                     amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
+                    // console.log(minPrice, maxPrice)
                 }
-            }
+            });
         });
-    });
-
-    //slider value change with slided value
-    priceRange.forEach(input =>{
-        input.addEventListener("input", e =>{
-            let minPrice = parseInt(priceRange[0].value),
-                maxPrice = parseInt(priceRange[1].value);
-
-            if (maxPrice - minPrice < priceGap){
-                if(e.target.className === "minrange"){
-                    priceRange[0].value = maxPrice - priceGap;
-                }
-                else{
-                    priceRange[1].value = minPrice + priceGap;
-                }
-                
-            }
-            else{
-                rangeInput[0].value = minPrice;
-                rangeInput[1].value = maxPrice;
-                amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
-                amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
-                // console.log(minPrice, maxPrice)
-            }
-        });
-    });
 
 
 

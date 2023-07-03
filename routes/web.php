@@ -61,7 +61,7 @@ Route::post('/editProfile',[UserController::class,'editProfile']);
 
 //viewRestaurantPage
 Route::get('viewRestaurantPage',[RestController::class,'getAllRest']);
-Route::get('filter/{searchValue}',[RestController::class,'filter']);
+Route::post('viewRestaurantPage_f',[RestController::class,'price_filter']);
 
 Route::get('addToWheel/{rest_id}',[WheelController::class,'addWheel']);
 
@@ -99,6 +99,7 @@ Route::get('/customers/filter', [AdminController::class, 'filterCustomers']);
 
 //adminViewRestaurant
 Route::get('/adminViewRestaurant', [AdminController::class,'getAllRest']);
+Route::post('/adminViewRestaurant_f', [AdminController::class,'price_filter']);
 Route::post('/admin_add_rest', [AdminController::class,'addRest']);
 Route::get('/adminEditRestaurant/{rest_id}', [AdminController::class,'getRestDetails']);
 Route::get('/adminDeleteRestaurant/{rest_id}', [AdminController::class,'deleteRest']);

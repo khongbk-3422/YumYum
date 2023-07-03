@@ -290,18 +290,22 @@
           }
 
           .restaurantCardContainer .card-img-top {
-            height: 200px; 
+            height: 250px; 
             object-fit: cover; 
           }
 
-          .main.restaurantCard{
+          .main .restaurantCardContainer .restaurantCard{
               flex: 1;
               display: flex;
               flex-direction: column;
               max-width: calc(100% - 260px);
               position: relative;
-              margin-bottom: 20px;
+              margin-top: 20px;
               align-items:center;
+          }
+
+          .card {
+            height: 520px;
           }
           
           .main{
@@ -326,169 +330,147 @@
 </head>
 <body>
   <div class= "main">
-    {{-- sidemenu --}}
-    {{-- <div class="sideMenuBar">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-    </div> --}}
-     <!-- Sidemenu Starts -->
-     <div class="sidemenu">
-      <div class="searchBar">
-          <input type="text" placeholder="Search here" id="searchInput">
-          <a href="">
-              <i class="fa fa-search"></i>
-          </a>
-      </div>
+    <!-- Sidemenu Starts -->
+    <div class="sidemenu">
+        <div class="searchBar">
+            <input type="text" id="searchInput" placeholder="Search here">
+            <a href="#" id="searchButton"><i class="fa fa-search"></i></a>
+        </div>
 
-      <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-          <li class="mb-2">
-              <a href="#submenu1" class="nav-link px-0 align-middle">
-                  <i class="fa-solid fa-utensils"></i>
-                      <span class="ms-1 d-none d-sm-inline">Category</span>
-                  <i class="fa-solid fa-angle-down"></i>
-              </a>
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+            <li class="mb-2">
+                <a href="#submenu1" class="nav-link px-0 align-middle">
+                    <i class="fa-solid fa-utensils"></i>
+                        <span class="ms-1 d-none d-sm-inline">Category</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
 
-              <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                  <li>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="italianCB">
-                          <label class="form-check-label mb-2" for="italianCB">Italian</label>
-                      </div>
-                  </li>
+                <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input category-checkbox" type="checkbox" value="Italian" id="italianCB">
+                            <label class="form-check-label mb-2" for="italianCB">Italian</label>
+                        </div>
+                    </li>
 
-                  <li>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="japaneseCB">
-                          <label class="form-check-label  mb-2" for="japaneseCB">Japanese</label>
-                      </div>
-                  </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input category-checkbox" type="checkbox" value="Japanese" id="japaneseCB">
+                            <label class="form-check-label  mb-2" for="japaneseCB">Japanese</label>
+                        </div>
+                    </li>
 
-                  <li>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="malaysianCB">
-                          <label class="form-check-label  mb-2" for="malaysianCB">Malaysian</label>
-                      </div>
-                  </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input category-checkbox" type="checkbox" value="Malaysian" id="malaysianCB">
+                            <label class="form-check-label  mb-2" for="malaysianCB">Malaysian</label>
+                        </div>
+                    </li>
 
-                  <li>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="steakhouseCB">
-                          <label class="form-check-label  mb-2" for="steakhouseCB">Steakhouse</label>
-                      </div>
-                  </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input category-checkbox" type="checkbox" value="Steakhouse" id="steakhouseCB">
+                            <label class="form-check-label  mb-2" for="steakhouseCB">Steakhouse</label>
+                        </div>
+                    </li>
 
-                  <li>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="thaiCB">
-                          <label class="form-check-label  mb-2" for="thaiCB">Thai</label>
-                      </div>
-                  </li>
-              </ul>
-          </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input category-checkbox" type="checkbox" value="Thai" id="thaiCB">
+                            <label class="form-check-label  mb-2" for="thaiCB">Thai</label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
 
-          <li class="mb-2">
-              <a href="#submenu2" class="nav-link px-0 align-middle ">
-                  <i class="bi bi-currency-dollar"></i>
-                  <span class="ms-1 d-none d-sm-inline">Price</span>
-                  <i class="fa-solid fa-angle-down"></i>
-              </a>
+            <li class="mb-2">
+                <a href="#submenu2" class="nav-link px-0 align-middle ">
+                    <i class="bi bi-currency-dollar"></i>
+                    <span class="ms-1 d-none d-sm-inline">Price</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
 
-              <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                  <div class="listwrapper">
-                      <div class="rangeinput">
-                          <div class="field">
-                              <span>MIN</span>
-                              <input type="number" name="min_price" value="100">
-                          </div>
+                <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                    <form action="{{url('adminViewRestaurant_f')}}" method="POST" class="listwrapper">
+                        @csrf
+                        <div class="rangeinput">
+                            <div class="field">
+                                <span>MIN</span>
+                                <input type="number" name="min_price" value="50">
+                            </div>
 
-                          <div class="seperator">-</div>
+                            <div class="seperator">-</div>
 
-                          <div class="field">
-                              <span>MAX</span>
-                              <input type="number" name="max_price" value="500">
-                          </div>
-                      </div>
+                            <div class="field">
+                                <span>MAX</span>
+                                <input type="number" name="max_price" value="500">
+                            </div>
+                        </div>
 
-                      <div class="slider">
-                          <div class="amount"></div>
-                      </div>
+                        <div class="slider">
+                            <div class="amount"></div>
+                        </div>
 
-                      <div class="pricerange">
-                          <input type="range" class="minrange" min="0" max="1000" value="100" name="min_price_range" step="50">
-                          <input type="range" class="maxrange" min="0" max="1000" value="500" name="max_price_range" step="50">
-                      </div>
+                        <div class="pricerange">
+                            <input type="range" class="minrange" min="0" max="1000" value="50" name="min_price_range" step="50">
+                            <input type="range" class="maxrange" min="0" max="1000" value="500" name="max_price_range" step="50">
+                        </div>
 
-                      <div class="confirmbutton">
-                          <button>View</button>
-                      </div>
-                  </div>
-              </ul>
-          </li>
+                        <div class="confirmbutton">
+                            <button type="submit" class="viewBtn">View</button>
+                        </div>
+                    </form>
+                </ul>
+            </li>
 
-          <li class="mb-2">
-              <a href="#submenu3" class="nav-link px-0 align-middle">
-                  <i class="bi bi-geo-alt"></i>
-                  <span class="ms-1 d-none d-sm-inline">Location</span>
-                  <i class="fa-solid fa-angle-down"></i>
-              </a>
-                  
-              <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                  <li>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="bintangCB">
-                          <label class="form-check-label  mb-2" for="bintangCB">Bukit Bintang</label>
-                      </div>
-                  </li>
-                  
-                  <li>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="damansaraCB">
-                          <label class="form-check-label  mb-2" for="damansaraCB">Damansara</label>
-                      </div>
-                  </li>
+            <li class="mb-2">
+                <a href="#submenu3" class="nav-link px-0 align-middle">
+                    <i class="bi bi-geo-alt"></i>
+                    <span class="ms-1 d-none d-sm-inline">Location</span>
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+                    
+                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input location-checkbox" type="checkbox" value="" id="bintangCB">
+                            <label class="form-check-label  mb-2" for="bintangCB">Bukit Bintang</label>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input location-checkbox" type="checkbox" value="" id="damansaraCB">
+                            <label class="form-check-label  mb-2" for="damansaraCB">Damansara</label>
+                        </div>
+                    </li>
 
-                  <li>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="sentralCB">
-                          <label class="form-check-label  mb-2" for="sentralCB">Jalan Stesen Sentral</label>
-                      </div>
-                  </li>
-                  
-                  <li>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="ismailCB">
-                          <label class="form-check-label  mb-2" for="ismailCB">Jalan Sultan Ismail</label>
-                      </div>
-                  </li>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input location-checkbox" type="checkbox" value="" id="sentralCB">
+                            <label class="form-check-label  mb-2" for="sentralCB">Jalan Stesen Sentral</label>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input location-checkbox" type="checkbox" value="Jln Sultan Ismail" id="ismailCB">
+                            <label class="form-check-label  mb-2" for="ismailCB">Jalan Sultan Ismail</label>
+                        </div>
+                    </li>
 
-                  <li>
-                      <div class="form-check">
-                          <input class="form-check-input" type="checkbox" value="" id="razakCB">
-                          <label class="form-check-label  mb-2" for="razakCB">Jalan Tun Razak</label>
-                      </div>
-                  </li>
-              </ul>
-          </li>
-          <li class="mb-2">
-              <a href="/adminAddRestaurant" class="nav-link px-0 align-middle">
-                  <i class="fa-solid fa-plus"></i>
-                  <span class="ms-1 d-none d-sm-inline">Add New Restaurant</span>
-              </a>
-          </li>
-      </ul>
-  </div>
+                    <li>
+                        <div class="form-check">
+                            <input class="form-check-input location-checkbox" type="checkbox" value="" id="razakCB">
+                            <label class="form-check-label  mb-2" for="razakCB">Jalan Tun Razak</label>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- Sidemenu End -->
+
     {{-- restaurantCard --}}
     <div class="restaurantCardContainer">
         @foreach ($rest_datas as $data)
@@ -499,7 +481,8 @@
                         {{-- need to set restaurant name database --}}
                         <h5 class="card-title">{{$data['rest_name']}}</h5> 
                         {{-- Put Restaurant Category --}}
-                        <p class="card-text">{{$data['rest_category']}}</p>
+                        <p class="card-category">{{$data['rest_category']}}</p>
+                        <p class="card-address"></i>{{ $data['rest_address'] }}</p>
                         <a href={{"adminEditRestaurant/".$data['rest_id']}}><button class="open-button" onclick="openForm()">Edit</button></a>
                         <a href={{"adminDeleteRestaurant/".$data['rest_id']}}><button class="delete-button">Delete</button></a>
                     </div>
@@ -604,26 +587,45 @@
 
     // search function
     const searchInput = document.getElementById('searchInput');
-    searchInput.addEventListener('input', handleSearch);
+    searchInput.addEventListener('input', filterResult);
 
-    function handleSearch() {
+    const categoryCheckboxes = document.querySelectorAll('input.form-check-input.category-checkbox');
+    categoryCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', filterResult);
+    });
+    
+    const locationCheckboxes = document.querySelectorAll('input.form-check-input.location-checkbox');
+    locationCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', filterResult);
+    });
+    
+    function filterResult() {
         const searchText = searchInput.value.toLowerCase();
-        const lines = document.getElementsByClassName('line');
+        const categoryFilter = Array.from(categoryCheckboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
 
-        for (let i = 0; i < lines.length; i++) {
-            const line = lines[i];
-            const name = line.querySelector('.name h6').textContent.toLowerCase();
-            const email = line.querySelector('.email p').textContent.toLowerCase();
-            const contact = line.querySelector('.contact p').textContent.toLowerCase();
+        const locationFilter = Array.from(locationCheckboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+        
+        const cards = document.getElementsByClassName('restaurantCard');
 
-            if (
-            name.includes(searchText) ||
-            email.includes(searchText) ||
-            contact.includes(searchText)
-            ) {
-            line.style.display = 'flex';
+        for (let i = 0; i < cards.length; i++) {
+            const card = cards[i];
+            const title = card.querySelector('.card-title').textContent.toLowerCase();
+            const address = card.querySelector('.card-address').textContent.toLowerCase();
+            const category = card.querySelector('.card-category').textContent;
+            const cardLocation = card.querySelector('.card-address').textContent;
+
+            const categoryMatch = categoryFilter.length === 0 || categoryFilter.includes(category);
+            const locationMatch = locationFilter.length === 0 || locationFilter.some(filter => cardLocation.includes(filter));
+            const searchMatch = title.includes(searchText) || address.includes(searchText);
+
+            if (categoryMatch && locationMatch && searchMatch) {
+            card.style.display = 'block';
             } else {
-            line.style.display = 'none';
+            card.style.display = 'none';
             }
         }
     }
