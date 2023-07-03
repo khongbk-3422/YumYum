@@ -265,7 +265,7 @@
 <body>
     <main>
         <div class="cards">
-            <a href="/adminViewRestaurant">
+            <a href="/adminEditRestaurant">
                 <div class="card-single">
                     <div>
                         <div class="number">{{$count_list['rest_count']}}</div>
@@ -278,7 +278,7 @@
                 </div>
             </a>
 
-            <a href="/adminViewCustomer">
+            <a href="/adminEditCustomer">
                 <div class="card-single">
                     <div>
                         <div class="number">{{$count_list['cust_count']}}</div>
