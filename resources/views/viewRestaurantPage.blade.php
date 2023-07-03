@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Restaurants</title>
     @include('cdn')
     <link rel="stylesheet" href="{{asset('css/restaurantPage.css')}}">
 </head>
@@ -165,7 +165,7 @@
 
                         @foreach ($best_rest_data as $best_rest)
                             <div class="carousel-item active">
-                                <div class="card" style="width:13rem;">
+                                <div class="card" style="width:14rem;">
                                     <img src="data:image/[image_format];base64,{{ $best_rest->rest_pic }}" alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$best_rest['rest_name']}}</h5>
@@ -329,7 +329,7 @@
                 if(scrollPosition < (carouselWidth - (cardWidth * 4))){
                     scrollPosition = scrollPosition + cardWidth;
                     $('.carouselContainer .carousel-inner').animate({scrollLeft: scrollPosition}, 
-                    600);
+                    400);
                 }
             });
 
@@ -337,7 +337,7 @@
                 if(scrollPosition > 0){
                     scrollPosition = scrollPosition - cardWidth;
                     $('.carouselContainer .carousel-inner').animate({scrollLeft: scrollPosition}, 
-                    600);
+                    400);
                 }
             });
         });
