@@ -346,7 +346,7 @@
      <!-- Sidemenu Starts -->
      <div class="sidemenu">
       <div class="searchBar">
-          <input type="text" placeholder="Search here">
+          <input type="text" placeholder="Search here" id="searchInput">
           <a href="">
               <i class="fa fa-search"></i>
           </a>
@@ -499,7 +499,7 @@
                         {{-- need to set restaurant name database --}}
                         <h5 class="card-title">{{$data['rest_name']}}</h5> 
                         {{-- Put Restaurant Category --}}
-                        <p class="card-text">PUT RESTAURANT CATEGORY.</p>
+                        <p class="card-text">{{$data['rest_category']}}</p>
                         <a href={{"adminEditRestaurant/".$data['rest_id']}}><button class="open-button" onclick="openForm()">Edit</button></a>
                         <a href={{"adminDeleteRestaurant/".$data['rest_id']}}><button class="delete-button">Delete</button></a>
                     </div>
@@ -509,12 +509,12 @@
     </div>
   <script>
     function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
+        document.getElementById("myForm").style.display = "block";
+    }
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
+    function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+    }
     //sidemnu toggle
     document.addEventListener('DOMContentLoaded', function() {
         const menulinks = document.querySelectorAll('#menu .nav-link');
@@ -601,6 +601,32 @@ function closeForm() {
             }
         });
     });
+
+    // search function
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', handleSearch);
+
+    function handleSearch() {
+        const searchText = searchInput.value.toLowerCase();
+        const lines = document.getElementsByClassName('line');
+
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+            const name = line.querySelector('.name h6').textContent.toLowerCase();
+            const email = line.querySelector('.email p').textContent.toLowerCase();
+            const contact = line.querySelector('.contact p').textContent.toLowerCase();
+
+            if (
+            name.includes(searchText) ||
+            email.includes(searchText) ||
+            contact.includes(searchText)
+            ) {
+            line.style.display = 'flex';
+            } else {
+            line.style.display = 'none';
+            }
+        }
+    }
 
 </script>
 </body>
