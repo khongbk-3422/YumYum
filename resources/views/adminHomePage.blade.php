@@ -265,7 +265,7 @@
 <body>
     <main>
         <div class="cards">
-            <a href="/adminEditRestaurant">
+            <a href="/adminViewRestaurant">
                 <div class="card-single">
                     <div>
                         <div class="number">{{$count_list['rest_count']}}</div>
