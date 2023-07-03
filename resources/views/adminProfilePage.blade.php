@@ -47,7 +47,7 @@
             flex-direction: column;
             align-items: center;
             width: 650px;
-            height: 540px;
+            height: 620px;
             border: 2px solid grey;
             border-radius: 20px;
             background-color: rgba(201, 201, 191, 0.5);
@@ -168,35 +168,36 @@
             <div class="adminProfile">
                 <div class="picture">
                     <img src="data:image/[image_format];base64,{{ $admin_data['admin_pic'] }}" >    
-                    <input type="file" class="form-control" id="profilePicture" accept="image/*">
+                    <input type="file" class="form-control" id="profilePicture" accept="image/*" name="new_pic">
                 </div>
 
-                <form action="editProfile" method="POST">
+                <form action="editProfile" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group">
                         <label for="newName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="name" class="form-control" id="editName" value="{{ $admin_data['admin_name'] }} name=">
+                            <input type="name" class="form-control" id="editName" value="{{ $admin_data['admin_name'] }}"" name="new_name">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="newName" class="col-form-label">Contact Number</label>
                         <div class="col-sm-10">
-                            <input type="phone" class="form-control" id="editPhone" value="{{ $admin_data['admin_contact'] }} name">
+                            <input type="phone" class="form-control" id="editPhone" value="{{ $admin_data['admin_contact'] }}" name="new_contact">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="newName" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="editEmail" value="{{ $admin_data['user_email'] }} name">
+                            <input type="email" class="form-control" id="editEmail" value="{{ $admin_data['user_email'] }}" name="new_email">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="newName" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" name>
+                            <input type="password" class="form-control" name="new_password">
                         </div>
                     </div>
 
