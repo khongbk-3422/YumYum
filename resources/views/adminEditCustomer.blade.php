@@ -290,7 +290,6 @@
                 left: 65px;
                 transform: initial;
             }
-
         }
 
     </style>
@@ -343,12 +342,8 @@
                         <input type="hidden" id="customerId" value="{{ $select_cust->cust_id }}" name="cust_id">
                     </div>
 
-                    <img id="customerImage" src="data:image/[image_format];base64,{{ $select_cust->cust_pic }}" alt="">
-
-                    <div class="input-group mb-3">
-                        <label for="customerImageSrc" class="custom-file-upload">Choose File</label>
-                        <input type="file" class="form-control" id="customerImageSrc" name="new_cust_pic">
-                    </div>
+                    <img src="data:image/[image_format];base64,{{ $select_cust->cust_pic }}" id="customerImage">
+                    <input type="file" class="form-control" id="customerImageSrc" name="new_cust_pic" accept="image/*">
 
                     <div class="name">
                         <h6>Name</h6>
