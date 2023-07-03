@@ -13,7 +13,6 @@
     <div class="mainContainer">
         <!-- Sidemenu Starts -->
         <div class="sidemenu">
-            <!-- Need form mah? Cuz need to get the search value -->
             <div class="searchBar">
                 <input type="text" id="searchInput" placeholder="Search here">
                 <a href="#" id="searchButton"><i class="fa fa-search"></i></a>
@@ -286,7 +285,7 @@
 @endif
 
     <script>
-        
+        //search function
         const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', filterResult);
 

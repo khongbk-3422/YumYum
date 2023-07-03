@@ -172,6 +172,19 @@ class AdminController extends Controller
         return view('adminViewRestaurant',['rest_datas'=>$rest_datas]);
     }
 
+    function price_filter(Request $req)
+    {
+        $rest_datas = Restaurant::where('price_min', '>=', $req->min_price)
+                ->where('price_max', '<=', $req->max_price)
+                ->get();
+        foreach ($rest_datas as $data) {
+            $pic_data = Rest_Picture::where('rest_id',$data->rest_id)->first();
+            $rest_pic = $pic_data ? base64_encode($pic_data->rest_pic) : null;
+            $data->rest_pic = $rest_pic;
+        }
+        return view('adminViewRestaurant',['rest_datas'=>$rest_datas]);
+    }
+
     function getRestDetails($rest_id)
     {
         //Get Restaurant
