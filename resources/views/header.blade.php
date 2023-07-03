@@ -7,6 +7,10 @@
     @include('cdn')
 
     <style>
+        *{
+            font-family: 'Raleway', sans-serif;
+        }
+
         .navbar{
             background-color: #EFF0EA;
         } 
@@ -50,6 +54,10 @@
             height:40px;
             border-radius:50%;
         }
+
+        .navbar .dropdown-menu li a i{
+            margin-right:6px;
+        }
     </style>
 </head>
 
@@ -84,13 +92,14 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item <?php echo $_SERVER['REQUEST_URI'] === '/custProfilePage' ? 'active' : ''; ?> " href="/custProfilePage">Settings</a>
+                                <a class="dropdown-item <?php echo $_SERVER['REQUEST_URI'] === '/custProfilePage' ? 'active' : ''; ?> " href="/custProfilePage">
+                                <i class="fa-solid fa-gear"></i> Settings</a>
                             </li> 
 
                             <div class="dropdown-divider"></div>
 
                             <li>
-                                <a class="dropdown-item" href="{{ url('logout') }}">Logout</a>
+                                <a class="dropdown-item" href="{{ url('logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
                             </li>
                         </ul>
                     </li>

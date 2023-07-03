@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Restaurants</title>
     @include('cdn')
     <link rel="stylesheet" href="{{ asset('css/restaurantPage.css') }}">
 </head>
@@ -156,7 +156,7 @@
 
                         @foreach ($best_rest_data as $best_rest)
                             <div class="carousel-item active">
-                                <div class="card" style="width:13rem;">
+                                <div class="card" style="width:14rem;">
                                     <img src="data:image/[image_format];base64,{{ $best_rest->rest_pic }}" alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$best_rest['rest_name']}}</h5>
@@ -323,5 +323,129 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 </body>
+
+@if(Session::has('rest_already_added'))
+    <script>
+        alert("Restaurant already added in Spin Wheel!");
+    </script>
+@endif
+
+@if(Session::has('rest_added'))
+    <script>
+        alert("Restaurant successfully added to Spin Wheel!");
+    </script>
+@endif
+
+    <script>
+        //search function
+        var searchInput = document.getElementById('searchInput');
+        var searchButton = document.getElementById('searchButton');
+        searchButton.addEventListener('click', function() {
+            performSearch();
+        });
+
+        searchInput.addEventListener('keyup', function(event) {
+            // Check if the Enter key was pressed (key code 13)
+            if (event.keyCode === 13) {
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            var searchValue = searchInput.value;
+            window.location.href = 'filter/' + encodeURIComponent(searchValue);
+        }
+
+        //sidemnu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menulinks = document.querySelectorAll('#menu .nav-link');
+
+            menulinks.forEach(function(link){
+                link.addEventListener('click', function(event){
+                    const submenu = this.nextElementSibling;
+                    submenu.classList.toggle('show');
+                    event.preventDefault();
+                });
+            });
+        });
+
+        //top recommend restaurant card choser
+        $(document).ready(function() {
+            var carouselWidth = $('.carouselContainer .carousel-inner')[0].scrollWidth;
+            var cardWidth = $('.carouselContainer .carousel-item').width();
+
+            var scrollPosition = 0;
+
+            $('.carouselContainer .carousel-control-next').on('click', function(){
+                if(scrollPosition < (carouselWidth - (cardWidth * 4))){
+                    scrollPosition = scrollPosition + cardWidth;
+                    $('.carouselContainer .carousel-inner').animate({scrollLeft: scrollPosition}, 
+                    400);
+                }
+            });
+
+            $('.carouselContainer .carousel-control-prev').on('click', function(){
+                if(scrollPosition > 0){
+                    scrollPosition = scrollPosition - cardWidth;
+                    $('.carouselContainer .carousel-inner').animate({scrollLeft: scrollPosition}, 
+                    400);
+                }
+            });
+        });
+
+    // price changes with entered price
+    const priceRange = document.querySelectorAll(".pricerange input"),
+            rangeInput = document.querySelectorAll(".rangeinput input"),
+            amount = document.querySelector(".slider .amount");
+
+    let priceGap = 100;
+
+    rangeInput.forEach(input =>{
+        input.addEventListener("input", e =>{
+            //get 2 inputs value
+            let minPrice = parseInt(rangeInput[0].value),
+                maxPrice = parseInt(rangeInput[1].value);
+
+            if ((maxPrice - minPrice >= priceGap) && maxPrice <= 1000){
+                if(e.target.className === "min_price"){
+                    priceRange[0].value = minPrice;
+                    amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
+                }
+                else{
+                    priceRange[1].value = maxPrice;
+                    amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
+                }
+            }
+        });
+    });
+
+    //slider value change with slided value
+    priceRange.forEach(input =>{
+        input.addEventListener("input", e =>{
+            let minPrice = parseInt(priceRange[0].value),
+                maxPrice = parseInt(priceRange[1].value);
+
+            if (maxPrice - minPrice < priceGap){
+                if(e.target.className === "minrange"){
+                    priceRange[0].value = maxPrice - priceGap;
+                }
+                else{
+                    priceRange[1].value = minPrice + priceGap;
+                }
+                
+            }
+            else{
+                rangeInput[0].value = minPrice;
+                rangeInput[1].value = maxPrice;
+                amount.style.left = (minPrice / priceRange[0].max) * 100 + "%";
+                amount.style.right = 100 - (maxPrice / priceRange[1].max) * 100 + "%";
+                // console.log(minPrice, maxPrice)
+            }
+        });
+    });
+
+
+
+    </script>
 </html>
 
