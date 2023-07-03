@@ -369,11 +369,7 @@
                     </div>
 
                     <img id="customerImage" src="" alt="">
-
-                    <div class="input-group mb-3">    
-                        <label class="input-group-text" for="customerImageSrc"> Upload </label>
-                        <input type="file" class="form-control" id="customerImageSrc" name="new_cust_pic">
-                    </div>
+                    <input type="file" class="form-control" id="customerImageSrc" name="new_cust_pic" accept="image/*">
 
                     <div class="name">
                         <h6>Name</h6>
