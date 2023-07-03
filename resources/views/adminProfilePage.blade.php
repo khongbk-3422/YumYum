@@ -171,25 +171,32 @@
                     <input type="file" class="form-control" id="profilePicture" accept="image/*">
                 </div>
 
-                <form action="" method="POST">
+                <form action="editProfile" method="POST">
                     <div class="form-group">
                         <label for="newName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="name" class="form-control" id="editName" value="{{ $admin_data['admin_name'] }}">
+                            <input type="name" class="form-control" id="editName" value="{{ $admin_data['admin_name'] }} name=">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="newName" class="col-form-label">Contact Number</label>
                         <div class="col-sm-10">
-                            <input type="phone" class="form-control" id="editPhone" value="{{ $admin_data['admin_contact'] }}">
+                            <input type="phone" class="form-control" id="editPhone" value="{{ $admin_data['admin_contact'] }} name">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="newName" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="editEmail" value="{{ $admin_data['user_email'] }}">
+                            <input type="email" class="form-control" id="editEmail" value="{{ $admin_data['user_email'] }} name">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="newName" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" name>
                         </div>
                     </div>
 

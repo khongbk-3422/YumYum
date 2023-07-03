@@ -147,7 +147,7 @@ class UserController extends Controller
 
     function customerProfile()
     {
-        $customer_data = Customer::where('cust_id', session('user_id'))->first();
+        $customer_data = Customer::where('admin_id', session('user_id'))->first();
 
         if ($customer_data) {
 
@@ -155,6 +155,20 @@ class UserController extends Controller
             $customer_data->cust_pic = $customer_pic;
 
             return view('custProfilePage', ['customer_data' => $customer_data]);
+        }
+
+    }
+
+    function adminProfile()
+    {
+        $admin_data = Admin::where('admin_id', session('user_id'))->first();
+
+        if ($admin_data) {
+
+            $adimn_pic = base64_encode($admin_data->admin_pic);
+            $admin_data->admin_pic = $adimn_pic;
+
+            return view('adminProfilePage', ['admin_data' => $admin_data]);
         }
 
     }
@@ -172,7 +186,7 @@ class UserController extends Controller
                 if($req->new_email != $customer_data->user_email) {
                     $customer_datas = Customer::all();
                     foreach ($customer_datas as $data) {
-                        if ($req->new_user_email == $data->user_email) {
+                        if ($req->new_email == $data->user_email) {
                             Session::flash('email_used', true);
                             return redirect()->back();
                         }
@@ -202,7 +216,93 @@ class UserController extends Controller
                 
                 $customer_data->save();
 
-                if ($req->new_email != $customer_data->user_email){
+                if ($req->new_email != $old_email){
+                    User::where('user_email',$old_email)->delete();
+                }
+                    
+                return redirect('custProfilePage');
+
+            } else {
+
+                $user_data = User::where('user_email',$customer_data->user_email)->first();
+
+                if($req->new_email != $customer_data->user_email) {
+
+                    $customer_datas = Customer::all();
+                    foreach ($customer_datas as $data) {
+                        if ($req->new_user_email == $data->user_email) {
+                            Session::flash('email_used', true);
+                            return redirect()->back();
+                        }
+                    }
+                    $user_t=new User;
+                    $user_t->user_email=$req->new_email;
+                    $user_t->user_password=$user_data->user_password;
+                    $user_t->position="1";
+                    $user_t->save();
+                }
+
+                $old_email = $customer_data->user_email;
+                
+                $customer_data->cust_contact=$req->new_contact;
+                $customer_data->cust_name=$req->new_name;
+                $customer_data->user_email = $req->new_email;
+                
+                if ($req->hasFile('new_pic')) {
+                    $file = $req->file('new_pic');
+                    $destinationPath = public_path('image/customer');
+                    $filename = $file->getClientOriginalName();
+                    $file->move($destinationPath, $filename);
+                    $customer_data->cust_pic = 'image/customer/' . $filename; // Save the file path
+                }
+                
+                $customer_data->save();
+
+                if($req->new_email != $old__email) {
+                    User::where('user_email',$old_email)->delete();
+                }
+                
+                return redirect('custProfilePage');
+            }
+
+        } else if ($admin_data){
+
+            if ($req->new_password) {
+
+                if($req->new_email != $admin_data->user_email) {
+                    $admin_datas = Admin::all();
+                    foreach ($admin_datas as $data) {
+                        if ($req->new_user_email == $data->user_email) {
+                            Session::flash('email_used', true);
+                            return redirect()->back();
+                        }
+                    }
+                    
+                    $user_t=new User;
+                    $user_t->user_email=$req->new_email;
+                    $user_t->user_password=md5($req->new_password);
+                    $user_t->position="1";
+                    $user_t->save();
+                } else {
+                    $user_data=User::find($admin_data->user_email);
+                    $user_data->user_password=md5($req->new_password);
+                    $user_data->save();
+                }
+
+                $old_email = $admin_data->user_email;
+                
+                $admin_data->admin_contact=$req->new_contact;
+                $admin_data->admin_name=$req->new_name;
+                $admin_data->user_email = $req->new_email;
+                
+                if ($req->hasFile('new_pic')) {
+                    $file = $req->file('new_pic');
+                    $admin_data->cust_pic = file_get_contents($file);
+                }
+                
+                $admin_data->save();
+
+                if ($req->new_email != $old_email){
                     User::where('user_email',$old_email)->delete();
                 }
                     
@@ -249,45 +349,6 @@ class UserController extends Controller
                 }
                 
                 return redirect('custProfilePage');
-            }
-
-        } else if ($admin_data){
-
-            if ($req->new_password) {
-
-                $user_data = User::find($admin_data->user_email);
-                $user_data->user_email = $req->new_email;
-                $user_data->user_password = $req->new_password;
-
-                $admin_data->cust_contact=$req->contact;
-                $admin_data->cust_name=$req->new_name;
-                $admin_data->user_email = $req->new_email;
-
-                if ($req->hasFile('new_pic')) {
-                    $file = $req->file('new_pic');
-                    $admin_data->cust_pic = file_get_contents($file);
-                }
-            
-                $admin_data->save();
-
-                return redirect('adminProfilePage');
-
-            } else {
-                $user_data = User::find($admin_data->user_email);
-                $user_data->user_email = $req->new_email;
-
-                $admin_data->cust_contact=$req->contact;
-                $admin_data->cust_name=$req->new_name;
-                $admin_data->user_email = $req->new_email;
-
-                if ($req->hasFile('new_pic')) {
-                    $file = $req->file('new_pic');
-                    $admin_data->cust_pic = file_get_contents($file);
-                }
-            
-                $admin_data->save();
-
-                return redirect('adminProfilePage');
             }
 
         } else {

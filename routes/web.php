@@ -117,9 +117,9 @@ Route::get('/adminAddRestaurant', function(){
 });
 
 //adminProfile
-Route::get('/adminProfilePage', function(){
-    return view(('adminProfilePage'));
-});
+
+Route::get('/adminProfilePage',[UserController::class,'adminProfile']);
+
 
 //adminEditRating
 Route::get('/adminEditRating', function(){
