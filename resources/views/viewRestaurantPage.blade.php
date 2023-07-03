@@ -30,42 +30,42 @@
                     <ul class="collapse nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="italianCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="Italian" id="italianCB">
                                 <label class="form-check-label mb-2" for="italianCB">Italian</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="japaneseCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="Japanese" id="japaneseCB">
                                 <label class="form-check-label  mb-2" for="japaneseCB">Japanese</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="malaysianCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="Malaysian" id="malaysianCB">
                                 <label class="form-check-label  mb-2" for="malaysianCB">Malaysian</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="steakhouseCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="Steakhouse" id="steakhouseCB">
                                 <label class="form-check-label  mb-2" for="steakhouseCB">Steakhouse</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="thaiCB">
+                                <input class="form-check-input category-checkbox" type="checkbox" value="Thai" id="thaiCB">
                                 <label class="form-check-label  mb-2" for="thaiCB">Thai</label>
                             </div>
                         </li>
                     </ul>
                 </li>
 
-                <li class="mb-2">
+                {{-- <li class="mb-2">
                     <a href="#submenu2" class="nav-link px-0 align-middle ">
                         <i class="bi bi-currency-dollar"></i>
                         <span class="ms-1 d-none d-sm-inline">Price</span>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                     </ul>
-                </li>
+                </li> --}}
 
                 <li class="mb-2">
                     <a href="#submenu3" class="nav-link px-0 align-middle">
@@ -115,35 +115,35 @@
                     <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="bintangCB">
+                                <input class="form-check-input location-checkbox" type="checkbox" value="" id="bintangCB">
                                 <label class="form-check-label  mb-2" for="bintangCB">Bukit Bintang</label>
                             </div>
                         </li>
                         
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="damansaraCB">
+                                <input class="form-check-input location-checkbox" type="checkbox" value="" id="damansaraCB">
                                 <label class="form-check-label  mb-2" for="damansaraCB">Damansara</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="sentralCB">
+                                <input class="form-check-input location-checkbox" type="checkbox" value="" id="sentralCB">
                                 <label class="form-check-label  mb-2" for="sentralCB">Jalan Stesen Sentral</label>
                             </div>
                         </li>
                         
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="ismailCB">
+                                <input class="form-check-input location-checkbox" type="checkbox" value="" id="ismailCB">
                                 <label class="form-check-label  mb-2" for="ismailCB">Jalan Sultan Ismail</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="razakCB">
+                                <input class="form-check-input location-checkbox" type="checkbox" value="" id="razakCB">
                                 <label class="form-check-label  mb-2" for="razakCB">Jalan Tun Razak</label>
                             </div>
                         </li>
@@ -231,6 +231,7 @@
                             <div class="col-md-9">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $data['rest_name']}}</h5>
+                                    <p class="card-category text-muted">{{$data['rest_category']}}</p>
                                         <p class="rating">{{ $data['avg_rate']}} 
                                             @if ($data['avg_rate'] == 5)
                                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
@@ -257,7 +258,7 @@
                                             @endif
                                             <span class="custrateqty">({{ $data['count']}})</span>
                                         </p>
-                                    <p class="card-text"><i class="bi bi-geo-alt"></i>{{ $data['rest_address'] }}</p>
+                                    <p class="card-address"><i class="bi bi-geo-alt"></i>{{ $data['rest_address'] }}</p>
                                     <a href={{"restaurantDetailsPage/".$data['rest_id']}}><button class="viewRestBtn">View More</button></a>
                                     <a href={{"addToWheel/".$data['rest_id']}}><button class="addRestBtn">Add to spin wheel</button></a>
                                 </div>
@@ -285,30 +286,71 @@
 
     <script>
         
-        // search function
         const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', handleSearch);
+            searchInput.addEventListener('input', filterResult);
 
-        function handleSearch() {
+            const categoryCheckboxes = document.querySelectorAll('input.form-check-input.category-checkbox');
+            categoryCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', filterResult);
+            });
+
+            const locationCheckboxes = document.querySelectorAll('input.form-check-input.location-checkbox');
+            locationCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', filterResult);
+            });
+
+            function filterResult() {
             const searchText = searchInput.value.toLowerCase();
+            const categoryFilter = Array.from(categoryCheckboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+
+            const locationFilter = Array.from(locationCheckboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+
             const cards = document.getElementsByClassName('restContain card');
 
             for (let i = 0; i < cards.length; i++) {
                 const card = cards[i];
                 const title = card.querySelector('.card-title').textContent.toLowerCase();
-                const address = card.querySelector('.card-text').textContent.toLowerCase();
+                const address = card.querySelector('.card-address').textContent.toLowerCase();
+                const category = card.querySelector('.card-category').textContent;
+                const cardLocation = card.querySelector('.card-address').textContent;
 
-                if (
-                    title.includes(searchText) ||
-                    address.includes(searchText)
-                ) {
-                    card.style.display = 'block';
+                const categoryMatch = categoryFilter.length === 0 || categoryFilter.includes(category);
+                const locationMatch = locationFilter.length === 0 || locationFilter.includes(cardLocation);
+                const searchMatch = title.includes(searchText) || address.includes(searchText);
+
+                if (categoryMatch && locationMatch && searchMatch) {
+                card.style.display = 'block';
                 } else {
-                    card.style.display = 'none';
+                card.style.display = 'none';
                 }
             }
         }
 
+
+
+
+
+        function getSelectedValues(elementId) {
+            const selectElement = document.getElementById(elementId);
+            const selectedOptions = Array.from(selectElement.selectedOptions);
+            const selectedValues = selectedOptions.map(option => option.value);
+            return selectedValues;
+        }
+
+        function getSelectedCheckboxes(checkboxContainerId) {
+            const checkboxContainer = document.getElementById(checkboxContainerId);
+            const checkboxes = checkboxContainer.querySelectorAll('input[type="checkbox"]');
+            const selectedCheckboxes = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+
+            return selectedCheckboxes;
+        }
+        
 
         //sidemnu toggle
         document.addEventListener('DOMContentLoaded', function() {
