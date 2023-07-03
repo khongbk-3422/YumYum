@@ -61,7 +61,7 @@ Route::post('/editProfile',[UserController::class,'editProfile']);
 
 //viewRestaurantPage
 Route::get('viewRestaurantPage',[RestController::class,'getAllRest']);
-Route::get('filter/{searchValue}',[RestController::class,'filter']);
+Route::post('viewRestaurantPage_f',[RestController::class,'price_filter']);
 
 Route::get('addToWheel/{rest_id}',[WheelController::class,'addWheel']);
 

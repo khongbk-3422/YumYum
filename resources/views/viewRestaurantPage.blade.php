@@ -73,18 +73,19 @@
                     </a>
 
                     <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                        <div class="listwrapper">
+                        <form action="{{url('viewRestaurantPage_f')}}" method="POST" class="listwrapper">
+                            @csrf
                             <div class="rangeinput">
                                 <div class="field">
                                     <span>MIN</span>
-                                    <input type="number" name="min_price" class="entered_min" value="1">
+                                    <input type="number" name="min_price" value="50">
                                 </div>
 
                                 <div class="seperator">-</div>
 
                                 <div class="field">
                                     <span>MAX</span>
-                                    <input type="number" name="max_price" class="entered_max" value="1000">
+                                    <input type="number" name="max_price" value="500">
                                 </div>
                             </div>
 
@@ -93,14 +94,14 @@
                             </div>
 
                             <div class="pricerange">
-                                <input type="range" class="minrange" min="0" max="1000" value="1" name="min_price_range" step="50">
-                                <input type="range" class="maxrange" min="0" max="1000" value="1000" name="max_price_range" step="50">
+                                <input type="range" class="minrange" min="0" max="1000" value="50" name="min_price_range" step="50">
+                                <input type="range" class="maxrange" min="0" max="1000" value="500" name="max_price_range" step="50">
                             </div>
 
                             <div class="confirmbutton">
-                                <button type="submit" class="viewBtn" onclick="filterResult()">View</button>
+                                <button type="submit" class="viewBtn">View</button>
                             </div>
-                        </div>
+                        </form>
                     </ul>
                 </li>
 
@@ -231,8 +232,6 @@
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $data['rest_name']}}</h5>
                                     <p class="card-category text-muted">{{$data['rest_category']}}</p>
-                                    <input type="hidden" name="price_min" class="price-min" value="{{ $data->price_min }}">
-                                    <input type="hidden" name="price_max" class="price-max" value="{{ $data->price_max }}">
             
                                         <p class="rating">{{ $data['avg_rate']}} 
                                             @if ($data['avg_rate'] == 5)
@@ -310,12 +309,6 @@
             const locationFilter = Array.from(locationCheckboxes)
                 .filter(checkbox => checkbox.checked)
                 .map(checkbox => checkbox.value);
-
-            
-            const enteredMin = document.getElementById('price-min');
-            const enteredMax = document.getElementById('price-max');
-            const minPrice = parseFloat(enteredMin);
-            const maxPrice = parseFloat(enteredMax);
             
             const cards = document.getElementsByClassName('restContain card');
 
@@ -326,14 +319,9 @@
                 const category = card.querySelector('.card-category').textContent;
                 const cardLocation = card.querySelector('.card-address').textContent;
 
-                const priceMin = parseFloat(card.getAttribute('data-price-min'));
-                const priceMax = parseFloat(card.getAttribute('data-price-max'));
-
                 const categoryMatch = categoryFilter.length === 0 || categoryFilter.includes(category);
                 const locationMatch = locationFilter.length === 0 || locationFilter.some(filter => cardLocation.includes(filter));
                 const searchMatch = title.includes(searchText) || address.includes(searchText);
-
-                const priceMatch = priceMin >= minPrice && priceMax <= maxPrice;
 
                 if (categoryMatch && locationMatch && searchMatch) {
                 card.style.display = 'block';
