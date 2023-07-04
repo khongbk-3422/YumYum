@@ -33,13 +33,12 @@
 
         .adminProfile{
             box-sizing: border-box;
-            width: 153px;
-            height: 153px;
+            width: 170px;
+            height: 170px;
             border: 5px solid #f0be0c;
             border-radius: 50%;
             overflow: hidden;
             cursor: pointer;
-            position: relative;
         }
 
         .adminProfile:hover{
@@ -47,7 +46,7 @@
             flex-direction: column;
             align-items: center;
             width: 650px;
-            height: 620px;
+            height: 590px;
             border: 2px solid grey;
             border-radius: 20px;
             background-color: rgba(201, 201, 191, 0.5);
@@ -59,14 +58,14 @@
         .adminProfile:hover img{
             width: 130px;
             height: 130px;
-            margin: 20px 31%;
+            margin-top: 10px;
         }
 
         .adminProfile img{
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            margin-top: 10px;
+            margin-top: -5px;
         }
 
         .adminProfile .picture{
