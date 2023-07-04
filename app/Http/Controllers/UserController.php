@@ -134,9 +134,9 @@ class UserController extends Controller
             $customer_t->cust_id=$new_id;
             $customer_t->cust_name=$req->name;
             $customer_t->cust_contact=$req->contact;
-            $imagePath = 'C:\xampp\htdocs\yumyum\public\image\profile.png';
+            $imagePath = 'C:\xampp\htdocs\yumyum\public\image\profile.jpg';
             $imageContent = file_get_contents($imagePath);
-            $customer_data->cust_pic = $imageContent;
+            $customer_t->cust_pic = $imageContent;
             $customer_t->user_email=$req->email;
             $customer_t->save();
             Session::flash('successful_register', true);

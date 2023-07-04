@@ -433,21 +433,21 @@
                 <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                     <li>
                         <div class="form-check">
-                            <input class="form-check-input location-checkbox" type="checkbox" value="" id="bintangCB">
+                            <input class="form-check-input location-checkbox" type="checkbox" value="Bukit Bintang" id="bintangCB">
                             <label class="form-check-label  mb-2" for="bintangCB">Bukit Bintang</label>
                         </div>
                     </li>
                     
                     <li>
                         <div class="form-check">
-                            <input class="form-check-input location-checkbox" type="checkbox" value="" id="damansaraCB">
+                            <input class="form-check-input location-checkbox" type="checkbox" value="Damansara" id="damansaraCB">
                             <label class="form-check-label  mb-2" for="damansaraCB">Damansara</label>
                         </div>
                     </li>
 
                     <li>
                         <div class="form-check">
-                            <input class="form-check-input location-checkbox" type="checkbox" value="" id="sentralCB">
+                            <input class="form-check-input location-checkbox" type="checkbox" value="Jalan Stesen Sentral" id="sentralCB">
                             <label class="form-check-label  mb-2" for="sentralCB">Jalan Stesen Sentral</label>
                         </div>
                     </li>
@@ -461,7 +461,7 @@
 
                     <li>
                         <div class="form-check">
-                            <input class="form-check-input location-checkbox" type="checkbox" value="" id="razakCB">
+                            <input class="form-check-input location-checkbox" type="checkbox" value="Jln Tun Razak" id="razakCB">
                             <label class="form-check-label  mb-2" for="razakCB">Jalan Tun Razak</label>
                         </div>
                     </li>
