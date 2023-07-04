@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Session;
 
 use Illuminate\Http\Request;
 use App\Models\Spinwheel;
+use App\Models\Restaurant;
+use Illuminate\Support\Facades\DB;
 
 class WheelController extends Controller
 {
@@ -31,4 +33,18 @@ class WheelController extends Controller
             }
         }
     }
+    
+    public function wheelItems()
+    {
+        $spinwheel_datas = Spinwheel::where('cust_id', session('user_id'))->get();
+        $rest_datas = [];
+        foreach ($spinwheel_datas as $data) {
+            $rest_data = Restaurant::where('rest_id',$data->rest_id)->first();
+            $rest_datas[] = $rest_data->rest_name;
+        }
+
+        // return $rest_datas;
+        return view('wheel',['restaurants'=>$rest_datas]);
+    }
+
 }

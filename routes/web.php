@@ -139,3 +139,7 @@ Route::get('/newAdminViewRest', function(){
 Route::get('/swal', function(){
     return view (('swal'));
 });
+
+Route::get('/spin', [WheelController::class, 'spin'])->name('spin');
+Route::post('/spin/store', [WheelController::class, 'storeItem'])->name('spin.store');
+Route::get('/spinW', [WheelController::class,'wheelItems']);
