@@ -76,7 +76,7 @@
 					</li>
                     
 					<li class="nav-item">
-						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/spinwheelPage' ? 'active' : ''; ?>" href="/spinwheelPage">Spinwheel</a>
+						<a class="nav-link <?php echo $_SERVER['REQUEST_URI'] === '/spinW' ? 'active' : ''; ?>" href="/spinW">Spinwheel</a>
 					</li>
 
 					<li class="nav-item">
