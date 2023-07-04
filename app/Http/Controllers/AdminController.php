@@ -146,10 +146,7 @@ class AdminController extends Controller
         
         if ($req->hasFile('new_cust_pic')) {
             $file = $req->file('new_cust_pic');
-            $destinationPath = public_path('image/customer');
-            $filename = $file->getClientOriginalName();
-            $file->move($destinationPath, $filename);
-            $customer_data->cust_pic = 'image/customer/' . $filename; // Save the file path
+            $customer_data->cust_pic = file_get_contents($file->getPathname()); // Save the file path
         }
         
         $customer_data->save();

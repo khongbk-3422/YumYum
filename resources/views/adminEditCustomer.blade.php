@@ -311,7 +311,7 @@
                 @foreach ($cust_datas as $cust_data)
 
                 <div class="line" data-customer-id="{{$cust_data['cust_id']}}">
-                    <img src="data:image/[image_format];base64,{{ $cust_data['cust_pic'] }}">
+                    <img src="data:image/jpg;base64,{{ $cust_data['cust_pic'] }}" >
                     <div class="name">
                         <h6>{{$cust_data['cust_name']}}</h6>
                     </div>
@@ -341,8 +341,8 @@
                     <div class="id">
                         <input type="hidden" id="customerId" value="{{ $select_cust->cust_id }}" name="cust_id">
                     </div>
-
-                    <img src="data:image/[image_format];base64,{{ $select_cust->cust_pic }}" id="customerImage">
+                    
+                    <img src="data:image/jpg;base64,{{ $select_cust->cust_pic }}" id="customerImage">
                     <input type="file" class="form-control" id="customerImageSrc" name="new_cust_pic" accept="image/*">
 
                     <div class="name">
