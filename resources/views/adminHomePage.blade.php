@@ -137,6 +137,14 @@
             text-align: center;
         }
 
+        .recent-grid .card table tbody tr td{
+            transition: 0.2s;
+        }
+
+        .recent-grid .card table tbody tr:hover{
+            animation: bounceUp 0.5s ease-in-out forwards;
+        }
+
         .recent-grid .card table tbody tr:hover td{
             background: #ebdd83;
             color: white;
@@ -259,6 +267,18 @@
             }
         }
 
+        @keyframes bounceUp {
+                0% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-5px);
+                }
+                100% {
+                    transform: translateY(0);
+                }
+            }
+
     </style>
 
 </head>
@@ -330,12 +350,10 @@
 
                                 <tbody>
                                     @foreach ($rest_data as $rest)
-                                        <tr>
-                                            <a href={{"adminEditRestaurant/".$rest['rest_id']}}>
+                                        <tr onclick="window.location.href='{{ url("adminEditRestaurant/".$rest["rest_id"]) }}'">
                                             <td>{{$rest['rest_name']}}</td>
                                             <td>{{$rest['avg_rating']}} ({{$rest['rating_count']}})</td>
                                             <td>{{$rest['browse_count']}}</td>
-                                            </a>
                                         </tr>
 
                                     @endforeach
