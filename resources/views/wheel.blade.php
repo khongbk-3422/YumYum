@@ -1,38 +1,94 @@
+ @include ('header')
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spin Wheel App</title>
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
+    @include('cdn')
+
+
     <style>
       * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
+        font-family: 'Raleway', sans-serif;
       }
-      body {
-        height: 100vh;
+
+      /* body {
+        height: 150vh;
         background: linear-gradient(135deg, #c3a3f1, #6414e9);
+      } */
+
+      body {
+        height: 150vh;
+        background: linear-gradient(140deg, #E3E7EA, #EEF1EA);
       }
-      .wrapper {
+
+      .maincontainer{
+        margin-top:90px;
+      }
+
+      .content{
+        display:flex;
+        flex-direction: row;
+        justify-content:center;
+        align-items:flex-start;;
+        gap: 8em;
+      }
+
+      .restcontainer {
+        border:1px solid #8592A2;
+        width:300px;
+        height:550px;
+        padding:10px 10px;
+        /* box-shadow: 0 5px 12px #8592A2; */
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        border-radius:8px;
+        background:#E3E7EA;
+      }
+
+      .restcontainer .resttitle{
+        text-align:center;
+        margin:5px;
+      }
+
+      .restcontainer .resttitle h4{
+        font-size:25px;
+        font-weight:550;
+      }
+
+      .restcontainer .restlist .restname h4{
+        padding-top:8px;
+        font-size:20px;
+        line-height:1.5;
+        margin:8px;
+      }
+
+
+      /* .wrapper {
         width: 90%;
         max-width: 38.37em;
-        max-height: 90vh;
+        max-height: 100vh;
         background-color: #ffffff;
         position: absolute;
         transform: translate(-50%, -50%);
-        top: 50%;
+        top: 75%;
         left: 50%;
         padding: 3em;
         border-radius: 1em;
         box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
+      } */
+
+      .wrapper {
+        width: 90%;
+        max-width: 38.37em;
+        background-color: #ffffff;
+        padding: 3em;
+        border-radius: 1em;
+        box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
       }
+
       .container {
         position: relative;
         width: 100%;
@@ -51,6 +107,7 @@
           transform: rotate(360deg);
         }
       }
+
       #spin-btn {
         position: absolute;
         transform: translate(-50%, -50%);
@@ -61,31 +118,35 @@
         border-radius: 50%;
         cursor: pointer;
         border: 0;
-        background: radial-gradient(#fdcf3b 50%, #d88a40 85%);
-        color: #c66e16;
+        background: radial-gradient(#EEF1EA 50%, #627676 85%); 
+        color: #7C9788;
         text-transform: uppercase;
         font-size: 1.8em;
         letter-spacing: 0.1em;
         font-weight: 600;
       }
-      img {
+
+      .arrowimg {
         position: absolute;
         width: 4em;
         top: 45%;
         right: -8%;
       }
+
       #final-value {
         font-size: 1.5em;
         text-align: center;
-        margin-top: 1.5em;
+        margin-top: 0.5em;
         color: #202020;
         font-weight: 500;
+        padding:20px;
       }
+
       @media screen and (max-width: 768px) {
         .wrapper {
           font-size: 12px;
         }
-        img {
+        .arrowimg {
           right: -5%;
         }
       }
@@ -93,16 +154,36 @@
     </style>
   </head>
   <body>
-    <div class="wrapper">
-      <div class="container">
-        <canvas id="wheel"></canvas>
-        <button id="spin-btn">Spin</button>
-        <img src="{{url('image/spinner-arrow-.svg')}}" alt="spinner-arrow" />
-      </div>
-      <div id="final-value">
-        <p>Click On The Spin Button To Start</p>
-      </div>
-    </div>
+      <div class="maincontainer">
+        <div id="final-value" class="title">
+              <p>Click On The Spin Button To Start</p>
+        </div>
+
+        <div class="content">
+          <div class="restcontainer">
+            <div class="resttitle">
+              <h4>Restaurants</h4>
+            </div>
+
+            <div class="restlist">
+              <div class="restname">
+                <h4>Ishin</h4>
+                <h4>Nero Nero</h4>
+              </div>
+            </div>
+          </div>
+
+            <div class="wrapper">
+              <div class="container">
+                <canvas id="wheel"></canvas>
+                <button id="spin-btn">Spin</button>
+                <img src="{{url('image/spinner-arrow-.svg')}}" class="arrowimg" alt="spinner-arrow" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
     <!-- Chart JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <!-- Chart JS Plugin for displaying text over chart -->
@@ -115,7 +196,7 @@
 
       // Restaurants array from PHP
       const restaurants = {!! json_encode($restaurants) !!};
-    const totalIndex = restaurants.length;
+      const totalIndex = restaurants.length;
 
       // Generate the rotationValues array based on the restaurants
       const rotationValues = restaurants.map((restaurant, index) => ({
@@ -129,8 +210,9 @@
 
       // Background color for each piece
       const pieColors = [
-        "#8b35bc",
-        "#b163da",
+        // "#8b35bc",
+        // "#b163da",
+        "#97A5C0", "#BECBD3",
     ];
 
       // Create chart
@@ -165,7 +247,7 @@
                 formatter: (_, context) =>
                 context.chart.data.labels[context.dataIndex],
                 font: {
-                size: 14, // Adjust the font size as desired
+                size: 18, // Adjust the font size as desired
                 },
                 // rotation: (context) => {
                 //     const startAngle = context.dataset.startAngle;
@@ -230,3 +312,5 @@
     </script>
   </body>
 </html>
+
+@include('footer')
