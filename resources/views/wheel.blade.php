@@ -39,7 +39,7 @@
 
       .restcontainer {
         border:1px solid #8592A2;
-        width:300px;
+        width:350px;
         height:550px;
         padding:10px 10px;
         /* box-shadow: 0 5px 12px #8592A2; */
@@ -60,11 +60,20 @@
 
       .restcontainer .restlist .restname h4{
         padding-top:8px;
-        font-size:20px;
+        font-size:17px;
         line-height:1.5;
         margin:8px;
       }
 
+      .restcontainer .restlist .restname h4 a {
+        text-decoration: none; /* Remove underline */
+        color: black; /* Set the color to black */
+        margin-right: 10px;
+      }
+
+      .restcontainer .restlist .restname h4 a:hover {
+        color: grey; /* Set the color to black on hover */
+      }
 
       /* .wrapper {
         width: 90%;
@@ -156,22 +165,31 @@
   <body>
       <div class="maincontainer">
         <div id="final-value" class="title">
-              <p>Click On The Spin Button To Start</p>
+            <p>Click On The Spin Button To Start
+            </p>
         </div>
+        {{-- <div class="details">
+        </div> --}}
 
         <div class="content">
-          <div class="restcontainer">
-            <div class="resttitle">
-              <h4>Restaurants</h4>
-            </div>
-
-            <div class="restlist">
-              <div class="restname">
-                <h4>Ishin</h4>
-                <h4>Nero Nero</h4>
-              </div>
-            </div>
-          </div>
+            <div class="restcontainer">
+                <div class="resttitle">
+                  <h4>Restaurants</h4>
+                </div>
+              
+                <div class="restlist">
+                  <div class="restname">
+                    @foreach ($spinwheel_datas as $data)
+                    <h4>
+                        <a href="{{ url('/wheelDelete/' . $data['rest_id'])}}">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                        <a href={{"restaurantDetailsPage/".$data['rest_id']}}>{{$data->rest_name}}</a>
+                    </h4>
+                    @endforeach
+                  </div>
+                </div>
+              </div>              
 
             <div class="wrapper">
               <div class="container">
@@ -191,126 +209,149 @@
     <!-- Script -->
     <script>
       const wheel = document.getElementById("wheel");
-      const spinBtn = document.getElementById("spin-btn");
-      const finalValue = document.getElementById("final-value");
+const spinBtn = document.getElementById("spin-btn");
+const finalValue = document.getElementById("final-value");
 
-      // Restaurants array from PHP
-      const restaurants = {!! json_encode($restaurants) !!};
-      const totalIndex = restaurants.length;
+// Restaurants array from PHP
+const restaurants = {!! json_encode($restaurants) !!};
+const totalIndex = restaurants.length;
 
-      // Generate the rotationValues array based on the restaurants
-      const rotationValues = restaurants.map((restaurant, index) => ({
-        minDegree: (360 / totalIndex) * index ,
-        maxDegree: (360 / totalIndex) * (index + 1),
-        value: restaurant, // Assuming the restaurant name is stored in the 'name' property
-    }));
+// Generate the rotationValues array based on the restaurants
+const rotationValues = restaurants.map((restaurant, index) => {
+  const numRestaurants = restaurants.length;
+  const sliceAngle = 360 / numRestaurants;
 
-      // Size of each piece
-      const data = Array(restaurants.length).fill((360 / totalIndex));
+  let minDegree = (90 - (index + 1) * sliceAngle + 360) % 360;
+  let maxDegree = (90 - index * sliceAngle + 360) % 360;
 
-      // Background color for each piece
-      const pieColors = [
-        // "#8b35bc",
-        // "#b163da",
-        "#BBC3C9", "#C9DBDD", "#A6BBB6","#D0DBC8", 
-    ];
+  if (minDegree > maxDegree) {
+    // Adjust the degrees for the last portion
+    minDegree -= 360;
+  }
 
-      // Create chart
-      const myChart = new Chart(wheel, {
-        // Plugin for displaying text on pie chart
-        plugins: [ChartDataLabels],
-        // Chart Type Pie
-        type: "pie",
-        data: {
-            labels: restaurants,
-            // Settings for dataset/pie
-            datasets: [
-            {
-                backgroundColor: pieColors,
-                data: data,
-            },
-            ],
+  const value = restaurant; // Assuming the restaurant name is stored in the 'restaurant' variable
+  return { minDegree, maxDegree, value };
+});
+
+// Add an additional portion if needed
+if (rotationValues.length > 0) {
+  const firstPortion = rotationValues[0];
+  const lastPortion = rotationValues[rotationValues.length - 1];
+
+  if (firstPortion.minDegree !== 90) {
+    rotationValues.unshift({ minDegree: 90, maxDegree: lastPortion.maxDegree, value: lastPortion.value });
+  }
+} else {
+  // Handle the case when there are no rotation values
+  rotationValues.push({ minDegree: 0, maxDegree: 360, value: null });
+}
+
+// Size of each piece
+const data = Array(restaurants.length).fill((360 / totalIndex));
+
+// Background color for each piece
+const pieColors = [
+  "#BBC3C9", "#C9DBDD", "#A6BBB6","#D0DBC8", 
+];
+
+// Create chart
+const myChart = new Chart(wheel, {
+  // Plugin for displaying text on pie chart
+  plugins: [ChartDataLabels],
+  // Chart Type Pie
+  type: "pie",
+  data: {
+    labels: restaurants,
+    // Settings for dataset/pie
+    datasets: [
+      {
+        backgroundColor: pieColors,
+        data: data,
+      },
+    ],
+  },
+  options: {
+    // Responsive chart
+    responsive: true,
+    animation: { duration: 0 },
+    plugins: {
+      // Hide tooltip and legend
+      tooltip: false,
+      legend: {
+        display: false,
+      },
+      // Display labels inside pie chart
+      datalabels: {
+        color: "#ffffff",
+        formatter: (_, context) =>
+          context.chart.data.labels[context.dataIndex],
+        font: {
+          size: 16, // Adjust the font size as desired
         },
-        options: {
-            // Responsive chart
-            responsive: true,
-            animation: { duration: 0 },
-            plugins: {
-            // Hide tooltip and legend
-            tooltip: false,
-            legend: {
-                display: false,
-            },
-            // Display labels inside pie chart
-            datalabels: {
-                color: "#ffffff",
-                formatter: (_, context) =>
-                context.chart.data.labels[context.dataIndex],
-                font: {
-                size: 16, // Adjust the font size as desired
-                },
-                // rotation: (context) => {
-                //     const startAngle = context.dataset.startAngle;
-                //     const endAngle = context.dataset.endAngle;
-                //     const sliceAngle = endAngle - startAngle;
-                //     const labelAngle = (startAngle + endAngle) / 2; // Calculate the angle at the center of the chart slice
-                //     const rotationAngle = (labelAngle * 180) / Math.PI - 90; // Convert the angle to degrees and adjust for initial rotation
-                //     return rotationAngle;
-                // },
-            },
-            },
-        },
-        });
+        // rotation: (context) => {
+        //     const startAngle = context.dataset.startAngle;
+        //     const endAngle = context.dataset.endAngle;
+        //     const sliceAngle = endAngle - startAngle;
+        //     const labelAngle = (startAngle + endAngle) / 2; // Calculate the angle at the center of the chart slice
+        //     const rotationAngle = (labelAngle * 180) / Math.PI - 90; // Convert the angle to degrees and adjust for initial rotation
+        //     return rotationAngle;
+        // },
+      },
+    },
+  },
+});
 
+// Display value based on the randomAngle
+const valueGenerator = (angleValue) => {
+  for (let i of rotationValues) {
+    // If the angleValue is between min and max, then display it
+    if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
+      const encodedRestaurantName = encodeURIComponent(i.value);
+      finalValue.innerHTML = `<p>${i.value} ->  
+              <a href="/restaurantDetails/${encodedRestaurantName}"><button type="button" class="detailsBtn">View Details</button></a></p>`;
+      spinBtn.disabled = false;
+      break;
+    }
+  }
+};
 
-      // Display value based on the randomAngle
-      const valueGenerator = (angleValue) => {
-        for (let i of rotationValues) {
-          // If the angleValue is between min and max, then display it
-          if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
-            finalValue.innerHTML = `<p>Value: ${i.value}</p>`;
-            spinBtn.disabled = false;
-            break;
-          }
-        }
-      };
+// Spinner count
+let count = 0;
+// 100 rotations for animation and last rotation for result
+let resultValue = 101;
 
-      // Spinner count
-      let count = 0;
-      // 100 rotations for animation and last rotation for result
-      let resultValue = 101;
+// Start spinning
+spinBtn.addEventListener("click", () => {
+  spinBtn.disabled = true;
+  // Empty final value
+  finalValue.innerHTML = `<p>Good Luck!</p>`;
+  // Generate random degrees to stop at
+  const randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
+  // Interval for rotation animation
+  const rotationInterval = window.setInterval(() => {
+    // Set rotation for pie chart
+    /*
+      Initially, to make the pie chart rotate faster, we set resultValue to 101 so it rotates 101 degrees at a time and this reduces by 1 with every count. Eventually, on the last rotation, we rotate by 1 degree at a time.
+    */
+    myChart.options.rotation = myChart.options.rotation + resultValue;
+    // Update chart with new value
+    myChart.update();
+    // If rotation > 360, reset it back to 0
+    if (myChart.options.rotation >= 360) {
+      count += 1;
+      resultValue -= 5;
+      myChart.options.rotation = 0;
+    } else if (count > 15 && myChart.options.rotation === randomDegree) {
+      valueGenerator(randomDegree);
+      clearInterval(rotationInterval);
+      count = 0;
+      resultValue = 101;
+    }
+  }, 10);
+});
 
-      // Start spinning
-      spinBtn.addEventListener("click", () => {
-        spinBtn.disabled = true;
-        // Empty final value
-        finalValue.innerHTML = `<p>Good Luck!</p>`;
-        // Generate random degrees to stop at
-        const randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
-        // Interval for rotation animation
-        const rotationInterval = window.setInterval(() => {
-          // Set rotation for pie chart
-          /*
-            Initially, to make the pie chart rotate faster, we set resultValue to 101 so it rotates 101 degrees at a time and this reduces by 1 with every count. Eventually, on the last rotation, we rotate by 1 degree at a time.
-          */
-          myChart.options.rotation = myChart.options.rotation + resultValue;
-          // Update chart with new value
-          myChart.update();
-          // If rotation > 360, reset it back to 0
-          if (myChart.options.rotation >= 360) {
-            count += 1;
-            resultValue -= 5;
-            myChart.options.rotation = 0;
-          } else if (count > 15 && myChart.options.rotation === randomDegree) {
-            valueGenerator(randomDegree);
-            clearInterval(rotationInterval);
-            count = 0;
-            resultValue = 101;
-          }
-        }, 10);
-      });
     </script>
-  </body>
-</html>
 
 @include('footer')
+</body>
+</html>

@@ -41,10 +41,26 @@ class WheelController extends Controller
         foreach ($spinwheel_datas as $data) {
             $rest_data = Restaurant::where('rest_id',$data->rest_id)->first();
             $rest_datas[] = $rest_data->rest_name;
+            $data->rest_name = $rest_data->rest_name;
         }
 
         // return $rest_datas;
-        return view('wheel',['restaurants'=>$rest_datas]);
+        return view('wheel',['restaurants'=>$rest_datas, 'spinwheel_datas'=>$spinwheel_datas]);
     }
 
+    function wheelDelete($rest_id)
+    {
+        $spinwheel_datas = Spinwheel::where('cust_id', session('user_id'))
+        ->where('rest_id',$rest_id)->delete();
+        
+        // return $rest_datas;
+        return redirect('/spin');
+    }
+
+    function restDetails($rest_name)
+    {
+        $rest_data = Restaurant::where('rest_name',$rest_name)->first();
+        
+        return redirect('restaurantDetailsPage/'.$rest_data->rest_id);
+    }
 }

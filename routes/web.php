@@ -74,9 +74,9 @@ Route::get('/custHistoryPage',[HistoryController::class,'getHistory']);
 Route::get('filter/{searchValue}',[RestController::class,'filter']);
 
 //spinwheelPage
-Route::get('/spinwheelPage', function(){
-    return view('spinwheelPage');
-});
+Route::get('/spin', [WheelController::class,'wheelItems']);
+Route::get('/wheelDelete/{rest_id}', [WheelController::class,'wheelDelete']);
+Route::get('restaurantDetails/{rest_name}',[WheelController::class,'restDetails']);
 
 //Rating
 Route::post('new_rate',[RateController::class,'new_rate']);
@@ -119,7 +119,6 @@ Route::get('/adminAddRestaurant', function(){
 });
 
 //adminProfile
-
 Route::get('/adminProfilePage',[UserController::class,'adminProfile']);
 
 
@@ -139,7 +138,3 @@ Route::get('/newAdminViewRest', function(){
 Route::get('/swal', function(){
     return view (('swal'));
 });
-
-Route::get('/spin', [WheelController::class, 'spin'])->name('spin');
-Route::post('/spin/store', [WheelController::class, 'storeItem'])->name('spin.store');
-Route::get('/spinW', [WheelController::class,'wheelItems']);
