@@ -165,6 +165,7 @@
                         @foreach ($best_rest_data as $best_rest)
                             <div class="carousel-item active">
                                 <div class="card" style="width:13rem;">
+                                    <a href ={{"restaurantDetailsPage/".$best_rest['rest_id']}} class="link">
                                     <img src="data:image/[image_format];base64,{{ $best_rest->rest_pic }}" alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$best_rest['rest_name']}}</h5>
@@ -196,6 +197,7 @@
                                             <span class="custrateqty">({{$best_rest['rating_count']}})</span>
                                         </p>
                                     </div> 
+                                    </a>
                                 </div>
                             </div>
                         @endforeach
