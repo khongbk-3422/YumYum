@@ -62,7 +62,7 @@
             }
 
             .navbar .navbar-nav .nav-item {
-                margin-bottom: 10px;
+                margin-bottom: 5px;
             }
 
             .navbar .navbar-brand {
@@ -84,8 +84,8 @@
 		<div class="container">
 			<a class="navbar-brand" href="#"><span class="text-warning">Yum</span>Yum</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+                data-bs-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation" onclick="toggleNavbar(event)">
                 <span class="navbar-toggler-icon"></span>
             </button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -136,18 +136,19 @@
         function toggleDropdown() {
             var dropdownMenu = document.getElementById("dropdownMenu");
             dropdownMenu.classList.toggle("show");
+        }
 
-            function toggleDropdown() {
-                var dropdownMenu = document.getElementById("navbarSupportedContent");
-                var navbarToggler = document.querySelector(".navbar-toggler");
+        function toggleNavbar(event) {
+            event.preventDefault();
+            var dropdownMenu = document.getElementById("navbarSupportedContent");
+            var navbarToggler = document.querySelector(".navbar-toggler");
 
-                if (dropdownMenu.classList.contains("show")) {
+            if (dropdownMenu.classList.contains("show")) {
                 dropdownMenu.classList.remove("show");
                 navbarToggler.setAttribute("aria-expanded", false);
-                } else {
+            } else {
                 dropdownMenu.classList.add("show");
                 navbarToggler.setAttribute("aria-expanded", true);
-                }
             }
         }
     </script>

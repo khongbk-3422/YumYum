@@ -23,6 +23,9 @@
             margin-left: 40px;
         }
 
+        h1{
+            text-align: center;
+        }
 
         .adminProfileContainer {
             display: flex;
@@ -154,12 +157,27 @@
             50% { opacity: 1; }
             100% { opacity: 0; }
         }
+
+        @media (max-width: 768px){
+            h1{
+                text-align: left;
+            }
+
+            .adminProfileContainer {
+                margin-top: 20px;
+                margin-left: 0; 
+            }
+
+            .adminProfile:hover{
+                margin-left: 0;
+            }
+        }
         
     </style>
 </head>
 <body>
     <main>  
-        <h1 align="center">User Profile</h1>
+        <h1>User Profile</h1>
         <div class="adminProfileContainer">
             <div class="animation-container">
                 <div class="arrow"></div>
