@@ -335,7 +335,7 @@
                 </div>
             </div>
 
-            <form action=" {{url('admin_edit_cust')}}" method="POST" class="form">
+            <form action=" {{url('admin_edit_cust')}}" method="POST" class="form" enctype="multipart/form-data">
                 @csrf
                 @if (isset($select_cust))
                     <div class="id">
