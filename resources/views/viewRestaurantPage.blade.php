@@ -114,21 +114,21 @@
                     <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input location-checkbox" type="checkbox" value="" id="bintangCB">
+                                <input class="form-check-input location-checkbox" type="checkbox" value="Bukit Bintang" id="bintangCB">
                                 <label class="form-check-label  mb-2" for="bintangCB">Bukit Bintang</label>
                             </div>
                         </li>
                         
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input location-checkbox" type="checkbox" value="" id="damansaraCB">
+                                <input class="form-check-input location-checkbox" type="checkbox" value="Damansara" id="damansaraCB">
                                 <label class="form-check-label  mb-2" for="damansaraCB">Damansara</label>
                             </div>
                         </li>
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input location-checkbox" type="checkbox" value="" id="sentralCB">
+                                <input class="form-check-input location-checkbox" type="checkbox" value="Jalan Stesen Sentral" id="sentralCB">
                                 <label class="form-check-label  mb-2" for="sentralCB">Jalan Stesen Sentral</label>
                             </div>
                         </li>
@@ -142,7 +142,7 @@
 
                         <li>
                             <div class="form-check">
-                                <input class="form-check-input location-checkbox" type="checkbox" value="" id="razakCB">
+                                <input class="form-check-input location-checkbox" type="checkbox" value="Jln Tun Razak" id="razakCB">
                                 <label class="form-check-label  mb-2" for="razakCB">Jalan Tun Razak</label>
                             </div>
                         </li>
@@ -165,6 +165,7 @@
                         @foreach ($best_rest_data as $best_rest)
                             <div class="carousel-item active">
                                 <div class="card" style="width:13rem;">
+                                    <a href ={{"restaurantDetailsPage/".$best_rest['rest_id']}} class="link">
                                     <img src="data:image/[image_format];base64,{{ $best_rest->rest_pic }}" alt="">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$best_rest['rest_name']}}</h5>
@@ -196,6 +197,7 @@
                                             <span class="custrateqty">({{$best_rest['rating_count']}})</span>
                                         </p>
                                     </div> 
+                                    </a>
                                 </div>
                             </div>
                         @endforeach
