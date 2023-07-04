@@ -118,8 +118,8 @@
         border-radius: 50%;
         cursor: pointer;
         border: 0;
-        background: radial-gradient(#EEF1EA 50%, #627676 85%); 
-        color: #7C9788;
+        background: radial-gradient(#DEE1DD 50%, #727E66 85%); 
+        color: black;
         text-transform: uppercase;
         font-size: 1.8em;
         letter-spacing: 0.1em;
@@ -212,7 +212,7 @@
       const pieColors = [
         // "#8b35bc",
         // "#b163da",
-        "#97A5C0", "#BECBD3",
+        "#BBC3C9", "#C9DBDD", "#A6BBB6","#D0DBC8", 
     ];
 
       // Create chart
@@ -247,7 +247,7 @@
                 formatter: (_, context) =>
                 context.chart.data.labels[context.dataIndex],
                 font: {
-                size: 18, // Adjust the font size as desired
+                size: 16, // Adjust the font size as desired
                 },
                 // rotation: (context) => {
                 //     const startAngle = context.dataset.startAngle;
