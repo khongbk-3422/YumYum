@@ -467,6 +467,12 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="adminAddRestaurant" class="nav-link px-0 align-middle">
+                    <i class="fa-solid fa-plus"></i>
+                    <span class="ms-1 d-none d-sm-inline">Add New Restaurant</span>
+                </a>
+            </li>
         </ul>
     </div>
     <!-- Sidemenu End -->
