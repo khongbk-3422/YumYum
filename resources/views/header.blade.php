@@ -58,6 +58,27 @@
         .navbar .dropdown-menu li a i{
             margin-right:6px;
         }
+
+        @media (max-width: 991.98px) {
+            .navbar .navbar-nav {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            .navbar .navbar-nav .nav-item {
+                margin-bottom: 5px;
+            }
+
+            .navbar .navbar-brand {
+                margin-bottom: 10px;
+            }
+
+            .navbar .navbar-toggler {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
     </style>
 </head>
 
@@ -65,6 +86,11 @@
     <nav class="navbar navbar-expand-lg fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="#"><span class="text-warning">Yum</span>Yum</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation" onclick="toggleNavbar(event)">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
 					<li class="nav-item">
@@ -107,5 +133,20 @@
 			</div>
 		</div>
 	</nav>
+    <script>
+        function toggleNavbar(event) {
+            event.preventDefault();
+            var dropdownMenu = document.getElementById("navbarSupportedContent");
+            var navbarToggler = document.querySelector(".navbar-toggler");
+
+            if (dropdownMenu.classList.contains("show")) {
+                dropdownMenu.classList.remove("show");
+                navbarToggler.setAttribute("aria-expanded", false);
+            } else {
+                dropdownMenu.classList.add("show");
+                navbarToggler.setAttribute("aria-expanded", true);
+            }
+        }
+    </script>
 </body>
 </html>
