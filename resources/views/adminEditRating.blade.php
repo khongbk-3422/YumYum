@@ -246,25 +246,25 @@
                                 <td class="date">{{$rate_data['date']}}</td>
                                 <td>
                                     <div class="retaurantRating">
-                                        @if ($rate_data['rate'] == 5)
+                                        @if ($rate_data['rating'] == 5)
                                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> 
-                                        @elseif ($rate_data['rate'] >= 4.15 && $rate_data['rate'] < 5)
+                                        @elseif ($rate_data['rating'] >= 4.15 && $rate_data['rating'] < 5)
                                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> 
-                                        @elseif ($rate_data['rate'] >= 3.85 && $rate_data['rate'] < 4.15)
+                                        @elseif ($rate_data['rating'] >= 3.85 && $rate_data['rating'] < 4.15)
                                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> 
-                                        @elseif ($rate_data['rate'] >= 3.15 && $rate_data['rate'] < 3.85)
+                                        @elseif ($rate_data['rating'] >= 3.15 && $rate_data['rating'] < 3.85)
                                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i> 
-                                        @elseif ($rate_data['rate'] >= 2.85 && $rate_data['rate'] < 3.15)
+                                        @elseif ($rate_data['rating'] >= 2.85 && $rate_data['rating'] < 3.15)
                                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                        @elseif ($rate_data['rate'] >= 2.15 && $rate_data['rate'] < 2.85)
+                                        @elseif ($rate_data['rating'] >= 2.15 && $rate_data['rating'] < 2.85)
                                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                        @elseif ($rate_data['rate'] >= 1.85 && $rate_data['rate'] < 2.15)
+                                        @elseif ($rate_data['rating'] >= 1.85 && $rate_data['rating'] < 2.15)
                                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                        @elseif ($rate_data['rate'] >= 1.15 && $rate_data['rate'] < 1.85)
+                                        @elseif ($rate_data['rating'] >= 1.15 && $rate_data['rating'] < 1.85)
                                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                        @elseif ($rate_data['rate'] >= 0.85 && $$rate_data['rate'] < 1.15)
+                                        @elseif ($rate_data['rating'] >= 0.85 && $$rate_data['rating'] < 1.15)
                                             <i class="fa-solid fa-star"></i><i class="fa-light fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
-                                        @elseif ($rate_data['rate'] >= 1.15 && $rate_data['rate'] < 1.85)
+                                        @elseif ($rate_data['rating'] >= 1.15 && $rate_data['rating'] < 1.85)
                                             <i class="fa-solid fa-star-half-stroke"><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i> 
                                         @else
                                         <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>  
