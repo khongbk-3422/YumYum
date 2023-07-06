@@ -44,7 +44,6 @@ class WheelController extends Controller
             $data->rest_name = $rest_data->rest_name;
         }
 
-        // return $rest_datas;
         return view('wheel',['restaurants'=>$rest_datas, 'spinwheel_datas'=>$spinwheel_datas]);
     }
 
@@ -53,7 +52,6 @@ class WheelController extends Controller
         $spinwheel_datas = Spinwheel::where('cust_id', session('user_id'))
         ->where('rest_id',$rest_id)->delete();
         
-        // return $rest_datas;
         return redirect('/spin');
     }
 
