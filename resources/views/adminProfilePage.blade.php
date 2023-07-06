@@ -42,6 +42,7 @@
             border-radius: 50%;
             overflow: hidden;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         .adminProfile:hover{
