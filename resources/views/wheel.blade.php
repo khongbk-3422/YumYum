@@ -213,6 +213,7 @@
       // Restaurants array from PHP
       const restaurants = {!! json_encode($restaurants) !!};
       const totalIndex = restaurants.length;
+      let additionalPortions = [];
 
       // Generate the rotationValues array based on the restaurants
       const rotationValues = restaurants.map((restaurant, index) => {
@@ -223,35 +224,27 @@
         let maxDegree = (90 - index * sliceAngle + 360) % 360;
 
         if (minDegree > maxDegree) {
-          // Adjust the degrees for the last portion
-          minDegree -= 360;
+          const newPortion = {
+            minDegree: minDegree - 360,
+            maxDegree,
+            value: restaurant,
+          };
+
+          additionalPortions.push(newPortion);
+          maxDegree += 360;
         }
 
         const value = restaurant; // Assuming the restaurant name is stored in the 'restaurant' variable
         return { minDegree, maxDegree, value };
       });
 
-      // Add an additional portion if needed
-      if (rotationValues.length > 0) {
-        const firstPortion = rotationValues[0];
-        const lastPortion = rotationValues[rotationValues.length - 1];
-
-        if (firstPortion.minDegree !== 90) {
-          rotationValues.unshift({ minDegree: 90, maxDegree: lastPortion.maxDegree, value: lastPortion.value });
-        }
-      } else {
-        // Handle the case when there are no rotation values
-        rotationValues.push({ minDegree: 0, maxDegree: 360, value: null });
-      }
+      const adjustedRotationValues = rotationValues.concat(additionalPortions);
 
       // Size of each piece
       const data = Array(restaurants.length).fill((360 / totalIndex));
-
-      // Background color for each piece
       const pieColors = [
         "#BBC3C9", "#C9DBDD", "#A6BBB6","#D0DBC8", 
       ];
-
       // Create chart
       const myChart = new Chart(wheel, {
         // Plugin for displaying text on pie chart
@@ -293,9 +286,9 @@
 
       // Display value based on the randomAngle
       const valueGenerator = (angleValue) => {
-        for (let i of rotationValues) {
+        for (let i of adjustedRotationValues) {
           // If the angleValue is between min and max, then display it
-          if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
+          if (angleValue > i.minDegree && angleValue <= i.maxDegree) {
             const encodedRestaurantName = encodeURIComponent(i.value);
             finalValue.innerHTML = `<p>${i.value} ->  
                     <a href="/restaurantDetails/${encodedRestaurantName}"><button type="button" class="detailsBtn">View Details</button></a></p>`;
@@ -320,9 +313,7 @@
         // Interval for rotation animation
         const rotationInterval = window.setInterval(() => {
           // Set rotation for pie chart
-          /*
-            Initially, to make the pie chart rotate faster, we set resultValue to 101 so it rotates 101 degrees at a time and this reduces by 1 with every count. Eventually, on the last rotation, we rotate by 1 degree at a time.
-          */
+          
           myChart.options.rotation = myChart.options.rotation + resultValue;
           // Update chart with new value
           myChart.update();
