@@ -324,7 +324,6 @@
                     <div class="action">
                         <div class="icon">
                             <a href={{"adminDeleteCust/".$cust_data['cust_id']}} class="delete-icon">
-                            {{-- <a href="#" onclick="handleDelete(event)" data-customer-id="{{$cust_data['cust_id']}}" class="delete-icon"> --}}
                                 <i class="fa-solid fa-user-slash"></i>
                             </a>
                         </div>

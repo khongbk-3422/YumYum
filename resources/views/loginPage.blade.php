@@ -153,18 +153,6 @@
             padding-right:25px;
         }
 
-        /* .formPanel.login .inputCol label,
-        .formPanel.register .inputCol label{
-            position: absolute;
-            top:50%;
-            left:0;
-            transform: translateY(-50%);
-            font-size:16px;
-            font-weight:600;
-            pointer-events:none;
-            transition: .5s ease;
-        } */
-
         .inputCol label,
         .inputCol label{
             position: absolute;
@@ -177,19 +165,6 @@
             transition: .5s ease;
         }
 
-        /* .inputCol input:focus ~ label,
-            .inputCol input:not(:placeholder-shown) ~ label {
-                top: -5px;
-                transform: translateY(-100%);
-                font-size: 16px;
-            }
-
-            .inputCol input:not(:focus):not(:valid) ~ label {
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: 16px;
-            }
-        */
         .inputCol input:focus~label,
         .inputCol input:valid~label{
             top:-5px;

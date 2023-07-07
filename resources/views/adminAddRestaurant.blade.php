@@ -158,17 +158,6 @@
 .form__group select option {
     color: black;
 }
-/* demo */
- /* body {
-	 font-family: 'Poppins', sans-serif;
-	 display: flex;
-	 flex-direction: column;
-	 justify-content: center;
-	 align-items: center;
-	 min-height: 100vh;
-	 font-size: 1.5rem;
-	 background-color: #222;
-} */
     </style>
 </head>
 <body>

@@ -126,15 +126,8 @@ Route::get('/adminProfilePage',[UserController::class,'adminProfile']);
 Route::get('/adminEditRating', [AdminController::class,'getAllRate']);
 Route::get('/adminDeleteRating/{cust_id}/{rest_id}', [AdminController::class,'deleteRating']);
 
-// Route::get('list',[RestController::class,'show']);
-// Route::post('addPic',[RestController::class,'addPic']);
-
 //testAddRestPage
 Route::get('/newAdminViewRest', function(){
     return view (('newAdminViewRest'));
 });
 
-//testswal
-Route::get('/swal', function(){
-    return view (('swal'));
-});

@@ -262,30 +262,6 @@
             });
         });
 
-        // let isDragStart = false, prevPageX, prevScrollLeft;
-
-        // const dragStart = (e) => {
-        //     isDragStart = true;
-        //     prevPageX = e.pageX;
-        //     prevScrollLeft = carousel.scrollLeft;
-        // }
-
-        // const dragging = (e) =>{
-        //     //scroll image to left based on mourse cursor
-        //     if (!isDragStart) return;
-        //     e.preventDefault();
-        //     let positionDiff = e.pageX - prevPageX;
-        //     carousel.scrollLeft = prevScrollLeft - positionDiff;
-        // }
-
-        // const dragStrop = () =>{
-        //     isDragStart = false;
-        // }
-
-        // carousel.addEventListener("mousedown", dragStart);
-        // carousel.addEventListener("mousemove", dragging);
-        // carousel.addEventListener("mousemove", dragStop);
-
         const stars = document.querySelectorAll('.newrating i, .review-star');
         const ratingValueInput = document.getElementById('ratingValue');
 
@@ -309,27 +285,6 @@
         });
 
         // Let customer give rating
-        // const ratings = document.querySelectorAll('.newrating .fa-solid.fa-star');
-
-        // Add event listener to each star icon
-        // ratings.forEach((starIcon, index) => {
-        //     starIcon.addEventListener('click', () => {
-        //         // Remove selected class from all star icons
-        //         ratings.forEach((starIcon, i) => {
-        //             starIcon.classList.remove('selected');
-        //         });
-
-        //         // Add selected class to clicked star icon and all previous star icons
-        //         for (let i = 0; i <= index; i++) {
-        //             ratings[i].classList.add('selected');
-        //         }
-
-        //         // Store the rating value (index + 1) in a variable or submit it to the server
-        //         const rating = index + 1;
-        //         console.log('Selected rating:', rating);
-        //     });
-        // });
-
         @if ($rest_data['rating'])
             //icons in review box
             document.addEventListener('DOMContentLoaded', function(){
@@ -365,8 +320,6 @@
                 saveicon.addEventListener('click', () => {
                     const updatedReview = textarea.value;
 
-                    // need write php to save the value
-                    // textarea.disabled = true;
                 });
 
                 // Delete
